@@ -23,10 +23,22 @@
         {% include "components/header-brand.njk" %}
         <p class="site-footer__tagline">{{ site.tagline }}</p>
         <address class="site-footer__nap">
-          {{ site.nap.streetAddress }}<br />
-          {{ site.nap.addressLocality }}, {{ site.nap.addressRegion }} {{ site.nap.postalCode }}<br />
-          <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a><br />
-          <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a>
+          <span class="site-footer__office">
+            <span class="site-footer__office-label">{{ site.nap.addressLocality }}</span>
+            {{ site.nap.streetAddress }}<br />
+            {{ site.nap.addressLocality }}, {{ site.nap.addressRegion }} {{ site.nap.postalCode }}
+          </span>
+          {% if site.secondaryOffice %}
+            <span class="site-footer__office">
+              <span class="site-footer__office-label">{{ site.secondaryOffice.addressLocality }}</span>
+              {{ site.secondaryOffice.streetAddress }}<br />
+              {{ site.secondaryOffice.addressLocality }}, {{ site.secondaryOffice.addressRegion }} {{ site.secondaryOffice.postalCode }}
+            </span>
+          {% endif %}
+          <span class="site-footer__contact">
+            <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a><br />
+            <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a>
+          </span>
         </address>
         {# hours: pending CONFIRM (site vs Yelp discrepancy), see CLIENT_FACTS.md #}
         <a class="site-footer__cta" href="{{ site.booking.getStartedPath }}">

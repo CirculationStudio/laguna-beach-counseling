@@ -53,6 +53,29 @@
   color: var(--color-sea-foam);
 }
 
+/* Two offices: the Laguna Beach primary and the Irvine office shared with the
+   sister brand. Each carries a small location label; the phone and email sit
+   below as the shared practice contact. */
+.site-footer__office {
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.site-footer__office-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-sea-foam);
+  margin-bottom: 0.15rem;
+}
+
+.site-footer__contact {
+  display: block;
+}
+
 .site-footer__nap a {
   color: var(--color-sea-foam);
 }

@@ -22,6 +22,12 @@
     "email": "Kay@LagunaBeachCounseling.com",
     "timezone": "America/Los_Angeles"
   },
+  "secondaryOffice": {
+    "streetAddress": "19772 MacArthur Blvd, Suite 260",
+    "addressLocality": "Irvine",
+    "addressRegion": "CA",
+    "postalCode": "92612"
+  },
   "positioning": {
     "priceRange": "$$$",
     "outOfNetworkLine": "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We provide Superbills at every session for clients to submit to their PPO insurance for out-of-network reimbursement."
