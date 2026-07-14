@@ -8,3 +8,5 @@
 @import "./components/site.css";
 @import "./components/nav.css";
 @import "./components/footer.css";
+@import "./components/sections.css";
+@import "./pages/components.css";

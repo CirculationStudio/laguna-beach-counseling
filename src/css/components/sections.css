@@ -1,0 +1,460 @@
+/* Page-body component library: section rhythm and tones, plus the eight section
+   components. Coastal-editorial, whitespace as credential. Gold appears only in
+   the CTA band. Motion is limited to small hover cues, which the global
+   prefers-reduced-motion rule already neutralizes. */
+
+/* ---- Section rhythm and tones ------------------------------------------- */
+.section {
+  position: relative;
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.section--paper {
+  background: var(--color-paper);
+}
+
+.section--sand {
+  background: var(--color-sand-warm);
+}
+
+.section--seafoam {
+  background: color-mix(in srgb, var(--color-sea-foam) 30%, var(--color-paper));
+}
+
+.section--navy {
+  background: var(--color-navy);
+  color: var(--color-sea-foam);
+}
+
+/* Paper grain: a whisper of texture on the warm sand surfaces only. */
+.section--sand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.section__inner--narrow {
+  max-width: 44rem;
+}
+
+.section__head {
+  max-width: 52rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.section--navy .section__title {
+  color: var(--color-paper);
+}
+
+/* ---- Eyebrow: the signature horizon-rule marker ------------------------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-water-deep);
+  margin: 0 0 0.75rem;
+}
+
+.eyebrow__rule {
+  flex: none;
+  width: 28px;
+  height: 2px;
+  background: var(--color-water);
+}
+
+.section--navy .eyebrow,
+.hero--photo .eyebrow {
+  color: var(--color-sea-foam);
+}
+
+.section--navy .eyebrow__rule,
+.hero--photo .eyebrow__rule {
+  background: var(--color-sea-foam);
+}
+
+/* ---- 1. Hero ------------------------------------------------------------ */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: clamp(20rem, 44vw, 32rem);
+  overflow: hidden;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+  margin: 0.25rem 0 0;
+  max-width: 18ch;
+}
+
+.hero__em {
+  font-style: italic;
+}
+
+.hero__lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.15rem, 2.2vw, 1.375rem);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+  margin: 1.25rem 0 0;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* Photo variant: navy scrim for text contrast (never a decorative gradient). */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 26, 46, 0.45) 0%, rgba(0, 26, 46, 0.78) 100%);
+}
+
+.hero--photo .hero__title {
+  color: var(--color-paper);
+}
+
+.hero--photo .hero__lead {
+  color: var(--color-sea-foam);
+}
+
+/* ---- 2. Lead prose ------------------------------------------------------ */
+.lead__p {
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 2.2vw, 1.375rem);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  margin: 0 0 1rem;
+}
+
+.lead__p:last-child {
+  margin-bottom: 0;
+}
+
+.lead--center {
+  text-align: center;
+}
+
+.section--navy .lead__p {
+  color: var(--color-sea-foam);
+}
+
+/* ---- 3. Point cards ----------------------------------------------------- */
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .card-grid--2,
+  .card-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .card-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: 1.75rem;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card__icon {
+  display: inline-flex;
+  color: var(--color-water-deep);
+  margin-bottom: 0.75rem;
+}
+
+.card__title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-navy);
+  margin: 0 0 0.5rem;
+}
+
+.card__body {
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ---- 4. Pull quote ------------------------------------------------------ */
+.pull-quote {
+  margin: 0;
+  text-align: center;
+}
+
+.pull-quote__q {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.pull-quote__q--italic {
+  font-style: italic;
+}
+
+.pull-quote__by {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-faint);
+  margin-top: 1.25rem;
+}
+
+/* ---- 5. FAQ accordion (native details) ---------------------------------- */
+.faq {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-navy);
+}
+
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq__q:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.faq__chevron {
+  flex: none;
+  color: var(--color-water-deep);
+  transition: transform 0.2s ease;
+}
+
+.faq__item[open] .faq__chevron {
+  transform: rotate(180deg);
+}
+
+.faq__a {
+  padding: 0 0 1.25rem;
+  max-width: 62ch;
+  color: var(--color-ink-soft);
+}
+
+.faq__a p {
+  margin: 0;
+}
+
+/* ---- 6. CTA band (the one gold moment) ---------------------------------- */
+.cta-band__inner {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .cta-band__inner {
+    grid-template-columns: 1.4fr auto;
+  }
+}
+
+.cta-band__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  color: var(--color-paper);
+  margin: 0;
+}
+
+.cta-band__lead {
+  color: var(--color-sea-foam);
+  max-width: 46ch;
+  margin: 0.6rem 0 0;
+}
+
+.cta-band__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+@media (min-width: 48rem) {
+  .cta-band__action {
+    align-items: flex-end;
+  }
+}
+
+.cta-band__note {
+  font-size: 0.85rem;
+  color: var(--color-sea-foam);
+  margin: 0;
+}
+
+/* ---- 7. Feature row ----------------------------------------------------- */
+.feature-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+  .feature-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature__icon {
+  display: inline-flex;
+  color: var(--color-water-deep);
+  margin-bottom: 0.6rem;
+}
+
+.feature__title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-navy);
+  margin: 0 0 0.35rem;
+}
+
+.feature__text {
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.section--navy .feature__title {
+  color: var(--color-paper);
+}
+
+.section--navy .feature__text,
+.section--navy .feature__icon {
+  color: var(--color-sea-foam);
+}
+
+/* ---- 8. Rate table ------------------------------------------------------ */
+.rate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+}
+
+.rate-table__caption {
+  caption-side: top;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+}
+
+.rate-table th,
+.rate-table td {
+  padding: 0.9rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rate-table thead th {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+.rate-table tbody th {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.rate-table td {
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+.rate-table__note {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-ink-faint);
+  margin-top: 0.15rem;
+}
+
+.rate-table__footnote {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin: 1rem 0 0;
+}

@@ -6,6 +6,7 @@
     <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="description" content="{{ description or site.defaultDescription }}" />
     <meta name="theme-color" content="{{ site.themeColor }}" />
+    {% if robots %}<meta name="robots" content="{{ robots }}" />{% elif noindex %}<meta name="robots" content="noindex" />{% endif %}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
     {# Fonts: DM Serif Display (display) and Manrope (UI), display=swap. #}

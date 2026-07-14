@@ -91,6 +91,25 @@
   color: var(--color-navy);
 }
 
+/* Text link with an arrow: the tertiary action. Never a fill, never gold. */
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-water-deep);
+  text-decoration: none;
+}
+
+.btn-text:hover {
+  color: var(--color-navy);
+}
+
+.btn-text:hover .btn__arrow {
+  transform: translateX(2px);
+}
+
 /* Support-resources block (reused in the footer and on crisis-adjacent pages) */
 .support-resources {
   background: var(--color-sand-warm);

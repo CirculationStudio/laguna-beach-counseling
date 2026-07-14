@@ -1,0 +1,67 @@
+/* Chrome for the internal /components/ showcase only. The components themselves
+   are styled in components/sections.css; this just frames each demo with a label
+   and a parameter note. */
+
+.showcase-head__lead {
+  color: var(--color-sea-foam);
+  max-width: 60ch;
+  margin: 0.75rem 0 0;
+}
+
+.showcase-head__lead code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.85em;
+  color: var(--color-paper);
+}
+
+.showcase__item {
+  border-top: 3px solid var(--color-sand);
+}
+
+.showcase__meta {
+  padding-block: 1.75rem 0.85rem;
+}
+
+.showcase__label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-water-deep);
+  margin: 0 0 0.25rem;
+}
+
+.showcase__note {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-ink-faint);
+  margin: 0;
+}
+
+.showcase__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2.25rem;
+}
+
+.showcase__icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  color: var(--color-navy);
+  padding: 0.5rem 0 2.25rem;
+}
+
+.showcase__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+}

@@ -1,0 +1,198 @@
+---
+layout: layouts/base.njk
+title: Component library
+permalink: /components/
+robots: "noindex, nofollow"
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{# Internal, unlisted showcase. It imports the SAME partials the pages use, so it
+   is a live mirror of the library, not a copy. Kept out of Google: noindex and
+   nofollow above, excluded from collections and the sitemap, absent from nav,
+   and disallowed in robots.txt. Demo copy is drawn from real briefs and the
+   canonical pull-quotes so it reads on-brand. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+<section class="section section--navy showcase-head">
+  <div class="container">
+    <p class="eyebrow"><span class="eyebrow__rule"></span>Internal reference</p>
+    <h1>Component library</h1>
+    <p class="showcase-head__lead">The page-body vocabulary for Laguna Beach Counseling. Every block below is the real partial from <code>components/ui.njk</code> and <code>components/sections.njk</code>, rendered live. Compose pages from these; do not build sections one-off. This page is not indexed, not in the sitemap, and not in the nav.</p>
+  </div>
+</section>
+
+{# ---- Foundation -------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">button</p>
+    <p class="showcase__note">params: href, label, variant (primary | ghost | text), arrow, ariaLabel</p>
+  </div>
+  <div class="container showcase__row">
+    {{ ui.button({ href: site.booking.getStartedPath, label: "Book a free call", variant: "primary", arrow: true }) }}
+    {{ ui.button({ href: "/about/our-team", label: "Meet the team", variant: "ghost" }) }}
+    {{ ui.button({ href: "/beach-therapy", label: "Read Kay's story", variant: "text", arrow: true }) }}
+  </div>
+</div>
+
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">eyebrow and icons</p>
+    <p class="showcase__note">eyebrow(text); icon(name): wave, sun, compass, anchor, shell, chat, clock, shield, heart, phone</p>
+  </div>
+  <div class="container">
+    {{ ui.eyebrow("Signature service") }}
+  </div>
+  {% set iconNames = ["wave", "sun", "compass", "anchor", "shell", "chat", "clock", "shield", "heart", "phone"] %}
+  <div class="container showcase__icons">
+    {% for n in iconNames %}
+      <span class="showcase__icon">{{ ui.icon(n) }}<span>{{ n }}</span></span>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">section wrapper</p>
+    <p class="showcase__note">call ui.section({ tone: paper | sand | seafoam | navy, width: default | narrow, id }); wraps arbitrary content</p>
+  </div>
+  {% call ui.section({ tone: "seafoam", width: "narrow" }) %}
+    <p class="lead__p">The section wrapper gives any content the same vertical rhythm, background tone, and reading measure as the named components. This one is sea-foam and narrow.</p>
+  {% endcall %}
+</div>
+
+{# ---- 1. Hero ----------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1. hero</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, cta, secondaryCta, image (photo variant), tone</p>
+  </div>
+  {{ s.hero({
+    eyebrow: "Anxiety",
+    title: "Anxiety therapy in",
+    titleEmphasis: "Laguna Beach.",
+    lead: "Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. Warm, practical help, in Laguna Beach or by telehealth.",
+    cta: { href: site.booking.getStartedPath, label: "Book a free call" },
+    secondaryCta: { href: "/beach-therapy", label: "Try Beach Therapy" }
+  }) }}
+</div>
+
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1b. hero, photo variant</p>
+    <p class="showcase__note">same params plus image { src, alt }; adds a navy scrim and light text</p>
+  </div>
+  {{ s.hero({
+    eyebrow: "Beach Therapy",
+    title: "Sometimes the environment",
+    titleEmphasis: "matters.",
+    lead: "Private walk-and-talk sessions on the Laguna coastline, steps from the Pacific.",
+    cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+    image: {
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='340' fill='%2398c5d8'/%3E%3Crect y='340' width='1200' height='260' fill='%23003657'/%3E%3Ccircle cx='880' cy='205' r='66' fill='%23f5c845'/%3E%3C/svg%3E",
+      alt: "The Laguna Beach coastline at the tideline, placeholder for real coastal photography."
+    }
+  }) }}
+</div>
+
+{# ---- 2. Lead ----------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">2. lead</p>
+    <p class="showcase__note">params: text (string or array of paragraphs), align, tone</p>
+  </div>
+  {{ s.lead({ text: [
+    "Most people come to us already knowing what they would like to be different. The trouble is the gap between knowing and doing, that loop of falling back into the same pattern. That's usually where we start.",
+    "You're not stuck because something's wrong with you."
+  ] }) }}
+</div>
+
+{# ---- 3. Point cards ---------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">3. pointCards</p>
+    <p class="showcase__note">params: eyebrow, title, columns (2 | 3), cards [{ icon, title, body }], tone</p>
+  </div>
+  {{ s.pointCards({
+    eyebrow: "What the work looks like",
+    title: "Anxiety, and what sits underneath it",
+    columns: 3,
+    cards: [
+      { icon: "wave", title: "The loop", body: "The worry that speeds up, the checking, the bracing for something that may never come. Familiar, and exhausting." },
+      { icon: "compass", title: "What's underneath", body: "A nervous system trying to keep you safe, reading ordinary moments as threats. That's not a flaw. That's just how it works." },
+      { icon: "sun", title: "Where it shifts", body: "We work with the system, not against it, so the alarm quiets and you get more room to choose your response." }
+    ]
+  }) }}
+</div>
+
+{# ---- 4. Pull quote ----------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">4. pullQuote</p>
+    <p class="showcase__note">params: quote, attribution, italic, tone</p>
+  </div>
+  {{ s.pullQuote({
+    quote: "Techniques don't heal people. Relationships do.",
+    attribution: "Kay Wenger, LMFT, LPCC",
+    italic: true
+  }) }}
+</div>
+
+{# ---- 5. Feature row ---------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">5. featureRow</p>
+    <p class="showcase__note">params: items [{ icon, title, text }], tone</p>
+  </div>
+  {{ s.featureRow({ items: [
+    { icon: "clock", title: "Seen within 24 hours", text: "Reach out today and we will get back to you quickly. No long waitlist to start." },
+    { icon: "chat", title: "A free first call", text: "A relaxed 15 to 20 minute Get to Know Us call, so you can feel the fit before anything else." },
+    { icon: "shield", title: "Out-of-network by design", text: "Longer sessions, real confidentiality, and Superbills for PPO reimbursement." }
+  ] }) }}
+</div>
+
+{# ---- 6. Rate table ----------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">6. rateTable</p>
+    <p class="showcase__note">params: caption, rows [{ service, rate, note }], footnote, tone. Pass confirmed figures only; values below are placeholders.</p>
+  </div>
+  {{ s.rateTable({
+    caption: "Session rates",
+    rows: [
+      { service: "Associate therapist", rate: "Placeholder", note: "Confirm with the client before publishing" },
+      { service: "Kay Wenger, LMFT", rate: "Placeholder" },
+      { service: "Couples Intensive", rate: "By request" }
+    ],
+    footnote: "We are out-of-network by design and provide Superbills for PPO reimbursement. The values above are placeholders for layout only."
+  }) }}
+</div>
+
+{# ---- 7. FAQ ------------------------------------------------------------ #}
+{% set faqItems = [
+  { q: "What is the first session like?", a: "It's a conversation, not an intake interview. We get a feel for what brought you in and what you are hoping will be different, at a pace that feels comfortable." },
+  { q: "Do you take insurance?", a: "We are out-of-network by design. We do not bill insurance directly, which lets us offer full-length sessions and real confidentiality. We provide a Superbill you can submit to your PPO for out-of-network reimbursement." },
+  { q: "How fast can I be seen?", a: "Reach out and you can be seen within 24 hours. The best first step is the free Get to Know Us call." }
+] %}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">7. faq (plus faqSchema)</p>
+    <p class="showcase__note">params: eyebrow, title, items [{ q, a }], id. Native details accordion; faqSchema(items) emits matching FAQPage JSON-LD.</p>
+  </div>
+  {{ s.faq({ eyebrow: "Before you reach out", title: "Questions people ask", items: faqItems }) }}
+  {{ s.faqSchema(faqItems) }}
+</div>
+
+{# ---- 8. CTA band ------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">8. ctaBand (the one gold moment)</p>
+    <p class="showcase__note">params: title, text, cta { href, label }, note, tone. Gold lives only here.</p>
+  </div>
+  {{ s.ctaBand({
+    title: "Let's start with a conversation.",
+    text: "Book a free 15 to 20 minute Get to Know Us call. No pressure, just a chance to see if we are the right fit for what you are navigating.",
+    cta: { href: site.booking.getStartedPath, label: "Book a free call" },
+    note: "Free and confidential. Be seen within 24 hours."
+  }) }}
+</div>
