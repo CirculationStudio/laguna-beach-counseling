@@ -1,5 +1,5 @@
-/* Shared shell components: skip link, container, buttons, header, footer,
-   and the support-resources block. Page-specific styles live in src/css/pages/. */
+/* Shared shell primitives: skip link, container, buttons, support-resources,
+   and the generic page wrapper. Header lives in nav.css; footer in footer.css. */
 
 /* Layout helpers */
 .container {
@@ -48,6 +48,16 @@
   transform: translateY(-1px);
 }
 
+/* Arrow that nudges forward on hover (shared by header and footer CTAs). */
+.btn__arrow {
+  flex: none;
+  transition: transform 0.18s ease;
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(2px);
+}
+
 /* Gold pill: exactly one per viewport, the single most important action. */
 .btn-accent {
   background: var(--color-sun);
@@ -79,178 +89,6 @@
 .btn-ghost:hover {
   border-color: var(--color-navy);
   color: var(--color-navy);
-}
-
-/* Site header, sticky */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
-  backdrop-filter: saturate(180%) blur(8px);
-  border-bottom: 1px solid var(--color-border-soft);
-}
-
-.site-header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 4.5rem;
-}
-
-.site-header__brand {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  color: var(--color-navy);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.site-nav {
-  display: none;
-}
-
-.site-nav__list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-}
-
-.site-nav__link {
-  font-weight: 500;
-  color: var(--color-ink);
-  text-decoration: none;
-}
-
-.site-nav__link:hover {
-  color: var(--color-water-deep);
-}
-
-.site-header__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Mobile menu toggle */
-.menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 0.5rem 0.9rem;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  color: var(--color-navy);
-  cursor: pointer;
-}
-
-.mobile-nav {
-  border-top: 1px solid var(--color-border-soft);
-  background: var(--color-paper);
-}
-
-.mobile-nav[hidden] {
-  display: none;
-}
-
-.mobile-nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0 1rem;
-}
-
-.mobile-nav__list a {
-  display: block;
-  padding: 0.75rem 0;
-  font-weight: 500;
-  color: var(--color-ink);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-border-soft);
-}
-
-/* Desktop: show inline nav, hide the mobile controls */
-@media (min-width: 60rem) {
-  .site-nav {
-    display: block;
-  }
-
-  .menu-toggle,
-  .mobile-nav {
-    display: none !important;
-  }
-}
-
-/* Footer */
-.site-footer {
-  background: var(--color-navy);
-  color: var(--color-sea-foam);
-  padding-block: 3rem 2rem;
-  margin-top: 4rem;
-}
-
-.site-footer a {
-  color: var(--color-paper);
-}
-
-.site-footer a:hover {
-  color: var(--color-sun-light);
-}
-
-.site-footer__grid {
-  display: grid;
-  gap: 2rem;
-}
-
-@media (min-width: 48rem) {
-  .site-footer__grid {
-    grid-template-columns: 1.4fr 1fr 1fr;
-  }
-}
-
-.site-footer__heading {
-  font-family: var(--font-serif);
-  color: var(--color-paper);
-  font-size: 1.25rem;
-  margin: 0 0 0.75rem;
-}
-
-.site-footer__oon {
-  color: var(--color-sea-foam);
-  max-width: 42ch;
-  font-size: 0.95rem;
-}
-
-.site-footer__nap address {
-  font-style: normal;
-  line-height: 1.6;
-}
-
-.site-footer__social {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-}
-
-.site-footer__bottom {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(152, 197, 216, 0.2);
-  font-size: 0.85rem;
-  color: var(--color-sea-foam);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  justify-content: space-between;
 }
 
 /* Support-resources block (reused in the footer and on crisis-adjacent pages) */

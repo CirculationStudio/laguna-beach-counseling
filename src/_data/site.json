@@ -7,6 +7,10 @@
   "url": "https://www.lagunabeachcounseling.com",
   "themeColor": "#003657",
   "defaultDescription": "A warm, experienced Laguna Beach psychotherapy practice for individuals, couples, and families, with signature Beach Therapy on the coast.",
+  "logo": {
+    "url": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/laguna-beach-counseling-logo-horizontal.svg",
+    "alt": "Laguna Beach Counseling"
+  },
   "nap": {
     "streetAddress": "333 Third Street, Suite 6",
     "addressLocality": "Laguna Beach",
@@ -25,16 +29,12 @@
   "booking": {
     "calendlyUrl": "https://calendly.com/lbc-occc/30min",
     "callLabel": "Book a free Get to Know Us call",
+    "navLabel": "Book a free call",
     "getStartedPath": "/get-started"
   },
-  "nav": [
-    { "label": "Therapy", "url": "/therapy" },
-    { "label": "Specialties", "url": "/specialties" },
-    { "label": "Beach Therapy", "url": "/beach-therapy" },
-    { "label": "About", "url": "/about" },
-    { "label": "Fees", "url": "/fees" },
-    { "label": "Contact", "url": "/contact" }
-  ],
+  "access": {
+    "seenWithin": "Be seen within 24 hours"
+  },
   "footerLinks": [
     { "label": "Privacy Policy", "url": "/privacy-policy" }
   ],

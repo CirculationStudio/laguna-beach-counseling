@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "therapy": {
+      "label": "Therapy",
+      "url": "/therapy",
+      "published": false,
+      "children": [
+        { "label": "Individual Therapy", "url": "/therapy/individuals", "published": false },
+        { "label": "Couples & Marriage", "url": "/therapy/couples", "published": false },
+        { "label": "Family Therapy", "url": "/therapy/families", "published": false },
+        { "label": "Teens", "url": "/therapy/teens", "published": false },
+        { "label": "Children", "url": "/therapy/children", "published": false },
+        { "label": "Seniors", "url": "/therapy/seniors", "published": false }
+      ]
+    },
+    "specialties": {
+      "label": "Specialties",
+      "url": "/specialties",
+      "published": false,
+      "children": [
+        { "label": "Anxiety", "url": "/specialties/anxiety", "published": false },
+        { "label": "Depression", "url": "/specialties/depression", "published": false },
+        { "label": "Grief & Loss", "url": "/specialties/grief", "published": false },
+        { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": false },
+        { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": false },
+        { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": false },
+        { "label": "Neurodiversity", "url": "/specialties/neurodiversity", "published": false },
+        { "label": "Faith-Based", "url": "/specialties/faith-based", "published": false },
+        { "label": "Addiction & Recovery", "url": "/specialties/addiction-recovery", "published": false }
+      ]
+    },
+    "about": {
+      "label": "About",
+      "url": "/about",
+      "published": false,
+      "children": [
+        { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": false },
+        { "label": "Our Team", "url": "/about/our-team", "published": false },
+        { "label": "Our Approach", "url": "/about/our-approach", "published": false }
+      ]
+    }
+  },
+  "signature": {
+    "label": "Signature Services",
+    "children": [
+      { "label": "Beach Therapy", "url": "/beach-therapy", "published": false },
+      { "label": "Couples Intensive", "url": "/couples-intensive", "published": false },
+      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": false },
+      { "label": "Telehealth", "url": "/telehealth", "published": false }
+    ]
+  },
+  "practical": {
+    "label": "Practical",
+    "children": [
+      { "label": "Fees", "url": "/fees", "published": false },
+      { "label": "FAQ", "url": "/faq", "published": false },
+      { "label": "Get Started", "url": "/get-started", "published": true },
+      { "label": "Contact", "url": "/contact", "published": true }
+    ]
+  },
+  "features": {
+    "beachTherapy": {
+      "eyebrow": "Signature service",
+      "label": "Beach Therapy",
+      "url": "/beach-therapy",
+      "published": false,
+      "blurb": "Private walk-and-talk sessions on the Laguna coastline.",
+      "linkLabel": "Explore Beach Therapy",
+      "image": {
+        "sourceTag": "COASTAL",
+        "alt": "A therapist and client in conversation while walking the shoreline at Heisler Park in Laguna Beach.",
+        "brief": "Two people walking side by side at the tideline, Heisler Park bluffs behind, soft morning light, framed from behind for privacy. Real coastal photography, never stock or AI."
+      }
+    }
+  },
+  "header": [
+    { "ref": "therapy", "panel": "featured", "panelTitle": "Who we help", "feature": "beachTherapy" },
+    { "ref": "specialties", "panel": "columns", "panelTitle": "What people struggle with" },
+    { "label": "Beach Therapy", "url": "/beach-therapy", "published": false },
+    { "ref": "about" },
+    { "label": "Fees", "url": "/fees", "published": false },
+    { "label": "Contact", "url": "/contact", "published": true }
+  ]
+}

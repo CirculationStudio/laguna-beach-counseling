@@ -1,37 +1,72 @@
-{# Site footer: NAP, out-of-network positioning, social profiles, and the
-   shared support-resources block. All values come from src/_data/site.json. #}
+{# Site footer: services sitemap driven entirely by nav.json and site.json.
+   Calm navy ground, organized columns, no hardcoded facts or links. #}
+
+{% macro footerCol(col) %}
+  <div class="site-footer__col">
+    <h2 class="site-footer__heading">
+      {% if col.url %}<a href="{{ col.url }}"{% if not col.published %} class="nav-link--soon"{% endif %}>{{ col.label }}</a>{% else %}{{ col.label }}{% endif %}
+    </h2>
+    <ul class="site-footer__links">
+      {% for child in col.children %}
+        <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}
+
 <footer class="site-footer">
   <div class="container">
-    <div class="site-footer__grid">
-      <div class="site-footer__nap">
-        <p class="site-footer__heading">{{ site.name }}</p>
-        <address>
+    <div class="site-footer__top">
+      <div class="site-footer__practice">
+        {% set forceWordmark = true %}
+        {% set wordmarkClass = "site-footer__wordmark" %}
+        {% include "components/header-brand.njk" %}
+        <p class="site-footer__tagline">{{ site.tagline }}</p>
+        <address class="site-footer__nap">
           {{ site.nap.streetAddress }}<br />
           {{ site.nap.addressLocality }}, {{ site.nap.addressRegion }} {{ site.nap.postalCode }}<br />
           <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a><br />
           <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a>
         </address>
-        <p class="site-footer__oon">{{ site.positioning.outOfNetworkLine }}</p>
+        {# hours: pending CONFIRM (site vs Yelp discrepancy), see CLIENT_FACTS.md #}
+        <a class="site-footer__cta" href="{{ site.booking.getStartedPath }}">
+          {{ site.booking.navLabel }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="18" y2="12" />
+            <polyline points="12 6 18 12 12 18" />
+          </svg>
+        </a>
       </div>
 
-      <div>
-        <p class="site-footer__heading">Find us</p>
+      <nav class="site-footer__cols" aria-label="Footer">
+        {{ footerCol(nav.sections.therapy) }}
+        {{ footerCol(nav.sections.specialties) }}
+        {{ footerCol(nav.signature) }}
+        {{ footerCol(nav.sections.about) }}
+        {{ footerCol(nav.practical) }}
+      </nav>
+    </div>
+
+    <div class="site-footer__meta">
+      <div class="site-footer__connect">
+        <h2 class="site-footer__heading">Connect</h2>
         <ul class="site-footer__social">
           {% for profile in site.sameAs %}
             <li><a href="{{ profile.url }}" rel="me">{{ profile.label }}</a></li>
           {% endfor %}
         </ul>
       </div>
+      <p class="site-footer__oon">{{ site.positioning.outOfNetworkLine }}</p>
+    </div>
 
-      <div>
-        {% set onFooter = true %}
-        {% include "components/support-resources.njk" %}
-      </div>
+    <div class="site-footer__support">
+      {% set onFooter = true %}
+      {% include "components/support-resources.njk" %}
     </div>
 
     <div class="site-footer__bottom">
       <span>&copy; {% year %} {{ site.name }}. All rights reserved.</span>
-      <span>
+      <span class="site-footer__legal">
         {% for link in site.footerLinks %}
           <a href="{{ link.url }}">{{ link.label }}</a>
         {% endfor %}

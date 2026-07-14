@@ -1,19 +1,89 @@
-{# Sticky site header with desktop nav and an accessible mobile menu.
-   Logo is a text lockup until the tower mark from the bunny.net CDN is wired. #}
+{# Site header: the utility strip (shared, scrolls away) above a sticky mega-menu
+   masthead. Therapy and Specialties open accessible disclosure panels; the rest
+   are flat links. Everything is driven by nav.json (nav.header resolves ref
+   entries against nav.sections; nav.features holds the featured cell). The
+   disclosure behavior (click, hover-intent, Escape, click-outside, focusout,
+   and the mobile accordion) is wired in /js/menu.js. #}
+
+{% macro arrow(cls) %}
+<svg class="{{ cls }}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <line x1="5" y1="12" x2="18" y2="12" />
+  <polyline points="12 6 18 12 12 18" />
+</svg>
+{% endmacro %}
+
+{% macro featureCell(feature) %}
+<div class="mega-feature">
+  <div class="mega-feature__media" role="img" aria-label="{{ feature.image.alt }}">
+    <span class="mega-feature__tag">{{ feature.image.sourceTag }}</span>
+    <span class="mega-feature__brief" aria-hidden="true">{{ feature.image.brief }}</span>
+  </div>
+  <p class="mega-feature__eyebrow">{{ feature.eyebrow }}</p>
+  <h3 class="mega-feature__title{% if not feature.published %} nav-link--soon{% endif %}">{{ feature.label }}</h3>
+  <p class="mega-feature__blurb">{{ feature.blurb }}</p>
+  <a class="mega-feature__link{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">
+    {{ feature.linkLabel }}{{ arrow("btn__arrow") }}
+  </a>
+</div>
+{% endmacro %}
+
+{% include "components/header-utility.njk" %}
+
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="/">{{ site.name }}</a>
+    {% set logoClass = "site-logo" %}
+    {% include "components/header-brand.njk" %}
 
     <nav class="site-nav" aria-label="Primary">
       <ul class="site-nav__list">
-        {% for item in site.nav %}
-          <li><a class="site-nav__link" href="{{ item.url }}">{{ item.label }}</a></li>
+        {% for item in nav.header %}
+          {% set node = nav.sections[item.ref] if item.ref else item %}
+          {% if item.panel %}
+            <li class="has-dropdown">
+              <button
+                class="site-nav__link dropdown-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="dd-{{ item.ref }}"
+                data-dropdown-toggle
+              >
+                {{ node.label }}
+                <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="mega-panel mega-panel--{{ item.panel }}" id="dd-{{ item.ref }}" role="region" aria-label="{{ node.label }}" hidden>
+                <div class="mega-panel__body">
+                  <div class="mega-panel__nav">
+                    <h2 class="mega-panel__title">{{ item.panelTitle }}</h2>
+                    <ul class="mega-links">
+                      {% for child in node.children %}
+                        <li><a class="mega-link{% if not child.published %} nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
+                      {% endfor %}
+                    </ul>
+                    <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">All {{ node.label }}{{ arrow("mega-panel__all-arrow") }}</a>
+                  </div>
+                  {% if item.feature and nav.features[item.feature] %}
+                    <div class="mega-panel__aside">
+                      {{ featureCell(nav.features[item.feature]) }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </li>
+          {% else %}
+            <li>
+              <a class="site-nav__link{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">{{ node.label }}</a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </nav>
 
     <div class="site-header__actions">
-      <a class="btn btn-accent" href="{{ site.booking.getStartedPath }}">{{ site.booking.callLabel }}</a>
+      <a class="btn btn-primary site-header__cta" href="{{ site.booking.getStartedPath }}">
+        {{ site.booking.navLabel }}{{ arrow("btn__arrow") }}
+      </a>
       <button
         class="menu-toggle"
         type="button"
@@ -34,10 +104,38 @@
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
     <div class="container">
       <ul class="mobile-nav__list">
-        {% for item in site.nav %}
-          <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {% for item in nav.header %}
+          {% set node = nav.sections[item.ref] if item.ref else item %}
+          {% if item.panel %}
+            <li class="mobile-nav__group">
+              <button
+                class="mobile-nav__group-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="m-dd-{{ item.ref }}"
+                data-dropdown-toggle
+              >
+                {{ node.label }}
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <ul class="mobile-nav__sublist" id="m-dd-{{ item.ref }}" hidden>
+                <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">All {{ node.label }}</a></li>
+                {% for child in node.children %}
+                  <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
+                {% endfor %}
+                {% if item.feature and nav.features[item.feature] %}
+                  {% set feature = nav.features[item.feature] %}
+                  <li><a class="mobile-nav__feature{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">{{ feature.label }}</a></li>
+                {% endif %}
+              </ul>
+            </li>
+          {% else %}
+            <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">{{ node.label }}</a></li>
+          {% endif %}
         {% endfor %}
-        <li><a href="{{ site.booking.getStartedPath }}">{{ site.booking.callLabel }}</a></li>
+        <li><a href="{{ site.booking.getStartedPath }}">{{ site.booking.navLabel }}</a></li>
       </ul>
     </div>
   </nav>

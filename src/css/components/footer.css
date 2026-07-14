@@ -1,0 +1,196 @@
+/* Footer: a calm, organized services sitemap on navy ground.
+   Structure and facts come from nav.json and site.json. */
+
+.site-footer {
+  background: var(--color-navy);
+  color: var(--color-sea-foam);
+  padding-block: 4.5rem 1.75rem;
+  margin-top: 5rem;
+  font-size: 0.95rem;
+  /* Horizon hairline: the coastal signature, echoing the header's bottom edge
+     so the page reads as framed between sky and sea. */
+  border-top: 1px solid color-mix(in srgb, var(--color-water) 45%, transparent);
+}
+
+.site-footer a {
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--color-sun-light);
+}
+
+/* Top band: practice block beside the link columns */
+.site-footer__top {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 64rem) {
+  .site-footer__top {
+    grid-template-columns: minmax(15rem, 1.1fr) 3fr;
+  }
+}
+
+.site-footer__wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-paper);
+  line-height: 1.1;
+}
+
+.site-footer__tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-sea-foam);
+  margin: 0.75rem 0 1rem;
+}
+
+.site-footer__nap {
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--color-sea-foam);
+}
+
+.site-footer__nap a {
+  color: var(--color-sea-foam);
+}
+
+.site-footer__nap a:hover {
+  color: var(--color-sun-light);
+}
+
+/* Quiet closing invitation. A text link, not a button: the footer stays calm. */
+.site-footer__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-paper);
+  text-decoration: none;
+}
+
+.site-footer__cta svg {
+  flex: none;
+  transition: transform 0.18s ease;
+}
+
+.site-footer__cta:hover {
+  color: var(--color-sun-light);
+}
+
+.site-footer__cta:hover svg {
+  transform: translateX(2px);
+}
+
+/* Link columns: auto-fitting, compact, never a wall */
+.site-footer__cols {
+  display: grid;
+  gap: 1.5rem 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 40rem) {
+  .site-footer__cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .site-footer__cols {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.site-footer__heading {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-paper);
+  margin: 0 0 0.65rem;
+}
+
+.site-footer__heading a {
+  color: var(--color-paper);
+}
+
+.site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.site-footer__links a {
+  color: var(--color-sea-foam);
+  font-size: 0.9rem;
+}
+
+.site-footer__links a:hover {
+  color: var(--color-sun-light);
+}
+
+/* Meta band: connect and the out-of-network line */
+.site-footer__meta {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(152, 197, 216, 0.2);
+}
+
+@media (min-width: 48rem) {
+  .site-footer__meta {
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+  }
+}
+
+.site-footer__social {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.site-footer__social a {
+  color: var(--color-sea-foam);
+  font-size: 0.9rem;
+}
+
+.site-footer__oon {
+  color: var(--color-sea-foam);
+  max-width: 60ch;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Support-resources sits in its own band */
+.site-footer__support {
+  margin-top: 2rem;
+}
+
+/* Legal strip */
+.site-footer__bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(152, 197, 216, 0.2);
+  font-size: 0.85rem;
+  color: var(--color-sea-foam);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
