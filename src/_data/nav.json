@@ -18,7 +18,7 @@
       "url": "/specialties",
       "published": false,
       "children": [
-        { "label": "Anxiety", "url": "/specialties/anxiety", "published": false },
+        { "label": "Anxiety", "url": "/specialties/anxiety", "published": true },
         { "label": "Depression", "url": "/specialties/depression", "published": false },
         { "label": "Grief & Loss", "url": "/specialties/grief", "published": false },
         { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": false },

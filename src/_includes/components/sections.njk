@@ -12,12 +12,18 @@
    secondaryCta?{href,label}, image?{src,alt}, tone? }. Passing image switches to
    the photo variant (navy scrim, light text). The hero CTA is navy, never gold. #}
 {% macro hero(opts) %}
-  {% set isPhoto = opts.image and opts.image.src %}
-  {% set tone = opts.tone or ("navy" if isPhoto else "sand") %}
-  <section class="section hero{% if isPhoto %} hero--photo{% endif %} section--{{ tone }}">
-    {% if isPhoto %}
+  {% set hasPhoto = opts.image and opts.image.src %}
+  {% set hasSlot = opts.image and not opts.image.src %}
+  {% set isPhoto = hasPhoto or hasSlot %}
+  <section class="section hero{% if isPhoto %} hero--photo{% endif %} section--{{ opts.tone or 'sand' }}">
+    {% if hasPhoto %}
       <img class="hero__bg" src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="eager" fetchpriority="high" />
-      <span class="hero__scrim" aria-hidden="true"></span>
+      <span class="hero__veil" aria-hidden="true"></span>
+    {% elif hasSlot %}
+      <div class="hero__placeholder" role="img" aria-label="{{ opts.image.alt }}">
+        {% if opts.image.sourceTag %}<span class="hero__tag">{{ opts.image.sourceTag }}</span>{% endif %}
+      </div>
+      <span class="hero__veil" aria-hidden="true"></span>
     {% endif %}
     <div class="container hero__inner">
       {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
@@ -28,6 +34,16 @@
           {% if opts.cta %}{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "primary", arrow: true }) }}{% endif %}
           {% if opts.secondaryCta %}{{ ui.button({ href: opts.secondaryCta.href, label: opts.secondaryCta.label, variant: "ghost" }) }}{% endif %}
         </div>
+      {% endif %}
+      {% if opts.trust %}
+        <ul class="hero__trust">
+          {% for t in opts.trust %}
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+              {{ t.label }}
+            </li>
+          {% endfor %}
+        </ul>
       {% endif %}
     </div>
   </section>
@@ -47,7 +63,20 @@
   {% endcall %}
 {% endmacro %}
 
-{# 3. pointCards(opts): { eyebrow?, title?, columns?: 2|3, cards: [{icon?,title,body}], tone? } #}
+{# Shared card content. A card with image.src becomes a photo card (image flush at
+   the top); the eyebrow, when present, is teal (ui.eyebrow), never gold. #}
+{% macro cardContent(c) %}
+  {% if c.image and c.image.src %}<span class="card__media"><img src="{{ c.image.src }}" alt="{{ c.image.alt }}" loading="lazy" /></span>{% endif %}
+  {% if c.eyebrow %}{{ ui.eyebrow(c.eyebrow) }}{% endif %}
+  {% if c.icon and not (c.image and c.image.src) %}<span class="card__icon">{{ ui.icon(c.icon) }}</span>{% endif %}
+  <h3 class="card__title">{{ c.title }}</h3>
+  <p class="card__body">{{ c.body }}</p>
+{% endmacro %}
+
+{# 3. pointCards(opts): { eyebrow?, title?, columns?: 2|3, viewAll?{href,label}, tone?,
+   cards: [{icon?, image?{src,alt}, eyebrow?, title, body, href?, linkLabel?}] }
+   A card with href renders as a whole-card link; a card with image.src renders as a photo
+   card. Plain cards are unchanged, so existing calls keep working. #}
 {% macro pointCards(opts) %}
   {% call ui.section({ tone: opts.tone or "paper" }) %}
     {% if opts.eyebrow or opts.title %}
@@ -58,20 +87,32 @@
     {% endif %}
     <div class="card-grid card-grid--{{ opts.columns or 3 }}">
       {% for c in opts.cards %}
-        <article class="card">
-          {% if c.icon %}<span class="card__icon">{{ ui.icon(c.icon) }}</span>{% endif %}
-          <h3 class="card__title">{{ c.title }}</h3>
-          <p class="card__body">{{ c.body }}</p>
-        </article>
+        {% set photo = c.image and c.image.src %}
+        {% if c.href %}
+          <a class="card card--link{% if photo %} card--photo{% endif %}" href="{{ c.href }}">
+            {{ cardContent(c) }}
+            <span class="card__cta">{{ c.linkLabel or "Learn more" }}{{ ui.arrow() }}</span>
+          </a>
+        {% else %}
+          <article class="card{% if photo %} card--photo{% endif %}">
+            {{ cardContent(c) }}
+          </article>
+        {% endif %}
       {% endfor %}
     </div>
+    {% if opts.viewAll %}
+      <p class="card-grid__viewall">{{ ui.button({ href: opts.viewAll.href, label: opts.viewAll.label, variant: "text", arrow: true }) }}</p>
+    {% endif %}
   {% endcall %}
 {% endmacro %}
 
-{# 4. pullQuote(opts): { quote, attribution?, italic?, tone? }. For Kay's lines. #}
+{# 4. pullQuote(opts): { quote, attribution?, italic?, variant?, tone? }. For Kay's lines.
+   variant "inline" is a left-aligned quote with a gold left rule (default tone paper);
+   otherwise a centered band (default tone seafoam). #}
 {% macro pullQuote(opts) %}
-  {% call ui.section({ tone: opts.tone or "seafoam", width: "narrow" }) %}
-    <figure class="pull-quote">
+  {% set tone = opts.tone or ("paper" if opts.variant == "inline" else "seafoam") %}
+  {% call ui.section({ tone: tone, width: "narrow" }) %}
+    <figure class="pull-quote{% if opts.variant == 'inline' %} pull-quote--inline{% endif %}">
       <blockquote class="pull-quote__q{% if opts.italic %} pull-quote__q--italic{% endif %}">{{ opts.quote }}</blockquote>
       {% if opts.attribution %}<figcaption class="pull-quote__by">{{ opts.attribution }}</figcaption>{% endif %}
     </figure>
@@ -122,7 +163,10 @@
         {% if opts.text %}<p class="cta-band__lead">{{ opts.text }}</p>{% endif %}
       </div>
       <div class="cta-band__action">
-        <a class="btn btn-accent" href="{{ opts.cta.href }}">{{ opts.cta.label }}{{ ui.arrow() }}</a>
+        <a class="btn btn-accent" href="{{ opts.cta.href }}">
+          {{ opts.cta.label }}
+          <span class="btn-accent__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
         {% if opts.note %}<p class="cta-band__note">{{ opts.note }}</p>{% endif %}
       </div>
     </div>
@@ -164,4 +208,94 @@
     </table>
     {% if opts.footnote %}<p class="rate-table__footnote">{{ opts.footnote }}</p>{% endif %}
   {% endcall %}
+{% endmacro %}
+
+{# 9. promoCallout(opts): { eyebrow?, title, body, cta{href,label},
+   image?{src,alt,brief,sourceTag}, reverse?, tone? }. A horizontal cross-sell band (for example
+   Beach Therapy as an option). Serif heading, a teal text link, gold stays out. When image.src
+   is absent, a labeled placeholder stands in for real coastal photography. #}
+{% macro promoCallout(opts) %}
+  {% call ui.section({ tone: opts.tone or "seafoam" }) %}
+    <div class="promo{% if opts.reverse %} promo--reverse{% endif %}">
+      <div class="promo__media">
+        {% if opts.image and opts.image.src %}
+          <img class="promo__img" src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="lazy" />
+        {% else %}
+          <div class="promo__placeholder" role="img" aria-label="{{ opts.image.alt if opts.image else opts.title }}">
+            {% if opts.image and opts.image.sourceTag %}<span class="promo__tag">{{ opts.image.sourceTag }}</span>{% endif %}
+            {% if opts.image and opts.image.brief %}<span class="promo__brief" aria-hidden="true">{{ opts.image.brief }}</span>{% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="promo__text">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        <h2 class="promo__title">{{ opts.title }}</h2>
+        <p class="promo__body">{{ opts.body }}</p>
+        {{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}
+      </div>
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{# 10. breadcrumbs(items): items = [{label, url?}]. Last item is the current page (no url). Pair
+   with breadcrumbSchema(items) so the JSON-LD mirrors the visible trail. #}
+{% macro breadcrumbs(items) %}
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        {% for item in items %}
+          <li class="breadcrumbs__item">
+            {% if item.url and not loop.last %}
+              <a href="{{ item.url }}">{{ item.label }}</a>
+              <svg class="breadcrumbs__sep" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>
+            {% else %}
+              <span aria-current="page">{{ item.label }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </nav>
+{% endmacro %}
+
+{# breadcrumbSchema(items, baseUrl): pass site.url as baseUrl so items resolve to absolute URLs.
+   Kept pure (no globals), like faqSchema. #}
+{% macro breadcrumbSchema(items, baseUrl) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for item in items %}{ "@type": "ListItem", "position": {{ loop.index }}, "name": {{ item.label | dump | safe }}{% if item.url %}, "item": {{ (baseUrl + item.url) | dump | safe }}{% endif %} }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endmacro %}
+
+{# 11. serviceSchema(opts): { name, serviceType, description, url,
+   business: {url, name, telephone}, areaServed? (array) }. Emits a Service that references the
+   business by @id (the full MedicalBusiness record is defined later on the homepage and
+   /contact). Pure (facts passed in). No aggregateRating, no Review: there are no real totals. #}
+{% macro serviceSchema(opts) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ opts.name | dump | safe }},
+  "serviceType": {{ opts.serviceType | dump | safe }},
+  "description": {{ opts.description | dump | safe }},
+  "url": {{ (opts.business.url + opts.url) | dump | safe }},
+  "provider": {
+    "@type": "MedicalBusiness",
+    "@id": {{ (opts.business.url + "/#business") | dump | safe }},
+    "name": {{ opts.business.name | dump | safe }},
+    "telephone": {{ opts.business.telephone | dump | safe }},
+    "url": {{ opts.business.url | dump | safe }}
+  },
+  "areaServed": [
+    {% for a in (opts.areaServed or ["Laguna Beach, CA", "California"]) %}{{ a | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
+  ]
+}
+</script>
 {% endmacro %}

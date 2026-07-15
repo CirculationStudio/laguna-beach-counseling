@@ -34,7 +34,7 @@
   pointer-events: none;
   opacity: 0.045;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .section__inner {
@@ -85,13 +85,11 @@
   background: var(--color-water);
 }
 
-.section--navy .eyebrow,
-.hero--photo .eyebrow {
+.section--navy .eyebrow {
   color: var(--color-sea-foam);
 }
 
-.section--navy .eyebrow__rule,
-.hero--photo .eyebrow__rule {
+.section--navy .eyebrow__rule {
   background: var(--color-sea-foam);
 }
 
@@ -101,6 +99,12 @@
   align-items: center;
   min-height: clamp(20rem, 44vw, 32rem);
   overflow: hidden;
+}
+
+/* Photo variant runs taller so the coastline reads. Ground stays sand-warm,
+   so it degrades gracefully when no photo is set yet. */
+.hero--photo {
+  min-height: clamp(34rem, 82vh, 48rem);
 }
 
 .hero__inner {
@@ -138,7 +142,9 @@
   margin-top: 1.75rem;
 }
 
-/* Photo variant: navy scrim for text contrast (never a decorative gradient). */
+/* Photo variant: the coastline sits under a directional sand-warm veil, near
+   solid where the text is (left) and clearing toward the photo (right). Text
+   stays navy on the warm ground. Ported from the reference Beach Therapy hero. */
 .hero__bg {
   position: absolute;
   inset: 0;
@@ -147,18 +153,61 @@
   object-fit: cover;
 }
 
-.hero__scrim {
+.hero__veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 26, 46, 0.45) 0%, rgba(0, 26, 46, 0.78) 100%);
+  /* rgba below is --color-sand-warm at descending opacity */
+  background: linear-gradient(105deg, rgba(250, 246, 236, 0.97) 0%, rgba(250, 246, 236, 0.9) 38%, rgba(250, 246, 236, 0.55) 70%, rgba(250, 246, 236, 0.2) 100%);
 }
 
-.hero--photo .hero__title {
-  color: var(--color-paper);
+/* Pending state: no real photo yet, so a labeled sand-warm slot holds the frame
+   and the whole hero still reads as the calm sand-warm ground. */
+.hero__placeholder {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-sea-foam) 32%, var(--color-sand-warm));
 }
 
-.hero--photo .hero__lead {
-  color: var(--color-sea-foam);
+.hero__tag {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: color-mix(in srgb, var(--color-paper) 82%, transparent);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Trust markers under the hero actions: small gold-stroke icon plus a short label. */
+.hero__trust {
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.hero__trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero__trust .icon {
+  width: 17px;
+  height: 17px;
+  color: var(--color-sun-deep);
 }
 
 /* ---- 2. Lead prose ------------------------------------------------------ */
@@ -208,11 +257,32 @@
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+}
+
+/* Photo card: image flush to the top edge (breaks out of the card padding),
+   then the padded body. Ported from the reference .demo-card. */
+.card--photo {
+  overflow: hidden;
+}
+
+.card__media {
+  display: block;
+  margin: -1.75rem -1.75rem 1.25rem;
+  height: 175px;
+  overflow: hidden;
+  background: var(--color-sand-warm);
+}
+
+.card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card__icon {
@@ -231,6 +301,45 @@
 .card__body {
   color: var(--color-ink-soft);
   margin: 0;
+}
+
+/* Linkable card variant: the whole card is a link with an arrow cue. */
+.card--link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card--link .card__body {
+  flex: 1 1 auto;
+}
+
+.card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-water-deep);
+}
+
+.card--link:hover .card__cta {
+  color: var(--color-navy);
+}
+
+.card--link:hover .btn__arrow {
+  transform: translateX(2px);
+}
+
+.card--link:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 3px;
+}
+
+.card-grid__viewall {
+  margin: 1.5rem 0 0;
 }
 
 /* ---- 4. Pull quote ------------------------------------------------------ */
@@ -259,6 +368,25 @@
   letter-spacing: 0.02em;
   color: var(--color-ink-faint);
   margin-top: 1.25rem;
+}
+
+/* Inline variant: a left-aligned quote with a gold left rule, teal ink. Ported
+   from the reference .pullquote. For quotes set inside flowing prose. */
+.pull-quote--inline {
+  text-align: left;
+}
+
+.pull-quote--inline .pull-quote__q {
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+  line-height: 1.32;
+  color: var(--color-water-deep);
+  padding-left: 1.4rem;
+  border-left: 3px solid var(--color-sun);
+}
+
+.pull-quote--inline .pull-quote__by {
+  padding-left: 1.4rem;
 }
 
 /* ---- 5. FAQ accordion (native details) ---------------------------------- */
@@ -401,6 +529,127 @@
 .section--navy .feature__text,
 .section--navy .feature__icon {
   color: var(--color-sea-foam);
+}
+
+/* ---- 9. Promo callout (cross-sell band) --------------------------------- */
+.promo {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .promo {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .promo--reverse .promo__media {
+    order: 2;
+  }
+}
+
+.promo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+.promo__placeholder {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 16 / 10;
+  padding: 1rem;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid color-mix(in srgb, var(--color-navy) 12%, transparent);
+  background: color-mix(in srgb, var(--color-sea-foam) 55%, var(--color-paper));
+}
+
+.promo__tag {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: color-mix(in srgb, var(--color-paper) 82%, transparent);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+.promo__brief {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-navy);
+  opacity: 0.72;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.promo__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  line-height: 1.1;
+  color: var(--color-navy);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.promo__body {
+  color: var(--color-ink-soft);
+  max-width: 46ch;
+  margin: 0 0 1rem;
+}
+
+/* ---- 10. Breadcrumbs ---------------------------------------------------- */
+.breadcrumbs {
+  background: var(--color-sand-warm);
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.breadcrumbs__list a {
+  color: var(--color-water-deep);
+  text-decoration: none;
+}
+
+.breadcrumbs__list a:hover {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.breadcrumbs__list [aria-current="page"] {
+  color: var(--color-ink-soft);
+}
+
+.breadcrumbs__sep {
+  flex: none;
+  color: var(--color-ink-faint);
 }
 
 /* ---- 8. Rate table ------------------------------------------------------ */

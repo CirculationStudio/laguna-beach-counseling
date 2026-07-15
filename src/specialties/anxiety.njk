@@ -1,0 +1,145 @@
+---
+layout: layouts/base.njk
+metaTitle: "Anxiety Therapist Laguna Beach | Anxiety Counseling"
+description: "Anxiety isn't a character flaw. It's a nervous system doing its job. Warm, practical help in Laguna Beach or by telehealth across California."
+permalink: /specialties/anxiety/
+---
+{# Reference service page, composed entirely from the component library. Copy is real,
+   in Kay's voice (voice-tone.md). No hard prevalence statistic is published: CONTENT_EVIDENCE.md
+   requires a verified current CDC/AskCHIS figure pulled at publish time. Anxiety is
+   crisis-adjacent, so the support-resources block is included. No em dashes. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{% set crumbs = [
+  { label: "Home", url: "/" },
+  { label: "Specialties", url: "/specialties" },
+  { label: "Anxiety" }
+] %}
+
+{% set faqItems = [
+  {
+    q: "Can anxiety actually get better, or do I manage it forever?",
+    a: "It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up. Most people are surprised how much lighter an ordinary day can feel once the alarm stops running the show."
+  },
+  {
+    q: "I've tried therapy before and it didn't really help. Why would this be different?",
+    a: "That's worth taking seriously. When therapy doesn't help, it often wasn't the wrong effort, it was the wrong fit, or the work stayed up in your head and never reached your body. We pay attention to both, and we start by making sure you actually feel understood."
+  },
+  {
+    q: "Do you offer anxiety counseling by telehealth?",
+    a: "Yes. We work with clients across California by secure video, and in person in Laguna Beach, an easy drive from Newport Beach, Irvine, or Dana Point. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room, and you're somewhere you already feel safe."
+  },
+  {
+    q: "How fast can I be seen?",
+    a: "You can usually be seen within 24 hours of reaching out. The best first step is a free 15 to 20 minute call, so we can hear what's going on and point you to the right person."
+  }
+] %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{{ s.hero({
+  eyebrow: "Anxiety",
+  title: "Anxiety therapy in",
+  titleEmphasis: "Laguna Beach.",
+  lead: "Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down.",
+  cta: { href: site.booking.getStartedPath, label: "Book a free call" }
+}) }}
+
+{{ s.lead({ text: [
+  "If you're here, some part of your day has probably started to organize itself around worry. The 3 a.m. replay of a conversation. The meeting you rehearse twenty times. The plans you quietly turn down. Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire.",
+  "The alarm is real. The danger usually isn't. So how do we help it tell the difference again? That's usually where we start, and you don't have to sort it out alone."
+] }) }}
+
+{{ s.pointCards({
+  eyebrow: "What is really happening",
+  title: "What anxiety is actually doing",
+  columns: 3,
+  cards: [
+    { icon: "wave", title: "The worry loop", body: "Worry promises that if you think it through one more time, you'll finally feel safe. So you do, and the relief lasts about a minute before the next what-if arrives. The loop feels productive. Mostly it's exhausting." },
+    { icon: "heart", title: "The body's alarm", body: "Racing heart, tight chest, the sense that something is about to go wrong. Your body is running a threat response built for lions, not inboxes. Nothing is broken. The wiring is doing exactly what it evolved to do." },
+    { icon: "compass", title: "The avoidance trap", body: "Skipping the thing that scares you works, for an afternoon. Then the world quietly shrinks, and the list of off-limits places and conversations grows. Avoidance is a loan with a very high interest rate." }
+  ]
+}) }}
+
+{{ s.pointCards({
+  eyebrow: "How we help",
+  title: "What the work looks like",
+  columns: 3,
+  tone: "sand",
+  cards: [
+    { icon: "wave", title: "Settle the body first", body: "Before we talk anything through, we help your nervous system come off high alert, with breathing and grounding that hold up in a real moment, not only in theory. A calmer body makes a clearer mind possible." },
+    { icon: "compass", title: "Name the pattern", body: "We get curious about your particular anxiety. When does it spike? What is it trying to protect? Once you can see the pattern instead of living inside it, you get to make a different choice." },
+    { icon: "sun", title: "Practice new responses", body: "Change happens in reps, not insights. We build small, doable experiments so your system learns from experience that it's safe to loosen its grip. That kind of learning is what lasts." }
+  ]
+}) }}
+
+{{ s.pointCards({
+  eyebrow: "The many shapes it takes",
+  title: "Panic attacks, phobias, and social anxiety",
+  columns: 3,
+  cards: [
+    { icon: "heart", title: "Panic attacks", body: "A panic attack can feel like a heart attack: the pounding chest, the dizziness, the certainty that something is very wrong. Panic disorder is the fear of the next one, which quietly keeps the cycle going. Panic is treatable, and understanding what's happening is often the first turn." },
+    { icon: "shield", title: "Phobias", body: "Flying, driving the 405, needles, heights, deep water. A phobia is fear that has narrowed onto one specific thing and dug in. Phobia treatment works by helping you approach it in steps small enough to stay with, until the fear loosens its grip." },
+    { icon: "chat", title: "Social anxiety", body: "If being watched, judged, or noticed at all sends your stomach into free fall, that's social anxiety, sometimes called social phobia. We work on the beliefs underneath it, and practice, gently, until connection feels less like a performance." }
+  ]
+}) }}
+
+{{ s.promoCallout({
+  eyebrow: "A different setting",
+  tone: "sand",
+  title: "Anxiety often eases when you're moving",
+  body: "Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side, with the ocean doing a little of the talking.",
+  cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+  image: {
+    sourceTag: "COASTAL",
+    alt: "A client and therapist walking and talking along the Laguna Beach shoreline.",
+    brief: "Client and therapist walking side by side at the tideline near Heisler Park, soft morning light, framed from behind for privacy. Real coastal photography. Pending: Bunny CDN coastal or services/specialties set."
+  }
+}) }}
+
+{{ s.pullQuote({
+  quote: "That's not a character flaw. That's just how the nervous system works.",
+  attribution: "Kay Wenger, LMFT, LPCC",
+  italic: true
+}) }}
+
+{{ s.pointCards({
+  eyebrow: "Where to go next",
+  title: "Related ways we can help",
+  columns: 2,
+  tone: "sand",
+  cards: [
+    { icon: "compass", title: "Individual therapy", body: "Anxiety rarely travels alone. When it's tangled up with self-doubt, big decisions, or a low mood, one-on-one therapy gives the whole knot room to loosen.", href: "/therapy/individuals", linkLabel: "Individual therapy" },
+    { icon: "chat", title: "Online therapy in California", body: "Prefer to start from your own couch? We see clients by secure video anywhere in California, with the same care as in the room.", href: "/telehealth", linkLabel: "Telehealth" }
+  ]
+}) }}
+
+{{ s.faq({
+  eyebrow: "Questions people ask",
+  title: "Anxiety counseling, answered",
+  items: faqItems
+}) }}
+
+{% call ui.section({ tone: "paper", width: "narrow" }) %}
+  {% set onFooter = false %}
+  {% include "components/support-resources.njk" %}
+{% endcall %}
+
+{{ s.ctaBand({
+  title: "There's a way through this.",
+  text: "If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.",
+  cta: { href: site.booking.getStartedPath, label: "Book a free call" },
+  note: "Free and confidential. Be seen within 24 hours."
+}) }}
+
+{{ s.serviceSchema({
+  name: "Anxiety therapy",
+  serviceType: "Anxiety therapy",
+  description: "Warm, practical anxiety counseling in Laguna Beach and by telehealth across California, including help for panic attacks, phobias, and social anxiety.",
+  url: "/specialties/anxiety/",
+  business: { url: site.url, name: site.name, telephone: site.nap.telephone },
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+}) }}
+{{ s.breadcrumbSchema(crumbs, site.url) }}
+{{ s.faqSchema(faqItems) }}

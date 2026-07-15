@@ -61,6 +61,19 @@ sitemapExclude: true
   {% endcall %}
 </div>
 
+{# ---- Textures ---------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">textures</p>
+    <p class="showcase__note">utility classes from base/textures.css: .t-grain (warm paper grain), .t-foam (sea-foam wash), .t-pill (gold dot pattern). The same grain sits on sand sections at 4.5% multiply.</p>
+  </div>
+  <div class="container showcase__textures">
+    <div class="showcase__tex t-grain"><span>t-grain</span></div>
+    <div class="showcase__tex t-foam"><span>t-foam</span></div>
+    <div class="showcase__tex t-pill"><span>t-pill</span></div>
+  </div>
+</div>
+
 {# ---- 1. Hero ----------------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">
@@ -80,7 +93,30 @@ sitemapExclude: true
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">1b. hero, photo variant</p>
-    <p class="showcase__note">same params plus image { src, alt }; adds a navy scrim and light text</p>
+    <p class="showcase__note">same params plus image { src, alt } and trust [{ label }]; tall photo under a directional sand-warm veil, navy text, gold-stroke trust markers.</p>
+  </div>
+  {{ s.hero({
+    eyebrow: "Beach Therapy",
+    title: "Sometimes the environment",
+    titleEmphasis: "matters.",
+    lead: "Private walk-and-talk sessions on the Laguna coastline, steps from the Pacific.",
+    cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+    trust: [
+      { label: "30 years of practice" },
+      { label: "Seen within 24 hours" },
+      { label: "Out-of-network, Superbills provided" }
+    ],
+    image: {
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='430' fill='%2398c5d8'/%3E%3Crect y='430' width='1200' height='270' fill='%23003657'/%3E%3Ccircle cx='900' cy='250' r='74' fill='%23f5c845'/%3E%3C/svg%3E",
+      alt: "The Laguna Beach coastline at the tideline, placeholder for real coastal photography."
+    }
+  }) }}
+</div>
+
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1c. hero, photo pending</p>
+    <p class="showcase__note">image with alt and sourceTag but no src yet: the frame holds a labeled sand-warm slot, so the hero still reads as calm sand-warm ground until the real photo lands.</p>
   </div>
   {{ s.hero({
     eyebrow: "Beach Therapy",
@@ -89,8 +125,8 @@ sitemapExclude: true
     lead: "Private walk-and-talk sessions on the Laguna coastline, steps from the Pacific.",
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     image: {
-      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='340' fill='%2398c5d8'/%3E%3Crect y='340' width='1200' height='260' fill='%23003657'/%3E%3Ccircle cx='880' cy='205' r='66' fill='%23f5c845'/%3E%3C/svg%3E",
-      alt: "The Laguna Beach coastline at the tideline, placeholder for real coastal photography."
+      sourceTag: "COASTAL, pending",
+      alt: "Placeholder for the Beach Therapy coastline hero, real photo pending."
     }
   }) }}
 </div>
@@ -125,16 +161,67 @@ sitemapExclude: true
   }) }}
 </div>
 
+{# ---- 3b. Point cards, linkable variant -------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">3b. pointCards, linkable variant</p>
+    <p class="showcase__note">a card with href renders as a whole-card link with an arrow; add viewAll for a "see all" link. Cards without href are unchanged.</p>
+  </div>
+  {{ s.pointCards({
+    eyebrow: "Where to go next",
+    title: "Related ways we can help",
+    columns: 2,
+    tone: "sand",
+    viewAll: { href: "/specialties", label: "All specialties" },
+    cards: [
+      { icon: "compass", title: "Individual therapy", body: "One-on-one work for anxiety, low mood, and the big decisions.", href: "/therapy/individuals", linkLabel: "Individual therapy" },
+      { icon: "chat", title: "Online therapy in California", body: "The same care by secure video, anywhere in the state.", href: "/telehealth", linkLabel: "Telehealth" }
+    ]
+  }) }}
+</div>
+
+{# ---- 3c. Point cards, photo variant ----------------------------------- #}
+{% set coast = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='400' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='640' height='240' fill='%2398c5d8'/%3E%3Crect y='240' width='640' height='160' fill='%23003657'/%3E%3Ccircle cx='470' cy='150' r='40' fill='%23f5c845'/%3E%3C/svg%3E" %}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">3c. pointCards, photo variant</p>
+    <p class="showcase__note">a card with image { src, alt } renders the photo-card treatment (image flush at top, 20px radius, -4px hover). Optional per-card eyebrow (teal). Placeholders below, real photos pending.</p>
+  </div>
+  {{ s.pointCards({
+    eyebrow: "Who we help",
+    title: "Find the right fit",
+    columns: 3,
+    cards: [
+      { image: { src: coast, alt: "Placeholder coastal image, pending." }, eyebrow: "Individuals", title: "Individual therapy", body: "One-on-one work for anxiety, depression, and the big decisions." },
+      { image: { src: coast, alt: "Placeholder coastal image, pending." }, eyebrow: "Couples", title: "Couples and marriage", body: "Pro-commitment work from the co-founder of the NRMFT." },
+      { image: { src: coast, alt: "Placeholder coastal image, pending." }, eyebrow: "Seniors", title: "Senior counseling", body: "Grief, retirement, and later-life change, anchored in the Susi Q." }
+    ]
+  }) }}
+</div>
+
 {# ---- 4. Pull quote ----------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">4. pullQuote</p>
-    <p class="showcase__note">params: quote, attribution, italic, tone</p>
+    <p class="showcase__note">params: quote, attribution, italic, variant, tone</p>
   </div>
   {{ s.pullQuote({
     quote: "Techniques don't heal people. Relationships do.",
     attribution: "Kay Wenger, LMFT, LPCC",
     italic: true
+  }) }}
+</div>
+
+{# ---- 4b. Pull quote, inline variant ----------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">4b. pullQuote, inline variant</p>
+    <p class="showcase__note">variant "inline": left-aligned, italic, teal, with a gold left rule. For a quote set inside flowing prose.</p>
+  </div>
+  {{ s.pullQuote({
+    variant: "inline",
+    quote: "The beach isn't replacing therapy. It's creating conditions that let therapy happen differently.",
+    attribution: "Kay Wenger, LMFT, LPCC"
   }) }}
 </div>
 
@@ -194,5 +281,58 @@ sitemapExclude: true
     text: "Book a free 15 to 20 minute Get to Know Us call. No pressure, just a chance to see if we are the right fit for what you are navigating.",
     cta: { href: site.booking.getStartedPath, label: "Book a free call" },
     note: "Free and confidential. Be seen within 24 hours."
+  }) }}
+</div>
+
+{# ---- 9. Promo callout ------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">9. promoCallout</p>
+    <p class="showcase__note">params: eyebrow, title, body, cta { href, label }, image { src, alt, brief, sourceTag }, reverse, tone. Cross-sell band; gold stays out. Placeholder media when no image.src.</p>
+  </div>
+  {{ s.promoCallout({
+    eyebrow: "A different setting",
+    title: "Anxiety often eases when you're moving",
+    body: "Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side.",
+    cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+    image: {
+      sourceTag: "COASTAL",
+      alt: "A client and therapist walking the Laguna Beach shoreline.",
+      brief: "Two people walking side by side at the tideline near Heisler Park, soft light, framed from behind for privacy. Pending: Bunny CDN coastal set."
+    }
+  }) }}
+</div>
+
+{# ---- 10. Breadcrumbs -------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">10. breadcrumbs (plus breadcrumbSchema)</p>
+    <p class="showcase__note">breadcrumbs(items), items = [{ label, url }]; the last item is the current page and takes no url. Pair with breadcrumbSchema(items, baseUrl) for matching BreadcrumbList JSON-LD.</p>
+  </div>
+  {{ s.breadcrumbs([
+    { label: "Home", url: "/" },
+    { label: "Specialties", url: "/specialties" },
+    { label: "Anxiety" }
+  ]) }}
+</div>
+
+{# ---- Schema partials (emit JSON-LD only, no visible output) ----------- #}
+{% set demoCrumbs = [
+  { label: "Home", url: "/" },
+  { label: "Specialties", url: "/specialties" },
+  { label: "Anxiety" }
+] %}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">schema partials (no visible output)</p>
+    <p class="showcase__note">faqSchema(items) [see 7]; breadcrumbSchema(items, site.url); serviceSchema({ name, serviceType, description, url, business { url, name, telephone }, areaServed }). Each emits JSON-LD only, no aggregateRating. The two script blocks below are live; view source to inspect.</p>
+  </div>
+  {{ s.breadcrumbSchema(demoCrumbs, site.url) }}
+  {{ s.serviceSchema({
+    name: "Anxiety therapy",
+    serviceType: "Anxiety therapy",
+    description: "Warm, practical anxiety counseling in Laguna Beach and by telehealth across California.",
+    url: "/specialties/anxiety/",
+    business: { url: site.url, name: site.name, telephone: site.nap.telephone }
   }) }}
 </div>

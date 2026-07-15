@@ -65,3 +65,42 @@
   letter-spacing: 0.04em;
   color: var(--color-ink-faint);
 }
+
+/* Texture swatches */
+.showcase__textures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-bottom: 2.25rem;
+}
+
+@media (max-width: 40rem) {
+  .showcase__textures {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showcase__tex {
+  position: relative;
+  height: 160px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border-soft);
+}
+
+.showcase__tex span {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}

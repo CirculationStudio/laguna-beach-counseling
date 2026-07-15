@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Laguna Beach Counseling — Brand Guidelines · "Navigating Life's Waves"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Brand typeface system: DM Serif Display (display) + Manrope (text) -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #003657;
+  --navy-deep: #002745;
+  --navy-darkest: #001a2e;
+  --sea-foam: #98c5d8;
+  --sun: #dfa108;
+  --sun-deep: #c48d05;
+  --sun-light: #f5c845;
+  --sand: #f0f0f0;
+  --sand-warm: #faf6ec;
+  --water: #28a0c9;
+  --water-deep: #1a6480;
+  --ink: #1a2332;
+  --ink-soft: #485363;
+  --ink-faint: #6b7785;
+  --paper: #ffffff;
+  --border: rgba(0, 54, 87, 0.14);
+  --border-soft: rgba(0, 54, 87, 0.06);
+  --shadow-card: 0 1px 2px rgba(0, 54, 87, 0.02), 0 8px 32px rgba(0, 54, 87, 0.04), 0 24px 48px rgba(0, 54, 87, 0.04);
+  --shadow-cta: 0 2px 8px rgba(0, 26, 46, 0.08), 0 16px 40px rgba(223, 161, 8, 0.18);
+
+  /* Brand typefaces */
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Manrope', system-ui, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-weight: 400; line-height: 1.7;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045; pointer-events: none; z-index: 9999; mix-blend-mode: multiply;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* All headings & serif-bearing elements pull from --serif */
+h1, h2, h3, h4, .serif { font-family: var(--serif); font-weight: 400; }
+
+/* ============ PASSWORD GATE ============ */
+#gate {
+  position: fixed; inset: 0; z-index: 99999;
+  background: var(--sand-warm);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+#gate.hidden { display: none; }
+.gate-box { text-align: center; max-width: 420px; padding: 2.5rem; }
+.gate-logo { height: 72px; width: auto; margin: 0 auto 2.5rem; }
+.gate-title { font-family: var(--serif); font-size: 2rem; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.15; }
+.gate-sub { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); margin-bottom: 2.25rem; line-height: 1.6; }
+.gate-input {
+  width: 100%; padding: 1rem 1.4rem;
+  font-family: var(--sans); font-size: 1rem; font-weight: 500;
+  color: var(--navy); background: var(--paper);
+  border: 1.5px solid var(--border); border-radius: 999px;
+  outline: none; text-align: center; letter-spacing: 0.04em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.gate-input:focus { border-color: var(--sun); box-shadow: 0 0 0 4px rgba(223, 161, 8, 0.12); }
+.gate-input::placeholder { color: var(--ink-faint); font-weight: 400; }
+.gate-btn {
+  margin-top: 1rem; width: 100%; padding: 1rem 1.4rem;
+  font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
+  color: var(--navy); background: var(--sun);
+  border: none; border-radius: 999px; cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+  box-shadow: var(--shadow-cta);
+}
+.gate-btn:hover { background: var(--sun-deep); transform: translateY(-1px); }
+.gate-error { font-family: var(--sans); font-size: 0.85rem; color: #c4302b; margin-top: 1rem; opacity: 0; transition: opacity 0.3s; }
+.gate-error.show { opacity: 1; }
+.gate-hint { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); opacity: 0.7; margin-top: 2.5rem; }
+
+/* ============ SCROLL ANIMATIONS ============ */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+.rv.vis { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.12s; } .d2 { transition-delay: 0.24s; }
+.d3 { transition-delay: 0.36s; } .d4 { transition-delay: 0.48s; }
+
+/* ============ SIDE NAV ============ */
+.snav {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 60px;
+  background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid var(--border-soft);
+  z-index: 1000; display: flex; flex-direction: column; align-items: center;
+  padding: 1.5rem 0; gap: 1.25rem;
+}
+.snav-logo { width: 36px; height: 36px; margin-bottom: 0.75rem; display: flex; align-items: center; justify-content: center; }
+.snav-logo img { width: 32px; height: 32px; opacity: 0.95; border-radius: 6px; }
+.snav a {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-faint); transition: color 0.25s; padding: 0.35rem 0;
+}
+.snav a:hover { color: var(--navy); }
+
+.main { margin-left: 60px; }
+
+/* ============ COVER ============ */
+.cover {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 5rem 5rem 6rem; position: relative; overflow: hidden;
+  background: var(--sand-warm);
+}
+.cover-bg { position: absolute; inset: 0; }
+.cover-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(170deg, rgba(250, 246, 236, 0.4) 0%, rgba(250, 246, 236, 0.78) 45%, rgba(250, 246, 236, 0.96) 100%);
+}
+.cover-content { position: relative; z-index: 2; max-width: 820px; }
+.cover-tag {
+  font-family: var(--sans); font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.9rem;
+}
+.cover-tag::before { content: ''; width: 32px; height: 2px; background: var(--sun); }
+.cover-lockup { margin-bottom: 2.5rem; }
+.cover-lockup img { height: 78px; width: auto; }
+.cover h1 {
+  font-family: var(--serif); font-size: clamp(3.2rem, 7.5vw, 6rem);
+  letter-spacing: -0.028em; line-height: 1.02; margin-bottom: 1.5rem; color: var(--navy);
+}
+.cover h1 em { font-style: italic; color: var(--navy); }
+.cover-sub { font-family: var(--sans); font-weight: 400; font-size: 1.25rem; color: var(--ink-soft); line-height: 1.65; max-width: 640px; }
+.cover-meta {
+  margin-top: 3.25rem; display: flex; gap: 3.5rem; flex-wrap: wrap;
+  padding-top: 2.25rem; border-top: 1px solid var(--border-soft);
+}
+.cover-meta-item { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
+.cover-meta-item span { display: block; font-weight: 500; color: var(--navy); margin-top: 0.4rem; font-size: 0.95rem; letter-spacing: 0.02em; text-transform: none; }
+.cover-script {
+  position: absolute; right: 5rem; bottom: 10rem;
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(7rem, 16vw, 16rem);
+  color: rgba(0, 54, 87, 0.05); pointer-events: none; z-index: 1; line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+/* ============ SECTIONS ============ */
+.sec { padding: 6rem 5rem; position: relative; }
+.sec-border { border-bottom: 1px solid var(--border-soft); }
+.sec-sand { background: var(--sand-warm); }
+.sec-navy { background: var(--navy); color: rgba(255, 255, 255, 0.92); }
+.sec-navy .sec-title { color: #ffffff; }
+.sec-navy .sec-desc { color: rgba(255, 255, 255, 0.7); }
+.sec-navy .sec-num { color: rgba(255, 255, 255, 0.06); }
+.sec-navy .divider { background: rgba(255, 255, 255, 0.12); }
+.sec-navy .sec-label { color: var(--sun); }
+.sec-navy .sec-label::before { background: var(--sun); }
+
+.sec-num {
+  font-family: var(--serif); font-size: 2.5rem; letter-spacing: -0.02em;
+  color: rgba(0, 54, 87, 0.08); position: absolute; top: 5rem; right: 5rem; line-height: 1;
+}
+.sec-label {
+  font-family: var(--sans); font-weight: 600; font-size: 0.78rem;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.sec-label::before { content: ''; width: 28px; height: 2px; background: var(--sun); }
+.sec-title {
+  font-family: var(--serif); font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  letter-spacing: -0.022em; line-height: 1.08; margin-bottom: 1.5rem; color: var(--navy);
+}
+.sec-title em { font-style: italic; }
+.sec-desc { font-family: var(--sans); font-weight: 400; font-size: 1.2rem; color: var(--ink-soft); max-width: 720px; line-height: 1.7; }
+.divider { height: 1px; background: var(--border-soft); margin: 2.75rem 0; }
+
+/* ============ 01 CONCEPT ============ */
+.proposal-intro {
+  margin: 2.5rem 0 3rem; padding: 2.5rem 3rem;
+  background: var(--paper); border-left: 4px solid var(--sun); border-radius: 0 16px 16px 0;
+  border-top: 1px solid var(--border-soft); border-right: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+}
+.proposal-intro p { font-family: var(--sans); font-weight: 400; font-size: 1.06rem; line-height: 1.8; color: var(--ink); opacity: 0.95; }
+.proposal-intro p + p { margin-top: 1.1rem; }
+.proposal-intro strong { font-weight: 600; color: var(--navy); }
+
+.concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.75rem; }
+.concept-card {
+  padding: 2.5rem; background: var(--paper);
+  border: 1px solid var(--border-soft); border-radius: 18px; transition: transform 0.3s, box-shadow 0.3s;
+}
+.concept-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.concept-card h4 { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.6rem; letter-spacing: -0.015em; line-height: 1.2; }
+.concept-card p { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); line-height: 1.7; }
+
+/* ============ 02 COLOR ============ */
+.palette-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.color-swatch { border-radius: 18px; overflow: hidden; border: 1px solid var(--border-soft); transition: transform 0.3s, box-shadow 0.3s; background: var(--paper); }
+.color-swatch:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.color-sw { height: 130px; display: flex; align-items: flex-end; padding: 1rem 1.25rem; }
+.color-sw .color-hex { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 5px 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.85); color: var(--navy); }
+.color-sw.dark .color-hex { background: rgba(0, 26, 46, 0.6); color: #fff; }
+.color-info { padding: 1.5rem; }
+.color-role { font-family: var(--sans); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sun); }
+.color-name { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-top: 0.3rem; letter-spacing: -0.015em; line-height: 1.2; }
+.color-intent { font-family: var(--sans); font-weight: 400; font-size: 0.95rem; color: var(--ink-soft); margin-top: 0.5rem; line-height: 1.65; }
+
+.ratio-bar { display: flex; gap: 4px; height: 56px; border-radius: 8px; overflow: hidden; margin: 2rem 0 0.75rem; }
+.ratio-bar > div { display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: rgba(255, 255, 255, 0.9); }
+.ratio-bar-meta { font-family: var(--sans); font-size: 0.78rem; color: var(--ink-soft); text-align: center; line-height: 1.6; }
+
+.a11y-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.a11y-card { display: flex; flex-direction: column; gap: 1rem; padding: 1.75rem; background: var(--paper); border: 1px solid var(--border-soft); border-radius: 18px; }
+.a11y-card p { font-family: var(--sans); font-weight: 400; font-size: 0.98rem; color: var(--ink-soft); line-height: 1.65; }
+.a11y-card strong { font-weight: 600; color: var(--navy); }
+.a11y-pass {
+  align-self: flex-start; padding: 4px 12px; border-radius: 999px;
+  background: rgba(43, 130, 70, 0.12); color: #2b7a46;
+  font-family: var(--sans); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em;
+}
+
+/* ============ 03 TYPE ============ */
+.type-block { padding: 2.5rem 0; border-bottom: 1px solid var(--border-soft); }
+.type-block:last-child { border-bottom: none; }
+.type-meta { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.type-fn { font-family: var(--sans); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sun); }
+.type-role { font-family: var(--sans); font-weight: 500; font-size: 0.82rem; letter-spacing: 0.05em; color: var(--ink-faint); }
+.type-usage { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); margin-top: 0.85rem; max-width: 620px; line-height: 1.7; }
+
+.type-scale {
+  margin-top: 3rem; background: var(--paper);
+  border: 1px solid var(--border-soft); padding: 2.75rem; border-radius: 20px;
+}
+.type-scale-hd { font-family: var(--sans); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sun); margin-bottom: 1.5rem; }
+.scale-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 0.95rem 0; border-bottom: 1px solid var(--border-soft); }
+.scale-row:last-child { border-bottom: none; }
+.scale-lbl { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); width: 110px; flex-shrink: 0; }
+.scale-sz { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; color: var(--sun); width: 130px; flex-shrink: 0; letter-spacing: 0.02em; }
+
+/* ============ 04 TEXTURES ============ */
+.tex-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.tex-sample { height: 200px; border-radius: 18px; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 1.25rem; border: 1px solid var(--border-soft); }
+.tex-lbl { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy); position: relative; z-index: 2; background: rgba(255, 255, 255, 0.92); padding: 6px 12px; border-radius: 999px; }
+.t-grain {
+  background: var(--sand-warm);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.t-foam { background: var(--sea-foam); position: relative; }
+.t-foam::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 60%, rgba(255,255,255,0.5) 0%, transparent 40%), radial-gradient(circle at 70% 30%, rgba(255,255,255,0.4) 0%, transparent 40%); }
+.t-pill { background: var(--paper); background-image: radial-gradient(circle, var(--sun) 1.5px, transparent 1.5px); background-size: 36px 36px; position: relative; }
+.t-pill::before { content: ''; position: absolute; inset: 0; background: rgba(250,246,236,0.55); }
+
+.fx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.fx-card { background: var(--paper); border: 1px solid var(--border-soft); border-radius: 18px; padding: 2rem; }
+.fx-card h5 { font-family: var(--sans); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sun); margin-bottom: 0.6rem; }
+.fx-card p { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); line-height: 1.7; }
+
+/* ============ 05 COMPONENTS ============ */
+.comp-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem; }
+.btn-accent {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 8px 8px 22px; background: var(--sun); color: var(--navy);
+  border: none; border-radius: 999px; cursor: pointer;
+  font-family: var(--sans); font-weight: 700; font-size: 0.95rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(196, 141, 5, 0.35), 0 2px 6px rgba(0, 26, 46, 0.06), 0 8px 20px rgba(223, 161, 8, 0.18);
+  transition: all 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-accent:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(196, 141, 5, 0.35), 0 3px 8px rgba(0, 26, 46, 0.08), 0 12px 28px rgba(223, 161, 8, 0.28); }
+.btn-accent-arrow { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: var(--sun-light); display: flex; align-items: center; justify-content: center; }
+.btn-accent-arrow svg { width: 14px; height: 14px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; background: var(--navy); color: #fff; border: none; border-radius: 999px; cursor: pointer; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; transition: all 200ms ease; }
+.btn-primary:hover { background: var(--navy-deep); transform: translateY(-1px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; background: transparent; color: var(--navy); border: 1.5px solid var(--navy); border-radius: 999px; cursor: pointer; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; transition: all 200ms ease; }
+.btn-ghost:hover { background: var(--navy); color: #fff; }
+.btn-text { display: inline-flex; align-items: center; gap: 8px; padding: 6px 0 8px; background: transparent; color: var(--navy); border: none; border-bottom: 2px solid var(--sun); border-radius: 0; cursor: pointer; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; }
+
+.badge { display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; border-radius: 999px; font-family: var(--sans); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.04em; }
+.badge-gold { background: rgba(223, 161, 8, 0.14); color: #8a6204; }
+.badge-foam { background: rgba(40, 160, 201, 0.12); color: var(--water-deep); }
+.badge-navy { background: rgba(0, 54, 87, 0.08); color: var(--navy); }
+
+.demo-card { background: var(--paper); border: 1px solid var(--border-soft); border-radius: 20px; overflow: hidden; max-width: 320px; transition: transform 0.3s, box-shadow 0.3s; }
+.demo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.demo-card-img { height: 175px; overflow: hidden; background-size: cover; background-position: center; }
+.demo-card-body { padding: 1.75rem; }
+.demo-card-eyebrow { font-family: var(--sans); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sun); margin-bottom: 0.5rem; }
+.demo-card-name { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 0.5rem; }
+.demo-card-desc { font-family: var(--sans); font-weight: 400; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.65; }
+
+/* ============ 06 PHOTOGRAPHY ============ */
+.photo-mosaic {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 270px 270px;
+  gap: 1rem; margin-top: 3rem;
+}
+.pm-item { border-radius: 18px; overflow: hidden; position: relative; background: var(--sand-warm); }
+.pm-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 5s ease; }
+.pm-item:hover img { transform: scale(1.04); }
+.pm-item:first-child { grid-row: span 2; }
+.pm-lbl { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.1rem; background: linear-gradient(0deg, rgba(0,26,46,0.85) 0%, transparent 100%); font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
+
+.team-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2rem;
+}
+.team-portrait { border-radius: 18px; overflow: hidden; aspect-ratio: 3/4; position: relative; background: var(--sand-warm); }
+.team-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 4s ease; }
+.team-portrait:hover img { transform: scale(1.04); }
+.team-name-tag {
+  position: absolute; bottom: 12px; left: 12px; right: 12px;
+  padding: 8px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(8px);
+  font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
+  color: var(--navy); text-align: center; letter-spacing: -0.005em;
+}
+.photo-rules { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; margin-top: 2.75rem; }
+.photo-rule { padding: 1.75rem; border-left: 3px solid var(--sun); }
+.photo-rule h5 { font-family: var(--sans); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sun); margin-bottom: 0.6rem; }
+.photo-rule p { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); line-height: 1.7; }
+
+/* ============ 07 VOICE ============ */
+.tone-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+.tone-pillar { text-align: left; padding: 2.75rem; background: var(--paper); border: 1px solid var(--border-soft); border-radius: 20px; position: relative; }
+.tone-pillar-num { font-family: var(--serif); font-style: italic; font-size: 2.2rem; color: var(--sun); margin-bottom: 0.75rem; line-height: 1; }
+.tone-pillar h4 { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 0.4rem; }
+.tone-pillar-score { font-family: var(--sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sun); margin-bottom: 1rem; }
+.tone-pillar p { font-family: var(--sans); font-weight: 400; font-size: 1rem; color: var(--ink-soft); line-height: 1.7; }
+
+.copy-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border-soft); }
+.copy-row:last-child { border-bottom: none; }
+.copy-do, .copy-dont { padding: 1.5rem 1.75rem; border-radius: 16px; font-family: var(--sans); font-size: 1.02rem; font-weight: 400; line-height: 1.7; }
+.copy-do { background: rgba(223, 161, 8, 0.06); border-left: 3px solid var(--sun); color: var(--ink); }
+.copy-dont { background: rgba(196, 50, 50, 0.04); border-left: 3px solid rgba(196, 50, 50, 0.4); color: var(--ink-soft); font-style: italic; }
+.copy-lbl { font-family: var(--sans); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.copy-do .copy-lbl { color: #8a6204; }
+.copy-dont .copy-lbl { color: #c4302b; font-style: normal; }
+
+.signature-phrases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 1.5rem; }
+.sig-phrase {
+  padding: 14px 20px; border-radius: 999px;
+  background: var(--paper); border: 1px solid var(--border-soft);
+  font-family: var(--serif); font-style: italic; font-size: 1.02rem; color: var(--navy);
+  line-height: 1.4;
+}
+
+.banned-list { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; margin-top: 1.5rem; }
+.banned-word {
+  padding: 0.75rem 1rem; border-radius: 999px; background: rgba(196, 50, 50, 0.05);
+  border: 1px solid rgba(196, 50, 50, 0.18);
+  font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
+  color: #8a2828; text-align: center; text-decoration: line-through;
+  text-decoration-color: rgba(196, 50, 50, 0.5);
+}
+
+.sample-content {
+  margin-top: 2.5rem; padding: 2.5rem 3rem; background: var(--paper);
+  border-radius: 20px; border: 1px solid var(--border-soft);
+}
+.sample-content-eyebrow { font-family: var(--sans); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sun); margin-bottom: 1rem; }
+.sample-content-body { font-family: var(--sans); font-weight: 400; font-size: 1.05rem; color: var(--ink); line-height: 1.85; }
+.sample-content-body p + p { margin-top: 1.1rem; }
+.sample-content-meta { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-faint); margin-top: 1.25rem; font-weight: 500; letter-spacing: 0.01em; }
+
+/* ============ 08 MARKS ============ */
+.marks-row { display: flex; gap: 2.5rem; align-items: center; margin-top: 3rem; flex-wrap: wrap; }
+.mark-ex { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.mark-circle {
+  width: 150px; height: 150px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-soft); overflow: hidden;
+  transition: transform 0.3s;
+  padding: 18px;
+}
+.mark-circle:hover { transform: scale(1.04); }
+.mark-circle img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mark-circle.on-navy { background: var(--navy); border-color: rgba(255,255,255,0.1); }
+.mark-circle.on-sand { background: var(--sand-warm); }
+.mark-circle.on-gold { background: var(--sun); box-shadow: 0 0 32px rgba(223, 161, 8, 0.25); }
+.mark-circle.on-foam { background: var(--sea-foam); }
+.mark-lbl { font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint); }
+.sec-navy .mark-lbl { color: rgba(255,255,255,0.6); }
+
+.wm-demo {
+  margin-top: 2.5rem; padding: 3.5rem; background: var(--sand-warm);
+  border: 1px solid var(--border-soft); border-radius: 20px; text-align: center;
+}
+.wm-demo img { height: 92px; width: auto; margin: 0 auto 1.5rem; }
+.wm-sub { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--navy); letter-spacing: -0.01em; }
+
+.wm-dark { margin-top: 1.5rem; padding: 3.5rem; background: var(--navy); border-radius: 20px; text-align: center; }
+.wm-dark img { height: 92px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
+
+.logo-dont-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.logo-dont {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  padding: 1.4rem 1.5rem; border-radius: 16px;
+  background: rgba(196, 50, 50, 0.08); border: 1px solid rgba(196, 50, 50, 0.22);
+}
+.logo-dont-x {
+  flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+  background: rgba(196, 50, 50, 0.85); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700; line-height: 1; margin-top: 1px;
+}
+.logo-dont p { font-family: var(--sans); font-weight: 400; font-size: 0.95rem; color: rgba(255,255,255,0.78); line-height: 1.6; }
+
+/* ============ TAGLINE ============ */
+.tagline-sec { text-align: center; padding: 8rem 5rem; background: var(--sand-warm); position: relative; overflow: hidden; }
+.tagline-sec::before {
+  content: 'Together'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(8rem, 20vw, 18rem);
+  color: rgba(0, 54, 87, 0.035); pointer-events: none; white-space: nowrap;
+  letter-spacing: -0.03em; line-height: 0.9;
+}
+.tagline-1 { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.022em; line-height: 1.1; position: relative; color: var(--navy); }
+.tagline-1 em { font-style: italic; }
+.tagline-sub { font-family: var(--sans); font-weight: 400; font-size: 1.2rem; color: var(--ink-soft); margin-top: 1.25rem; letter-spacing: 0.01em; position: relative; }
+
+/* ============ FOOTER ============ */
+.guide-ft { padding: 3rem 5rem; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; align-items: center; background: var(--paper); }
+.guide-ft p { font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--ink-faint); letter-spacing: 0.01em; }
+.guide-ft-mark { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .sec { padding: 5rem 3rem; }
+  .cover { padding: 4rem 3rem 5rem; }
+  .palette-grid { grid-template-columns: repeat(2,1fr); }
+  .tex-grid { grid-template-columns: 1fr 1fr; }
+  .photo-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 220px; }
+  .pm-item:first-child { grid-row: span 1; }
+  .team-strip { grid-template-columns: repeat(3, 1fr); }
+  .tone-pillars { grid-template-columns: 1fr; }
+  .photo-rules { grid-template-columns: 1fr; }
+  .banned-list { grid-template-columns: repeat(3,1fr); }
+  .signature-phrases { grid-template-columns: 1fr; }
+  .logo-dont-grid { grid-template-columns: 1fr 1fr; }
+  .a11y-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .snav { display: none; }
+  .main { margin-left: 0; }
+  .sec { padding: 4rem 1.5rem; }
+  .cover { padding: 3rem 1.5rem 4rem; }
+  .cover-script { display: none; }
+  .concept-grid, .palette-grid, .tex-grid { grid-template-columns: 1fr; }
+  .photo-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .pm-item { height: 220px; }
+  .pm-item:first-child { grid-row: span 1; }
+  .team-strip { grid-template-columns: repeat(2, 1fr); }
+  .fx-grid, .copy-row { grid-template-columns: 1fr; }
+  .marks-row { gap: 2rem; }
+  .comp-row { gap: 1rem; }
+  .cover-meta { flex-direction: column; gap: 1.5rem; }
+  .guide-ft { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; }
+  .tagline-sec { padding: 5rem 1.5rem; }
+  .proposal-intro { padding: 1.75rem 2rem; }
+  .banned-list { grid-template-columns: repeat(2,1fr); }
+  .logo-dont-grid { grid-template-columns: 1fr; }
+  .cover-lockup img { height: 60px; }
+  .sec-num { right: 1.5rem; top: 3rem; }
+  .sample-content { padding: 1.75rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-box">
+    <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-counseling-logo.svg" alt="Laguna Beach Counseling" class="gate-logo">
+    <div class="gate-title">Brand Guidelines</div>
+    <div class="gate-sub">This document is password protected. Please enter the access code to continue.</div>
+    <input type="password" class="gate-input" id="gateInput" placeholder="Enter password" autofocus>
+    <button class="gate-btn" id="gateBtn">View Guidelines</button>
+    <div class="gate-error" id="gateError">Incorrect password. Please try again.</div>
+    <div class="gate-hint">Circulation Studio · Confidential</div>
+  </div>
+</div>
+
+<!-- SIDE NAV -->
+<nav class="snav">
+  <div class="snav-logo">
+    <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/lbc-logo-square.png" alt="LBC">
+  </div>
+  <a href="#s-concept">Concept</a>
+  <a href="#s-color">Color</a>
+  <a href="#s-type">Type</a>
+  <a href="#s-tex">Texture</a>
+  <a href="#s-comp">UI</a>
+  <a href="#s-photo">Photo</a>
+  <a href="#s-voice">Voice</a>
+  <a href="#s-marks">Marks</a>
+</nav>
+
+<div class="main">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-bg">
+    <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-02.webp" alt="Laguna Beach coastline">
+  </div>
+  <div class="cover-content">
+    <div class="cover-tag">Brand Guidelines</div>
+    <div class="cover-lockup">
+      <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-counseling-logo.svg" alt="Laguna Beach Counseling">
+    </div>
+    <h1>Navigating Life's <em>Waves Together.</em></h1>
+    <p class="cover-sub">A complete design system for the website rebuild and the practice it represents — built on the lifeguard tower mark, the Laguna palette you've earned over twenty-five years, and the "Warm, Direct, Real" voice that makes Kay's work unmistakable.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">Client <span>Laguna Beach Counseling</span></div>
+      <div class="cover-meta-item">Studio <span>Circulation Studio</span></div>
+      <div class="cover-meta-item">Date <span>June 2026</span></div>
+      <div class="cover-meta-item">Status <span>Adopted · v1.0</span></div>
+    </div>
+  </div>
+  <div class="cover-script">Together</div>
+</section>
+
+<!-- 01 CONCEPT -->
+<section class="sec sec-border" id="s-concept">
+  <div class="sec-num rv">01</div>
+  <div class="sec-label rv d1">Visual Concept</div>
+  <div class="sec-title rv d2">"<em>Navigating Life's Waves</em>"</div>
+  <p class="sec-desc rv d3">A coastal editorial system designed to make over thirty years of Pepperdine-trained clinical experience feel as warm and accessible as the practice already is in person. Not clinical. Not generic. Unmistakably Laguna.</p>
+
+  <div class="proposal-intro rv d4">
+    <p>Circulation Studio has developed the <strong>"Navigating Life's Waves"</strong> design system to give Laguna Beach Counseling a digital presence that finally matches the depth of what's actually happening inside the practice. The current TherapySites template doesn't reflect the warmth of Kay's voice, the gravity of her credentials, or the category-of-one nature of Beach Therapy. This system changes that.</p>
+    <p>The concept retains every brand asset Vanessa designed in the original identity — the lifeguard tower mark, the five-color palette, the "Navigating Life's Waves Together" tagline — and rebuilds the design system around them. We replace the unrefined original type pairing with a contemporary editorial serif and a humanist sans — DM Serif Display and Manrope. We codify spacing, components, and interaction patterns into a real system. We commit to a photography direction that bans every stock-therapy cliché.</p>
+    <p>Every choice is grounded in the strategic positioning documented in the <strong>Client DNA and Brand Voice Style Guide</strong>: premium out-of-network practice, warm-direct-real voice, audience that skews older and affluent. Type scales bumped 25% for readability. Buttons treated as pills, echoing the life ring in the logo. Gold reserved for exactly one CTA per screen — the page's main door.</p>
+    <p>This isn't theoretical. Every component shown here exists in the production homepage mockup. It's a buildable system designed to serve the practice for the next decade.</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept-card rv">
+      <h4>Coastal, not clinical</h4>
+      <p>Sand-warm backgrounds, navy depth, sea foam softness. Every surface signals "you're in good hands, by the ocean" — never "you're in a waiting room."</p>
+    </div>
+    <div class="concept-card rv d1">
+      <h4>Editorial gravitas</h4>
+      <p>The serif does the emotional work — headlines, names, pull quotes, the tagline. The sans does the functional work. Never blur the line. The serif is the voice. The sans is the work.</p>
+    </div>
+    <div class="concept-card rv d2">
+      <h4>Whitespace as credential</h4>
+      <p>Confident practices don't crowd their pages. Templates do. Generous space says "we know what we're doing — we don't need to convince you with density."</p>
+    </div>
+    <div class="concept-card rv d3">
+      <h4>Pills, not rectangles</h4>
+      <p>Buttons and badges use 999px radius — they echo the life ring inside the logo. The whole system has three radii: pills, cards (16–22px), inputs (8px). That's it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 COLOR -->
+<section class="sec sec-sand sec-border" id="s-color">
+  <div class="sec-num rv">02</div>
+  <div class="sec-label rv d1">Color Palette</div>
+  <div class="sec-title rv d2">Vanessa's original five colors. <em>Used with discipline.</em></div>
+  <p class="sec-desc rv d3">Every hex value from the original brand identity is retained. What changes is the discipline around how they're used. Gold is rare on purpose. Navy carries authority. Sand does the heavy lifting of calm.</p>
+
+  <div class="palette-grid">
+    <div class="color-swatch rv">
+      <div class="color-sw dark" style="background:#003657;"><span class="color-hex">#003657</span></div>
+      <div class="color-info"><div class="color-role">Primary · 70%</div><div class="color-name">Navy</div><div class="color-intent">Headers, primary type, navigation, footer. The dominant brand color — depth and authority.</div></div>
+    </div>
+    <div class="color-swatch rv d1">
+      <div class="color-sw" style="background:#f0f0f0;"><span class="color-hex">#f0f0f0</span></div>
+      <div class="color-info"><div class="color-role">Background · 20%</div><div class="color-name">Sand</div><div class="color-intent">Page backgrounds and content surfaces. The quiet space that lets the work breathe.</div></div>
+    </div>
+    <div class="color-swatch rv d2">
+      <div class="color-sw" style="background:#98c5d8;"><span class="color-hex">#98c5d8</span></div>
+      <div class="color-info"><div class="color-role">Secondary · 5%</div><div class="color-name">Sea Foam</div><div class="color-intent">Soft section backgrounds and decorative accents. The horizon line between sky and water.</div></div>
+    </div>
+    <div class="color-swatch rv">
+      <div class="color-sw dark" style="background:#28a0c9;"><span class="color-hex">#28a0c9</span></div>
+      <div class="color-info"><div class="color-role">Interactive · 3%</div><div class="color-name">Water Teal</div><div class="color-intent">Links and interactive states only. Reserved as a directional cue — never decorative.</div></div>
+    </div>
+    <div class="color-swatch rv d1">
+      <div class="color-sw" style="background:#dfa108;"><span class="color-hex">#dfa108</span></div>
+      <div class="color-info"><div class="color-role">Accent · 2%</div><div class="color-name">Sun Gold</div><div class="color-intent">Exactly one CTA per visible viewport. The tagline lockup. Nothing else. Gold is the door.</div></div>
+    </div>
+    <div class="color-swatch rv d2">
+      <div class="color-sw" style="background:#faf6ec;"><span class="color-hex">#faf6ec</span></div>
+      <div class="color-info"><div class="color-role">Surface variant</div><div class="color-name">Sand Warm</div><div class="color-intent">A slightly warmer sand for editorial sections. Adds tactile warmth without competing with the primary palette.</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <div class="divider"></div>
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.25rem;" class="rv">Recommended on-page ratio</p>
+    <div class="ratio-bar rv">
+      <div style="background:#003657; flex: 70;">70%</div>
+      <div style="background:#f0f0f0; color:#003657; flex: 20;">20%</div>
+      <div style="background:#98c5d8; color:#003657; flex: 5;">5%</div>
+      <div style="background:#28a0c9; flex: 3;">3%</div>
+      <div style="background:#dfa108; color:#003657; flex: 2;">2%</div>
+    </div>
+    <p class="ratio-bar-meta rv">Navy 70% · Sand 20% · Sea Foam 5% · Water 3% · Sun Gold 2%. Gold under 2% of any surface — only on CTAs and the tagline lockup.</p>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <div class="divider"></div>
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.25rem;" class="rv">Accessibility &amp; Approved Text Pairings</p>
+    <div class="a11y-grid">
+      <div class="a11y-card rv"><div class="a11y-pass">AA</div><p><strong>Navy on Sand / Sand Warm.</strong> The primary reading combination. High contrast, comfortable for long copy and the older-skewing audience.</p></div>
+      <div class="a11y-card rv d1"><div class="a11y-pass">AA</div><p><strong>White on Navy.</strong> Use for navy sections, the footer, and dark cards. Reverse the lockup to its white version here.</p></div>
+      <div class="a11y-card rv d2"><div class="a11y-pass">AA</div><p><strong>Navy on Sun Gold.</strong> The only approved text color on a gold CTA — never white. Keeps the button legible and on-brand.</p></div>
+    </div>
+    <p style="font-family:var(--sans); font-size:0.88rem; color:var(--ink-soft); margin-top:1.5rem; line-height:1.7;" class="rv">Target WCAG 2.1 AA (4.5:1 for body text, 3:1 for large text) on every surface. Sun Gold and Sea Foam are accents, not text colors — never set body copy in either, and never place gold text on a light background.</p>
+  </div>
+</section>
+
+<!-- 03 TYPE -->
+<section class="sec sec-border" id="s-type">
+  <div class="sec-num rv">03</div>
+  <div class="sec-label rv d1">Typography</div>
+  <div class="sec-title rv d2">DM Serif Display <em>+ Manrope.</em></div>
+  <p class="sec-desc rv d3">The original Noto Serif / Manjari pairing rendered inconsistently and lacked editorial gravitas. The brand typeface system pairs <strong>DM Serif Display</strong> — a high-contrast editorial serif that carries every emotional moment — with <strong>Manrope</strong>, a geometric humanist sans that does all the functional work. Two families. No exceptions.</p>
+
+  <div class="type-block rv">
+    <div class="type-meta"><span class="type-fn">Serif · DM Serif Display</span><span class="type-role">Headlines · Names · Pull Quotes · Tagline</span></div>
+    <div class="serif" style="font-size:3.5rem; letter-spacing:-0.025em; line-height:1.05; color:var(--navy);">There's a way <em style="font-style: italic;">through this.</em></div>
+    <p class="type-usage">DM Serif Display carries every emotional moment, with italics reserved for the single most loaded phrase per headline. Set it at 400 weight — its high contrast does the work; never bold it.</p>
+  </div>
+  <div class="type-block rv">
+    <div class="type-meta"><span class="type-fn">Sans · Manrope</span><span class="type-role">Body · UI · Buttons · Forms · Navigation</span></div>
+    <div style="font-family:var(--sans); font-weight:400; font-size:1.4rem; line-height:1.6; max-width:580px; color:var(--ink);">A geometric humanist sans with subtle warmth in its terminals. Confident and modern without feeling cold.</div>
+    <p class="type-usage">Weights 400, 500, 600, 700. Handles every functional touchpoint — body copy, form labels, button text, navigation. Sized at 18px base (was 16) to support the older-skewing audience.</p>
+  </div>
+  <div class="type-block rv">
+    <div class="type-meta"><span class="type-fn">Italic · DM Serif Display Italic</span><span class="type-role">Signature & accent moments</span></div>
+    <div class="serif" style="font-style: italic; font-size:2.8rem; line-height:1.1; color:var(--navy);">Kay</div>
+    <p class="type-usage">The italic cut handles signature moments, pull quotes, and the single emotional phrase inside each headline. Always paired with the upright cut for contrast — never used as the entire headline.</p>
+  </div>
+
+  <div class="type-scale rv">
+    <div class="type-scale-hd">Type Scale (sized up 25% for older audience)</div>
+    <div class="scale-row"><span class="scale-lbl">H1 / Hero</span><span class="scale-sz">48–80px</span><span class="serif" style="font-size:2.4rem; letter-spacing:-0.025em; color:var(--navy);">Have you been carrying</span></div>
+    <div class="scale-row"><span class="scale-lbl">H2 / Section</span><span class="scale-sz">36–56px</span><span class="serif" style="font-size:1.9rem; letter-spacing:-0.022em; color:var(--navy);">Five therapists, one philosophy</span></div>
+    <div class="scale-row"><span class="scale-lbl">H3 / Card</span><span class="scale-sz">26–32px</span><span class="serif" style="font-size:1.5rem; letter-spacing:-0.018em; color:var(--navy);">Couples therapy</span></div>
+    <div class="scale-row"><span class="scale-lbl">Lead</span><span class="scale-sz">22px / 1.6</span><span style="font-family:var(--sans); font-size:1.1rem; color:var(--ink); font-weight:400;">Most people who find us have already put in real effort.</span></div>
+    <div class="scale-row"><span class="scale-lbl">Body</span><span class="scale-sz">18px / 1.7</span><span style="font-family:var(--sans); font-size:0.95rem; color:var(--ink-soft);">Open daily, with telehealth statewide in California.</span></div>
+    <div class="scale-row"><span class="scale-lbl">Eyebrow</span><span class="scale-sz">13px / 0.2em</span><span style="font-family:var(--sans); font-size:0.72rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:var(--sun);">A note from Kay</span></div>
+    <div class="scale-row"><span class="scale-lbl">UI Label</span><span class="scale-sz">14–16px</span><span style="font-family:var(--sans); font-size:0.85rem; font-weight:600; color:var(--navy);">Book your free 20-minute call</span></div>
+  </div>
+</section>
+
+<!-- 04 TEXTURES -->
+<section class="sec sec-sand sec-border" id="s-tex">
+  <div class="sec-num rv">04</div>
+  <div class="sec-label rv d1">Textures & Effects</div>
+  <div class="sec-title rv d2">Tactile depth without <em>digital flatness.</em></div>
+  <p class="sec-desc rv d3">Subtle effects that give the system architectural warmth — paper grain, soft foam, atmospheric depth. None of them are visible at first glance. All of them you'd miss if they weren't there.</p>
+
+  <div class="tex-grid">
+    <div class="tex-sample t-grain rv"><span class="tex-lbl">Paper Grain Overlay</span></div>
+    <div class="tex-sample t-foam rv d1"><span class="tex-lbl">Sea Foam Wash</span></div>
+    <div class="tex-sample t-pill rv d2"><span class="tex-lbl">Pill Pattern Accent</span></div>
+  </div>
+
+  <div class="fx-grid" style="margin-top: 2.5rem;">
+    <div class="fx-card rv"><h5>Paper Grain</h5><p>Inline SVG fractal noise at 4.5% opacity (multiply blend). Applied to sand-warm sections. Adds the tactile quality of letterpress paper. Absent on white and navy where it would muddy contrast.</p></div>
+    <div class="fx-card rv d1"><h5>Long, Soft Shadows</h5><p>Three-layer composite: 1px crisp inner, 8px close diffuse, 24px ambient bloom. Cards float on the sand instead of sticking to it. Hover state pushes lift to -6px.</p></div>
+    <div class="fx-card rv d2"><h5>Layered Gold CTA</h5><p>Solid gold base, inset highlight on top edge, embedded navy circle with arrow, gold-tinted shadow underneath. The CTA has dimension without using a 2010s gradient.</p></div>
+    <div class="fx-card rv d3"><h5>Scroll Reveal</h5><p>Fade-in-up (translateY 28px) with staggered 120ms delays. Cubic-bezier easing. Each section reveals as you arrive at it — never all at once, never aggressively.</p></div>
+  </div>
+</section>
+
+<!-- 05 COMPONENTS -->
+<section class="sec sec-border" id="s-comp">
+  <div class="sec-num rv">05</div>
+  <div class="sec-label rv d1">UI Components</div>
+  <div class="sec-title rv d2">Four button types. <em>One decision tree.</em></div>
+  <p class="sec-desc rv d3">A controlled vocabulary of components that carry brand DNA at every scale — pills throughout, three corner radii, restrained palette discipline.</p>
+
+  <div class="divider"></div>
+  <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Buttons — Hierarchy of Action</p>
+  <div class="comp-row rv">
+    <button class="btn-accent">
+      Book your free call
+      <span class="btn-accent-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </button>
+    <button class="btn-primary">Schedule a session →</button>
+    <button class="btn-ghost">Meet the team →</button>
+    <button class="btn-text">Read Kay's story →</button>
+  </div>
+  <p style="font-family:var(--sans); font-size:0.9rem; color:var(--ink-faint); margin-top:1.25rem; line-height:1.6;" class="rv">Accent gold for the primary conversion (exactly one per screen). Primary navy for high-stakes asks. Ghost outline for secondary. Gold-underline text for tertiary and inline.</p>
+
+  <div class="divider"></div>
+  <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Badges</p>
+  <div class="comp-row rv">
+    <span class="badge badge-gold">Currently accepting new clients</span>
+    <span class="badge badge-foam">Telehealth — statewide CA</span>
+    <span class="badge badge-navy">Signature service</span>
+    <span class="badge badge-navy">Pepperdine-trained</span>
+  </div>
+
+  <div class="divider"></div>
+  <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Service Cards</p>
+  <div class="comp-row rv">
+    <div class="demo-card">
+      <div class="demo-card-img" style="background-image: url('https://cloud-1de12d.becdn.net/media/iW=465&iH=698&oX=0&oY=174&cW=465&cH=349/3b46809cbcb986030029b36249e06c98/oc-beach-couples-counseling.jpg');"></div>
+      <div class="demo-card-body">
+        <div class="demo-card-eyebrow">Signature</div>
+        <div class="demo-card-name">Beach Therapy</div>
+        <div class="demo-card-desc">Private walk-and-talk sessions on the Laguna coastline. For people who think better when they're moving.</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-card-img" style="background-image: url('https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-02.webp');"></div>
+      <div class="demo-card-body">
+        <div class="demo-card-eyebrow">For couples</div>
+        <div class="demo-card-name">Discernment Counseling</div>
+        <div class="demo-card-desc">For couples on the brink. A neutral 1–5 session process to help you decide what comes next.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PHOTOGRAPHY -->
+<section class="sec sec-sand sec-border" id="s-photo">
+  <div class="sec-num rv">06</div>
+  <div class="sec-label rv d1">Photography Direction</div>
+  <div class="sec-title rv d2">Real Laguna. <em>The real team.</em> No stock therapy.</div>
+  <p class="sec-desc rv d3">The Brand Voice Style Guide explicitly bans the visual register most therapy practices default to. Three categories of approved imagery — landscape, team, and signature service moments — and a long list of what we'll never use.</p>
+
+  <div class="photo-mosaic">
+    <div class="pm-item rv"><img src="https://cloud-1de12d.becdn.net/media/original/3e4031e060c2d8c6022168562a674363/Team-picture-1000-x-700-px.png" alt="The full Laguna Beach Counseling team"><div class="pm-lbl">Hero · The team in Laguna</div></div>
+    <div class="pm-item rv d1"><img src="https://cloud-1de12d.becdn.net/media/iW=465&iH=698&oX=0&oY=174&cW=465&cH=349/3b46809cbcb986030029b36249e06c98/oc-beach-couples-counseling.jpg" alt="Beach therapy session"><div class="pm-lbl">Beach therapy moments</div></div>
+    <div class="pm-item rv d2"><img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-02.webp" alt="Laguna coastline"><div class="pm-lbl">Editorial · the coast</div></div>
+    <div class="pm-item rv d3"><img src="https://cloud-1de12d.becdn.net/media/original/f1887adb2cf2bd1970086e77feaf33ed/1.png" alt="Kay Wenger"><div class="pm-lbl">Portrait · founder</div></div>
+    <div class="pm-item rv d4"><img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach.webp" alt="Laguna coastline at golden hour"><div class="pm-lbl">Atmosphere · place</div></div>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.25rem;" class="rv">Team Portraits — Individual</p>
+    <div class="team-strip rv">
+      <div class="team-portrait">
+        <img src="https://cloud-1de12d.becdn.net/media/original/f1887adb2cf2bd1970086e77feaf33ed/1.png" alt="Kay Wenger">
+        <div class="team-name-tag">Kay Wenger</div>
+      </div>
+      <div class="team-portrait">
+        <img src="https://cloud-1de12d.becdn.net/media/original/ede0718c72deddd03ce11fa34283f889/4.png" alt="Christy Hill">
+        <div class="team-name-tag">Christy Hill</div>
+      </div>
+      <div class="team-portrait">
+        <img src="https://cloud-1de12d.becdn.net/media/original/0d437fdfd4a52e272b92513392884c23/3.png" alt="Natasha Gaffaney">
+        <div class="team-name-tag">Natasha Gaffaney</div>
+      </div>
+      <div class="team-portrait">
+        <img src="https://cloud-1de12d.becdn.net/media/original/2495259cfa420956d3bc86b34edaa29f/5-1.png" alt="Austin Whitman">
+        <div class="team-name-tag">Austin Whitman</div>
+      </div>
+      <div class="team-portrait">
+        <img src="https://cloud-1de12d.becdn.net/media/original/a80096a3a1efa0393de03c8410f78a67/rozy-pishvaiy.jpg" alt="Rozy Pishvaiy">
+        <div class="team-name-tag">Rozy Pishvaiy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-rules">
+    <div class="photo-rule rv"><h5>Real Laguna landscape</h5><p>Heisler Park, Main Beach, the lifeguard towers, Crescent Bay, the coves at low tide. Shot in natural light, no overprocessing. Reinforces local credibility and activates Beach Therapy.</p></div>
+    <div class="photo-rule rv d1"><h5>Real team portraits</h5><p>Each therapist gets a single editorial-grade portrait. Same light, same register, same crop. Equal visual weight — the team should look like a team, not a hierarchy.</p></div>
+    <div class="photo-rule rv d2"><h5>Banned — no exceptions</h5><p>No clasped hands. No tissue boxes. No silhouettes against sunsets. No generic office interiors. No subjects performing distress. Nothing that could appear on a Shutterstock "therapy" search.</p></div>
+  </div>
+</section>
+
+<!-- 07 VOICE -->
+<section class="sec sec-border" id="s-voice">
+  <div class="sec-num rv">07</div>
+  <div class="sec-label rv d1">Tone of Voice</div>
+  <div class="sec-title rv d2">Warm. Direct. <em>Real.</em></div>
+  <p class="sec-desc rv d3">From the Brand Voice Style Guide: warmth 9.7/10, directness 9.6/10, humor and lightness 10/10, formality 4/10. The voice sounds like Kay — not like a brand or a brochure.</p>
+
+  <div class="tone-pillars">
+    <div class="tone-pillar rv">
+      <div class="tone-pillar-num">01</div>
+      <h4>Deeply Warm</h4>
+      <div class="tone-pillar-score">9.7 / 10</div>
+      <p>Warmth is the defining characteristic — the natural texture of how Kay engages with people. It shows up in speaking directly to someone's experience, normalizing what they're going through, and describing the work plainly.</p>
+    </div>
+    <div class="tone-pillar rv d1">
+      <div class="tone-pillar-num">02</div>
+      <h4>Genuinely Direct</h4>
+      <div class="tone-pillar-score">9.6 / 10 directness · 4 / 10 formality</div>
+      <p>Low formality paired with high directness. Says what it means. Doesn't dress things up in clinical language. "Here's what I'm actually seeing" — and have it land as care, not criticism.</p>
+    </div>
+    <div class="tone-pillar rv d2">
+      <div class="tone-pillar-num">03</div>
+      <h4>Light but Never Lightweight</h4>
+      <div class="tone-pillar-score">10 / 10 humor & lightness</div>
+      <p>Not comedy. Not deflecting from hard things. <em>Ease.</em> Room for a knowing observation, a moment that acknowledges how genuinely complicated life gets, a smile tucked inside a sentence. What Esther Perel does.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Signature Phrases — Reach for these</p>
+    <div class="signature-phrases rv">
+      <span class="sig-phrase">"Most clients find..."</span>
+      <span class="sig-phrase">"Here's what I know after 30 years..."</span>
+      <span class="sig-phrase">"That makes a lot of sense"</span>
+      <span class="sig-phrase">"Let's figure out what's actually going on"</span>
+      <span class="sig-phrase">"You're not stuck because something's wrong with you"</span>
+      <span class="sig-phrase">"There's a way through this"</span>
+      <span class="sig-phrase">"If it were easy, you'd have figured it out already"</span>
+      <span class="sig-phrase">"This is usually where things start to shift"</span>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Copy Do's & Don'ts — from the Style Guide</p>
+    <div class="copy-row rv">
+      <div class="copy-do"><div class="copy-lbl">✓ This sounds like you</div>"You're here because something needs to shift — and you're probably not sure exactly where to start. Maybe it's your relationship, or the anxiety that won't quiet down, or a transition you didn't see coming."</div>
+      <div class="copy-dont"><div class="copy-lbl">✗ Too clinical and cold</div>"Our evidence-based therapeutic interventions utilize a multidisciplinary framework to optimize client outcomes across a spectrum of presenting concerns."</div>
+    </div>
+    <div class="copy-row rv">
+      <div class="copy-do"><div class="copy-lbl">✓ This sounds like you</div>"I bring empathy, directness, and yes, occasionally a sense of humor. Because sometimes the most human thing you can do is acknowledge how complicated life gets — and maybe smile a little at it."</div>
+      <div class="copy-dont"><div class="copy-lbl">✗ Hype-y and sales-driven</div>"5 breakthrough strategies to transform your relationship! Unlock your potential this week and finally be your best self."</div>
+    </div>
+    <div class="copy-row rv">
+      <div class="copy-do"><div class="copy-lbl">✓ This sounds like you</div>"Most people who reach out for therapy have already tried a few things that didn't work. They've read the books, maybe talked to a friend, maybe even tried therapy before and it didn't quite click. That's not a failure — that's just what it looks like when you're trying to find the right fit."</div>
+      <div class="copy-dont"><div class="copy-lbl">✗ Too heavy / grim</div>"Life is filled with suffering and pain. Anxiety, depression, and relationship failure affect millions. But there may be hope — if you're truly ready to do the hard work."</div>
+    </div>
+  </div>
+
+  <div class="sample-content rv">
+    <div class="sample-content-eyebrow">Voice in action · Instagram post</div>
+    <div class="sample-content-body">
+      <p>Anxiety has a way of convincing you that the worst-case scenario is also the most likely one.</p>
+      <p>It's not that you're being irrational. It's that your brain is doing exactly what it was designed to do — scan for threats, prepare for the worst, keep you safe. The problem is it can't always tell the difference between a real emergency and an uncomfortable conversation.</p>
+      <p>That's not a character flaw. That's just how the nervous system works.</p>
+      <p>Understanding that distinction doesn't make anxiety disappear. But it does give you something to work with.</p>
+      <p>That's usually where we start.</p>
+    </div>
+    <div class="sample-content-meta">Sample social copy — verified against Style Guide.</div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.25rem;" class="rv">Banned Words — Hard Prohibitions</p>
+    <div class="banned-list rv">
+      <span class="banned-word">transform your life</span>
+      <span class="banned-word">breakthrough</span>
+      <span class="banned-word">unlock your potential</span>
+      <span class="banned-word">manifest</span>
+      <span class="banned-word">revolutionary</span>
+      <span class="banned-word">game-changer</span>
+      <span class="banned-word">life-changing</span>
+      <span class="banned-word">evidence-based interventions</span>
+      <span class="banned-word">optimize outcomes</span>
+      <span class="banned-word">therapeutic modalities</span>
+      <span class="banned-word">scalable</span>
+      <span class="banned-word">leverage</span>
+      <span class="banned-word">it's important to note</span>
+      <span class="banned-word">in today's fast-paced world</span>
+      <span class="banned-word">holistic approach</span>
+      <span class="banned-word">cutting-edge</span>
+      <span class="banned-word">ever-evolving</span>
+      <span class="banned-word">deep dive</span>
+      <span class="banned-word">guaranteed</span>
+      <span class="banned-word">simply</span>
+    </div>
+    <p style="font-family:var(--sans); font-size:0.92rem; color:var(--ink-soft); margin-top:1.5rem; line-height:1.7;" class="rv">Sourced verbatim from the Brand Voice Style Guide. "Simply" is the easiest to miss in a draft — flag every instance.</p>
+  </div>
+</section>
+
+<!-- 08 MARKS -->
+<section class="sec sec-navy sec-border" id="s-marks">
+  <div class="sec-num rv">08</div>
+  <div class="sec-label rv d1">Brand Marks</div>
+  <div class="sec-title rv d2">The lifeguard tower, <em>protected.</em></div>
+  <p class="sec-desc rv d3">The mark is the strongest single asset in the brand. Vanessa's original mark is retained without modification. The square emblem (shown below) fits naturally inside the circular containers that appear in social avatars, app icons, and brand moments.</p>
+
+  <div class="marks-row">
+    <div class="mark-ex rv">
+      <div class="mark-circle on-sand">
+        <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/lbc-logo-square.png" alt="Square mark on sand">
+      </div>
+      <div class="mark-lbl">Mark · On Sand</div>
+    </div>
+    <div class="mark-ex rv d1">
+      <div class="mark-circle on-navy">
+        <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/lbc-logo-square.png" alt="Square mark on navy">
+      </div>
+      <div class="mark-lbl">Mark · On Navy</div>
+    </div>
+    <div class="mark-ex rv d2">
+      <div class="mark-circle on-foam">
+        <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/lbc-logo-square.png" alt="Square mark on foam">
+      </div>
+      <div class="mark-lbl">Mark · On Foam</div>
+    </div>
+    <div class="mark-ex rv d3">
+      <div class="mark-circle on-gold">
+        <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/lbc-logo-square.png" alt="Square mark on gold">
+      </div>
+      <div class="mark-lbl">Mark · On Gold</div>
+    </div>
+  </div>
+
+  <div class="wm-demo rv">
+    <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-counseling-logo.svg" alt="Laguna Beach Counseling horizontal lockup">
+    <div class="wm-sub">Navigating Life's Waves Together.</div>
+  </div>
+
+  <div class="wm-dark rv">
+    <img src="https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-counseling-logo.svg" alt="Lockup on navy">
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <div class="divider"></div>
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Usage Rules</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+      <div class="fx-card rv" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+        <h5>Minimum Clear Space</h5>
+        <p style="color: rgba(255,255,255,0.7);">Always maintain clear space equal to the lifeguard tower's height on all sides. Never crowd the mark with adjacent elements or photography overlap.</p>
+      </div>
+      <div class="fx-card rv d1" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.1);">
+        <h5>Approved Backgrounds</h5>
+        <p style="color: rgba(255,255,255,0.7);">Square emblem on Sand, Navy, Sea Foam, or Sun Gold. Horizontal lockup on Sand or Navy. Never on busy photography without an overlay. Never recolored.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <div class="divider"></div>
+    <p style="font-family:var(--sans); font-weight:700; font-size:0.72rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--sun); margin-bottom:1.5rem;" class="rv">Logo Misuse — Never Do This</p>
+    <div class="logo-dont-grid">
+      <div class="logo-dont rv"><span class="logo-dont-x">✕</span><p>Don't recolor the tower or any part of the mark. The palette is fixed.</p></div>
+      <div class="logo-dont rv d1"><span class="logo-dont-x">✕</span><p>Don't stretch, squash, rotate, or otherwise distort the proportions.</p></div>
+      <div class="logo-dont rv d2"><span class="logo-dont-x">✕</span><p>Don't place the mark on busy photography without a legibility overlay.</p></div>
+      <div class="logo-dont rv d3"><span class="logo-dont-x">✕</span><p>Don't pair the lockup with non-brand typography or add a drop shadow.</p></div>
+      <div class="logo-dont rv"><span class="logo-dont-x">✕</span><p>Don't crop the lockup, box it in, or violate the clear-space rule.</p></div>
+      <div class="logo-dont rv d1"><span class="logo-dont-x">✕</span><p>Don't re-typeset the tagline — use the supplied lockup artwork only.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<section class="tagline-sec">
+  <div class="rv">
+    <div class="sec-label" style="justify-content:center; margin-bottom:2rem;">Existing Tagline · Retained</div>
+    <div class="tagline-1">Navigating Life's<br><em>Waves Together.</em></div>
+    <div class="tagline-sub">The line you've earned. The system that finally matches it.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="guide-ft">
+  <p>Laguna Beach Counseling · Brand Guidelines · "Navigating Life's Waves" · Circulation Studio · June 2026</p>
+  <span class="guide-ft-mark">Confidential</span>
+</footer>
+
+</div>
+
+<script>
+// Password gate
+const gate = document.getElementById('gate');
+const gateInput = document.getElementById('gateInput');
+const gateBtn = document.getElementById('gateBtn');
+const gateError = document.getElementById('gateError');
+const PASS = 'lbc2026';
+
+function tryUnlock() {
+  if (gateInput.value.toLowerCase().trim() === PASS) {
+    gate.classList.add('hidden');
+    document.body.style.overflow = '';
+  } else {
+    gateError.classList.add('show');
+    gateInput.value = '';
+    gateInput.focus();
+    setTimeout(() => gateError.classList.remove('show'), 2500);
+  }
+}
+gateBtn.addEventListener('click', tryUnlock);
+gateInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+document.body.style.overflow = 'hidden';
+
+// Scroll reveals
+const rvs = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -25px 0px' });
+rvs.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

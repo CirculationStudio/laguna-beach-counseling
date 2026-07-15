@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    <title>{% if metaTitle %}{{ metaTitle }}{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
     <meta name="description" content="{{ description or site.defaultDescription }}" />
     <meta name="theme-color" content="{{ site.themeColor }}" />
     {% if robots %}<meta name="robots" content="{{ robots }}" />{% elif noindex %}<meta name="robots" content="noindex" />{% endif %}

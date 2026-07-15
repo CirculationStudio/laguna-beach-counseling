@@ -5,6 +5,7 @@
 
 @import "./base/theme.css";
 @import "./base/typography.css";
+@import "./base/textures.css";
 @import "./components/site.css";
 @import "./components/nav.css";
 @import "./components/footer.css";

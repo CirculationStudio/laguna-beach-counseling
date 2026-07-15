@@ -1,0 +1,40 @@
+/* Texture utilities, ported from the approved brand guidelines (adapted to our
+   @theme token names). Atmospheric, never loud: none of these should read at a
+   glance, only in aggregate. Reusable as accent surfaces. */
+
+/* Paper grain: warm-tinted inline fractal noise on a sand-warm ground. The tint
+   comes from the feColorMatrix (sepia 0.6 / 0.45 / 0.25, alpha 0.18). */
+.t-grain {
+  background: var(--color-sand-warm);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Sea-foam wash: soft light blooms over the foam tone. */
+.t-foam {
+  position: relative;
+  background: var(--color-sea-foam);
+}
+
+.t-foam::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.5) 0%, transparent 40%),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
+}
+
+/* Pill pattern: a quiet gold dot grid under a sand-warm veil (the life-ring echo). */
+.t-pill {
+  position: relative;
+  background: var(--color-paper);
+  background-image: radial-gradient(circle, var(--color-sun) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+}
+
+.t-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 236, 0.55);
+}
