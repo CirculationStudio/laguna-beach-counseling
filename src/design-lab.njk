@@ -1,0 +1,777 @@
+---
+layout: layouts/base.njk
+metaTitle: "Design Lab (internal)"
+description: "Internal design iteration page. Not for public use."
+permalink: /design-lab/
+robots: "noindex, nofollow"
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{#
+  DESIGN LAB. A temporary working exploration doc, not the finished library.
+  Design iteration only. Do NOT ship, do NOT extract into ui.njk/sections.njk,
+  do NOT commit.
+
+  Shows the kept design direction(s) per device after review, plus later devices.
+  Copy is the real anxiety copy where it exists, reused across variations. Gold is
+  used only on the CTA buttons, the SEO digits, and the pullquote left rule / tick;
+  every other accent is teal or sea-foam.
+
+  Isolation matches the freeform experiment: noindex/nofollow, out of sitemap,
+  out of collections, not in nav. Every class is ff- or ff-guide- prefixed.
+  To remove: delete this file, src/css/pages/design-lab.css, and the import line
+  in src/css/main.css.
+#}
+
+{% set icoArrow %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>{% endset %}
+{% set icoArrowThin %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>{% endset %}
+{% set icoChevron %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>{% endset %}
+{% set icoCamera %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>{% endset %}
+{% set icoWave %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 11c1.6 0 1.6-1.6 3.2-1.6S6.8 11 8.4 11s1.6-1.6 3.2-1.6S13.2 11 14.8 11s1.6-1.6 3.2-1.6S19.6 11 22 11" /><path d="M2 16.5c1.6 0 1.6-1.6 3.2-1.6s1.6 1.6 3.2 1.6 1.6-1.6 3.2-1.6 1.6 1.6 3.2 1.6 1.6-1.6 3.2-1.6 1.6 1.6 4 1.6" /></svg>{% endset %}
+{% set icoHeart %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a3.9 3.9 0 0 1 7-2.5A3.9 3.9 0 0 1 19 10c0 5.4-7 10-7 10Z" /></svg>{% endset %}
+{% set icoCompass %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><polygon points="12 7 14.2 12 12 17 9.8 12" /></svg>{% endset %}
+{% set icoShield %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.8v5c0 5-3 8.1-7 10-4-1.9-7-5-7-10v-5Z" /></svg>{% endset %}
+{% set icoChat %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4.5 3.2V16H4.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /></svg>{% endset %}
+{% set icoClock %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5.2l3.2 2" /></svg>{% endset %}
+{% set icoCheck %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>{% endset %}
+{% set icoPlus %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>{% endset %}
+{% set icoPlay %}<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>{% endset %}
+
+{% macro photo(lbl, desc, path, wide=false) %}
+<div class="ff-photo-needed{% if wide %} ff-photo-needed--wide{% endif %}">
+  <span class="ff-ph-icon">{{ icoCamera | safe }}</span>
+  <p class="ff-ph-lbl">{{ lbl }}</p>
+  <p class="ff-ph-desc">{{ desc }}</p>
+  <p class="ff-ph-path">{{ path }}</p>
+</div>
+{% endmacro %}
+
+{# Real images for this round. Temporary guide is noindex, so these live URLs are
+   only here to judge actual imagery. #}
+{% set cdn = "https://cdn.circulationstudio.com/clients/laguna-beach-counseling" %}
+
+<main class="ff-guide-page">
+  <div class="ff-guide-wrap">
+
+    <header class="ff-guide-masthead">
+      <h1>Design lab</h1>
+      <p>A working exploration doc, not the finished library. The kept directions per device after review, with real imagery wired in. Gold is reserved for the CTA, the numbered digits, and the pullquote rule. Everything else is teal.</p>
+      <span class="ff-guide-note">Internal, noindex, out of sitemap and nav. Nothing here is committed or extracted.</span>
+    </header>
+
+    {# ===================================================================== #}
+    {# 1. KAY PORTRAIT + QUOTE + SIGNATURE                                    #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">01</span>
+        <h2>Kay portrait, quote, signature</h2>
+        <p class="ff-guide-block-note">Two kept directions. New teal wave eyebrow.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 1 of 2: founder editorial, credential grid</p>
+        <p class="ff-guide-var-desc">Authority-forward. Sticky portrait, larger name, a two-column marker grid, and a teal-rule statement block. Grounded in the About page founder treatment.</p>
+        <div class="ff-kay ff-kay--founder">
+          <div class="ff-kay-portrait ff-kay-portrait--cutout">
+            <img src="{{ cdn }}/team/kay-transparent.png" alt="Kay Wenger, LMFT, LPCC, founder of Laguna Beach Counseling" loading="lazy" decoding="async">
+          </div>
+          <div>
+            <p class="ff-eyebrow">Our founder</p>
+            <p class="ff-kay-name">Kay Wenger, <em>LMFT, LPCC</em></p>
+            <p class="ff-kay-role">Founder</p>
+            <div class="ff-kay-body">
+              <p>I have spent over 30 years in rooms with people who are anxious, and the pattern is almost always the same. They are trying hard, and the trying is not working. So we stop pushing and get curious instead.</p>
+              <p>That is usually where things start to shift. Not with a technique, and not overnight, but with two people looking at the thing together until it gets smaller.</p>
+            </div>
+            <div class="ff-kay-creds">
+              <span class="ff-cred">{{ icoCheck | safe }}<span><b>Over 30 years</b> of clinical experience</span></span>
+              <span class="ff-cred">{{ icoCheck | safe }}<span><b>LMFT, LPCC</b>, licensed in California</span></span>
+              <span class="ff-cred">{{ icoCheck | safe }}<span><b>Out-of-network</b> by design</span></span>
+              <span class="ff-cred">{{ icoCheck | safe }}<span><b>Laguna Beach</b> or telehealth</span></span>
+            </div>
+            <div class="ff-kay-statement">
+              <p>You're not stuck because something's wrong with you. The alarm is real, the danger usually is not, and we work on helping it tell the difference again.</p>
+              <cite>Kay Wenger, LMFT, LPCC</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 2 of 2: centered note, portrait on top</p>
+        <p class="ff-guide-var-desc">The most intimate. A small round portrait above a centered quote and note, on a warm sand card. Reads like a personal note rather than a bio.</p>
+        <div class="ff-kay--note">
+          <div class="ff-kay-note-portrait">
+            <img src="{{ cdn }}/team/kay-transparent.png" alt="Kay Wenger, LMFT, LPCC" loading="lazy" decoding="async">
+          </div>
+          <p class="ff-eyebrow" style="justify-content:center;">A note from Kay</p>
+          <p class="ff-kay-quote">You're not stuck because <em>something's wrong with you.</em></p>
+          <div class="ff-kay-body">
+            <p>They are trying hard, and the trying is not working. So we stop pushing and get curious instead. That is usually where things start to shift, with two people looking at the thing together until it gets smaller.</p>
+          </div>
+          <div class="ff-kay-sign">
+            <span class="ff-kay-sign-name">Kay Wenger</span>
+            <span class="ff-kay-sign-role">LMFT, LPCC, Founder</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Portrait ground treatments (behind the cutout only)</p>
+        <p class="ff-guide-var-desc">Three ways to treat the ground behind the transparent portrait. Motion is scoped to the portrait frame only, never the text column. Turn on Reduce Motion to confirm treatment 2 freezes to the same frame as treatment 1.</p>
+        <div class="ff-kayground-compare">
+          <figure>
+            <div class="ff-kay-portrait ff-kayground">
+              <img src="{{ cdn }}/team/kay-transparent.png" alt="Kay Wenger portrait cutout on a sea-foam ground" loading="lazy" decoding="async">
+            </div>
+            <figcaption>1: static + grounding shadow<span>Sea-foam wash plus a soft contact shadow beneath the figure. No motion.</span></figcaption>
+          </figure>
+          <figure>
+            <div class="ff-kay-portrait ff-kayground ff-kayground--anim">
+              <img src="{{ cdn }}/team/kay-transparent.png" alt="Kay Wenger portrait cutout on a slowly drifting sea-foam ground" loading="lazy" decoding="async">
+            </div>
+            <figcaption>2: subtle animated wash<span>The same ground with a very slow, low-amplitude drift on the wash layer. Barely perceptible.</span></figcaption>
+          </figure>
+          <figure>
+            <div class="ff-kay-portrait ff-kayground ff-kayground--frozen">
+              <img src="{{ cdn }}/team/kay-transparent.png" alt="Kay Wenger portrait cutout on a static sea-foam ground" loading="lazy" decoding="async">
+            </div>
+            <figcaption>3: reduced-motion fallback (same as 1)<span>Treatment 2 with motion forced off, the single static frame a reduced-motion viewer sees.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 2. ASYMMETRIC SPLIT                                                    #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">02</span>
+        <h2>Asymmetric split, text and image</h2>
+        <p class="ff-guide-block-note">Three compositions kept.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 1 of 3: text left, image right, near-even</p>
+        <p class="ff-guide-var-desc">The anxiety page baseline. A gentle 1.02 to 0.98 asymmetry, pullquote (gold rule) closing the text column.</p>
+        <div class="ff-split">
+          <div class="ff-split-text">
+            <p class="ff-eyebrow">What is really happening</p>
+            <h3 class="ff-h2">Your alarm is working. <em>It is just set too sensitive.</em></h3>
+            <p class="ff-desc">If you're here, some part of your day has probably started to organize itself around worry. The 3 a.m. replay of a conversation. The meeting you rehearse twenty times. The plans you quietly turn down. Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire.</p>
+            <p class="ff-desc">The alarm is real. The danger usually isn't. So how do we help it tell the difference again? That's usually where we start, and you don't have to sort it out alone.</p>
+            <p class="ff-pullquote">That's not a character flaw. That's just how the nervous system works.</p>
+          </div>
+          <div class="ff-imgframe">
+            <img src="{{ cdn }}/services/therapy/parent-teenoutdoors.jpeg" alt="A parent and teen walking outdoors together, relaxed and unhurried" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 2 of 3: flipped, image-dominant</p>
+        <p class="ff-guide-var-desc">Image on the left and larger (a stronger 1.18 to 0.82 split), text on the right ending in a text link. Grounded in the Beach Therapy flipped split.</p>
+        <div class="ff-split ff-split--image ff-split--flip">
+          <div class="ff-split-text">
+            <p class="ff-eyebrow">A different setting</p>
+            <h3 class="ff-h2">Anxiety often eases when you're <em>moving.</em></h3>
+            <p class="ff-desc">Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side, with the ocean doing a little of the talking.</p>
+            <p class="ff-beach-anchor">Sometimes the environment matters.</p>
+            <a class="ff-btn-text" href="/beach-therapy">Explore Beach Therapy {{ icoArrowThin | safe }}</a>
+          </div>
+          <div class="ff-imgframe ff-imgframe--wide">
+            <img src="{{ cdn }}/beach-therapy/beach-walk-frombehind.jpeg" alt="Two people walking side by side along the Laguna shoreline, seen from behind" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 3 of 3: overlap composition</p>
+        <p class="ff-guide-var-desc">Image and text layer rather than sit side by side. A floating paper card overlaps the image over a soft sea-foam wash. Pullquote scaled down to sit in proportion with the card.</p>
+        <div class="ff-overlap">
+          <div class="ff-overlap-media">
+            <div class="ff-imgframe ff-imgframe--wide">
+              <img src="{{ cdn }}/coastal/crescent-bay-cove.jpeg" alt="A wide, calm view of Crescent Bay Cove on the Laguna coastline" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="ff-overlap-card">
+            <p class="ff-eyebrow">What is really happening</p>
+            <h3 class="ff-h2" style="font-size:clamp(1.6rem,2.6vw,2.2rem);">Your alarm is working. <em>It is just set too sensitive.</em></h3>
+            <p class="ff-desc" style="margin-bottom:0;">Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire. The alarm is real. The danger usually isn't.</p>
+            <p class="ff-pullquote">That's not a character flaw. That's just how the nervous system works.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 3. ICON-TILE CARD                                                     #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">03</span>
+        <h2>Icon-tile card</h2>
+        <p class="ff-guide-block-note">Selected direction: centered, circular badge, teal hairline.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: centered, circular badge, teal hairline</p>
+        <p class="ff-guide-var-desc">A calm, formal card. Larger circular icon, centered text, a thin teal top rule as the only accent.</p>
+        <div class="ff-cards">
+          <article class="ff-card ff-card--center">
+            <span class="ff-card-icon">{{ icoWave | safe }}</span>
+            <h3>The worry loop</h3>
+            <p>The relief lasts about a minute before the next what-if arrives. The loop feels productive. Mostly it's exhausting.</p>
+          </article>
+          <article class="ff-card ff-card--center">
+            <span class="ff-card-icon">{{ icoHeart | safe }}</span>
+            <h3>The body's alarm</h3>
+            <p>Your body is running a threat response built for lions, not inboxes. Nothing is broken.</p>
+          </article>
+          <article class="ff-card ff-card--center">
+            <span class="ff-card-icon">{{ icoCompass | safe }}</span>
+            <h3>The avoidance trap</h3>
+            <p>Avoidance works for an afternoon, then the world quietly shrinks. It is a loan with a very high interest rate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 4. GOLD-RULE PULLQUOTE                                                #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">04</span>
+        <h2>Gold-rule pullquote</h2>
+        <p class="ff-guide-block-note">Selected direction: centered editorial, gold tick above.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: centered editorial, gold tick above</p>
+        <p class="ff-guide-var-desc">A short centered gold tick opens it (the deliberate gold accent) and an attribution closes it, set on a soft sea-foam wash so it reads as a calm breath between the busier card sections.</p>
+        <div class="t-foam ff-foam-panel">
+          <blockquote class="ff-pullquote ff-pullquote--center">
+            <span class="ff-pullquote-tick" aria-hidden="true"></span>
+            That's not a character flaw. That's just how the nervous system works.
+            <span class="ff-pullquote-attr">Kay Wenger, LMFT, LPCC</span>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 5. STACKED SEO CARD PATTERN                                           #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">05</span>
+        <h2>Stacked SEO card pattern</h2>
+        <p class="ff-guide-block-note">Selected direction: numbered divider list, gold digits.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: numbered divider list</p>
+        <p class="ff-guide-var-desc">Hairline dividers with a serif-italic index number in gold, for a quiet, editorial list. Grounded in the brand guidelines numbered pillars.</p>
+        <ul class="ff-forms ff-forms--numbered">
+          <li class="ff-form">
+            <span class="ff-form-index" aria-hidden="true">01</span>
+            <span class="ff-form-icon">{{ icoHeart | safe }}</span>
+            <div>
+              <h3>Panic attacks</h3>
+              <p>Panic disorder is the fear of the next one. Panic is treatable, and understanding what's happening is often the first turn.</p>
+            </div>
+          </li>
+          <li class="ff-form">
+            <span class="ff-form-index" aria-hidden="true">02</span>
+            <span class="ff-form-icon">{{ icoShield | safe }}</span>
+            <div>
+              <h3>Phobias</h3>
+              <p>Fear that has narrowed onto one specific thing. Treatment works in steps small enough to stay with, until the fear loosens its grip.</p>
+            </div>
+          </li>
+          <li class="ff-form">
+            <span class="ff-form-index" aria-hidden="true">03</span>
+            <span class="ff-form-icon">{{ icoChat | safe }}</span>
+            <div>
+              <h3>Social anxiety</h3>
+              <p>We work on the beliefs underneath it, and practice, gently, until connection feels less like a performance.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 6. PILL-LINK ROW                                                      #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">06</span>
+        <h2>Pill-link row</h2>
+        <p class="ff-guide-block-note">Selected direction: sand pills, icon and label.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: sand pills, icon and label</p>
+        <p class="ff-guide-var-desc">The anxiety page baseline. Soft sand chips with a small teal icon.</p>
+        <div class="ff-pills">
+          <a class="ff-pill" href="/therapy/individuals">{{ icoCompass | safe }}Individual therapy</a>
+          <a class="ff-pill" href="/telehealth">{{ icoChat | safe }}Online therapy in California</a>
+          <a class="ff-pill" href="/beach-therapy">{{ icoWave | safe }}Beach Therapy</a>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 7. TRUST BAND                                                         #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">07</span>
+        <h2>Trust band</h2>
+        <p class="ff-guide-block-note">Selected direction: navy ground, gold-light accents.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: navy ground, gold-light accents</p>
+        <p class="ff-guide-var-desc">Four markers on a navy band with gold-light icons, for a bolder near-hero moment. Uses the a11y-safe gold-on-navy pairing.</p>
+        <div class="ff-trust ff-trust--navy">
+          <div class="ff-trust-inner">
+            <p class="ff-trust-lead">Starting is the part people dread. <em>Here is how it actually goes.</em></p>
+            <div class="ff-trust-grid">
+              <div class="ff-trust-item">
+                {{ icoClock | safe }}
+                <span><b>{{ site.access.seenWithin }}</b><span>Reach out today and we will get back to you quickly.</span></span>
+              </div>
+              <div class="ff-trust-item">
+                {{ icoChat | safe }}
+                <span><b>A free first call</b><span>A relaxed 15 to 20 minute Get to Know Us call, before anything else.</span></span>
+              </div>
+              <div class="ff-trust-item">
+                {{ icoShield | safe }}
+                <span><b>Out-of-network by design</b><span>Full-length sessions, real confidentiality, and Superbills for your PPO.</span></span>
+              </div>
+              <div class="ff-trust-item">
+                {{ icoWave | safe }}
+                <span><b>{{ site.nap.addressLocality }} or telehealth</b><span>In person on Third Street, or by secure video anywhere in California.</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 8. FINAL CTA BAND WITH WATERMARK                                      #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">08</span>
+        <h2>Final CTA band with watermark</h2>
+        <p class="ff-guide-block-note">Two grounds kept. Tagline set as a quiet closing line.</p>
+      </div>
+
+      {#
+        CONSTRAINT: this navy variant must NOT be the last section directly above
+        the footer. The footer is navy too, so navy-on-navy makes a low-contrast
+        seam. Use the sand-warm variant (below) immediately before the footer.
+      #}
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 1 of 2: navy ground, centered watermark</p>
+        <p class="ff-guide-var-desc">A giant faint Together watermark centered behind centered copy and one gold CTA. Note: do not place this navy variant directly above the navy footer.</p>
+        <div class="ff-final">
+          <div class="ff-final-inner">
+            <h3>There's a way <em>through this.</em></h3>
+            <p>If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.</p>
+            <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+              {{ site.booking.navLabel }}
+              <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+            </a>
+            <p class="ff-final-tagline">{{ site.tagline }}</p>
+          </div>
+        </div>
+      </div>
+
+      {# This sand-warm variant is the footer-safe one: it reads clearly against
+         the navy footer, so this is the variant to place immediately before it. #}
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 2 of 2: sand ground, navy-tinted watermark</p>
+        <p class="ff-guide-var-desc">A lighter close. Warm sand ground, the watermark tinted navy, navy copy, the same single gold CTA. This is the footer-safe variant (sand against the navy footer), so use this one directly above the footer.</p>
+        <div class="ff-final ff-final--sand">
+          <div class="ff-final-inner">
+            <h3>There's a way <em>through this.</em></h3>
+            <p>If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.</p>
+            <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+              {{ site.booking.navLabel }}
+              <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+            </a>
+            <p class="ff-final-tagline">{{ site.tagline }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 9. FAQ ACCORDION                                                      #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">09</span>
+        <h2>FAQ accordion</h2>
+        <p class="ff-guide-block-note">Native details and summary. Two toggle treatments kept.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 1 of 2: hairline list, plus toggle</p>
+        <p class="ff-guide-var-desc">The anxiety page baseline. Hairline dividers, a teal circular toggle that turns to a close mark on open.</p>
+        <div class="ff-faq">
+          <details class="ff-faq-item">
+            <summary>Can anxiety actually get better, or do I manage it forever?<span class="ff-faq-toggle">{{ icoPlus | safe }}</span></summary>
+            <div class="ff-faq-a">It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up. Most people are surprised how much lighter an ordinary day can feel once the alarm stops running the show.</div>
+          </details>
+          <details class="ff-faq-item">
+            <summary>I've tried therapy before and it didn't really help. Why would this be different?<span class="ff-faq-toggle">{{ icoPlus | safe }}</span></summary>
+            <div class="ff-faq-a">That's worth taking seriously. When therapy doesn't help, it often wasn't the wrong effort, it was the wrong fit, or the work stayed up in your head and never reached your body. We pay attention to both, and we start by making sure you actually feel understood.</div>
+          </details>
+          <details class="ff-faq-item">
+            <summary>Do you offer anxiety counseling by telehealth?<span class="ff-faq-toggle">{{ icoPlus | safe }}</span></summary>
+            <div class="ff-faq-a">Yes. We work with clients across California by secure video, and in person in Laguna Beach, an easy drive from Newport Beach, Irvine, or Dana Point. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room, and you're somewhere you already feel safe.</div>
+          </details>
+          <details class="ff-faq-item">
+            <summary>How fast can I be seen?<span class="ff-faq-toggle">{{ icoPlus | safe }}</span></summary>
+            <div class="ff-faq-a">You can usually be seen within 24 hours of reaching out. The best first step is a free 15 to 20 minute call, so we can hear what's going on and point you to the right person.</div>
+          </details>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 2 of 2: card accordion, chevron toggle</p>
+        <p class="ff-guide-var-desc">Each question is its own bordered card with a chevron that rotates on open. More separated, easier to scan.</p>
+        <div class="ff-faq ff-faq--cards">
+          <details class="ff-faq-item">
+            <summary>Can anxiety actually get better, or do I manage it forever?<span class="ff-faq-toggle">{{ icoChevron | safe }}</span></summary>
+            <div class="ff-faq-a">It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up.</div>
+          </details>
+          <details class="ff-faq-item">
+            <summary>Do you offer anxiety counseling by telehealth?<span class="ff-faq-toggle">{{ icoChevron | safe }}</span></summary>
+            <div class="ff-faq-a">Yes. We work with clients across California by secure video, and in person in Laguna Beach. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room.</div>
+          </details>
+          <details class="ff-faq-item">
+            <summary>How fast can I be seen?<span class="ff-faq-toggle">{{ icoChevron | safe }}</span></summary>
+            <div class="ff-faq-a">You can usually be seen within 24 hours of reaching out. The best first step is a free 15 to 20 minute call.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 10. SPLIT-COLUMN LIST                                                 #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">10</span>
+        <h2>Split-column list</h2>
+        <p class="ff-guide-block-note">Selected direction: definition rows.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: definition rows</p>
+        <p class="ff-guide-var-desc">A two-column set of term-and-line rows on hairline dividers, for a calmer, more editorial list.</p>
+        <ul class="ff-defs">
+          <li class="ff-def">
+            <span class="ff-def-t">The worry loop</span>
+            <span class="ff-def-d">Thinking it through one more time, on repeat, chasing a calm that never quite arrives.</span>
+          </li>
+          <li class="ff-def">
+            <span class="ff-def-t">The body's alarm</span>
+            <span class="ff-def-d">A racing heart and tight chest, a threat response built for lions, not inboxes.</span>
+          </li>
+          <li class="ff-def">
+            <span class="ff-def-t">Avoidance</span>
+            <span class="ff-def-d">Skipping the hard thing works for an afternoon, then the world quietly shrinks.</span>
+          </li>
+          <li class="ff-def">
+            <span class="ff-def-t">Panic</span>
+            <span class="ff-def-d">A surge that can feel like an emergency, and the fear of the next one keeping it going.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 11. WHAT TO EXPECT                                                    #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">11</span>
+        <h2>What to expect, session overview</h2>
+        <p class="ff-guide-block-note">Selected direction: vertical numbered timeline.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: vertical numbered timeline</p>
+        <p class="ff-guide-var-desc">Numbered steps down a connecting line, teal markers. Reads as a clear path from first call to ongoing work.</p>
+        <ol class="ff-steps">
+          <li class="ff-step">
+            <span class="ff-step-num">1</span>
+            <div>
+              <h3>A free first call</h3>
+              <p>A relaxed 15 to 20 minute Get to Know Us call. We hear what's going on and point you to the right person. No pressure, no paperwork yet.</p>
+            </div>
+          </li>
+          <li class="ff-step">
+            <span class="ff-step-num">2</span>
+            <div>
+              <h3>Your first session</h3>
+              <p>We start by making sure you actually feel understood. You set the pace, and nothing gets forced.</p>
+            </div>
+          </li>
+          <li class="ff-step">
+            <span class="ff-step-num">3</span>
+            <div>
+              <h3>The work itself</h3>
+              <p>Solution-focused and practical. We look at the thing together until it gets smaller, in the office on Third Street or by secure video.</p>
+            </div>
+          </li>
+          <li class="ff-step">
+            <span class="ff-step-num">4</span>
+            <div>
+              <h3>Superbills for your PPO</h3>
+              <p>Out-of-network by design. Full-length sessions, and a Superbill at every session to submit to your PPO for reimbursement.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 12. HERO                                                              #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">12</span>
+        <h2>Hero</h2>
+        <p class="ff-guide-block-note">Five directions. Headline is an H3 here so the page keeps one H1; each hero fills a viewport so one gold CTA shows at a time.</p>
+      </div>
+
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 1 of 5: photo-backed split hero</p>
+        <p class="ff-guide-var-desc">Text left with the gold CTA and a ghost action, dashed photo placeholder right. The workhorse hero.</p>
+        <div class="ff-hero">
+          <div class="ff-hero-grid">
+            <div>
+              <p class="ff-eyebrow">Anxiety</p>
+              <h3 class="ff-hero-title">Anxiety therapy in <em>Laguna Beach.</em></h3>
+              <p class="ff-hero-sub">Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down.</p>
+              <div class="ff-hero-actions">
+                <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+                  {{ site.booking.navLabel }}
+                  <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+                </a>
+                <a class="ff-btn-ghost" href="#the-work">See what the work looks like</a>
+              </div>
+              <ul class="ff-marks">
+                <li>{{ icoCheck | safe }}{{ site.access.seenWithin }}</li>
+                <li>{{ icoCheck | safe }}Free 15 to 20 minute call</li>
+                <li>{{ icoCheck | safe }}{{ site.nap.addressLocality }} or telehealth</li>
+              </ul>
+            </div>
+            <div class="ff-imgframe">
+              <img src="{{ cdn }}/beach-therapy/laguna-beach-therapy-02_1.JPG" alt="A therapist and client together on the Laguna coast during a Beach Therapy session" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 2 of 5: text-only centered reframe</p>
+        <p class="ff-guide-var-desc">No image. A strong centered reframe line carries the whole hero, with the gold CTA and a ghost action beneath.</p>
+        <div class="ff-hero ff-hero--center">
+          <div class="ff-hero-inner">
+            <p class="ff-eyebrow">Anxiety</p>
+            <h3 class="ff-hero-title">Your alarm is working. <em>It is just set too sensitive.</em></h3>
+            <p class="ff-hero-sub">Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down, and you don't have to sort it out alone.</p>
+            <div class="ff-hero-actions">
+              <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+                {{ site.booking.navLabel }}
+                <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+              </a>
+              <a class="ff-btn-ghost" href="#the-work">See what the work looks like</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 3 of 5: hero with integrated trust markers</p>
+        <p class="ff-guide-var-desc">Headline and CTA over an inline row of gold-check credibility markers, so the reassurance sits right in the hero.</p>
+        <div class="ff-hero ff-hero--trust">
+          <div class="ff-hero-inner">
+            <p class="ff-eyebrow">Anxiety</p>
+            <h3 class="ff-hero-title">Anxiety therapy in <em>Laguna Beach.</em></h3>
+            <p class="ff-hero-sub">A nervous system doing its job, a little too well. There's a way to turn the volume back down.</p>
+            <div class="ff-hero-actions">
+              <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+                {{ site.booking.navLabel }}
+                <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+              </a>
+            </div>
+            <div class="ff-herotrust">
+              <span>{{ icoCheck | safe }} Over 30 years of clinical experience</span>
+              <span>{{ icoCheck | safe }} Free 15 to 20 minute first call</span>
+              <span>{{ icoCheck | safe }} {{ site.nap.addressLocality }} or telehealth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 4 of 5: photo-background, directional gradient</p>
+        <p class="ff-guide-var-desc">Full-bleed photo under the reference directional sand gradient, serif headline on the opaque left. The photo shows through toward the right.</p>
+        <div class="ff-hero ff-hero--bg">
+          <div class="ff-hero-bg">
+            <img src="{{ cdn }}/coastal/crescent-bay-cove.jpeg" alt="Crescent Bay Cove on the Laguna coastline, calm water and open sky" loading="lazy" decoding="async">
+          </div>
+          <div class="ff-hero-inner">
+            <p class="ff-eyebrow">Anxiety</p>
+            <h3 class="ff-hero-title">Anxiety therapy in <em>Laguna Beach.</em></h3>
+            <p class="ff-hero-sub">Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down.</p>
+            <div class="ff-hero-actions">
+              <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+                {{ site.booking.navLabel }}
+                <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {#
+        Variation 5, video-background hero. The <video> here is a STAND-IN asset
+        from a different project (cdn.emkt.mx), wired only to test the mechanics:
+        muted autoplay loop, poster frame, and the reduced-motion fallback to a
+        static image (see the media query in the CSS).
+        Before this ships with the real LBC video, the production version MUST:
+          - use a short, compressed, muted LBC loop (not this stand-in),
+          - gate autoplay with a matchMedia('prefers-reduced-motion') check in JS
+            so reduced-motion truly stops playback (CSS only hides it here),
+          - lazy-load and keep it off the critical path so it never hurts LCP.
+        Layout logic is identical to the photo-background hero (V4).
+      #}
+      <div class="ff-guide-variant ff-guide-variant--tall">
+        <p class="ff-guide-var-label">Variation 5 of 5: video-background (stand-in asset)</p>
+        <p class="ff-guide-var-desc">Same layout as V4, with a muted looping background video to test the mechanics. The clip is a stand-in from another project, not the real LBC video. Turn on Reduce Motion to see it fall back to the static poster.</p>
+        <div class="ff-hero ff-hero--bg">
+          <div class="ff-hero-bg">
+            <video class="ff-hero-video" autoplay muted loop playsinline preload="metadata" poster="{{ cdn }}/coastal/crescent-bay-cove.jpeg">
+              <source src="https://cdn.emkt.mx/videos/el-eclat-d-or.mp4" type="video/mp4" />
+            </video>
+            <img class="ff-hero-video-fallback" src="{{ cdn }}/coastal/crescent-bay-cove.jpeg" alt="Poster still of the Laguna coastline, gentle waves at the tideline" loading="lazy" decoding="async">
+          </div>
+          <span class="ff-hero-media-tag">{{ icoPlay | safe }} Video, muted loop (stand-in, pending real LBC asset)</span>
+          <div class="ff-hero-inner">
+            <p class="ff-eyebrow">Anxiety</p>
+            <h3 class="ff-hero-title">There's a way to turn the <em>volume down.</em></h3>
+            <p class="ff-hero-sub">Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. Warm, practical help in Laguna Beach or by telehealth across California.</p>
+            <div class="ff-hero-actions">
+              <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+                {{ site.booking.navLabel }}
+                <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 13. PICTURE TILE CARDS                                                #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">13</span>
+        <h2>Picture tile cards</h2>
+        <p class="ff-guide-block-note">Image-forward cards that lead with a photo, not an icon. Two treatments.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 1 of 2: photo on top, text below</p>
+        <p class="ff-guide-var-desc">A 3-up grid. Each card opens with a photo, then a title, a line, and a teal read-more. Good for service or topic navigation.</p>
+        <div class="ff-pcards">
+          <a class="ff-pcard" href="/therapy/individuals">
+            <div class="ff-pcard-media"><img src="{{ cdn }}/services/specialties/two-womenconversation.jpeg" alt="Two women in a warm, unhurried conversation during a therapy session" loading="lazy" decoding="async"></div>
+            <div class="ff-pcard-body">
+              <h3>Individual therapy</h3>
+              <p>One-to-one work for anxiety, at your pace, with someone who gets it.</p>
+              <span class="ff-pcard-more">Learn more {{ icoArrowThin | safe }}</span>
+            </div>
+          </a>
+          <a class="ff-pcard" href="/beach-therapy">
+            <div class="ff-pcard-media"><img src="{{ cdn }}/coastal/laguna-lifeguardtower.jpeg" alt="A lifeguard tower on the Laguna Beach shoreline under open sky" loading="lazy" decoding="async"></div>
+            <div class="ff-pcard-body">
+              <h3>Beach Therapy</h3>
+              <p>The same real work, outdoors and side by side, with the ocean nearby.</p>
+              <span class="ff-pcard-more">Learn more {{ icoArrowThin | safe }}</span>
+            </div>
+          </a>
+          <a class="ff-pcard" href="/specialties/grief">
+            <div class="ff-pcard-media"><img src="{{ cdn }}/services/specialties/grief-supporthands.jpeg" alt="Two people holding hands in a gesture of support and comfort" loading="lazy" decoding="async"></div>
+            <div class="ff-pcard-body">
+              <h3>Grief and loss</h3>
+              <p>Support through loss, unhurried, in person or by secure video.</p>
+              <span class="ff-pcard-more">Learn more {{ icoArrowThin | safe }}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Variation 2 of 2: overlay caption on a navy scrim</p>
+        <p class="ff-guide-var-desc">A 2-up grid with the title set over the photo on a navy bottom scrim, so the text stays readable over the image.</p>
+        <div class="ff-pcards ff-pcards--overlay">
+          <a class="ff-pcard ff-pcard--overlay" href="/beach-therapy">
+            <div class="ff-pcard-media"><img src="{{ cdn }}/coastal/laguna-lifeguardtower.jpeg" alt="A lifeguard tower on the Laguna Beach shoreline under open sky" loading="lazy" decoding="async"></div>
+            <div class="ff-pcard-body">
+              <h3>Beach Therapy</h3>
+              <p>Therapy that moves, on the coast.</p>
+            </div>
+          </a>
+          <a class="ff-pcard ff-pcard--overlay" href="/therapy/individuals">
+            <div class="ff-pcard-media"><img src="{{ cdn }}/services/specialties/two-womenconversation.jpeg" alt="Two women in a warm, unhurried conversation during a therapy session" loading="lazy" decoding="async"></div>
+            <div class="ff-pcard-body">
+              <h3>Individual therapy</h3>
+              <p>One-to-one, at your pace.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {# ===================================================================== #}
+    {# 14. LONGFORM TEXT WITH DROP-CAP                                       #}
+    {# ===================================================================== #}
+    <section class="ff-guide-block">
+      <div class="ff-guide-block-head">
+        <span class="ff-guide-num">14</span>
+        <h2>Longform text with drop-cap</h2>
+        <p class="ff-guide-block-note">For written pages and posts. Serif drop-cap, generous measure and leading.</p>
+      </div>
+
+      <div class="ff-guide-variant">
+        <p class="ff-guide-var-label">Selected direction: classic serif drop-cap</p>
+        <p class="ff-guide-var-desc">A navy serif drop-cap opens the first paragraph, with a readable measure and open leading. Subheads set in the display serif.</p>
+        <div class="ff-longform">
+          <p>Most people who come in for anxiety have already tried very hard to think their way out of it. They have read the books, rehearsed the conversations, and planned for outcomes that never arrived. The trying is real, and so is the exhaustion that comes with it. What tends to help is not more effort, but a different relationship with the alarm itself.</p>
+          <p>So we get curious instead of forceful. What is the worry protecting? When does it fire, and what does it cost you to keep obeying it? Those questions sound simple, and they are not, but they are where the work usually begins.</p>
+          <h3>How the work actually goes</h3>
+          <p>It is solution-focused and practical, and it moves at your pace. We pay attention to the thoughts and to the body, because anxiety lives in both, and we start by making sure you feel genuinely understood. Not managed, not processed, understood. That is the part people say they were missing.</p>
+          <p>Change comes the way it usually does, quietly and then all at once. The racing thoughts settle, the chest loosens, and an ordinary day starts to feel lighter than it has in a while.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>

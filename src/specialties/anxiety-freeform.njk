@@ -1,0 +1,371 @@
+---
+layout: layouts/base.njk
+metaTitle: "Anxiety Therapist Laguna Beach | Anxiety Counseling"
+description: "Anxiety isn't a character flaw. It's a nervous system doing its job. Warm, practical help in Laguna Beach or by telehealth across California."
+permalink: /specialties/anxiety-freeform/
+robots: "noindex, nofollow"
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{# FREEFORM EXPERIMENT, temporary. A second version of /specialties/anxiety composed by
+   hand against the locked tokens and the approved reference files, with no component
+   macros, so the two compositions can be compared side by side. Kept out of Google:
+   noindex and nofollow above, excluded from collections and the sitemap, and not in nav.
+   That exclusion is required, not cosmetic: this is near-duplicate content of the real page.
+
+   Header, footer, and mega menu come from the base layout, unchanged.
+   support-resources.njk is reused deliberately: CLAUDE.md requires the crisis block be one
+   shared component, and hand-copying safety copy invites drift. It is not a ui/sections macro.
+
+   DRAFT COPY, PENDING KAY APPROVAL: the FAQ answers and the first-person Kay block are
+   agency-written in Kay's voice per voice-tone.md. faq.json does not exist yet, so these
+   FAQs are drawn from the approved /faq brief and must be confirmed with Kay before any
+   of this is published. No statistics appear: CONTENT_EVIDENCE.md requires a verified
+   current CDC or AskCHIS figure pulled at publish time, which is not available. #}
+
+{% set crumbs = [
+  { label: "Home", url: "/" },
+  { label: "Specialties", url: "/specialties" },
+  { label: "Anxiety" }
+] %}
+
+{% set faqItems = [
+  {
+    q: "Can anxiety actually get better, or do I manage it forever?",
+    a: "It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up. Most people are surprised how much lighter an ordinary day can feel once the alarm stops running the show."
+  },
+  {
+    q: "I've tried therapy before and it didn't really help. Why would this be different?",
+    a: "That's worth taking seriously. When therapy doesn't help, it often wasn't the wrong effort, it was the wrong fit, or the work stayed up in your head and never reached your body. We pay attention to both, and we start by making sure you actually feel understood."
+  },
+  {
+    q: "Do you offer anxiety counseling by telehealth?",
+    a: "Yes. We work with clients across California by secure video, and in person in Laguna Beach, an easy drive from Newport Beach, Irvine, or Dana Point. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room, and you're somewhere you already feel safe."
+  },
+  {
+    q: "How fast can I be seen?",
+    a: "You can usually be seen within 24 hours of reaching out. The best first step is a free 15 to 20 minute call, so we can hear what's going on and point you to the right person."
+  }
+] %}
+
+{% set icoCheck %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>{% endset %}
+{% set icoArrow %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>{% endset %}
+{% set icoArrowThin %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>{% endset %}
+{% set icoChevron %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18" /></svg>{% endset %}
+{% set icoCamera %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>{% endset %}
+{% set icoWave %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 11c1.6 0 1.6-1.6 3.2-1.6S6.8 11 8.4 11s1.6-1.6 3.2-1.6S13.2 11 14.8 11s1.6-1.6 3.2-1.6S19.6 11 22 11" /><path d="M2 16.5c1.6 0 1.6-1.6 3.2-1.6s1.6 1.6 3.2 1.6 1.6-1.6 3.2-1.6 1.6 1.6 3.2 1.6 1.6-1.6 3.2-1.6 1.6 1.6 4 1.6" /></svg>{% endset %}
+{% set icoHeart %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a3.9 3.9 0 0 1 7-2.5A3.9 3.9 0 0 1 19 10c0 5.4-7 10-7 10Z" /></svg>{% endset %}
+{% set icoCompass %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><polygon points="12 7 14.2 12 12 17 9.8 12" /></svg>{% endset %}
+{% set icoSun %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" /></svg>{% endset %}
+{% set icoShield %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.8v5c0 5-3 8.1-7 10-4-1.9-7-5-7-10v-5Z" /></svg>{% endset %}
+{% set icoChat %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4.5 3.2V16H4.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" /></svg>{% endset %}
+{% set icoClock %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5.2l3.2 2" /></svg>{% endset %}
+{% set icoPlus %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>{% endset %}
+
+{# ---- Breadcrumbs ------------------------------------------------------- #}
+<nav class="ff-crumbs" aria-label="Breadcrumb">
+  <div class="ff-wrap">
+    <ol>
+      {% for item in crumbs %}
+        <li>
+          {% if item.url and not loop.last %}
+            <a href="{{ item.url }}">{{ item.label }}</a>{{ icoChevron | safe }}
+          {% else %}
+            <span aria-current="page">{{ item.label }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</nav>
+
+{# ---- Hero -------------------------------------------------------------- #}
+<section class="ff-hero">
+  <div class="ff-wrap ff-hero-grid">
+    <div>
+      <p class="ff-eyebrow">Anxiety</p>
+      <h1>Anxiety therapy in <em>Laguna Beach.</em></h1>
+      <p class="ff-hero-sub">Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down.</p>
+      <div class="ff-hero-actions">
+        <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+          {{ site.booking.navLabel }}
+          <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+        </a>
+        <a class="ff-btn-ghost" href="#the-work">See what the work looks like</a>
+      </div>
+      <ul class="ff-marks">
+        <li>{{ icoCheck | safe }}{{ site.access.seenWithin }}</li>
+        <li>{{ icoCheck | safe }}Free 15 to 20 minute call</li>
+        <li>{{ icoCheck | safe }}{{ site.nap.addressLocality }} or telehealth</li>
+      </ul>
+    </div>
+    <div class="ff-photo-needed">
+      <span class="ff-ph-icon">{{ icoCamera | safe }}</span>
+      <p class="ff-ph-lbl">Hero photo to source</p>
+      <p class="ff-ph-desc">A quiet Laguna coastline at soft morning light, open horizon, no people in focus. Calm, not clinical.</p>
+      <p class="ff-ph-path">coastal set, pending on the CDN</p>
+    </div>
+  </div>
+</section>
+
+{# ---- Trust band -------------------------------------------------------- #}
+<section class="ff-trust">
+  <div class="ff-wrap ff-trust-inner">
+    <p class="ff-trust-lead ff-rv">Starting is the part people dread. <em>Here is how it actually goes.</em></p>
+    <div class="ff-trust-grid">
+      <div class="ff-trust-item ff-rv">
+        {{ icoClock | safe }}
+        <span><b>{{ site.access.seenWithin }}</b><span>Reach out today and we will get back to you quickly.</span></span>
+      </div>
+      <div class="ff-trust-item ff-rv ff-d1">
+        {{ icoChat | safe }}
+        <span><b>A free first call</b><span>A relaxed 15 to 20 minute Get to Know Us call, before anything else.</span></span>
+      </div>
+      <div class="ff-trust-item ff-rv ff-d2">
+        {{ icoShield | safe }}
+        <span><b>Out-of-network by design</b><span>Full-length sessions, real confidentiality, and Superbills for your PPO.</span></span>
+      </div>
+      <div class="ff-trust-item ff-rv ff-d3">
+        {{ icoWave | safe }}
+        <span><b>{{ site.nap.addressLocality }} or telehealth</b><span>In person on Third Street, or by secure video anywhere in California.</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---- The reframe ------------------------------------------------------- #}
+<section class="ff-section">
+  <div class="ff-wrap ff-split">
+    <div class="ff-split-text ff-rv">
+      <p class="ff-eyebrow">What is really happening</p>
+      <h2 class="ff-h2">Your alarm is working. <em>It is just set too sensitive.</em></h2>
+      <p class="ff-desc">If you're here, some part of your day has probably started to organize itself around worry. The 3 a.m. replay of a conversation. The meeting you rehearse twenty times. The plans you quietly turn down. Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire.</p>
+      <p class="ff-desc">The alarm is real. The danger usually isn't. So how do we help it tell the difference again? That's usually where we start, and you don't have to sort it out alone.</p>
+      <p class="ff-pullquote">That's not a character flaw. That's just how the nervous system works.</p>
+    </div>
+    <div class="ff-photo-needed ff-rv ff-d1">
+      <span class="ff-ph-icon">{{ icoCamera | safe }}</span>
+      <p class="ff-ph-lbl">Photo to source</p>
+      <p class="ff-ph-desc">One person on the sand at a distance, shoulders down, looking at the water. Room to breathe in the frame.</p>
+      <p class="ff-ph-path">coastal set, pending on the CDN</p>
+    </div>
+  </div>
+</section>
+
+{# ---- What anxiety is doing --------------------------------------------- #}
+<section class="ff-section ff-band-sand">
+  <div class="ff-wrap">
+    <div class="ff-head ff-head--center ff-rv">
+      <p class="ff-eyebrow">The pattern</p>
+      <h2 class="ff-h2">What anxiety is actually doing.</h2>
+      <p class="ff-desc">Three moving parts, and none of them mean something is wrong with you.</p>
+    </div>
+    <div class="ff-cards">
+      <article class="ff-card ff-rv">
+        <span class="ff-card-icon">{{ icoWave | safe }}</span>
+        <h3>The worry loop</h3>
+        <p>Worry promises that if you think it through one more time, you'll finally feel safe. So you do, and the relief lasts about a minute before the next what-if arrives. The loop feels productive. Mostly it's exhausting.</p>
+      </article>
+      <article class="ff-card ff-rv ff-d1">
+        <span class="ff-card-icon">{{ icoHeart | safe }}</span>
+        <h3>The body's alarm</h3>
+        <p>Racing heart, tight chest, the sense that something is about to go wrong. Your body is running a threat response built for lions, not inboxes. Nothing is broken. The wiring is doing exactly what it evolved to do.</p>
+      </article>
+      <article class="ff-card ff-rv ff-d2">
+        <span class="ff-card-icon">{{ icoCompass | safe }}</span>
+        <h3>The avoidance trap</h3>
+        <p>Skipping the thing that scares you works, for an afternoon. Then the world quietly shrinks, and the list of off-limits places and conversations grows. Avoidance is a loan with a very high interest rate.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{# ---- The many shapes it takes (the SEO section) ------------------------ #}
+<section class="ff-section" id="the-work">
+  <div class="ff-wrap">
+    <div class="ff-head ff-rv">
+      <p class="ff-eyebrow">The many shapes it takes</p>
+      <h2 class="ff-h2">Panic attacks, phobias, and <em>social anxiety.</em></h2>
+      <p class="ff-desc">Anxiety rarely shows up in the abstract. It picks a shape. Here are the three we see most, and what the work looks like for each.</p>
+    </div>
+    <ul class="ff-forms">
+      <li class="ff-form ff-rv">
+        <span class="ff-form-icon">{{ icoHeart | safe }}</span>
+        <div>
+          <h3>Panic attacks</h3>
+          <p>A panic attack can feel like a heart attack: the pounding chest, the dizziness, the certainty that something is very wrong. Panic disorder is the fear of the next one, which quietly keeps the cycle going. Panic is treatable, and understanding what's happening is often the first turn.</p>
+        </div>
+      </li>
+      <li class="ff-form ff-rv ff-d1">
+        <span class="ff-form-icon">{{ icoShield | safe }}</span>
+        <div>
+          <h3>Phobias</h3>
+          <p>Flying, driving the 405, needles, heights, deep water. A phobia is fear that has narrowed onto one specific thing and dug in. Phobia treatment works by helping you approach it in steps small enough to stay with, until the fear loosens its grip.</p>
+        </div>
+      </li>
+      <li class="ff-form ff-rv ff-d2">
+        <span class="ff-form-icon">{{ icoChat | safe }}</span>
+        <div>
+          <h3>Social anxiety</h3>
+          <p>If being watched, judged, or noticed at all sends your stomach into free fall, that's social anxiety, sometimes called social phobia. We work on the beliefs underneath it, and practice, gently, until connection feels less like a performance.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{# ---- Beach Therapy cross-sell (internal link 1) ------------------------ #}
+<section class="ff-section ff-band-sand">
+  <div class="ff-wrap ff-split ff-split--flip">
+    <div class="ff-split-text ff-rv ff-d1">
+      <p class="ff-eyebrow">A different setting</p>
+      <h2 class="ff-h2">Anxiety often eases when you're <em>moving.</em></h2>
+      <p class="ff-desc">Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side, with the ocean doing a little of the talking.</p>
+      <p class="ff-beach-anchor">Sometimes the environment matters.</p>
+      <a class="ff-btn-text" href="/beach-therapy">Explore Beach Therapy {{ icoArrowThin | safe }}</a>
+    </div>
+    <div class="ff-photo-needed ff-photo-needed--wide ff-rv">
+      <span class="ff-ph-icon">{{ icoCamera | safe }}</span>
+      <p class="ff-ph-lbl">Photo to source</p>
+      <p class="ff-ph-desc">Two people walking side by side at the tideline near Heisler Park, framed from behind for privacy, soft light.</p>
+      <p class="ff-ph-path">coastal or services set, pending on the CDN</p>
+    </div>
+  </div>
+</section>
+
+{# ---- Kay block --------------------------------------------------------- #}
+<section class="ff-section">
+  <div class="ff-wrap ff-kay">
+    <div class="ff-kay-portrait ff-photo-needed ff-rv">
+      <span class="ff-ph-icon">{{ icoCamera | safe }}</span>
+      <p class="ff-ph-lbl">Portrait to source</p>
+      <p class="ff-ph-desc">Kay outdoors, natural light, warm and unposed. Not a clinical headshot.</p>
+      <p class="ff-ph-path">team set, pending on the CDN</p>
+    </div>
+    <div class="ff-rv ff-d1">
+      <p class="ff-eyebrow">Who you would work with</p>
+      <p class="ff-kay-quote">You're not stuck because <em>something's wrong with you.</em></p>
+      <div class="ff-kay-body">
+        <p>I have spent over 30 years in rooms with people who are anxious, and the pattern is almost always the same. They are trying hard, and the trying is not working. So we stop pushing and get curious instead. What is the alarm protecting? When does it fire? What happens if we let it ring without obeying it?</p>
+        <p>That is usually where things start to shift. Not with a technique, and not overnight, but with two people looking at the thing together until it gets smaller.</p>
+      </div>
+      <div class="ff-kay-sign">
+        <span class="ff-kay-sign-name">Kay Wenger</span>
+        <span class="ff-kay-sign-role">LMFT, LPCC, Founder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---- Where to go next (internal link 2) -------------------------------- #}
+<section class="ff-section ff-band-sand">
+  <div class="ff-wrap">
+    <div class="ff-head ff-rv">
+      <p class="ff-eyebrow">Where to go next</p>
+      <h2 class="ff-h2">Anxiety rarely travels alone.</h2>
+      <p class="ff-desc">When it's tangled up with self-doubt, a low mood, or a decision you can't seem to make, these are the natural next doors.</p>
+      <div class="ff-pills">
+        <a class="ff-pill" href="/therapy/individuals">{{ icoCompass | safe }}Individual therapy</a>
+        <a class="ff-pill" href="/telehealth">{{ icoChat | safe }}Online therapy in California</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---- FAQ --------------------------------------------------------------- #}
+<section class="ff-section">
+  <div class="ff-wrap">
+    <div class="ff-head ff-rv">
+      <p class="ff-eyebrow">Questions people ask</p>
+      <h2 class="ff-h2">Before you reach out.</h2>
+    </div>
+    <div class="ff-faq">
+      {% for item in faqItems %}
+        <details class="ff-faq-item ff-rv">
+          <summary>{{ item.q }}<span class="ff-faq-toggle">{{ icoPlus | safe }}</span></summary>
+          <div class="ff-faq-a">{{ item.a }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- Support resources (crisis-adjacent, shared component) ------------- #}
+<section class="ff-section ff-band-sand">
+  <div class="ff-wrap ff-support">
+    {% set onFooter = false %}
+    {% include "components/support-resources.njk" %}
+  </div>
+</section>
+
+{# ---- Final CTA (internal link 3, the one gold in this viewport) -------- #}
+<section class="ff-final">
+  <div class="ff-wrap ff-final-inner">
+    <h2>There's a way <em>through this.</em></h2>
+    <p>If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.</p>
+    <a class="ff-btn-gold" href="{{ site.booking.getStartedPath }}">
+      {{ site.booking.navLabel }}
+      <span class="ff-btn-gold__arrow">{{ icoArrow | safe }}</span>
+    </a>
+    <p class="ff-final-tagline">{{ site.tagline }}</p>
+  </div>
+</section>
+
+{# ---- Schema: hand-written, generated from the same data as the visible page #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Anxiety therapy",
+  "serviceType": "Anxiety therapy",
+  "description": "Warm, practical anxiety counseling in Laguna Beach and by telehealth across California, including help for panic attacks, phobias, and social anxiety.",
+  "url": {{ (site.url + "/specialties/anxiety-freeform/") | dump | safe }},
+  "provider": {
+    "@type": "MedicalBusiness",
+    "@id": {{ (site.url + "/#business") | dump | safe }},
+    "name": {{ site.name | dump | safe }},
+    "telephone": {{ site.nap.telephone | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  },
+  "areaServed": ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for item in crumbs %}{ "@type": "ListItem", "position": {{ loop.index }}, "name": {{ item.label | dump | safe }}{% if item.url %}, "item": {{ (site.url + item.url) | dump | safe }}{% endif %} }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in faqItems %}{ "@type": "Question", "name": {{ item.q | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | dump | safe }} } }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+
+{# Scroll reveal. The hidden state only applies once this script sets the flag, so with
+   JS off nothing is ever hidden. Skipped entirely under prefers-reduced-motion. #}
+<script>
+  (function () {
+    if (!("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.documentElement.setAttribute("data-ff-rv", "");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("ff-vis");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".ff-rv").forEach(function (el) { io.observe(el); });
+  })();
+</script>

@@ -1,0 +1,914 @@
+/* Freeform anxiety experiment (temporary). Hand-composed against the locked tokens
+   and the approved reference files, with no component macros. Every selector is
+   prefixed ff- so nothing here can collide with or inherit from the component
+   library (.hero, .card, .section and friends already exist globally).
+   To remove the experiment: delete this file, src/specialties/anxiety-freeform.njk,
+   and the import line in main.css.
+
+   One deliberate correction to the reference: the reference sets eyebrow and label
+   text in gold on light grounds, which fails WCAG AA (and its own accessibility card
+   says never place gold text on a light background). Here the gold rule stays as the
+   accent and the text takes navy. On navy grounds gold-light text passes, so it is
+   used there. */
+
+/* ---- Shell -------------------------------------------------------------- */
+.ff-wrap {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 2.5rem;
+}
+
+/* Paper is the base surface and sand-warm is the band, the same alternation the
+   reference uses. Without this the page would fall through to the body's neutral
+   sand, which reads muddy against the warm bands. */
+.ff-section {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 6rem);
+  background: var(--color-paper);
+}
+
+.ff-band-sand {
+  position: relative;
+  background: var(--color-sand-warm);
+}
+
+.ff-band-sand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.ff-band-sand > *,
+.ff-band-navy > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ff-band-navy {
+  background: var(--color-navy);
+}
+
+/* ---- Type --------------------------------------------------------------- */
+.ff-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 1rem;
+}
+
+.ff-eyebrow::before {
+  content: "";
+  flex: none;
+  width: 28px;
+  height: 2px;
+  background: var(--color-sun);
+}
+
+.ff-band-navy .ff-eyebrow {
+  color: var(--color-sun-light);
+}
+
+.ff-h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--color-navy);
+  margin: 0 0 1.2rem;
+}
+
+.ff-h2 em {
+  font-style: italic;
+}
+
+.ff-desc {
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+  margin: 0 0 1.1rem;
+}
+
+.ff-head {
+  max-width: 48rem;
+  margin-bottom: 2.75rem;
+}
+
+.ff-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.ff-head--center .ff-eyebrow {
+  justify-content: center;
+}
+
+.ff-head--center .ff-desc {
+  margin-inline: auto;
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+.ff-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 22px;
+  background: var(--color-sun);
+  color: var(--color-navy);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(196, 141, 5, 0.35),
+    0 2px 6px rgba(0, 26, 46, 0.06),
+    0 8px 20px rgba(223, 161, 8, 0.18);
+  transition: background 0.24s ease, transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.ff-btn-gold:hover {
+  background: var(--color-sun-deep);
+  color: var(--color-navy);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(196, 141, 5, 0.35),
+    0 3px 8px rgba(0, 26, 46, 0.08),
+    0 12px 28px rgba(223, 161, 8, 0.28);
+}
+
+.ff-btn-gold__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-sun-light);
+}
+
+.ff-btn-gold__arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.ff-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  background: transparent;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ff-btn-ghost:hover {
+  background: var(--color-navy);
+  color: var(--color-paper);
+}
+
+.ff-btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0 8px;
+  color: var(--color-navy);
+  border-bottom: 2px solid var(--color-sun);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.ff-btn-text:hover {
+  color: var(--color-water-deep);
+}
+
+.ff-btn-text svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.18s ease;
+}
+
+.ff-btn-text:hover svg {
+  transform: translateX(2px);
+}
+
+/* ---- Breadcrumbs -------------------------------------------------------- */
+.ff-crumbs {
+  background: var(--color-sand-warm);
+}
+
+.ff-crumbs ol {
+  list-style: none;
+  margin: 0;
+  padding: 0.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.ff-crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ff-crumbs a {
+  color: var(--color-water-deep);
+  text-decoration: none;
+}
+
+.ff-crumbs a:hover {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ff-crumbs [aria-current="page"] {
+  color: var(--color-ink-soft);
+}
+
+.ff-crumbs svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-ink-faint);
+}
+
+/* ---- Hero --------------------------------------------------------------- */
+.ff-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-sand-warm);
+}
+
+.ff-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3.5rem;
+  align-items: center;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+/* Let grid columns shrink below their content width so a large serif H1 cannot
+   force horizontal overflow (grid items default to min-width auto). */
+.ff-hero-grid > *,
+.ff-split > *,
+.ff-kay > * {
+  min-width: 0;
+}
+
+.ff-hero h1 {
+  overflow-wrap: break-word;
+}
+
+.ff-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.9rem, 6.2vw, 5.3rem);
+  letter-spacing: -0.028em;
+  line-height: 1.03;
+  color: var(--color-navy);
+  margin: 0 0 1.5rem;
+}
+
+.ff-hero h1 em {
+  font-style: italic;
+}
+
+.ff-hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+  max-width: 34rem;
+  margin: 0 0 2.2rem;
+}
+
+.ff-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.4rem;
+}
+
+.ff-marks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.ff-marks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ff-marks svg {
+  width: 17px;
+  height: 17px;
+  color: var(--color-sun-deep);
+  flex: none;
+}
+
+/* ---- Trust band --------------------------------------------------------- */
+.ff-trust {
+  background: var(--color-paper);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.ff-trust-inner {
+  padding-block: 2.6rem;
+}
+
+.ff-trust-lead {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--color-navy);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  max-width: 45rem;
+  margin: 0 0 2rem;
+}
+
+.ff-trust-lead em {
+  font-style: italic;
+}
+
+.ff-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.ff-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.ff-trust-item svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-sun-deep);
+  flex: none;
+  margin-top: 2px;
+}
+
+.ff-trust-item b {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-navy);
+}
+
+.ff-trust-item span {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  color: var(--color-ink-soft);
+  line-height: 1.5;
+}
+
+/* ---- Split (text + media) ----------------------------------------------- */
+.ff-split {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.ff-split--flip .ff-split-text {
+  order: 2;
+}
+
+.ff-pullquote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 2.05rem);
+  color: var(--color-water-deep);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  margin: 1.7rem 0 0;
+  padding-left: 1.4rem;
+  border-left: 3px solid var(--color-sun);
+}
+
+/* ---- Photo needed (the reference's sourcing placeholder) ----------------- */
+.ff-photo-needed {
+  aspect-ratio: 4 / 5;
+  border: 2px dashed rgba(0, 54, 87, 0.28);
+  border-radius: 22px;
+  background: var(--color-sand-warm);
+  background-image: radial-gradient(circle, rgba(0, 54, 87, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.ff-photo-needed--wide {
+  aspect-ratio: 4 / 3;
+}
+
+.ff-ph-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 54, 87, 0.08);
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.ff-ph-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ff-ph-lbl {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 0.7rem;
+}
+
+.ff-ph-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+  line-height: 1.55;
+  max-width: 22rem;
+  margin: 0 0 0.9rem;
+}
+
+.ff-ph-path {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.74rem;
+  color: var(--color-ink-soft);
+  background: rgba(0, 54, 87, 0.05);
+  padding: 5px 12px;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+/* ---- Cards -------------------------------------------------------------- */
+.ff-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.ff-card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 22px;
+  padding: 2.4rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ff-card:hover {
+  transform: translateY(-4px);
+}
+
+.ff-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(152, 197, 216, 0.22);
+  color: var(--color-water-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+}
+
+.ff-card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ff-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--color-navy);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.ff-card p {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---- Forms list (panic, phobias, social anxiety) ------------------------- */
+.ff-forms {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.ff-form {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-soft);
+  border-left: 3px solid var(--color-sun);
+  border-radius: 0 18px 18px 0;
+  padding: 2rem 2.4rem;
+  box-shadow: var(--shadow-card);
+}
+
+.ff-form-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(152, 197, 216, 0.22);
+  color: var(--color-water-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ff-form-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.ff-form h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-navy);
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4rem;
+}
+
+.ff-form p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+  max-width: 62ch;
+  margin: 0;
+}
+
+/* ---- Beach cross-sell --------------------------------------------------- */
+.ff-beach-anchor {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--color-water-deep);
+  margin: 1.4rem 0 1.8rem;
+}
+
+/* ---- Kay block ---------------------------------------------------------- */
+.ff-kay {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.ff-kay-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.3vw, 1.95rem);
+  color: var(--color-navy);
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.ff-kay-quote em {
+  font-style: italic;
+}
+
+.ff-kay-body {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--color-ink-soft);
+  line-height: 1.8;
+}
+
+.ff-kay-body p {
+  margin: 0;
+}
+
+.ff-kay-body p + p {
+  margin-top: 1rem;
+}
+
+.ff-kay-sign {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.ff-kay-sign-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-navy);
+}
+
+.ff-kay-sign-role {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+}
+
+/* ---- Pill links --------------------------------------------------------- */
+.ff-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.ff-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 17px;
+  border-radius: var(--radius-pill);
+  background: var(--color-sand-warm);
+  border: 1px solid var(--color-border-soft);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-navy);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ff-pill:hover {
+  background: rgba(40, 160, 201, 0.08);
+  border-color: rgba(40, 160, 201, 0.35);
+  color: var(--color-navy);
+  transform: translateY(-1px);
+}
+
+.ff-pill svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-water-deep);
+  flex: none;
+}
+
+/* ---- FAQ ---------------------------------------------------------------- */
+.ff-faq {
+  border-top: 1px solid var(--color-border-soft);
+  max-width: 56rem;
+}
+
+.ff-faq-item {
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.ff-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1.4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+}
+
+.ff-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.ff-faq-item summary:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.ff-faq-toggle {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-sand-warm);
+  color: var(--color-navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.ff-faq-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ff-faq-item[open] .ff-faq-toggle {
+  transform: rotate(45deg);
+  background: var(--color-sun);
+}
+
+.ff-faq-a {
+  padding: 0 0 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+/* ---- Support wrapper ---------------------------------------------------- */
+.ff-support {
+  max-width: 52rem;
+}
+
+/* ---- Final CTA ---------------------------------------------------------- */
+.ff-final {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-navy);
+  text-align: center;
+}
+
+.ff-final::before {
+  content: "Together";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(7rem, 20vw, 17rem);
+  color: rgba(255, 255, 255, 0.035);
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.ff-final-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding-block: clamp(4.5rem, 9vw, 7rem);
+}
+
+.ff-final h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  color: var(--color-paper);
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+  margin: 0 0 1.2rem;
+}
+
+.ff-final h2 em {
+  font-style: italic;
+}
+
+.ff-final p {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  max-width: 36rem;
+  margin: 0 auto 2.2rem;
+}
+
+.ff-final-tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-sun-light);
+  margin-top: 2.4rem;
+}
+
+/* ---- Scroll reveal ------------------------------------------------------
+   Hidden state is scoped behind the data-ff-rv flag, which the page script sets
+   only when IntersectionObserver is available and motion is allowed. Without JS
+   nothing is ever hidden. */
+[data-ff-rv] .ff-rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-ff-rv] .ff-rv.ff-vis {
+  opacity: 1;
+  transform: none;
+}
+
+.ff-d1 { transition-delay: 0.1s; }
+.ff-d2 { transition-delay: 0.2s; }
+.ff-d3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-ff-rv] .ff-rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Responsive --------------------------------------------------------- */
+@media (max-width: 64rem) {
+  .ff-hero-grid,
+  .ff-split,
+  .ff-kay {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .ff-split--flip .ff-split-text {
+    order: 0;
+  }
+
+  .ff-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ff-trust-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ff-kay-portrait {
+    max-width: 26rem;
+  }
+}
+
+@media (max-width: 45rem) {
+  .ff-wrap {
+    padding-inline: 1.25rem;
+  }
+
+  .ff-hero h1 {
+    font-size: clamp(2.3rem, 8.5vw, 3.4rem);
+  }
+
+  .ff-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ff-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.75rem;
+  }
+}
