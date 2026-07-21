@@ -28,7 +28,7 @@ layout: layouts/base.njk
     faq         { eyebrow, title, items[{q,a}], variant? }  also emits faqSchema
     support     true renders the crisis support-resources block
     cta         { title, titleEmphasis?, text?, note?, watermark?, tagline?,
-                  href?, label?, variant? }
+                  href?, label?, variant? }   tagline: true uses site.tagline
     service     { name, serviceType, description, areaServed? }
 
   The page BODY renders at the content slot after the shapes/journey block.
@@ -123,7 +123,7 @@ layout: layouts/base.njk
   titleEmphasis: cta.titleEmphasis,
   text: cta.text,
   note: cta.note,
-  tagline: cta.tagline,
+  tagline: (site.tagline if cta.tagline == true else cta.tagline),
   cta: { href: cta.href or site.booking.getStartedPath, label: cta.label or site.booking.navLabel }
 }) }}
 

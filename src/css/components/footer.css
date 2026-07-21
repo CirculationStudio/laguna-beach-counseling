@@ -5,7 +5,10 @@
   background: var(--color-navy);
   color: var(--color-sea-foam);
   padding-block: 4.5rem 1.75rem;
-  margin-top: 5rem;
+  /* No margin above: the last section must meet the footer directly. A margin
+     here exposes the gray body background as a wrong-colored strip between the
+     final CTA band and the footer. Sections carry their own padding-block, so
+     the transition still breathes. */
   font-size: 0.95rem;
   /* Horizon hairline: the coastal signature, echoing the header's bottom edge
      so the page reads as framed between sky and sea. */
