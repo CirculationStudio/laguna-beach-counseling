@@ -12,7 +12,7 @@
    cta?{href, label, gold?}, secondaryCta?{href, label},
    image?{src, alt, sourceTag?}, video?{src, poster, posterAlt},
    trust?[{label}], variant?, tone? }.
-   Variants (finalized in the design lab):
+   Variants (the finalized directions from design review):
    - default with image: full-bleed photo under the directional sand veil.
    - "split": image in a framed right column beside the text (near-even grid).
    - "center": text-only centered reframe hero, no image.
@@ -263,7 +263,7 @@
    variant "inline" is the finalized trust-band treatment: icon beside the text,
    an optional serif lead line above the grid, 4-up by default. On the navy tone
    the inline icons go gold-light (the a11y-safe gold-on-navy pairing finalized
-   in the design lab); on light grounds icons stay teal. #}
+   in design review); on light grounds icons stay teal. #}
 {% macro featureRow(opts) %}
   {% set inline = opts.variant == "inline" %}
   {% call ui.section({ tone: opts.tone or "sand" }) %}
@@ -389,7 +389,7 @@
 {# 12. founderNote(opts): { eyebrow?, variant: "founder" | "note",
    portrait: {src, alt}, name?, nameEmphasis?, role?, quote?, quoteEmphasis?,
    body: string[], creds?: [{strong, text}], statement?: {text, cite},
-   sign?: {name, role}, tone? }. The Kay block, finalized in the design lab.
+   sign?: {name, role}, tone? }. The Kay block, the finalized direction.
    variant "founder" (default): sticky 4/5 portrait, serif name, uppercase teal
    role, two-column credential grid, teal-rule statement with cite.
    variant "note": a centered sand card, small circular portrait on top, centered

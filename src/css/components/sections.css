@@ -67,7 +67,7 @@
 /* ---- Eyebrow: the signature wave marker --------------------------------- */
 /* The mark is a small teal wave (coastal motif), inline SVG via data URI so no
    request is made. Teal, never gold. On mobile the wave hides and the eyebrow
-   reads text-only. Finalized in the design lab. */
+   reads text-only. The finalized direction from design review. */
 .eyebrow {
   display: flex;
   align-items: center;
@@ -710,7 +710,7 @@
   color: var(--color-sea-foam);
 }
 
-/* ---- 1b. Hero variants (finalized in the design lab) --------------------- */
+/* ---- 1b. Hero variants (finalized in design review) ----------------------- */
 /* Centered reframe hero: no image, the headline carries the moment. */
 .hero--center {
   text-align: center;
@@ -1121,7 +1121,7 @@
 }
 
 /* On navy, inline trust icons go gold-light: the a11y-safe gold-on-navy
-   pairing finalized in the design lab. Light-ground icons stay teal. */
+   pairing finalized in design review. Light-ground icons stay teal. */
 .section--navy .feature--inline .feature__icon {
   color: var(--color-sun-light);
 }

@@ -3,7 +3,7 @@
 A mapping of the SITE_ARCHITECTURE.md page briefs against the components that exist today,
 so we build the remaining gaps against real pages instead of speculating. Constraints carried
 through: reuse and extend before adding, components stay parameterized macros. Gold discipline
-(finalized in the design lab): gold appears only on the CTA button (ctaBand, or a hero
+(finalized in design review): gold appears only on the CTA button (ctaBand, or a hero
 carrying cta.gold as the viewport's single gold action), the numberedList digits, and the
 pullQuote rule / tick. Every other accent is teal or sea-foam, including the wave eyebrow.
 
@@ -14,7 +14,7 @@ variants share identical metrics and differ only in fill and border), `eyebrow` 
 mark, hidden on mobile), `section` wrapper (tone + width), `icon` (10-icon set). Helper:
 `arrow`.
 
-Sections (`src/_includes/components/sections.njk`), with the design-lab extraction landed:
+Sections (`src/_includes/components/sections.njk`), with the device extraction landed:
 
 1. `hero` `{ eyebrow?, title, titleEmphasis?, lead?, cta?{href,label,gold?}, secondaryCta?,
    image?{src,alt,sourceTag?}, video?{src,poster,posterAlt}, trust?[{label}],
@@ -309,7 +309,7 @@ Fully covered.
 
 Ranked by reuse. "Extend" items are not new components.
 
-### Implemented (the design-lab extraction, plus earlier batches)
+### Implemented (the device extraction, plus earlier batches)
 `pointCards` linkable + cardStyle variants, `promoCallout` (with flip, image-dominant ratio,
 anchor line, and inline pull-quote), `steps`, `prose`, `founderNote`, `numberedList`,
 `pillLinks`, `definitionList`, the `hero` split / center / video variants and gold-CTA
@@ -351,7 +351,7 @@ so nothing is speculative.
   is the template.
 - **Batch 2, signature services and about depth. DONE (components).** `steps`, `prose`,
   `founderNote`, `numberedList`, `pillLinks`, `definitionList`, and the hero / faq / ctaBand /
-  featureRow / pullQuote variants are implemented via the design-lab extraction. Remaining
+  featureRow / pullQuote variants are implemented via the device extraction. Remaining
   from this batch: `personSchema` for Kay.
 - **Batch 3, homepage and team.** Add `teamGrid` (plus its compact homepage teaser). The
   homepage otherwise reuses Batch 1 and 2 pieces, so it comes together here.
