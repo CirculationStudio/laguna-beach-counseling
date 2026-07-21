@@ -1,17 +1,61 @@
 # Component coverage audit
 
-A mapping of the SITE_ARCHITECTURE.md page briefs against the 12 components that exist today,
-so we build the remaining gaps against real pages instead of speculating. Planning only, no
-code. Constraints carried through: reuse and extend before adding, gold stays in the CTA band,
-components stay parameterized macros.
+A mapping of the SITE_ARCHITECTURE.md page briefs against the components that exist today,
+so we build the remaining gaps against real pages instead of speculating. Constraints carried
+through: reuse and extend before adding, components stay parameterized macros. Gold discipline
+(finalized in the design lab): gold appears only on the CTA button (ctaBand, or a hero
+carrying cta.gold as the viewport's single gold action), the numberedList digits, and the
+pullQuote rule / tick. Every other accent is teal or sea-foam, including the wave eyebrow.
 
-## What exists today (the 12)
+## What exists today
 
-Foundation (`src/_includes/components/ui.njk`): `button` (primary / ghost / text), `eyebrow`,
-`section` wrapper (tone + width), `icon` (10-icon set). Helper: `arrow`.
+Foundation (`src/_includes/components/ui.njk`): `button` (primary / ghost / text; all pill
+variants share identical metrics and differ only in fill and border), `eyebrow` (teal wave
+mark, hidden on mobile), `section` wrapper (tone + width), `icon` (10-icon set). Helper:
+`arrow`.
 
-Sections (`src/_includes/components/sections.njk`): `hero` (+ photo variant), `lead`,
-`pointCards`, `pullQuote`, `faq` (+ `faqSchema`), `ctaBand`, `featureRow`, `rateTable`.
+Sections (`src/_includes/components/sections.njk`), with the design-lab extraction landed:
+
+1. `hero` `{ eyebrow?, title, titleEmphasis?, lead?, cta?{href,label,gold?}, secondaryCta?,
+   image?{src,alt,sourceTag?}, video?{src,poster,posterAlt}, trust?[{label}],
+   variant?: split | center, tone? }`. Default with image is the full-bleed photo under the
+   directional sand veil; "split" frames the image beside the text; "center" is the text-only
+   reframe hero. The video hero is a mockup only (see the macro comment) and is not
+   production ready.
+2. `lead` `{ text: string | string[], align?, tone? }`.
+3. `pointCards` `{ eyebrow?, title?, columns?: 2|3, viewAll?, tone?,
+   cardStyle?: default | center | overlay, cards: [{icon?, image?, eyebrow?, title, body,
+   href?, linkLabel?}] }`. "center" is the icon-tile card (circular badge, teal hairline);
+   "overlay" sets the title over the photo on a navy scrim.
+4. `pullQuote` `{ quote, attribution?, italic?, variant?: inline | tick, foam?, tone? }`.
+   "tick" is the centered editorial treatment with the gold tick; foam wraps it in the
+   sea-foam wash panel.
+5. `faq` `{ eyebrow?, title?, items: [{q,a}], id?, variant?: cards, tone? }` + `faqSchema`.
+6. `ctaBand` `{ title, titleEmphasis?, text?, cta{href,label}, note?, watermark?, tagline?,
+   variant?: center, tone: navy | sand }`. CONSTRAINT: the navy tone must never be the last
+   section directly above the navy footer; use tone "sand" there.
+7. `featureRow` `{ lead?, leadEmphasis?, items: [{icon,title,text}], variant?: inline,
+   columns?: 3|4, tone? }`. "inline" with a serif lead on navy is the trust band.
+8. `rateTable` `{ caption?, rows, footnote?, tone? }`.
+9. `promoCallout` `{ eyebrow?, title, titleEmphasis?, body: string | string[], cta,
+   image?, reverse?, imageWeight?: image, anchorLine?, pullQuote?, tone? }`. The asymmetric
+   split with the flip and image-dominant variants.
+10. `breadcrumbs(items)` + `breadcrumbSchema(items, baseUrl)`.
+11. `serviceSchema(opts)`.
+12. `founderNote` `{ eyebrow?, variant: founder | note, portrait{src,alt}, name?,
+    nameEmphasis?, role?, quote?, quoteEmphasis?, body[], creds?[{strong,text}],
+    statement?{text,cite}, sign?{name,role}, tone? }`. The Kay block; transparent-cutout
+    portrait on a static sea-foam wash with a grounding shadow.
+13. `numberedList` `{ eyebrow?, title?, titleEmphasis?, lead?, items: [{icon?, title, body}],
+    tone? }`. Hairline rows with gold serif digits (a sanctioned gold accent).
+14. `pillLinks` `{ eyebrow?, title?, titleEmphasis?, lead?, links: [{href,label,icon?}],
+    tone? }`.
+15. `definitionList` `{ eyebrow?, title?, titleEmphasis?, lead?, items: [{term, detail}],
+    tone? }`.
+16. `steps` `{ eyebrow?, title?, titleEmphasis?, lead?, steps: [{title, body}], tone? }`.
+    Vertical numbered timeline; use only where order carries meaning.
+17. `prose` `{ dropCap?, width?, tone? }` with a `{% call %}` body. Longform with the navy
+    serif drop-cap.
 
 Also present and reusable: `support-resources.njk` (the 911 / 988 / Crisis Text / SAMHSA block,
 already built) and the shared `header` / `footer` / mega menu.
@@ -56,9 +100,9 @@ noted once here and omitted from the rows below unless notable.
 |---|---|
 | Warm hero, approved intro copy | COVERED `hero` |
 | Three-tier proof (credentials, category-of-one, operations) as warmth | COVERED `featureRow` |
-| Beach Therapy teaser card | GAP `promoCallout` |
-| "Who we help" grid to `/therapy/*` | EXTEND `pointCards` (linkable cards) |
-| "What people struggle with" grid to `/specialties/*` | EXTEND `pointCards` (linkable cards) |
+| Beach Therapy teaser card | COVERED `promoCallout` |
+| "Who we help" grid to `/therapy/*` | COVERED `pointCards` (linkable) |
+| "What people struggle with" grid to `/specialties/*` | COVERED `pointCards` (linkable) |
 | Team teaser to `/about/our-team` | GAP `teamGrid` (compact variant) |
 | Out-of-network + Superbill line | COVERED `lead` |
 | Gold CTA band | COVERED `ctaBand` |
@@ -67,7 +111,7 @@ noted once here and omitted from the rows below unless notable.
 | Block | Coverage |
 |---|---|
 | Hero + short intro | COVERED `hero`, `lead` |
-| Grid of child pages with short descriptions | EXTEND `pointCards` (linkable cards) |
+| Grid of child pages with short descriptions | COVERED `pointCards` (linkable) |
 | CTA | COVERED `ctaBand` |
 
 ### C. Therapy audience (6 pages)
@@ -75,9 +119,9 @@ noted once here and omitted from the rows below unless notable.
 |---|---|
 | Who this is for | COVERED `lead` |
 | What to expect / how the work looks | COVERED `pointCards` |
-| Specialties handled (links out) | EXTEND `pointCards` (linkable) or `button` list |
-| Beach Therapy as an option | GAP `promoCallout` |
-| The team / who you will work with | GAP `teamGrid` (or `promoCallout` to `/about/our-team`) |
+| Specialties handled (links out) | COVERED `pillLinks` or `pointCards` (linkable) |
+| Beach Therapy as an option | COVERED `promoCallout` |
+| The team / who you will work with | GAP `teamGrid` (or COVERED `founderNote` for Kay, or `promoCallout` to `/about/our-team`) |
 | Kay pull-quote | COVERED `pullQuote` |
 | CTA | COVERED `ctaBand` |
 
@@ -87,9 +131,9 @@ noted once here and omitted from the rows below unless notable.
 | Reframe / lead (acknowledge, reframe, hope) | COVERED `lead` |
 | What is happening underneath | COVERED `pointCards` |
 | What the work looks like | COVERED `pointCards` |
-| Sub-topics (anxiety: panic, phobias, social) | COVERED `pointCards` or `lead` per section |
-| Beach Therapy as an option | GAP `promoCallout` |
-| Related audience page link (anxiety to individuals) | EXTEND `pointCards` (linkable) or `button` |
+| Sub-topics (anxiety: panic, phobias, social) | COVERED `numberedList` (the finalized SEO pattern) |
+| Beach Therapy as an option | COVERED `promoCallout` (reverse + imageWeight + anchorLine) |
+| Related audience page link (anxiety to individuals) | COVERED `pillLinks` |
 | Pull-quote | COVERED `pullQuote` |
 | FAQ block (anxiety, plus others) | COVERED `faq` + `faqSchema` |
 | Support-resources (depression, grief, telehealth, anxiety) | COVERED `support-resources.njk` |
@@ -100,7 +144,7 @@ noted once here and omitted from the rows below unless notable.
 |---|---|
 | Origin / what it is | COVERED `lead` |
 | Why it works / who it is for | COVERED `pointCards` |
-| Beach Therapy: what to expect (wear, privacy, weather); intensive: the day; discernment: the three paths; how to start | GAP `steps` (genuine sequences) or `pointCards` (unordered sets) |
+| Beach Therapy: what to expect (wear, privacy, weather); intensive: the day; discernment: the three paths; how to start | COVERED `steps` (sequences) or `pointCards` (unordered sets) |
 | Research context (Beach Therapy blue-space) | COVERED `lead` or `pullQuote` |
 | Telehealth CA-only note; same team | COVERED `featureRow` / `lead` |
 | Support-resources (telehealth) | COVERED `support-resources.njk` |
@@ -110,18 +154,18 @@ noted once here and omitted from the rows below unless notable.
 | Block | Coverage |
 |---|---|
 | Founding narrative | COVERED `lead` / `prose` |
-| Links to Kay, team, approach | EXTEND `pointCards` (linkable) |
+| Links to Kay, team, approach | COVERED `pointCards` (linkable) |
 | Not-a-therapy-factory ethos | COVERED `pullQuote` |
 | CTA | COVERED `ctaBand` |
 
 ### G. About-person (`/about/kay-wenger`)
 | Block | Coverage |
 |---|---|
-| Why I started (long-form) | GAP `prose` (rich body) |
+| Why I started (long-form) | COVERED `prose` (drop-cap longform) |
 | Experience arc | COVERED `featureRow` or GAP `timeline` (only if a real timeline is wanted) |
 | Susi Q origin story | COVERED `prose` / `lead` |
 | Clinical philosophy quote | COVERED `pullQuote` |
-| Portrait / bio header | EXTEND `hero` (portrait) or GAP `personHeader` |
+| Portrait / bio header | COVERED `founderNote` (founder variant) |
 | CTA | COVERED `ctaBand` |
 
 ### H. Team (`/about/our-team`)
@@ -165,7 +209,7 @@ Fully covered.
 | Block | Coverage |
 |---|---|
 | Warm framing of the free call | COVERED `hero` / `lead` |
-| What to expect on the call | GAP `steps` or COVERED `pointCards` |
+| What to expect on the call | COVERED `steps` |
 | Calendly embed | GAP `bookingEmbed` (one-off) |
 | Out-of-network + 24-hour note | COVERED `lead` / `featureRow` |
 | Phone alternative | COVERED `button` / `lead` |
@@ -182,20 +226,20 @@ Fully covered.
 ### N. Blog index
 | Block | Coverage |
 |---|---|
-| Post grid with categories | EXTEND `pointCards` (linkable) or GAP `postList` |
+| Post grid with categories | COVERED `pointCards` (linkable) or GAP `postList` |
 | Category filter | GAP (defer to blog phase) |
 
 ### O. Blog post
 | Block | Coverage |
 |---|---|
-| Article body (headings, lists, links, quotes) | GAP `prose` |
+| Article body (headings, lists, links, quotes) | COVERED `prose` |
 | Pull-quotes within | COVERED `pullQuote` |
 | CTA | COVERED `ctaBand` |
 
 ### P. Legal / utility
 | Block | Coverage |
 |---|---|
-| Privacy: client-supplied legal text | GAP `prose` |
+| Privacy: client-supplied legal text | COVERED `prose` |
 | Thank-you: message + button | COVERED `hero` / `lead` / `button` |
 
 ---
@@ -204,48 +248,34 @@ Fully covered.
 
 Ranked by reuse. "Extend" items are not new components.
 
-### Extend an existing component
-- **`pointCards`, linkable variant.** Add an optional `href` (and arrow) per card, plus an
-  optional section-level "view all" link. Turns the existing grid into the who-we-help,
-  what-you-struggle-with, section-landing, related-links, about-index, and blog-index grids.
-  HIGH reuse. This single extension removes the most gaps on the board.
-- **`hero`, portrait variant (maybe).** Only if `/about/kay-wenger` wants a portrait beside the
-  title. If not, skip. LOW, one page.
+### Implemented (the design-lab extraction, plus earlier batches)
+`pointCards` linkable + cardStyle variants, `promoCallout` (with flip, image-dominant ratio,
+anchor line, and inline pull-quote), `steps`, `prose`, `founderNote`, `numberedList`,
+`pillLinks`, `definitionList`, the `hero` split / center / video variants and gold-CTA
+option, the `faq` cards variant, the `featureRow` inline trust band, the `ctaBand` centered
+watermark composition with navy and sand tones, `breadcrumbs` + `breadcrumbSchema`, and
+`serviceSchema`. All live in the code and demoed on `/components/`.
 
-### Net-new, high reuse
-- **`promoCallout`** — one media cell (image or the sea-foam placeholder) plus eyebrow, serif
-  heading, blurb, and a link, as a horizontal band. Purpose: "Beach Therapy as an option" on
-  audience and specialty pages, and the homepage Beach Therapy teaser. Params:
-  `{ eyebrow?, title, body, cta{href,label}, image?{src,alt}, reverse? }`. HIGH reuse
-  (homepage, 6 audience, several specialties). Reuses the mega-menu feature-cell styling.
-- **`steps`** — an ordered process list, marker plus title plus text, for genuine sequences
-  only. Purpose: Beach Therapy how-to-start, the intensive day, get-started what-to-expect,
-  discernment paths. Params: `{ eyebrow?, title?, steps: [{title, text}], tone? }`. MEDIUM reuse
-  (4 to 5 pages). Note: use only where order carries meaning, not as decoration.
-- **`prose`** — a rich-text body wrapper that styles h2 / h3 / p / ul / blockquote / links at a
-  reading measure. Purpose: Kay long-form, blog posts, privacy policy, parts of about and
-  approach. Params: `{ tone?, width? }` with `{% call %}` body. MEDIUM reuse (5-plus pages).
-
-### Net-new, low reuse or one-off
-- **`teamGrid`** — person cards (photo, name, credentials, specialties, book-with link).
+### Net-new, low reuse or one-off (still open)
+- **`teamGrid`**: person cards (photo, name, credentials, specialties, book-with link).
   Purpose: `/about/our-team`, with a compact variant for the homepage team teaser. Params:
   `{ people: [{name, credential, specialties[], href, image?{src,alt}}], compact? }`.
   LOW-MEDIUM reuse (2 places). Respect the CLIENT_FACTS flags: publish confirmed credentials
   only, and no permanent photography for departing associates.
-- **`napBlock`** — address, phone, email, hours. Purpose: `/contact` (and maybe `/get-started`).
+- **`napBlock`**: address, phone, email, hours. Purpose: `/contact` (and maybe `/get-started`).
   LOW reuse. Could reuse the footer NAP markup rather than a new macro.
-- **`contactForm`** — the contact form with Turnstile and a success state. ONE-OFF (`/contact`).
-- **`bookingEmbed`** — Calendly iframe wrapper. ONE-OFF (`/get-started`).
-- **`mapEmbed`** — map iframe. ONE-OFF (`/contact`), likely just inline HTML, not a macro.
-- **`postList`** — blog cards with date, excerpt, category. Only if the linkable `pointCards`
+- **`contactForm`**: the contact form with Turnstile and a success state. ONE-OFF (`/contact`).
+- **`bookingEmbed`**: Calendly iframe wrapper. ONE-OFF (`/get-started`).
+- **`mapEmbed`**: map iframe. ONE-OFF (`/contact`), likely just inline HTML, not a macro.
+- **`postList`**: blog cards with date, excerpt, category. Only if the linkable `pointCards`
   does not suffice. DEFER to the blog phase.
 
 ### Separate track: schema partials (non-visual, from SCHEMA.md)
-Not section components, but needed and macro-shaped. `faqSchema` exists. Still needed:
-`breadcrumbSchema` (plus a visible `breadcrumbs` component, HIGH reuse on every child page),
-`serviceSchema` (all `/therapy/*`, `/specialties/*`, signature services), `personSchema`
-(Kay and team), and the `MedicalBusiness` reference used on the homepage and `/contact`. Build
-each alongside the page type that first needs it, keyed to CLIENT_FACTS.md values.
+Not section components, but needed and macro-shaped. Implemented: `faqSchema`,
+`breadcrumbSchema` (with the visible `breadcrumbs`), `serviceSchema`. Still needed:
+`personSchema` (Kay and team) and the `MedicalBusiness` reference used on the homepage and
+`/contact`. Build each alongside the page type that first needs it, keyed to CLIENT_FACTS.md
+values.
 
 ---
 
@@ -254,32 +284,31 @@ each alongside the page type that first needs it, keyed to CLIENT_FACTS.md value
 Build against real pages, growth-priority first (individuals, children, anxiety, depression),
 so nothing is speculative.
 
-- **Batch 1, unlock specialty and audience pages (highest ROI).** Extend `pointCards`
-  (linkable), add `promoCallout`, add `breadcrumbs` (+ `breadcrumbSchema`), add `serviceSchema`.
-  With the existing 12, this fully covers all 9 specialty pages and all 6 audience pages, more
-  than half the site. Ship `/specialties/anxiety` first as the template, then depression,
-  individuals, children.
-- **Batch 2, signature services and about depth.** Add `steps` and `prose`. Unlocks
-  `/beach-therapy`, `/couples-intensive`, `/discernment-counseling`, `/telehealth`,
-  `/about/kay-wenger`, `/about`, `/about/our-approach` (with `personSchema` for Kay).
+- **Batch 1, unlock specialty and audience pages. DONE.** `pointCards` linkable,
+  `promoCallout`, `breadcrumbs` (+ `breadcrumbSchema`), `serviceSchema` are implemented.
+  All 9 specialty pages and all 6 audience pages are componentized; `/specialties/anxiety`
+  is the template.
+- **Batch 2, signature services and about depth. DONE (components).** `steps`, `prose`,
+  `founderNote`, `numberedList`, `pillLinks`, `definitionList`, and the hero / faq / ctaBand /
+  featureRow / pullQuote variants are implemented via the design-lab extraction. Remaining
+  from this batch: `personSchema` for Kay.
 - **Batch 3, homepage and team.** Add `teamGrid` (plus its compact homepage teaser). The
   homepage otherwise reuses Batch 1 and 2 pieces, so it comes together here.
 - **Batch 4, conversion and contact (one-offs, build lean on the page).** `bookingEmbed`,
   `napBlock`, `contactForm`, `mapEmbed`. Keep these minimal and page-local; do not generalize a
   one-off into a configurable component.
-- **Batch 5, blog (later phase).** `prose` is already built in Batch 2; add `postList` only if
+- **Batch 5, blog (later phase).** `prose` is built; add `postList` only if
   linkable `pointCards` is not enough. Defer until the blog is scheduled.
 
 ### Over-building watch list
 - Do not add a separate `linkGrid`; extend `pointCards` instead.
 - `mapEmbed`, `bookingEmbed`, `contactForm`, `napBlock` are one-offs. Prefer inline page markup
   over speculative macros; promote to a macro only if a second page actually needs it.
-- Skip `timeline` and the hero portrait variant unless `/about/kay-wenger` genuinely calls for
-  them once we draft it.
+- Skip `timeline`; the portrait need is covered by `founderNote`.
 - Do not pre-build `postList` before the blog phase.
 
 ### Net count
-Two extensions plus roughly five reusable new components (`promoCallout`, `steps`, `prose`,
-`teamGrid`, `breadcrumbs`) plus four page-local one-offs, plus the schema partials. That keeps
-the library around 17 to 18 visual components total, still small and intentional for a focused
-practice.
+Seventeen visual section components are implemented (see "What exists today"), leaving
+`teamGrid`, the four page-local one-offs, `personSchema`, and the `MedicalBusiness` record.
+The library stays small and intentional for a focused practice; new variants extend existing
+macros instead of adding parallel components.

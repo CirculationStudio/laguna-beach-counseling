@@ -78,9 +78,10 @@ sitemapExclude: true
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">1. hero</p>
-    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, cta, secondaryCta, image (photo variant), tone</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, cta { href, label, gold? }, secondaryCta, image (full-bleed photo), video (mockup only), trust, variant (split | center), tone. cta.gold renders the layered gold pill; use it only when the hero carries the viewport's single gold action.</p>
   </div>
   {{ s.hero({
+    titleTag: "h2",
     eyebrow: "Anxiety",
     title: "Anxiety therapy in",
     titleEmphasis: "Laguna Beach.",
@@ -96,6 +97,7 @@ sitemapExclude: true
     <p class="showcase__note">same params plus image { src, alt } and trust [{ label }]; tall photo under a directional sand-warm veil, navy text, gold-stroke trust markers.</p>
   </div>
   {{ s.hero({
+    titleTag: "h2",
     eyebrow: "Beach Therapy",
     title: "Sometimes the environment",
     titleEmphasis: "matters.",
@@ -107,7 +109,7 @@ sitemapExclude: true
       { label: "Out-of-network, Superbills provided" }
     ],
     image: {
-      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='430' fill='%2398c5d8'/%3E%3Crect y='430' width='1200' height='270' fill='%23003657'/%3E%3Ccircle cx='900' cy='250' r='74' fill='%23f5c845'/%3E%3C/svg%3E",
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='700' preserveAspectRatio='xMidYMid slice'%3E%3Crect width='1200' height='430' fill='%2398c5d8'/%3E%3Crect y='430' width='1200' height='270' fill='%230e5a94'/%3E%3Ccircle cx='900' cy='250' r='74' fill='%23f5c845'/%3E%3C/svg%3E",
       alt: "The Laguna Beach coastline at the tideline, placeholder for real coastal photography."
     }
   }) }}
@@ -115,18 +117,85 @@ sitemapExclude: true
 
 <div class="showcase__item">
   <div class="container showcase__meta">
-    <p class="showcase__label">1c. hero, photo pending</p>
-    <p class="showcase__note">image with alt and sourceTag but no src yet: the frame holds a labeled sand-warm slot, so the hero still reads as calm sand-warm ground until the real photo lands.</p>
+    <p class="showcase__label">1c. hero, photo (real coastal image)</p>
+    <p class="showcase__note">the same full-bleed treatment over a real coastal photo. When image has alt and sourceTag but no src yet, the frame holds a labeled sand-warm slot instead until the real photo lands.</p>
   </div>
   {{ s.hero({
+    titleTag: "h2",
     eyebrow: "Beach Therapy",
     title: "Sometimes the environment",
     titleEmphasis: "matters.",
     lead: "Private walk-and-talk sessions on the Laguna coastline, steps from the Pacific.",
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     image: {
-      sourceTag: "COASTAL, pending",
-      alt: "Placeholder for the Beach Therapy coastline hero, real photo pending."
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/ocean-surface-waves.webp",
+      alt: "The open ocean surface with gentle waves off the Laguna coast"
+    }
+  }) }}
+</div>
+
+{# ---- 1d. Hero, split variant ------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1d. hero, split variant</p>
+    <p class="showcase__note">variant "split": text beside a framed image column (near-even asymmetry, 4:5 frame, card shadow). Shown with cta.gold as the viewport's single gold action, plus a ghost secondary at identical pill metrics.</p>
+  </div>
+  {{ s.hero({
+    titleTag: "h2",
+    variant: "split",
+    eyebrow: "Anxiety",
+    title: "Anxiety therapy in",
+    titleEmphasis: "Laguna Beach.",
+    lead: "Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down.",
+    cta: { href: site.booking.getStartedPath, label: "Book a free call", gold: true },
+    secondaryCta: { href: "#the-work", label: "See what the work looks like" },
+    trust: [
+      { label: "Be seen within 24 hours" },
+      { label: "Free 15 to 20 minute call" },
+      { label: "Laguna Beach or telehealth" }
+    ],
+    image: {
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/laguna-beach-therapy-02_1.JPG",
+      alt: "A therapist and client together on the Laguna coast during a Beach Therapy session"
+    }
+  }) }}
+</div>
+
+{# ---- 1e. Hero, centered reframe ---------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1e. hero, centered reframe</p>
+    <p class="showcase__note">variant "center": no image, a strong centered reframe line carries the hero. Navy CTA here, so the section stays gold-free.</p>
+  </div>
+  {{ s.hero({
+    titleTag: "h2",
+    variant: "center",
+    eyebrow: "Anxiety",
+    title: "Your alarm is working.",
+    titleEmphasis: "It is just set too sensitive.",
+    lead: "Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down, and you don't have to sort it out alone.",
+    cta: { href: site.booking.getStartedPath, label: "Book a free call" },
+    secondaryCta: { href: "#the-work", label: "See what the work looks like" }
+  }) }}
+</div>
+
+{# ---- 1f. Hero, video background (mockup) -------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">1f. hero, video background (stand-in mockup)</p>
+    <p class="showcase__note">video { src, poster, posterAlt } on the full-bleed layout. The clip is a stand-in from another project, wired only to prove the mechanics (muted loop, poster, reduced-motion fallback to the static poster). NOT production ready: needs a short compressed LBC loop, JS-gated autoplay for reduced motion, and lazy-loading before it ships. See the macro comment.</p>
+  </div>
+  {{ s.hero({
+    titleTag: "h2",
+    eyebrow: "Anxiety",
+    title: "There's a way to turn the",
+    titleEmphasis: "volume down.",
+    lead: "Warm, practical help in Laguna Beach or by telehealth across California.",
+    cta: { href: site.booking.getStartedPath, label: "Book a free call", gold: true },
+    video: {
+      src: "https://cdn.emkt.mx/videos/el-eclat-d-or.mp4",
+      poster: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/crescent-bay-cove.jpeg",
+      posterAlt: "Poster still of the Laguna coastline, gentle waves at the tideline"
     }
   }) }}
 </div>
@@ -199,28 +268,64 @@ sitemapExclude: true
   }) }}
 </div>
 
+{# ---- 3d. Point cards, centered icon tile ------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">3d. pointCards, cardStyle "center"</p>
+    <p class="showcase__note">the finalized icon-tile card: centered text, a circular sea-foam badge, and a teal top hairline as the only accent.</p>
+  </div>
+  {{ s.pointCards({
+    eyebrow: "The pattern",
+    title: "What anxiety is actually doing",
+    columns: 3,
+    cardStyle: "center",
+    cards: [
+      { icon: "wave", title: "The worry loop", body: "The relief lasts about a minute before the next what-if arrives. The loop feels productive. Mostly it's exhausting." },
+      { icon: "heart", title: "The body's alarm", body: "Your body is running a threat response built for lions, not inboxes. Nothing is broken." },
+      { icon: "compass", title: "The avoidance trap", body: "Avoidance works for an afternoon, then the world quietly shrinks. It is a loan with a very high interest rate." }
+    ]
+  }) }}
+</div>
+
+{# ---- 3e. Point cards, overlay picture tile ------------------------------ #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">3e. pointCards, cardStyle "overlay"</p>
+    <p class="showcase__note">image-forward tiles with the title over the photo on a navy bottom scrim, so the light text stays AA-readable over any image. Photo cards with href become whole-card links.</p>
+  </div>
+  {{ s.pointCards({
+    eyebrow: "Where to go next",
+    title: "Two doors in",
+    columns: 2,
+    cardStyle: "overlay",
+    cards: [
+      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-lifeguardtower.jpeg", alt: "A lifeguard tower on the Laguna Beach shoreline under open sky" }, title: "Beach Therapy", body: "Therapy that moves, on the coast.", href: "/beach-therapy" },
+      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/services/specialties/two-womenconversation.jpeg", alt: "Two women in a warm, unhurried conversation during a therapy session" }, title: "Individual therapy", body: "One-to-one, at your pace.", href: "/therapy/individuals" }
+    ]
+  }) }}
+</div>
+
 {# ---- 4. Pull quote ----------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">4. pullQuote</p>
-    <p class="showcase__note">params: quote, attribution, italic, variant, tone</p>
+    <p class="showcase__note">params: quote, attribution, foam, tone. The centered editorial treatment: a short gold tick opens the quote, an attribution closes it. The tick is a sanctioned gold accent. For a gold-rule quote inside a split, use promoCallout's pullQuote param.</p>
   </div>
   {{ s.pullQuote({
     quote: "Techniques don't heal people. Relationships do.",
-    attribution: "Kay Wenger, LMFT, LPCC",
-    italic: true
+    attribution: "Kay Wenger, LMFT, LPCC"
   }) }}
 </div>
 
-{# ---- 4b. Pull quote, inline variant ----------------------------------- #}
+{# ---- 4b. Pull quote, foam panel ------------------------------------------ #}
 <div class="showcase__item">
   <div class="container showcase__meta">
-    <p class="showcase__label">4b. pullQuote, inline variant</p>
-    <p class="showcase__note">variant "inline": left-aligned, italic, teal, with a gold left rule. For a quote set inside flowing prose.</p>
+    <p class="showcase__label">4b. pullQuote, foam panel</p>
+    <p class="showcase__note">foam: true wraps the quote in the sea-foam wash (t-foam texture) as a calm beat between busier sections. Quote ink goes navy for AA on the foam ground.</p>
   </div>
   {{ s.pullQuote({
-    variant: "inline",
-    quote: "The beach isn't replacing therapy. It's creating conditions that let therapy happen differently.",
+    foam: true,
+    quote: "That's not a character flaw. That's just how the nervous system works.",
     attribution: "Kay Wenger, LMFT, LPCC"
   }) }}
 </div>
@@ -229,13 +334,33 @@ sitemapExclude: true
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">5. featureRow</p>
-    <p class="showcase__note">params: items [{ icon, title, text }], tone</p>
+    <p class="showcase__note">params: lead, leadEmphasis, items [{ icon, title, text }], variant (inline), columns (3 | 4), tone</p>
   </div>
   {{ s.featureRow({ items: [
     { icon: "clock", title: "Seen within 24 hours", text: "Reach out today and we will get back to you quickly. No long waitlist to start." },
     { icon: "chat", title: "A free first call", text: "A relaxed 15 to 20 minute Get to Know Us call, so you can feel the fit before anything else." },
     { icon: "shield", title: "Out-of-network by design", text: "Longer sessions, real confidentiality, and Superbills for PPO reimbursement." }
   ] }) }}
+</div>
+
+{# ---- 5b. Feature row, inline trust band --------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">5b. featureRow, inline trust band (navy)</p>
+    <p class="showcase__note">variant "inline" with a serif lead and tone "navy": the finalized trust band. Icons sit beside the text and go gold-light on navy (the a11y-safe gold-on-navy pairing); on light grounds they stay teal.</p>
+  </div>
+  {{ s.featureRow({
+    variant: "inline",
+    tone: "navy",
+    lead: "Starting is the part people dread.",
+    leadEmphasis: "Here is how it actually goes.",
+    items: [
+      { icon: "clock", title: site.access.seenWithin, text: "Reach out today and we will get back to you quickly." },
+      { icon: "chat", title: "A free first call", text: "A relaxed 15 to 20 minute Get to Know Us call, before anything else." },
+      { icon: "shield", title: "Out-of-network by design", text: "Full-length sessions, real confidentiality, and Superbills for your PPO." },
+      { icon: "wave", title: site.nap.addressLocality + " or telehealth", text: "In person on Third Street, or by secure video anywhere in California." }
+    ]
+  }) }}
 </div>
 
 {# ---- 6. Rate table ----------------------------------------------------- #}
@@ -270,11 +395,20 @@ sitemapExclude: true
   {{ s.faqSchema(faqItems) }}
 </div>
 
+{# ---- 7b. FAQ, cards variant -------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">7b. faq, cards variant</p>
+    <p class="showcase__note">variant "cards": each question is its own bordered card with the chevron toggle. Same items contract, still pairs with faqSchema(items). Schema emitted once above; not duplicated here.</p>
+  </div>
+  {{ s.faq({ variant: "cards", eyebrow: "Before you reach out", title: "Questions people ask", items: faqItems }) }}
+</div>
+
 {# ---- 8. CTA band ------------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">8. ctaBand (the one gold moment)</p>
-    <p class="showcase__note">params: title, text, cta { href, label }, note, tone. Gold lives only here.</p>
+    <p class="showcase__note">params: title, titleEmphasis, text, cta { href, label }, note, watermark, tagline, variant (center), tone (navy | sand). Gold lives only here. CONSTRAINT: never place the navy tone as the last section directly above the navy footer; use tone "sand" there.</p>
   </div>
   {{ s.ctaBand({
     title: "Let's start with a conversation.",
@@ -284,11 +418,46 @@ sitemapExclude: true
   }) }}
 </div>
 
+{# ---- 8b. CTA band, centered with watermark (navy) ----------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">8b. ctaBand, variant "center" with watermark (navy)</p>
+    <p class="showcase__note">the finalized final-CTA composition: centered stack, a giant faint italic watermark word behind, and a quiet tagline signature below the button. Not for the slot directly above the footer (navy-on-navy); use 8c there.</p>
+  </div>
+  {{ s.ctaBand({
+    variant: "center",
+    watermark: "Together",
+    title: "There's a way",
+    titleEmphasis: "through this.",
+    text: "If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.",
+    cta: { href: site.booking.getStartedPath, label: site.booking.navLabel },
+    tagline: site.tagline
+  }) }}
+</div>
+
+{# ---- 8c. CTA band, sand tone (footer-safe) ------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">8c. ctaBand, tone "sand" (footer-safe)</p>
+    <p class="showcase__note">the warm ground with a navy-tinted watermark and navy copy. This is the variant safe to place immediately before the navy footer.</p>
+  </div>
+  {{ s.ctaBand({
+    variant: "center",
+    tone: "sand",
+    watermark: "Together",
+    title: "There's a way",
+    titleEmphasis: "through this.",
+    text: "If anxiety has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you.",
+    cta: { href: site.booking.getStartedPath, label: site.booking.navLabel },
+    tagline: site.tagline
+  }) }}
+</div>
+
 {# ---- 9. Promo callout ------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">9. promoCallout</p>
-    <p class="showcase__note">params: eyebrow, title, body, cta { href, label }, image { src, alt, brief, sourceTag }, reverse, tone. Cross-sell band; gold stays out. Placeholder media when no image.src.</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, body (string or array), cta { href, label }, image { src, alt, brief, sourceTag }, reverse, imageWeight (image), anchorLine, pullQuote, tone. The asymmetric split; gold stays out of the actions. Placeholder media when no image.src.</p>
   </div>
   {{ s.promoCallout({
     eyebrow: "A different setting",
@@ -296,9 +465,35 @@ sitemapExclude: true
     body: "Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side.",
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     image: {
-      sourceTag: "COASTAL",
-      alt: "A client and therapist walking the Laguna Beach shoreline.",
-      brief: "Two people walking side by side at the tideline near Heisler Park, soft light, framed from behind for privacy. Pending: Bunny CDN coastal set."
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/laguna-beach-therapy-01_1.JPG",
+      alt: "A therapist and client walking together on the Laguna Beach shoreline"
+    }
+  }) }}
+</div>
+
+{# ---- 9b. Promo callout, flipped and image-dominant ----------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">9b. promoCallout, reverse + imageWeight "image" + anchorLine + pullQuote</p>
+    <p class="showcase__note">the finalized flipped cross-sell: image leads and dominates the grid, a serif italic anchor line sits above the link, and an optional gold-rule pull-quote closes the text column (the pull-quote's sanctioned gold, reused at promo scale).</p>
+  </div>
+  {{ s.promoCallout({
+    reverse: true,
+    imageWeight: "image",
+    tone: "sand",
+    eyebrow: "What is really happening",
+    title: "Your alarm is working.",
+    titleEmphasis: "It is just set too sensitive.",
+    body: [
+      "If you're here, some part of your day has probably started to organize itself around worry. Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire.",
+      "The alarm is real. The danger usually isn't. So how do we help it tell the difference again?"
+    ],
+    anchorLine: "Sometimes the environment matters.",
+    cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+    pullQuote: "That's not a character flaw. That's just how the nervous system works.",
+    image: {
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/beach-walk-frombehind.jpeg",
+      alt: "Two people walking side by side along the Laguna shoreline, seen from behind"
     }
   }) }}
 </div>
@@ -314,6 +509,147 @@ sitemapExclude: true
     { label: "Specialties", url: "/specialties" },
     { label: "Anxiety" }
   ]) }}
+</div>
+
+{# ---- 12. Founder note --------------------------------------------------- #}
+{% set kayPortrait = {
+  src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-transparent.png",
+  alt: "Kay Wenger, LMFT, LPCC, founder of Laguna Beach Counseling"
+} %}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">12. founderNote, founder variant</p>
+    <p class="showcase__note">params: eyebrow, variant (founder | note), portrait { src, alt }, name, nameEmphasis, role, quote, quoteEmphasis, body [], creds [{ strong, text }], statement { text, cite }, sign { name, role }, tone. Transparent-cutout portrait on a static sea-foam wash with a grounding shadow. Real facts only.</p>
+  </div>
+  {{ s.founderNote({
+    eyebrow: "Our founder",
+    portrait: kayPortrait,
+    name: "Kay Wenger,",
+    nameEmphasis: "LMFT, LPCC",
+    role: "Founder",
+    body: [
+      "I have spent over 30 years in rooms with people who are anxious, and the pattern is almost always the same. They are trying hard, and the trying is not working. So we stop pushing and get curious instead.",
+      "That is usually where things start to shift. Not with a technique, and not overnight, but with two people looking at the thing together until it gets smaller."
+    ],
+    creds: [
+      { strong: "Over 30 years", text: "of clinical experience" },
+      { strong: "LMFT, LPCC", text: "licensed in California" },
+      { strong: "Out-of-network", text: "by design" },
+      { strong: "Laguna Beach", text: "or telehealth" }
+    ],
+    statement: {
+      text: "You're not stuck because something's wrong with you. The alarm is real, the danger usually is not, and we work on helping it tell the difference again.",
+      cite: "Kay Wenger, LMFT, LPCC"
+    }
+  }) }}
+</div>
+
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">12b. founderNote, note variant</p>
+    <p class="showcase__note">variant "note": a centered sand card with a small circular portrait on top. Reads as a personal note, not a bio.</p>
+  </div>
+  {{ s.founderNote({
+    variant: "note",
+    eyebrow: "A note from Kay",
+    portrait: kayPortrait,
+    quote: "You're not stuck because",
+    quoteEmphasis: "something's wrong with you.",
+    body: [
+      "They are trying hard, and the trying is not working. So we stop pushing and get curious instead. That is usually where things start to shift, with two people looking at the thing together until it gets smaller."
+    ],
+    sign: { name: "Kay Wenger", role: "LMFT, LPCC, Founder" }
+  }) }}
+</div>
+
+{# ---- 13. Numbered list --------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">13. numberedList (gold digits)</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, items [{ icon, title, body }], tone. Hairline rows with auto-numbered serif italic gold digits; one of the three sanctioned gold accents.</p>
+  </div>
+  {{ s.numberedList({
+    eyebrow: "The many shapes it takes",
+    title: "Panic attacks, phobias, and",
+    titleEmphasis: "social anxiety.",
+    lead: "Anxiety rarely shows up in the abstract. It picks a shape. Here are the three we see most.",
+    items: [
+      { icon: "heart", title: "Panic attacks", body: "Panic disorder is the fear of the next one. Panic is treatable, and understanding what's happening is often the first turn." },
+      { icon: "shield", title: "Phobias", body: "Fear that has narrowed onto one specific thing. Treatment works in steps small enough to stay with, until the fear loosens its grip." },
+      { icon: "chat", title: "Social anxiety", body: "We work on the beliefs underneath it, and practice, gently, until connection feels less like a performance." }
+    ]
+  }) }}
+</div>
+
+{# ---- 14. Pill links ------------------------------------------------------ #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">14. pillLinks</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, links [{ href, label, icon }], tone. Soft sand chips with a small teal icon; internal links only.</p>
+  </div>
+  {{ s.pillLinks({
+    eyebrow: "Where to go next",
+    title: "Anxiety rarely",
+    titleEmphasis: "travels alone.",
+    lead: "When it's tangled up with self-doubt, a low mood, or a decision you can't seem to make, these are the natural next doors.",
+    links: [
+      { href: "/therapy/individuals", label: "Individual therapy", icon: "compass" },
+      { href: "/telehealth", label: "Online therapy in California", icon: "chat" },
+      { href: "/beach-therapy", label: "Beach Therapy", icon: "wave" }
+    ]
+  }) }}
+</div>
+
+{# ---- 15. Definition list ------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">15. definitionList</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, items [{ term, detail }], tone. Two-column term-and-line rows on hairline dividers; one column on mobile.</p>
+  </div>
+  {{ s.definitionList({
+    eyebrow: "Naming the pattern",
+    title: "What it can",
+    titleEmphasis: "look like.",
+    items: [
+      { term: "The worry loop", detail: "Thinking it through one more time, on repeat, chasing a calm that never quite arrives." },
+      { term: "The body's alarm", detail: "A racing heart and tight chest, a threat response built for lions, not inboxes." },
+      { term: "Avoidance", detail: "Skipping the hard thing works for an afternoon, then the world quietly shrinks." },
+      { term: "Panic", detail: "A surge that can feel like an emergency, and the fear of the next one keeping it going." }
+    ]
+  }) }}
+</div>
+
+{# ---- 16. Steps ----------------------------------------------------------- #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">16. steps</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, steps [{ title, body }], tone. A vertical numbered timeline with a connecting line; the numbers are a real sequence.</p>
+  </div>
+  {{ s.steps({
+    eyebrow: "What to expect",
+    title: "How starting",
+    titleEmphasis: "actually goes.",
+    steps: [
+      { title: "A free first call", body: "A relaxed 15 to 20 minute Get to Know Us call. We hear what's going on and point you to the right person. No pressure, no paperwork yet." },
+      { title: "Your first session", body: "We start by making sure you actually feel understood. You set the pace, and nothing gets forced." },
+      { title: "The work itself", body: "Solution-focused and practical. We look at the thing together until it gets smaller, in the office on Third Street or by secure video." },
+      { title: "Superbills for your PPO", body: "Out-of-network by design. Full-length sessions, and a Superbill at every session to submit to your PPO for reimbursement." }
+    ]
+  }) }}
+</div>
+
+{# ---- 17. Prose ------------------------------------------------------------ #}
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">17. prose (drop-cap longform)</p>
+    <p class="showcase__note">call s.prose({ dropCap, width, tone }) with a body block. Generous measure and leading, serif subheads, and a navy serif drop-cap on the opening paragraph. For approach pages and posts.</p>
+  </div>
+  {% call s.prose({ dropCap: true }) %}
+    <p>Most people who come in for anxiety have already tried very hard to think their way out of it. They have read the books, rehearsed the conversations, and planned for outcomes that never arrived. The trying is real, and so is the exhaustion that comes with it. What tends to help is not more effort, but a different relationship with the alarm itself.</p>
+    <p>So we get curious instead of forceful. What is the worry protecting? When does it fire, and what does it cost you to keep obeying it? Those questions sound simple, and they are not, but they are where the work usually begins.</p>
+    <h3>How the work actually goes</h3>
+    <p>It is solution-focused and practical, and it moves at your pace. We pay attention to the thoughts and to the body, because anxiety lives in both, and we start by making sure you feel genuinely understood. Not managed, not processed, understood.</p>
+  {% endcall %}
 </div>
 
 {# ---- Schema partials (emit JSON-LD only, no visible output) ----------- #}

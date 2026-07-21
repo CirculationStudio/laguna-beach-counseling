@@ -27,16 +27,21 @@
 }
 
 /* Buttons. Decision tree: gold for the one primary conversion in view,
-   navy for high-stakes, ghost for secondary. */
+   navy for high-stakes, ghost for secondary.
+   Parity rule: every pill variant (primary, ghost, accent) shares the same
+   min-height and box model, so a side-by-side pair always lines up exactly.
+   Variants differ only in fill, border color, and shadow. */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-sizing: border-box;
+  min-height: 3.25rem;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1rem;
   line-height: 1;
-  padding: 0.85rem 1.5rem;
+  padding: 0 1.5rem;
   border-radius: var(--radius-pill);
   border: 2px solid transparent;
   text-decoration: none;
@@ -59,30 +64,25 @@
 }
 
 /* Gold pill: exactly one per viewport, the single most important action. */
-/* Layered gold CTA: solid gold with inset top/bottom highlights and a gold-tinted
-   ambient shadow, plus an embedded navy circle arrow. Dimension without a
-   gradient. Ported from the reference .btn-accent. */
+/* Gold CTA: solid gold with the gold-tinted ambient shadow and an embedded navy
+   circle arrow. Depth comes only from the soft --shadow-cta ambient shadow, no
+   inset edge highlights; a beveled rim would clash with the system's soft
+   shadow language. */
 .btn-accent {
   gap: 0.75rem;
-  padding: 0.5rem 0.5rem 0.5rem 1.4rem;
+  padding: 0 0.5rem 0 1.4rem;
   font-weight: 700;
   background: var(--color-sun);
   color: var(--color-navy);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(196, 141, 5, 0.35),
-    0 2px 6px rgba(0, 26, 46, 0.06),
-    0 8px 20px rgba(223, 161, 8, 0.18);
+  box-shadow: var(--shadow-cta);
 }
 
 .btn-accent:hover {
   background: var(--color-sun-deep);
   color: var(--color-navy);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -1px 0 rgba(196, 141, 5, 0.35),
-    0 3px 8px rgba(0, 26, 46, 0.08),
-    0 12px 28px rgba(223, 161, 8, 0.28);
+    0 3px 10px rgba(0, 26, 46, 0.1),
+    0 20px 44px rgba(223, 161, 8, 0.26);
 }
 
 .btn-accent__arrow {

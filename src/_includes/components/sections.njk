@@ -8,42 +8,94 @@
 
 {% import "components/ui.njk" as ui %}
 
-{# 1. hero(opts): { eyebrow?, title, titleEmphasis?, lead?, cta?{href,label},
-   secondaryCta?{href,label}, image?{src,alt}, tone? }. Passing image switches to
-   the photo variant (navy scrim, light text). The hero CTA is navy, never gold. #}
+{# 1. hero(opts): { eyebrow?, title, titleEmphasis?, lead?,
+   cta?{href, label, gold?}, secondaryCta?{href, label},
+   image?{src, alt, sourceTag?}, video?{src, poster, posterAlt},
+   trust?[{label}], variant?, tone? }.
+   Variants (finalized in the design lab):
+   - default with image: full-bleed photo under the directional sand veil.
+   - "split": image in a framed right column beside the text (near-even grid).
+   - "center": text-only centered reframe hero, no image.
+   cta.gold renders the layered gold pill (btn-accent). Use it only when the hero
+   carries the viewport's single gold action; the default stays navy.
+   titleTag (default "h1"): pages keep the h1; demo contexts that render several
+   heroes on one page pass "h2" so the page keeps exactly one h1.
+   video: STAND-IN MECHANICS ONLY, not production ready. The demo asset is from a
+   different project. Before shipping a real video hero it MUST: use a short,
+   compressed, muted LBC loop (not the stand-in), gate autoplay with a
+   matchMedia('prefers-reduced-motion') check in JS so reduced motion truly stops
+   playback (CSS only hides it here), and lazy-load off the critical path so it
+   never hurts LCP. Do not autoplay heavy video without addressing performance
+   and reduced motion first. #}
 {% macro hero(opts) %}
   {% set hasPhoto = opts.image and opts.image.src %}
   {% set hasSlot = opts.image and not opts.image.src %}
-  {% set isPhoto = hasPhoto or hasSlot %}
-  <section class="section hero{% if isPhoto %} hero--photo{% endif %} section--{{ opts.tone or 'sand' }}">
-    {% if hasPhoto %}
-      <img class="hero__bg" src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="eager" fetchpriority="high" />
-      <span class="hero__veil" aria-hidden="true"></span>
-    {% elif hasSlot %}
-      <div class="hero__placeholder" role="img" aria-label="{{ opts.image.alt }}">
-        {% if opts.image.sourceTag %}<span class="hero__tag">{{ opts.image.sourceTag }}</span>{% endif %}
-      </div>
-      <span class="hero__veil" aria-hidden="true"></span>
-    {% endif %}
-    <div class="container hero__inner">
-      {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
-      <h1 class="hero__title">{{ opts.title }}{% if opts.titleEmphasis %} <em class="hero__em">{{ opts.titleEmphasis }}</em>{% endif %}</h1>
-      {% if opts.lead %}<p class="hero__lead">{{ opts.lead }}</p>{% endif %}
-      {% if opts.cta or opts.secondaryCta %}
-        <div class="hero__actions">
-          {% if opts.cta %}{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "primary", arrow: true }) }}{% endif %}
-          {% if opts.secondaryCta %}{{ ui.button({ href: opts.secondaryCta.href, label: opts.secondaryCta.label, variant: "ghost" }) }}{% endif %}
+  {% set hasVideo = opts.video and opts.video.src %}
+  {% set split = opts.variant == "split" %}
+  {% set center = opts.variant == "center" %}
+  {% set isBleed = (hasPhoto or hasSlot or hasVideo) and not split %}
+  <section class="section hero{% if isBleed %} hero--photo{% endif %}{% if center %} hero--center{% endif %}{% if split %} hero--split{% endif %} section--{{ opts.tone or 'sand' }}">
+    {% if isBleed %}
+      {% if hasVideo %}
+        <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="{{ opts.video.poster }}">
+          <source src="{{ opts.video.src }}" type="video/mp4" />
+        </video>
+        <img class="hero__video-fallback" src="{{ opts.video.poster }}" alt="{{ opts.video.posterAlt }}" loading="lazy" decoding="async" />
+        <span class="hero__media-tag">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" /></svg>
+          Video, muted loop
+        </span>
+      {% elif hasPhoto %}
+        <img class="hero__bg" src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="eager" fetchpriority="high" />
+      {% else %}
+        <div class="hero__placeholder" role="img" aria-label="{{ opts.image.alt }}">
+          {% if opts.image.sourceTag %}<span class="hero__tag">{{ opts.image.sourceTag }}</span>{% endif %}
         </div>
       {% endif %}
-      {% if opts.trust %}
-        <ul class="hero__trust">
-          {% for t in opts.trust %}
-            <li>
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
-              {{ t.label }}
-            </li>
-          {% endfor %}
-        </ul>
+      <span class="hero__veil" aria-hidden="true"></span>
+    {% endif %}
+    <div class="container hero__inner{% if split %} hero__inner--split{% endif %}">
+      {% set titleTag = opts.titleTag or "h1" %}
+      <div class="hero__content">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        <{{ titleTag }} class="hero__title">{{ opts.title }}{% if opts.titleEmphasis %} <em class="hero__em">{{ opts.titleEmphasis }}</em>{% endif %}</{{ titleTag }}>
+        {% if opts.lead %}<p class="hero__lead">{{ opts.lead }}</p>{% endif %}
+        {% if opts.cta or opts.secondaryCta %}
+          <div class="hero__actions">
+            {% if opts.cta %}
+              {% if opts.cta.gold %}
+                <a class="btn btn-accent" href="{{ opts.cta.href }}">
+                  {{ opts.cta.label }}
+                  <span class="btn-accent__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+                </a>
+              {% else %}
+                {{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "primary", arrow: true }) }}
+              {% endif %}
+            {% endif %}
+            {% if opts.secondaryCta %}{{ ui.button({ href: opts.secondaryCta.href, label: opts.secondaryCta.label, variant: "ghost" }) }}{% endif %}
+          </div>
+        {% endif %}
+        {% if opts.trust %}
+          <ul class="hero__trust">
+            {% for t in opts.trust %}
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                {{ t.label }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      {% if split %}
+        <div class="hero__side">
+          {% if hasPhoto %}
+            <span class="hero__frame"><img src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="eager" fetchpriority="high" /></span>
+          {% elif hasSlot %}
+            <div class="hero__frame hero__frame--slot" role="img" aria-label="{{ opts.image.alt }}">
+              {% if opts.image.sourceTag %}<span class="hero__tag">{{ opts.image.sourceTag }}</span>{% endif %}
+            </div>
+          {% endif %}
+        </div>
       {% endif %}
     </div>
   </section>
@@ -74,10 +126,15 @@
 {% endmacro %}
 
 {# 3. pointCards(opts): { eyebrow?, title?, columns?: 2|3, viewAll?{href,label}, tone?,
+   cardStyle?: "default" | "center" | "overlay",
    cards: [{icon?, image?{src,alt}, eyebrow?, title, body, href?, linkLabel?}] }
    A card with href renders as a whole-card link; a card with image.src renders as a photo
-   card. Plain cards are unchanged, so existing calls keep working. #}
+   card. Plain cards are unchanged, so existing calls keep working.
+   cardStyle "center" is the finalized icon-tile card (centered text, circular badge, teal
+   top hairline). cardStyle "overlay" sets the title over the photo on a navy bottom scrim
+   (photo cards only; AA-safe light text on the scrim). #}
 {% macro pointCards(opts) %}
+  {% set style = opts.cardStyle or "default" %}
   {% call ui.section({ tone: opts.tone or "paper" }) %}
     {% if opts.eyebrow or opts.title %}
       <div class="section__head">
@@ -88,13 +145,17 @@
     <div class="card-grid card-grid--{{ opts.columns or 3 }}">
       {% for c in opts.cards %}
         {% set photo = c.image and c.image.src %}
+        {% set mods = "" %}
+        {% if photo %}{% set mods = mods + " card--photo" %}{% endif %}
+        {% if style == "center" %}{% set mods = mods + " card--center" %}{% endif %}
+        {% if style == "overlay" and photo %}{% set mods = mods + " card--overlay" %}{% endif %}
         {% if c.href %}
-          <a class="card card--link{% if photo %} card--photo{% endif %}" href="{{ c.href }}">
+          <a class="card card--link{{ mods }}" href="{{ c.href }}">
             {{ cardContent(c) }}
-            <span class="card__cta">{{ c.linkLabel or "Learn more" }}{{ ui.arrow() }}</span>
+            {% if style != "overlay" %}<span class="card__cta">{{ c.linkLabel or "Learn more" }}{{ ui.arrow() }}</span>{% endif %}
           </a>
         {% else %}
-          <article class="card{% if photo %} card--photo{% endif %}">
+          <article class="card{{ mods }}">
             {{ cardContent(c) }}
           </article>
         {% endif %}
@@ -106,27 +167,39 @@
   {% endcall %}
 {% endmacro %}
 
-{# 4. pullQuote(opts): { quote, attribution?, italic?, variant?, tone? }. For Kay's lines.
-   variant "inline" is a left-aligned quote with a gold left rule (default tone paper);
-   otherwise a centered band (default tone seafoam). #}
+{# 4. pullQuote(opts): { quote, attribution?, foam?, tone? }. For Kay's lines.
+   The finalized centered editorial treatment: a short gold tick above, serif
+   italic quote, attribution below. The tick is one of the sanctioned gold
+   accents (with the CTA button and the numbered-list digits).
+   foam: true wraps the quote in a sea-foam wash panel (the t-foam texture) as a
+   calm beat between busier sections; quote ink goes navy there for AA.
+   For a gold-rule quote inside a split, use promoCallout's pullQuote param. #}
 {% macro pullQuote(opts) %}
-  {% set tone = opts.tone or ("paper" if opts.variant == "inline" else "seafoam") %}
-  {% call ui.section({ tone: tone, width: "narrow" }) %}
-    <figure class="pull-quote{% if opts.variant == 'inline' %} pull-quote--inline{% endif %}">
-      <blockquote class="pull-quote__q{% if opts.italic %} pull-quote__q--italic{% endif %}">{{ opts.quote }}</blockquote>
+  {% call ui.section({ tone: opts.tone or "paper", width: "narrow" }) %}
+    {% if opts.foam %}<div class="t-foam pull-quote-panel">{% endif %}
+    <figure class="pull-quote pull-quote--tick">
+      <span class="pull-quote__tick" aria-hidden="true"></span>
+      <blockquote class="pull-quote__q">{{ opts.quote }}</blockquote>
       {% if opts.attribution %}<figcaption class="pull-quote__by">{{ opts.attribution }}</figcaption>{% endif %}
     </figure>
+    {% if opts.foam %}</div>{% endif %}
   {% endcall %}
 {% endmacro %}
 
-{# 5. faq(opts): { eyebrow?, title?, items: [{q,a}], id?, tone? }. Native <details>
-   accordion, accessible with no JS. Pair with faqSchema(items) so the FAQPage
-   JSON-LD mirrors the visible text exactly (SCHEMA.md). #}
+{# 5. faq(opts): { eyebrow?, title?, items: [{q,a}], id?, variant?, tone? }.
+   Native <details> accordion, accessible with no JS. Pair with faqSchema(items)
+   so the FAQPage JSON-LD mirrors the visible text exactly (SCHEMA.md).
+   variant "cards" renders each question as its own bordered card (more separated,
+   easier to scan); the default is the hairline divider list. #}
 {% macro faq(opts) %}
   {% call ui.section({ tone: opts.tone or "paper", width: "narrow", id: opts.id }) %}
-    {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
-    {% if opts.title %}<h2 class="section__title">{{ opts.title }}</h2>{% endif %}
-    <div class="faq">
+    {% if opts.eyebrow or opts.title %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}</h2>{% endif %}
+      </div>
+    {% endif %}
+    <div class="faq{% if opts.variant == 'cards' %} faq--cards{% endif %}">
       {% for item in opts.items %}
         <details class="faq__item">
           <summary class="faq__q">
@@ -153,13 +226,24 @@
 </script>
 {% endmacro %}
 
-{# 6. ctaBand(opts): { title, text?, cta{href,label}, note?, tone? }. THE gold
-   conversion block. This is the only place gold appears on a page. #}
+{# 6. ctaBand(opts): { title, titleEmphasis?, text?, cta{href,label}, note?,
+   watermark?, tagline?, variant?, tone: "navy" | "sand" }. THE gold conversion
+   block: the band's button is the page's gold moment.
+   variant "center" is the finalized final-CTA composition: centered stack with an
+   optional giant faint italic watermark word behind (for example "Together") and
+   an optional quiet tagline signature below the button. The default keeps the
+   original side-by-side grid, so existing calls are unchanged.
+   tone "sand" is the warm ground with a navy-tinted watermark and navy copy.
+   CONSTRAINT: the navy tone must never be the last section directly above the
+   footer. The footer is also navy, so navy-on-navy makes a low-contrast seam
+   with no visual break. When the CTA band precedes the footer, use tone "sand". #}
 {% macro ctaBand(opts) %}
-  <section class="section cta-band section--{{ opts.tone or 'navy' }}">
+  {% set center = opts.variant == "center" %}
+  <section class="section cta-band{% if center %} cta-band--center{% endif %}{% if opts.watermark %} cta-band--marked{% endif %} section--{{ opts.tone or 'navy' }}">
+    {% if opts.watermark %}<span class="cta-band__watermark" aria-hidden="true">{{ opts.watermark }}</span>{% endif %}
     <div class="container cta-band__inner">
       <div class="cta-band__text">
-        <h2 class="cta-band__title">{{ opts.title }}</h2>
+        <h2 class="cta-band__title">{{ opts.title }}{% if opts.titleEmphasis %} <em class="cta-band__em">{{ opts.titleEmphasis }}</em>{% endif %}</h2>
         {% if opts.text %}<p class="cta-band__lead">{{ opts.text }}</p>{% endif %}
       </div>
       <div class="cta-band__action">
@@ -169,19 +253,36 @@
         </a>
         {% if opts.note %}<p class="cta-band__note">{{ opts.note }}</p>{% endif %}
       </div>
+      {% if opts.tagline %}<p class="cta-band__tagline">{{ opts.tagline }}</p>{% endif %}
     </div>
   </section>
 {% endmacro %}
 
-{# 7. featureRow(opts): { items: [{icon,title,text}], tone? }. Icon + heading + text. #}
+{# 7. featureRow(opts): { lead?, leadEmphasis?, items: [{icon,title,text}],
+   variant?, columns?: 3|4, tone? }. Icon + heading + text.
+   variant "inline" is the finalized trust-band treatment: icon beside the text,
+   an optional serif lead line above the grid, 4-up by default. On the navy tone
+   the inline icons go gold-light (the a11y-safe gold-on-navy pairing finalized
+   in the design lab); on light grounds icons stay teal. #}
 {% macro featureRow(opts) %}
+  {% set inline = opts.variant == "inline" %}
   {% call ui.section({ tone: opts.tone or "sand" }) %}
-    <ul class="feature-row">
+    {% if opts.lead %}
+      <p class="feature-row__lead">{{ opts.lead }}{% if opts.leadEmphasis %} <em>{{ opts.leadEmphasis }}</em>{% endif %}</p>
+    {% endif %}
+    <ul class="feature-row{% if inline %} feature-row--inline{% endif %} feature-row--{{ opts.columns or (4 if inline else 3) }}">
       {% for f in opts.items %}
-        <li class="feature">
+        <li class="feature{% if inline %} feature--inline{% endif %}">
           <span class="feature__icon">{{ ui.icon(f.icon) }}</span>
-          <h3 class="feature__title">{{ f.title }}</h3>
-          <p class="feature__text">{{ f.text }}</p>
+          {% if inline %}
+            <span class="feature__copy">
+              <h3 class="feature__title">{{ f.title }}</h3>
+              <p class="feature__text">{{ f.text }}</p>
+            </span>
+          {% else %}
+            <h3 class="feature__title">{{ f.title }}</h3>
+            <p class="feature__text">{{ f.text }}</p>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
@@ -210,13 +311,19 @@
   {% endcall %}
 {% endmacro %}
 
-{# 9. promoCallout(opts): { eyebrow?, title, body, cta{href,label},
-   image?{src,alt,brief,sourceTag}, reverse?, tone? }. A horizontal cross-sell band (for example
-   Beach Therapy as an option). Serif heading, a teal text link, gold stays out. When image.src
-   is absent, a labeled placeholder stands in for real coastal photography. #}
+{# 9. promoCallout(opts): { eyebrow?, title, titleEmphasis?, body: string | string[],
+   cta{href,label}, image?{src,alt,brief,sourceTag}, reverse?, imageWeight?,
+   pullQuote?, anchorLine?, tone? }. The asymmetric split: a horizontal text-and-image
+   band (cross-sell, reframe). Serif heading, a teal text link, gold stays out of the
+   actions. When image.src is absent, a labeled placeholder stands in for real
+   coastal photography.
+   reverse flips the image to the leading side. imageWeight "image" makes the image
+   column dominant (the finalized flipped cross-sell ratio). pullQuote closes the
+   text column with the gold-rule inline quote. anchorLine is the serif italic
+   accent line above the link (tight 1.3 line-height, the finalized rhythm). #}
 {% macro promoCallout(opts) %}
   {% call ui.section({ tone: opts.tone or "seafoam" }) %}
-    <div class="promo{% if opts.reverse %} promo--reverse{% endif %}">
+    <div class="promo{% if opts.reverse %} promo--reverse{% endif %}{% if opts.imageWeight == 'image' %} promo--image{% endif %}">
       <div class="promo__media">
         {% if opts.image and opts.image.src %}
           <img class="promo__img" src="{{ opts.image.src }}" alt="{{ opts.image.alt }}" loading="lazy" />
@@ -229,9 +336,15 @@
       </div>
       <div class="promo__text">
         {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
-        <h2 class="promo__title">{{ opts.title }}</h2>
-        <p class="promo__body">{{ opts.body }}</p>
-        {{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}
+        <h2 class="promo__title">{{ opts.title }}{% if opts.titleEmphasis %} <em class="promo__em">{{ opts.titleEmphasis }}</em>{% endif %}</h2>
+        {% if opts.body is string %}
+          <p class="promo__body">{{ opts.body }}</p>
+        {% else %}
+          {% for p in opts.body %}<p class="promo__body">{{ p }}</p>{% endfor %}
+        {% endif %}
+        {% if opts.anchorLine %}<p class="promo__anchor">{{ opts.anchorLine }}</p>{% endif %}
+        {% if opts.cta %}{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}{% endif %}
+        {% if opts.pullQuote %}<p class="promo__pullquote">{{ opts.pullQuote }}</p>{% endif %}
       </div>
     </div>
   {% endcall %}
@@ -271,6 +384,193 @@
   ]
 }
 </script>
+{% endmacro %}
+
+{# 12. founderNote(opts): { eyebrow?, variant: "founder" | "note",
+   portrait: {src, alt}, name?, nameEmphasis?, role?, quote?, quoteEmphasis?,
+   body: string[], creds?: [{strong, text}], statement?: {text, cite},
+   sign?: {name, role}, tone? }. The Kay block, finalized in the design lab.
+   variant "founder" (default): sticky 4/5 portrait, serif name, uppercase teal
+   role, two-column credential grid, teal-rule statement with cite.
+   variant "note": a centered sand card, small circular portrait on top, centered
+   quote, body, and signature. Reads as a personal note, not a bio.
+   The portrait expects a transparent cutout; the frame carries a static sea-foam
+   wash with soft blooms and a grounding contact shadow (the finalized ground,
+   no motion). Pass real facts only; never invent credentials. #}
+{% macro founderNote(opts) %}
+  {% set note = opts.variant == "note" %}
+  {% call ui.section({ tone: opts.tone or "paper" }) %}
+    {% if note %}
+      <div class="founder-note founder-note--note">
+        <span class="founder-note__disc">
+          <img src="{{ opts.portrait.src }}" alt="{{ opts.portrait.alt }}" loading="lazy" decoding="async" />
+        </span>
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.quote %}
+          <p class="founder-note__quote">{{ opts.quote }}{% if opts.quoteEmphasis %} <em>{{ opts.quoteEmphasis }}</em>{% endif %}</p>
+        {% endif %}
+        <div class="founder-note__body">
+          {% for p in opts.body %}<p>{{ p }}</p>{% endfor %}
+        </div>
+        {% if opts.sign %}
+          <p class="founder-note__sign"><span class="founder-note__sign-name">{{ opts.sign.name }}</span><span class="founder-note__sign-role">{{ opts.sign.role }}</span></p>
+        {% endif %}
+      </div>
+    {% else %}
+      <div class="founder-note">
+        <div class="founder-note__portrait">
+          <img src="{{ opts.portrait.src }}" alt="{{ opts.portrait.alt }}" loading="lazy" decoding="async" />
+        </div>
+        <div class="founder-note__text">
+          {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+          {% if opts.name %}
+            <p class="founder-note__name">{{ opts.name }}{% if opts.nameEmphasis %} <em>{{ opts.nameEmphasis }}</em>{% endif %}</p>
+          {% endif %}
+          {% if opts.role %}<p class="founder-note__role">{{ opts.role }}</p>{% endif %}
+          {% if opts.quote %}
+            <p class="founder-note__quote">{{ opts.quote }}{% if opts.quoteEmphasis %} <em>{{ opts.quoteEmphasis }}</em>{% endif %}</p>
+          {% endif %}
+          <div class="founder-note__body">
+            {% for p in opts.body %}<p>{{ p }}</p>{% endfor %}
+          </div>
+          {% if opts.creds %}
+            <ul class="founder-note__creds">
+              {% for c in opts.creds %}
+                <li class="founder-note__cred">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  <span><b>{{ c.strong }}</b> {{ c.text }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if opts.statement %}
+            <blockquote class="founder-note__statement">
+              <p>{{ opts.statement.text }}</p>
+              <cite>{{ opts.statement.cite }}</cite>
+            </blockquote>
+          {% endif %}
+          {% if opts.sign %}
+            <p class="founder-note__sign"><span class="founder-note__sign-name">{{ opts.sign.name }}</span><span class="founder-note__sign-role">{{ opts.sign.role }}</span></p>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% endcall %}
+{% endmacro %}
+
+{# 13. numberedList(opts): { eyebrow?, title?, titleEmphasis?, lead?,
+   items: [{icon?, title, body}], tone? }. The stacked SEO pattern, finalized as
+   the numbered divider list: hairline rows, an auto-numbered serif italic GOLD
+   index (01, 02, ...), a sea-foam icon tile, serif heading. The gold digits are
+   one of the three sanctioned gold accents (with the CTA button and the
+   pull-quote rule); everything else stays teal. #}
+{% macro numberedList(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper" }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <ol class="numbered-list">
+      {% for item in opts.items %}
+        <li class="numbered-list__item">
+          <span class="numbered-list__num" aria-hidden="true">{% if loop.index < 10 %}0{% endif %}{{ loop.index }}</span>
+          {% if item.icon %}<span class="numbered-list__icon">{{ ui.icon(item.icon) }}</span>{% endif %}
+          <div class="numbered-list__copy">
+            <h3 class="numbered-list__title">{{ item.title }}</h3>
+            <p class="numbered-list__body">{{ item.body }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endcall %}
+{% endmacro %}
+
+{# 14. pillLinks(opts): { eyebrow?, title?, titleEmphasis?, lead?,
+   links: [{href, label, icon?}], tone? }. Where to go next: a row of soft sand
+   chips with a small teal icon. Internal links only; keep labels short. #}
+{% macro pillLinks(opts) %}
+  {% call ui.section({ tone: opts.tone or "sand" }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <div class="pill-links">
+      {% for link in opts.links %}
+        <a class="pill-links__pill" href="{{ link.href }}">{% if link.icon %}{{ ui.icon(link.icon) }}{% endif %}{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  {% endcall %}
+{% endmacro %}
+
+{# 15. definitionList(opts): { eyebrow?, title?, titleEmphasis?, lead?,
+   items: [{term, detail}], tone? }. A two-column set of term-and-line rows on
+   hairline dividers; a calm, editorial split-column list. One column on mobile. #}
+{% macro definitionList(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper" }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <ul class="def-list">
+      {% for item in opts.items %}
+        <li class="def-list__row">
+          <span class="def-list__term">{{ item.term }}</span>
+          <span class="def-list__detail">{{ item.detail }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endcall %}
+{% endmacro %}
+
+{# 16. steps(opts): { eyebrow?, title?, titleEmphasis?, lead?,
+   steps: [{title, body}], tone? }. What to expect: a vertical numbered timeline
+   with a connecting line and sea-foam number discs (teal serif digits). Steps are
+   a real sequence, so the numbers carry meaning. Facts (free call length, seen
+   within, Superbills) come in through the copy from site data at the call site. #}
+{% macro steps(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper" }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <ol class="steps">
+      {% for step in opts.steps %}
+        <li class="steps__item">
+          <span class="steps__num" aria-hidden="true">{{ loop.index }}</span>
+          <div class="steps__copy">
+            <h3 class="steps__title">{{ step.title }}</h3>
+            <p class="steps__body">{{ step.body }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  {% endcall %}
+{% endmacro %}
+
+{# 17. prose(opts): { dropCap?, width?, tone? } + a {% call %} body. Longform
+   written content (approach pages, posts): generous measure and leading, serif
+   subheads, and an optional navy serif drop-cap on the first paragraph. Usage:
+     {% call s.prose({ dropCap: true }) %} <p>...</p> <h3>...</h3> {% endcall %}
+   The body is authored markup, so headings inside must continue the page's
+   heading order. #}
+{% macro prose(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper", width: opts.width or "narrow" }) %}
+    <div class="prose{% if opts.dropCap %} prose--dropcap{% endif %}">
+      {{ caller() }}
+    </div>
+  {% endcall %}
 {% endmacro %}
 
 {# 11. serviceSchema(opts): { name, serviceType, description, url,

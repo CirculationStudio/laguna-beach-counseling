@@ -15,9 +15,10 @@
   <a class="{{ cls }}{% if opts.class %} {{ opts.class }}{% endif %}" href="{{ opts.href }}"{% if opts.ariaLabel %} aria-label="{{ opts.ariaLabel }}"{% endif %}>{{ opts.label }}{% if opts.arrow %}{{ arrow() }}{% endif %}</a>
 {% endmacro %}
 
-{# eyebrow(opts): { text } or a bare string. The signature device, a short teal
-   horizon rule then an uppercase word, marking the start of a section. Teal, not
-   gold, so many eyebrows never breach the one-gold-per-viewport budget. #}
+{# eyebrow(opts): { text } or a bare string. The signature device, a small teal
+   wave mark then an uppercase word, marking the start of a section. Teal, not
+   gold, so many eyebrows never breach the one-gold-per-viewport budget. The wave
+   is hidden on mobile (text-only) via CSS; markup stays the same. #}
 {% macro eyebrow(opts) %}
   {% set text = opts.text or opts %}
   <p class="eyebrow"><span class="eyebrow__rule" aria-hidden="true"></span>{{ text }}</p>
