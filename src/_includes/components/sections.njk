@@ -662,7 +662,8 @@
    license portion of the credentials string, everything before ", supervised by",
    split into individual licenses), and worksFor referencing the site-wide
    business @id, the same node the serviceSchema provider uses. A member may carry
-   an optional url (e.g. a founder's own page), emitted absolute. Pass business as
+   an optional url (e.g. a founder's own page), emitted absolute, and an optional
+   sameAs array (profile URLs, e.g. LinkedIn / Psychology Today). Pass business as
    { url, name }. Pure, no globals, like the other schema macros. #}
 {% macro personSchema(people, business) %}
 <script type="application/ld+json">
@@ -674,6 +675,7 @@
       "name": {{ p.name | dump | safe }},
       "jobTitle": {{ p.role | dump | safe }},
       {% if p.url %}"url": {{ (business.url + p.url) | dump | safe }},
+      {% endif %}{% if p.sameAs %}"sameAs": [ {% for s in p.sameAs %}{{ s | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %} ],
       {% endif %}"hasCredential": [ {% for c in licenses %}{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": {{ c | dump | safe }} }{% if not loop.last %}, {% endif %}{% endfor %} ],
       "worksFor": { "@type": "MedicalBusiness", "@id": {{ (business.url + "/#business") | dump | safe }}, "name": {{ business.name | dump | safe }}, "url": {{ business.url | dump | safe }} }
     }{% if not loop.last %},{% endif %}
