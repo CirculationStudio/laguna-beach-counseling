@@ -1,0 +1,99 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "Kay Wenger, LMFT | Founder, Laguna Beach Counseling"
+description: "30 years in therapy rooms, NRMFT co-founder, Pepperdine educator, and clinical supervisor at the Susi Q. Meet the founder of Laguna Beach Counseling."
+permalink: /about/kay-wenger/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "About", url: "/about" }
+  - { label: "Kay Wenger" }
+hero:
+  eyebrow: "Meet the founder"
+  variant: "plain" # text-only hero; the portrait carries in the founderNote below
+  title: "Kay Wenger,"
+  titleEmphasis: "LMFT, LPCC"
+  lead: "Founder of Laguna Beach Counseling, thirty-plus years in the room, and still convinced the work is mostly about the relationship, not the technique."
+lead:
+  - "I started Laguna Beach Counseling in 2001 with a fairly simple conviction: that excellent clinical care and genuine human warmth could exist side by side, in the same room, without either one crowding out the other. I had trained plenty of therapists by then, and I had seen how easily a practice can start treating people like a caseload. I wanted to build the opposite of that."
+  - "More than 30 years in, that conviction hasn't budged. The quality of the work matters more to me than the scale of the business. We're not serving a market here. We're serving our neighbors, the people I run into at the market and at the Susi Q, and I've built a team I genuinely trust to hold that same standard."
+kay:
+  eyebrow: "The short version"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp"
+    alt: "Kay Wenger, founder and clinical supervisor of Laguna Beach Counseling."
+  name: "Kay Wenger,"
+  nameEmphasis: "LMFT, LPCC"
+  role: "Founder & Clinical Supervisor"
+  body:
+    - "I earned my M.A. in Clinical Psychology at Pepperdine, and I stayed on there for the better part of three decades, helping train the generation of marriage and family therapists now practicing across Orange County. I retired from that role in 2022, but the teaching instinct never really left. It's how I supervise the associates here."
+    - "Along the way I co-founded the National Registry of Marriage Friendly Therapists, chaired the MFT Consortium of Orange County, and became a clinical supervisor at the Susi Q, our local senior center. I'm solution-focused and practical by nature, trained in family mediation and critical-incident work. But if you asked me what actually helps people, I wouldn't start with any of that."
+  creds:
+    - { strong: "30-plus years", text: "in the room with couples, families, and individuals" }
+    - { strong: "Pepperdine", text: "M.A. and, for decades, an educator of therapists" }
+    - { strong: "NRMFT", text: "co-founder and CEO" }
+    - { strong: "The Susi Q", text: "clinical supervisor for senior mental health" }
+  statement:
+    text: "Techniques don't heal people. Relationships do."
+    cite: "Kay Wenger, LMFT, LPCC"
+quote:
+  text: "Curiosity will take you farther than certainty."
+  attribution: "Kay Wenger, LMFT, LPCC"
+shapes:
+  eyebrow: "The through-lines"
+  title: "One career, a few threads"
+  lead: "The letters after a name can read like a wall. Here's what they actually add up to."
+  items:
+    - { term: "The clinician", detail: "More than 30 years with couples, families, individuals, and children, applying what fits each person rather than one favorite method." }
+    - { term: "The educator", detail: "Decades at Pepperdine's graduate school training the therapists now practicing across Orange County, and founding chair of the MFT Consortium of Orange County." }
+    - { term: "The marriage authority", detail: "Co-founder and CEO of the National Registry of Marriage Friendly Therapists, a national credential almost no local practice holds." }
+    - { term: "The community anchor", detail: "Clinical supervisor at the Susi Q senior center, where she built a set of mental-health programs from the ground up." }
+next:
+  eyebrow: "Where to go next"
+  title: "The work Kay is proudest of"
+  columns: 2
+  cards:
+    - { icon: "wave", title: "Beach Therapy", body: "The signature service Kay built from an observation: some people do their best work walking the coastline, not sitting across a desk.", href: "/beach-therapy", linkLabel: "Beach Therapy" }
+    - { icon: "clock", title: "Senior counseling", body: "Kay's Susi Q work anchors our care for older adults. The senior counseling page will carry that story in full when it goes live." }
+cta:
+  title: "Want to work with Kay, or her team?"
+  text: "The best first step is a free 15 to 20 minute call. Tell us what's going on, and we'll match you with the right fit, whether that's Kay directly or one of the associates she supervises."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{# Kay Wenger, the story-led template (COMPONENT_COVERAGE.md: founderNote founder
+   variant carries the page). The strongest entity page. All facts are from
+   CLIENT_FACTS.md's DNA doc; the voice uses the approved verbatim samples and
+   canonical pull-quotes (voice-tone.md), em dashes converted. Credentials are
+   framed as warmth and substance, not a wall of letters (brief flag).
+
+   Schema is Person, NOT Service (per the brief), so there is no service front
+   matter and no serviceSchema. The personSchema call below emits the Person node
+   with jobTitle, credentials, worksFor @id, and sameAs to LinkedIn / Psychology
+   Today / NRMFT (canonical URLs from CLIENT_FACTS.md). BreadcrumbList still emits
+   from the template.
+
+   Brief internal links: /beach-therapy is a real next link (shipped this pass);
+   /therapy/seniors is the plain "Senior counseling" next card (not built yet, no
+   href) and gets wired when that page ships. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the Susi Q origin story (approved for web use, including her
+   father, in CLIENT_FACTS.md), landing after the through-lines list. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>The senior work started at home. In 2010, my father came to live with me, and when I went looking for support for him, I found that most senior centers offered plenty to do, bingo, mahjong, a full social calendar, and almost nowhere to talk about what was actually hard. Someone could spend the whole day at a center and never once have space for the harder conversations.</p>
+  <p>So I built one. It started as a group called Coffee Talk, later renamed Heart to Heart, and grew from there: Feeling the Blues for individuals over 55, a women's group, a men's group, a Death Cafe, a caregiver circle, a grief and loss group. People gravitate to real stories, and that is the truest one I have about how I work. I don't lead with technique. Techniques don't heal people. Relationships do.</p>
+{% endcall %}
+{# Person schema (brief requirement). sameAs = Kay's canonical profiles from
+   CLIENT_FACTS.md (Canonical social and directory URLs). #}
+{% set kayPerson = {
+  name: "Kay Wenger",
+  role: "Founder & Clinical Supervisor",
+  credentials: "LMFT #38183, LPCC #1450",
+  url: "/about/kay-wenger",
+  sameAs: [
+    "https://www.linkedin.com/in/kathleenwengerlmft/",
+    "https://www.psychologytoday.com/us/therapists/kathleen-kay-wenger-laguna-beach-ca/38172",
+    "https://www.marriagefriendlytherapists.com/united-states/irvine/relationship-marriage-counseling/kathleen-wenger"
+  ]
+} %}
+{{ s.personSchema([kayPerson], { url: site.url, name: site.name }) }}

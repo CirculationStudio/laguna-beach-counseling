@@ -182,5 +182,45 @@
     "tags": ["neurodiversity"],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; affirming stance per SITE_ARCHITECTURE.md /specialties/neurodiversity brief. No diagnostic claim; frames therapy as affirming support, not a cure."
+  },
+  {
+    "id": "beach-is-it-real-therapy",
+    "question": "Is Beach Therapy real therapy, or just a walk?",
+    "answer": "It's real therapy. Same training, same depth, and the same standards of care and privacy. We've changed the setting, not the work. For a lot of people the walk is exactly what helps the work go deeper.",
+    "tags": ["beach-therapy"],
+    "status": "draft",
+    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ); CLIENT_FACTS.md Services (Beach Therapy, same depth of work outdoors)."
+  },
+  {
+    "id": "beach-weather",
+    "question": "What if the weather's bad?",
+    "answer": "A gray morning never means a missed week. We keep an office session on Third Street or a telehealth visit as backup, and we sort out the plan with you ahead of time. You're never left stranded.",
+    "tags": ["beach-therapy"],
+    "status": "draft",
+    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ); CLIENT_FACTS.md NAP (333 Third Street office) and Services (telehealth backup)."
+  },
+  {
+    "id": "beach-privacy",
+    "question": "Is it private? It's a public beach.",
+    "answer": "We take privacy seriously. We choose quiet times and stretches of coast, keep a natural distance from other people, and never use names within earshot. If a session ever feels too exposed, we move indoors. Your comfort comes first.",
+    "tags": ["beach-therapy"],
+    "status": "draft",
+    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ). HIPAA-conscious privacy framing; no client-identifying detail."
+  },
+  {
+    "id": "infidelity-can-survive",
+    "question": "Can a relationship actually survive an affair?",
+    "answer": "Many do, and some come out steadier than before, though the road there is real work, not a quick apology. Research on affair recovery finds that couples who commit to the process can rebuild to a healthy place, on par with other couples who do therapy. It isn't about deciding who was right. It's about understanding what happened, rebuilding trust in a structured way, and deciding together what you both want next. We never make one partner the villain.",
+    "tags": ["infidelity", "couples"],
+    "status": "draft",
+    "source": "CONTENT_EVIDENCE.md (affair-recovery outcomes, Atkins and colleagues; qualitative framing, no guaranteed outcome); voice-tone.md. Never assigns blame to one partner (SITE_ARCHITECTURE.md /specialties/infidelity flag)."
+  },
+  {
+    "id": "infidelity-decide-first",
+    "question": "Do we have to decide whether to stay together before we start?",
+    "answer": "No. A lot of couples come in not knowing yet, and that is allowed. The early work is about stabilizing things and understanding how you got here, not forcing a verdict. Some couples rebuild, some decide to part with more clarity and less bitterness. Either way, you don't have to have the answer before you walk in.",
+    "tags": ["infidelity", "couples"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; CLIENT_FACTS.md (Discernment Counseling; pro-commitment but not attached to a particular outcome). Non-blaming, no pressure toward a predetermined outcome."
   }
 ]

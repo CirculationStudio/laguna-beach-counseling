@@ -22,7 +22,7 @@
         { "label": "Depression", "url": "/specialties/depression", "published": true },
         { "label": "Grief & Loss", "url": "/specialties/grief", "published": true },
         { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": true },
-        { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": false },
+        { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": true },
         { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": false },
         { "label": "Neurodiversity", "url": "/specialties/neurodiversity", "published": true },
         { "label": "Faith-Based", "url": "/specialties/faith-based", "published": true },
@@ -34,7 +34,7 @@
       "url": "/about",
       "published": false,
       "children": [
-        { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": false },
+        { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": true },
         { "label": "Our Team", "url": "/about/our-team", "published": true },
         { "label": "Our Approach", "url": "/about/our-approach", "published": false }
       ]
@@ -43,7 +43,7 @@
   "signature": {
     "label": "Signature Services",
     "children": [
-      { "label": "Beach Therapy", "url": "/beach-therapy", "published": false },
+      { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
       { "label": "Couples Intensive", "url": "/couples-intensive", "published": false },
       { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": false },
       { "label": "Telehealth", "url": "/telehealth", "published": false }
@@ -77,7 +77,7 @@
   "header": [
     { "ref": "therapy", "panel": "featured", "panelTitle": "Who we help", "feature": "beachTherapy" },
     { "ref": "specialties", "panel": "columns", "panelTitle": "What people struggle with" },
-    { "label": "Beach Therapy", "url": "/beach-therapy", "published": false },
+    { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
     { "ref": "about" },
     { "label": "Fees", "url": "/fees", "published": false },
     { "label": "Contact", "url": "/contact", "published": true }

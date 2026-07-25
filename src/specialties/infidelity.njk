@@ -1,0 +1,96 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "Infidelity Counseling Laguna Beach | Affair Recovery"
+description: "Rebuilding trust after betrayal is possible, and it's hard. Structured, non-blaming affair-recovery work for couples."
+permalink: /specialties/infidelity/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Infidelity & Affair Recovery" }
+hero:
+  eyebrow: "Infidelity and affair recovery"
+  variant: "plain" # text-only hero
+  title: "Infidelity and"
+  titleEmphasis: "affair recovery."
+  lead: "Rebuilding trust after betrayal is possible, and it's hard, and it's not the same as pretending it didn't happen. It also isn't a courtroom."
+lead:
+  - "Finding out, or admitting, that trust has been broken is one of the most disorienting things a couple can go through. The ground you thought was solid isn't. In the rawest days after, it's tempting to turn the relationship into a courtroom: gather the evidence, assign the guilt, hand down a verdict. That instinct is human. It is also, usually, a dead end."
+  - "Can a couple actually come back from this? Often, yes, though not by litigating who was right. The work is understanding how you got here, one honest layer at a time, and deciding together, without pressure, what you both want to build next. We won't make one of you the villain and the other the judge. We work with the relationship as a whole system."
+kay:
+  eyebrow: "Where we stand"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp"
+    alt: "Kay Wenger, founder of Laguna Beach Counseling."
+  name: "Kay Wenger,"
+  nameEmphasis: "LMFT, LPCC"
+  role: "Founder & Clinical Supervisor"
+  body:
+    - "I'm pro-commitment, but I'm not attached to a particular outcome. My job isn't to save your marriage at any cost, and it isn't to talk you into leaving. It's to help you both see the relationship clearly enough to make a real decision, and to do the repair work if that's what you choose."
+    - "As co-founder of the National Registry of Marriage Friendly Therapists, I've spent a long time on exactly this kind of work. The couples who recover well are rarely the ones who were never hurt. They're the ones who got honest, took responsibility for their own part, and stopped treating each other like opposing counsel."
+  creds:
+    - { strong: "NRMFT", text: "co-founder and CEO" }
+    - { strong: "30-plus years", text: "with couples in crisis and repair" }
+    - { strong: "Pro-commitment", text: "never pro-blame" }
+    - { strong: "Structured", text: "and non-judgmental" }
+  statement:
+    text: "Recovery isn't forgetting the betrayal. It's building something new, together, that can actually hold."
+    cite: "Kay Wenger, LMFT, LPCC"
+quote:
+  text: "Therapy works best when both people can look at the relationship as a system, not a courtroom."
+  attribution: "Kay Wenger, LMFT, LPCC"
+journey:
+  eyebrow: "What recovery involves"
+  title: "The path, step by step"
+  lead: "There's no skipping to the end, but there is a path. It's more structured than the chaos of the early days makes it feel."
+  steps:
+    - { title: "First, stop the bleeding", body: "In the raw early days we focus on stabilizing: containing the crisis and agreeing on what each of you needs to feel safe enough to keep talking. No big decisions yet." }
+    - { title: "Understand how you got here", body: "Not to excuse anything, but because trust rebuilds on understanding, not guesswork. We look honestly at the whole system, what each of you was carrying, without turning it into a trial." }
+    - { title: "Rebuild trust, deliberately", body: "Trust doesn't return on a promise. It returns in small, consistent, verifiable steps over time. We give that a structure, so it isn't just white-knuckling and hoping." }
+    - { title: "Decide together, without pressure", body: "Some couples rebuild something stronger than before. Some part with more clarity and less bitterness. Either way, you get there together, on your own timeline." }
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "compass", title: "Individual therapy", body: "Affair recovery often includes individual work alongside the couples sessions, a place to sort out your own side of it.", href: "/therapy/individuals", linkLabel: "Individual therapy" }
+    - { icon: "heart", title: "Couples and marriage therapy", body: "Affair recovery lives inside our broader couples work. The couples page will carry the full picture when it goes live." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Affair recovery, answered"
+  tags: ["infidelity", "couples"]
+  limit: 4
+cta:
+  title: "Not sure if it can be repaired?"
+  text: "You don't have to know yet. A free 15 to 20 minute call is a low-pressure way to talk it through and see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Infidelity and affair recovery counseling"
+  serviceType: "Affair recovery counseling"
+  description: "Structured, non-blaming affair-recovery counseling for couples in Laguna Beach and by telehealth across California."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Infidelity and affair recovery, the story-led template (COMPONENT_COVERAGE.md:
+   recovery path fits the journey steps block). Framing is "not a courtroom":
+   recovery is possible and hard, about understanding rather than assigning guilt,
+   distinct from every other page's metaphor. The brief flag is honored throughout:
+   NEVER assign blame to one partner. The relationship is treated as a system, and
+   no copy pathologizes the partner who was unfaithful. Modalities: no Gottman /
+   EFT / Imago claimed (CLIENT_FACTS.md), only Kay's pro-commitment stance and the
+   NRMFT credential. No em dashes.
+
+   Brief internal links: /therapy/individuals is a real next link (individual work
+   is part of the recovery path); /therapy/couples is the plain "Couples and
+   marriage therapy" next card and /couples-intensive is named in the content slot
+   as plain text, both pending (pages not built yet, no broken hrefs). Wire them
+   when they ship. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the affair-recovery evidence (framed as research context, never a
+   promise, no blame, infidelity-specific and independently justified) plus the
+   Couples Intensive as an accelerant, named in plain text since /couples-intensive
+   is not built yet. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>Is it realistic to think a couple can rebuild after this? The research is more hopeful than you might expect. Studies of affair recovery find that couples who commit to the work can improve to a place comparable with other couples in therapy (Atkins and colleagues). That is not a promise about your particular relationship, and it is not a reason to rush. It just means the door is not closed, even when it feels like it is.</p>
+  <p>When a couple wants to move faster or go deeper than weekly sessions allow, a Couples Intensive, a focused four-to-eight-hour block in a single day, can do a lot of work at once. It's one of the ways this practice makes room for the harder cases. Ask about it on your free call. The dedicated page is on the way.</p>
+{% endcall %}
