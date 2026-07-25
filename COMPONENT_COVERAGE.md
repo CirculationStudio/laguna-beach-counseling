@@ -107,7 +107,7 @@ doc comment.
 | `/beach-therapy` | story-led | Origin story; what-to-expect = `journey` steps |
 | `/specialties/neurodiversity` | practical-led | |
 | `/specialties/addiction-recovery` | practical-led | Scope-bounding copy in lead / content slot |
-| `/therapy/couples` | practical-led | TODO: confirm against brief. Brief leans stance-narrative (pro-commitment voice); premarital keyword section (~3,880 impressions) goes in the content slot either way; re-decide before drafting |
+| `/therapy/couples` | story-led | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
 | `/therapy/teens` | practical-led | Mother-daughter and Men's Group sections via content slot |
 | `/therapy/seniors` | practical-led | TODO: confirm against brief. Brief leans Susi-Q story; re-decide before drafting |
 | `/therapy/families` | practical-led | |
