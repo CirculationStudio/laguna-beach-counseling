@@ -30,7 +30,14 @@ Sections (`src/_includes/components/sections.njk`), with the device extraction l
 4. `pullQuote` `{ quote, attribution?, italic?, variant?: inline | tick, foam?, tone? }`.
    "tick" is the centered editorial treatment with the gold tick; foam wraps it in the
    sea-foam wash panel.
-5. `faq` `{ eyebrow?, title?, items: [{q,a}], id?, variant?: cards, tone? }` + `faqSchema`.
+5. `faq` `{ eyebrow?, title?, items: [{q,a}], id?, variant?: cards, tone? }` + `faqSchema`. On the
+   page templates (reframe-led, story-led, practical-led), a page's `faq:` block can supply
+   `tags: []` and an optional `limit` instead of a literal `items` array, pulling from
+   `src/_data/faq.json` (the FAQ answer engine, the single source of truth for FAQ content)
+   via the `resolveFaq` Eleventy filter. `/specialties/anxiety` is the reference: `faq: { tags:
+   ["anxiety", "general"], limit: 4 }`. Every entry in faq.json carries a `status` of `draft` or
+   `approved`; before DNS cutover, grep the file for `"status": "draft"` and confirm none remain
+   (see SITE_ARCHITECTURE.md's launch checklist).
 6. `ctaBand` `{ title, titleEmphasis?, text?, cta{href,label}, note?, watermark?, tagline?,
    variant?: center, tone: navy | sand }`. CONSTRAINT: the navy tone must never be the last
    section directly above the navy footer; use tone "sand" there.
