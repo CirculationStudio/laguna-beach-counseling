@@ -82,10 +82,10 @@ service:
    its prevalence figures need fresh CDC/NASEM confirmation not done here. Grief is
    crisis-adjacent, so support: true. No em dashes.
 
-   Brief internal links: /about/kay-wenger is represented inline by the founderNote
-   (her story in her words) and /therapy/seniors by the plain "Later-life loss"
-   next card; both target pages are not built yet, so neither is linked (no broken
-   hrefs). Wire them up when those pages ship. #}
+   Brief internal links: /about/kay-wenger is now a real link (page shipped) in the
+   content slot below, and her story also carries inline in the founderNote.
+   /therapy/seniors is the plain "Later-life loss" next card (not built yet, so no
+   href); wire it when that page ships. #}
 {% import "components/sections.njk" as s %}
 {# Content slot: "what the work looks like", composed from pointCards so it sits
    between the shapes list and the next section. #}
@@ -100,3 +100,6 @@ service:
     { icon: "shell", title: "We make room for all of it", body: "Anger, relief, guilt, numbness, the laugh that ambushes you at the funeral: grief is rarely just sadness. Nothing you feel is too much or too ugly to say out loud here." }
   ]
 }) }}
+{% call s.prose({ width: "narrow" }) %}
+  <p>This work grew out of Kay's own experience caring for her father and a decade of leading senior grief groups at the Susi Q. If it helps to know who built it, <a href="/about/kay-wenger">read more about Kay</a>.</p>
+{% endcall %}
