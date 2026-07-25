@@ -119,7 +119,7 @@ doc comment.
 | `/fees` | practical-led | Uses the optional `rates` rateTable block |
 | `/faq` | practical-led | Only hero + faq + cta keys populated |
 | `/` (homepage) | custom, no template | Routing front door, grid-driven, needs teamGrid; factory-guardrail sensitive |
-| `/about/our-team` | custom | Needs teamGrid (still a GAP) |
+| `/about/our-team` | custom, no template | BUILT: hand-composed from `teamGrid` + `ctaBand` |
 | `/get-started` | custom | bookingEmbed one-off |
 | `/contact` | custom | napBlock, map, form one-offs; full MedicalBusiness schema |
 | `/blog` + post template | custom | postList deferred; post layout is future work |
@@ -171,7 +171,7 @@ noted once here and omitted from the rows below unless notable.
 | Beach Therapy teaser card | COVERED `promoCallout` |
 | "Who we help" grid to `/therapy/*` | COVERED `pointCards` (linkable) |
 | "What people struggle with" grid to `/specialties/*` | COVERED `pointCards` (linkable) |
-| Team teaser to `/about/our-team` | GAP `teamGrid` (compact variant) |
+| Team teaser to `/about/our-team` | COVERED `teamGrid`; compact homepage-teaser variant still pending |
 | Out-of-network + Superbill line | COVERED `lead` |
 | Gold CTA band | COVERED `ctaBand` |
 
@@ -189,7 +189,7 @@ noted once here and omitted from the rows below unless notable.
 | What to expect / how the work looks | COVERED `pointCards` |
 | Specialties handled (links out) | COVERED `pillLinks` or `pointCards` (linkable) |
 | Beach Therapy as an option | COVERED `promoCallout` |
-| The team / who you will work with | GAP `teamGrid` (or COVERED `founderNote` for Kay, or `promoCallout` to `/about/our-team`) |
+| The team / who you will work with | COVERED `teamGrid` (or `founderNote` for Kay, or `promoCallout` to `/about/our-team`) |
 | Kay pull-quote | COVERED `pullQuote` |
 | CTA | COVERED `ctaBand` |
 
@@ -240,7 +240,7 @@ noted once here and omitted from the rows below unless notable.
 | Block | Coverage |
 |---|---|
 | Fit-match intro | COVERED `lead` |
-| Card per associate (photo, credential, specialties, book-with link) | GAP `teamGrid` |
+| Card per associate (photo, credential, specialties, book-with link) | COVERED `teamGrid` |
 | Supervised-by-Kay note | COVERED `lead` |
 | CTA | COVERED `ctaBand` |
 
@@ -325,11 +325,13 @@ watermark composition with navy and sand tones, `breadcrumbs` + `breadcrumbSchem
 `serviceSchema`. All live in the code and demoed on `/components/`.
 
 ### Net-new, low reuse or one-off (still open)
-- **`teamGrid`**: person cards (photo, name, credentials, specialties, book-with link).
-  Purpose: `/about/our-team`, with a compact variant for the homepage team teaser. Params:
-  `{ people: [{name, credential, specialties[], href, image?{src,alt}}], compact? }`.
-  LOW-MEDIUM reuse (2 places). Respect the CLIENT_FACTS flags: publish confirmed credentials
-  only, and no permanent photography for departing associates.
+- **`teamGrid`**: COVERED. Person cards (cutout photo on the founder block's static
+  sea-foam ground, name, role, credentials, short bio) as a responsive 1/2/3-column grid.
+  Built and live on `/about/our-team` and demoed on `/components/`. Params:
+  `{ eyebrow?, title?, titleEmphasis?, lead?, members: [{name, role, credentials, photo{src,alt}, bio, href?, departing?}], tone? }`.
+  `departing` is accepted but intentionally never rendered (private staffing info). Still
+  pending: a compact variant for the homepage team teaser. Respect the CLIENT_FACTS flags:
+  publish confirmed credentials only, and no permanent photography for departing associates.
 - **`napBlock`**: address, phone, email, hours. Purpose: `/contact` (and maybe `/get-started`).
   LOW reuse. Could reuse the footer NAP markup rather than a new macro.
 - **`contactForm`**: the contact form with Turnstile and a success state. ONE-OFF (`/contact`).

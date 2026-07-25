@@ -35,7 +35,7 @@
       "published": false,
       "children": [
         { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": false },
-        { "label": "Our Team", "url": "/about/our-team", "published": false },
+        { "label": "Our Team", "url": "/about/our-team", "published": true },
         { "label": "Our Approach", "url": "/about/our-approach", "published": false }
       ]
     }

@@ -1,0 +1,105 @@
+---
+layout: layouts/base.njk
+metaTitle: "Our Therapists | Laguna Beach Counseling"
+description: "A Pepperdine-trained team, personally supervised by Kay Wenger. Find the right fit for what you're navigating."
+permalink: /about/our-team/
+---
+{# Hand-composed page (no reframe/story/practical template): breadcrumbs, an
+   intro that carries the single h1, the teamGrid component, and a sand CTA band.
+   Roster and credentials are real, from CLIENT_FACTS.md. No per-member bio links:
+   associate bio URLs 301 to this page (SITE_ARCHITECTURE.md), and Kay is linked
+   from the intro prose. No em dashes. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{% set crumbs = [
+  { label: "Home", url: "/" },
+  { label: "About", url: "/about" },
+  { label: "Our Team" }
+] %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{% call ui.section({ width: "narrow" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("Our team") }}
+    <h1 class="section__title">The team you'll actually work with.</h1>
+    <p class="section__lead">A practice is only as good as the people in the room with you. Ours is a small, hand-picked counseling team in Laguna Beach that <a href="/about/kay-wenger">Kay</a> personally trains and supervises, so the care feels the same whoever you see. Not sure who you'd click with? That's exactly what the free call is for. We listen first, then point you toward the right fit.</p>
+  </div>
+{% endcall %}
+
+{#
+  MEMBERS. Real roster and confirmed credentials from CLIENT_FACTS.md.
+  DEPARTURE TIMELINES (private, do NOT surface on the page): per CLIENT_FACTS.md,
+  Austin Whitman relocates to Austin, TX and transitions out in OCTOBER 2026;
+  Christy Hill completes her associate hours and transitions out in DECEMBER 2026.
+  Whoever edits this next: remove their entries once those dates pass (and update
+  any nav / schema that references them). No visible "departing" note by design.
+
+  photo.scale: the current cutouts are all 700x700 with the figure grounded at
+  the bottom, but the head sits higher in some than others (Kay ~20.6% sky above
+  the head, Christy ~19.1%, the rest ~15.7%). Every subject is bottom-anchored so
+  it runs flush to the card edge; Kay and Christy are then scaled up slightly to
+  crop their extra top headroom so all five heads line up. If a cutout is
+  re-exported with a different head position, re-tune (or drop) these scales.
+#}
+{% set teamPhotoBase = "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/" %}
+{% set members = [
+  {
+    name: "Kay Wenger",
+    role: "Founder & Clinical Supervisor",
+    credentials: "LMFT #38183, LPCC #1450",
+    specialty: { label: "Couples, families, and individuals" },
+    url: "/about/kay-wenger",
+    photo: { src: teamPhotoBase + "kay-wenger-cutout.webp", alt: "Kay Wenger, founder and clinical supervisor of Laguna Beach Counseling.", scale: 1.06 },
+    bio: "Kay founded Laguna Beach Counseling in 2001 and has spent more than 30 years with individuals, couples, and families. She co-founded the National Registry of Marriage Friendly Therapists and personally supervises everyone on this team."
+  },
+  {
+    name: "Christy Hill",
+    role: "Associate Therapist",
+    credentials: "AMFT #139486, APCC #13876, supervised by Kay Wenger",
+    specialty: { label: "Anxiety and personal growth", href: "/specialties/anxiety" },
+    photo: { src: teamPhotoBase + "christy-hill-cutout.webp", alt: "Christy Hill, associate therapist at Laguna Beach Counseling.", scale: 1.04 },
+    bio: "Christy works with people navigating anxiety and the kind of personal growth that looks quiet from the outside and feels enormous from the inside. She sees clients under Kay's supervision."
+  },
+  {
+    name: "Natasha Gaffaney",
+    role: "Associate Therapist",
+    credentials: "AMFT #147477, supervised by Kay Wenger",
+    specialty: { label: "Chronic illness and healthcare-worker burnout" },
+    photo: { src: teamPhotoBase + "natasha-gaffaney-cutout.webp", alt: "Natasha Gaffaney, associate therapist at Laguna Beach Counseling." },
+    bio: "Before she was a therapist, Natasha spent years as a nurse and a healthcare director, so she understands what chronic illness, medical trauma, and healthcare-worker burnout ask of a person. Her work is humanistic and existential."
+  },
+  {
+    name: "Austin Whitman",
+    role: "Associate Therapist",
+    credentials: "AMFT #145401, supervised by Kay Wenger",
+    specialty: { label: "Teens and young adults" },
+    photo: { src: teamPhotoBase + "austin-whitman-cutout.webp", alt: "Austin Whitman, associate therapist at Laguna Beach Counseling." },
+    bio: "Austin works with teens and young adults and leads the practice's Men's Support Group. He draws on person-centered, CBT, DBT, and ACT approaches, and he's easy to talk to, which teenagers tend to notice first."
+  },
+  {
+    name: "Rozy Pishvaiy",
+    role: "Associate Therapist",
+    credentials: "AMFT #151380, supervised by Kay Wenger",
+    specialty: { label: "Life transitions and children" },
+    photo: { src: teamPhotoBase + "rozy-pishvaiy-cutout.webp", alt: "Rozy Pishvaiy, associate therapist at Laguna Beach Counseling." },
+    bio: "Rozy helps people through growth and the life transitions that reshuffle everything, and she has a real gift for working with children. She holds an M.A. in Marital and Family Therapy from Alliant International University."
+  }
+] %}
+
+{{ s.teamGrid({ members: members, bookPath: site.booking.getStartedPath }) }}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "Not sure who's the right fit?",
+  text: "That's exactly what the free call is for. Tell us what's going on, and we'll match you with the therapist who fits, whether that's Kay or one of the associates she supervises.",
+  note: "Free 15 to 20 minutes. Be seen within 24 hours.",
+  tagline: site.tagline,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ s.breadcrumbSchema(crumbs, site.url) }}
+{{ s.personSchema(members, { url: site.url, name: site.name, telephone: site.nap.telephone }) }}

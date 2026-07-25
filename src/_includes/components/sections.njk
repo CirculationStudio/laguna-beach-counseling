@@ -458,6 +458,63 @@
   {% endcall %}
 {% endmacro %}
 
+{# teamImg(photo): the shared styled cutout <img> used by every team card.
+   photo.position: optional CSS object-position (e.g. "center 73%").
+   photo.scale: optional number (e.g. 1.06), scales the cutout about its bottom
+   center to crop extra baked-in headroom while staying flush to the bottom. #}
+{% macro teamImg(photo) %}
+  {%- set imgStyle = "" -%}
+  {%- if photo.position %}{%- set imgStyle = imgStyle + "object-position:" + photo.position + ";" -%}{%- endif -%}
+  {%- if photo.scale %}{%- set imgStyle = imgStyle + "transform:scale(" + photo.scale + ");" -%}{%- endif -%}
+  <img src="{{ photo.src }}" alt="{{ photo.alt }}" width="400" height="440" loading="lazy" decoding="async"{% if imgStyle %} style="{{ imgStyle }}"{% endif %} />
+{% endmacro %}
+
+{# 12b. teamGrid(opts): { eyebrow?, title?, titleEmphasis?, lead?, bookPath?,
+   members: [{ name, role, credentials, specialty?{label, href?}, photo:
+   {src, alt, position?, scale?}, bio, href?, url?, departing? }], tone? }.
+   The roster as a uniform responsive card grid (1 / 2 / 3 columns): every member,
+   the founder included, is the same size card. Each is a transparent-cutout
+   portrait on the static sea-foam ground shared with founderNote (soft blooms
+   plus a grounding contact shadow, no motion), then name in serif, role in
+   uppercase teal, credentials muted, an optional Focus/specialty line (linked to
+   its page when specialty.href is set, plain text otherwise), a short bio, and a
+   per-person "Book with <first name>" link to m.href or opts.bookPath. Teal
+   accents only, never gold. At 5 members it wraps 3 across then 2 on the next row.
+   url: an optional canonical page for the member, used only by personSchema.
+   Pass real facts only; publish confirmed credentials only (see CLIENT_FACTS.md).
+   departing: an accepted but intentionally NON-RENDERED flag. A therapist's
+   staffing timeline is private and must not be surfaced publicly, so the macro
+   emits nothing for it; track departures in a code comment at the call site. #}
+{% macro teamGrid(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper" }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <ul class="team-grid">
+      {% for m in opts.members %}
+        <li class="team-card">
+          <div class="team-card__portrait">{{ teamImg(m.photo) }}</div>
+          <div class="team-card__body">
+            <h3 class="team-card__name">{{ m.name }}</h3>
+            {% if m.role %}<p class="team-card__role">{{ m.role }}</p>{% endif %}
+            {% if m.credentials %}<p class="team-card__creds">{{ m.credentials }}</p>{% endif %}
+            {% if m.specialty %}
+              <p class="team-card__specialty"><span class="team-card__specialty-label">Focus</span> {% if m.specialty.href %}<a href="{{ m.specialty.href }}">{{ m.specialty.label }}</a>{% else %}{{ m.specialty.label }}{% endif %}</p>
+            {% endif %}
+            {% if m.bio %}<p class="team-card__bio">{{ m.bio }}</p>{% endif %}
+            {% set bookHref = m.href or opts.bookPath %}
+            {% if bookHref %}{{ ui.button({ href: bookHref, label: "Book with " + m.name.split(" ")[0], variant: "text", arrow: true, ariaLabel: "Book a free call with " + m.name }) }}{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endcall %}
+{% endmacro %}
+
 {# 13. numberedList(opts): { eyebrow?, title?, titleEmphasis?, lead?,
    items: [{icon?, title, body}], tone? }. The stacked SEO pattern, finalized as
    the numbered divider list: hairline rows, an auto-numbered serif italic GOLD
@@ -595,6 +652,32 @@
   },
   "areaServed": [
     {% for a in (opts.areaServed or ["Laguna Beach, CA", "California"]) %}{{ a | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
+  ]
+}
+</script>
+{% endmacro %}
+
+{# personSchema(people, business): a @graph of Person nodes for a team roster.
+   Each node carries name, jobTitle (the member's role), hasCredential (the
+   license portion of the credentials string, everything before ", supervised by",
+   split into individual licenses), and worksFor referencing the site-wide
+   business @id, the same node the serviceSchema provider uses. A member may carry
+   an optional url (e.g. a founder's own page), emitted absolute. Pass business as
+   { url, name }. Pure, no globals, like the other schema macros. #}
+{% macro personSchema(people, business) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {% for p in people %}{% set licenses = p.credentials.split(", supervised by")[0].split(", ") %}{
+      "@type": "Person",
+      "name": {{ p.name | dump | safe }},
+      "jobTitle": {{ p.role | dump | safe }},
+      {% if p.url %}"url": {{ (business.url + p.url) | dump | safe }},
+      {% endif %}"hasCredential": [ {% for c in licenses %}{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": {{ c | dump | safe }} }{% if not loop.last %}, {% endif %}{% endfor %} ],
+      "worksFor": { "@type": "MedicalBusiness", "@id": {{ (business.url + "/#business") | dump | safe }}, "name": {{ business.name | dump | safe }}, "url": {{ business.url | dump | safe }} }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
   ]
 }
 </script>

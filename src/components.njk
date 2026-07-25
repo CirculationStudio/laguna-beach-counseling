@@ -562,6 +562,46 @@ sitemapExclude: true
   }) }}
 </div>
 
+<div class="showcase__item">
+  <div class="container showcase__meta">
+    <p class="showcase__label">12c. teamGrid</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, bookPath, members [{ name, role, credentials, specialty { label, href? }, photo { src, alt, position?, scale? }, bio, href?, url?, departing? }], tone. Uniform responsive card grid (1 / 2 / 3 columns); every member the same card, cutout portraits on the static sea-foam ground with per-image scale to keep headroom even. Each card can carry a Focus/specialty line (linked when a page exists) and a "Book with &lt;first name&gt;" link to bookPath. Teal accents, no gold. departing is accepted but never rendered (private staffing info). Real facts only.</p>
+  </div>
+  {% set demoTeamBase = "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/" %}
+  {{ s.teamGrid({
+    eyebrow: "Our team",
+    title: "The people you'll actually work with",
+    bookPath: site.booking.getStartedPath,
+    members: [
+      {
+        name: "Kay Wenger",
+        role: "Founder & Clinical Supervisor",
+        credentials: "LMFT #38183, LPCC #1450",
+        specialty: { label: "Couples, families, and individuals" },
+        url: "/about/kay-wenger",
+        photo: { src: demoTeamBase + "kay-wenger-cutout.webp", alt: "Kay Wenger, founder and clinical supervisor of Laguna Beach Counseling.", scale: 1.06 },
+        bio: "More than 30 years with individuals, couples, and families. Co-founder of the National Registry of Marriage Friendly Therapists, and she supervises everyone on this team."
+      },
+      {
+        name: "Natasha Gaffaney",
+        role: "Associate Therapist",
+        credentials: "AMFT #147477, supervised by Kay Wenger",
+        specialty: { label: "Chronic illness and healthcare-worker burnout" },
+        photo: { src: demoTeamBase + "natasha-gaffaney-cutout.webp", alt: "Natasha Gaffaney, associate therapist at Laguna Beach Counseling." },
+        bio: "A former nurse and healthcare director who understands chronic illness, medical trauma, and healthcare-worker burnout. Humanistic and existential."
+      },
+      {
+        name: "Rozy Pishvaiy",
+        role: "Associate Therapist",
+        credentials: "AMFT #151380, supervised by Kay Wenger",
+        specialty: { label: "Life transitions and children" },
+        photo: { src: demoTeamBase + "rozy-pishvaiy-cutout.webp", alt: "Rozy Pishvaiy, associate therapist at Laguna Beach Counseling." },
+        bio: "Helps people through growth and the life transitions that reshuffle everything, with a real gift for working with children."
+      }
+    ]
+  }) }}
+</div>
+
 {# ---- 13. Numbered list --------------------------------------------------- #}
 <div class="showcase__item">
   <div class="container showcase__meta">

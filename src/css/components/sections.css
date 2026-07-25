@@ -1235,6 +1235,159 @@
   object-position: center bottom;
 }
 
+/* ---- Team grid --------------------------------------------------------- */
+/* Person cards sharing the founder block's portrait system: a transparent
+   cutout on a static sea-foam wash with soft blooms and a grounding shadow.
+   Teal accents only, no gold. */
+/* Uniform card grid: 1 column on mobile, 2 on tablet, 3 on desktop. Every member
+   (the founder included) is the same card, so the roster wraps evenly, e.g. 3
+   across then 2 on the next row at 5 members. align-items: stretch makes the
+   cards in each row share a height. */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 48rem) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.team-card__portrait {
+  position: relative;
+  overflow: hidden;
+  /* 10/11 (near-square) keeps empty ground above each head to a minimum; the
+     source cutouts are 700x700 with the figure at the bottom, so a taller frame
+     just adds sky. Per-cutout object-position (set on the img via the macro)
+     evens out the remaining headroom. */
+  aspect-ratio: 10 / 11;
+  background: var(--color-sea-foam);
+}
+
+.team-card__portrait::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background:
+    radial-gradient(circle at 28% 62%, rgba(255, 255, 255, 0.62) 0%, transparent 46%),
+    radial-gradient(circle at 74% 26%, rgba(255, 255, 255, 0.55) 0%, transparent 44%),
+    radial-gradient(circle at 60% 85%, rgba(40, 160, 201, 0.28) 0%, transparent 45%);
+}
+
+.team-card__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 52% 15% at 50% 91%, rgba(0, 26, 46, 0.32) 0%, transparent 72%);
+}
+
+.team-card__portrait img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  /* Bottom-anchored: every subject sits flush to the card's photo edge. A
+     per-image transform: scale() (set on the img via the macro) crops a little
+     off the top of cutouts that carry extra headroom, so heads line up without
+     lifting anyone off the bottom. */
+  transform-origin: center bottom;
+}
+
+.team-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.team-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+.team-card__role {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-water-deep);
+}
+
+.team-card__creds {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-ink-faint);
+}
+
+/* Focus / specialty line: a small label plus the specialty, which links to its
+   page when one exists (teal link) and is plain ink otherwise. */
+.team-card__specialty {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-ink-soft);
+}
+
+.team-card__specialty-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+.team-card__specialty a {
+  color: var(--color-water-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.team-card__bio {
+  margin-top: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.team-card__body .btn-text {
+  margin-top: 1rem;
+}
+
 .founder-note__name {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 3.4vw, 2.8rem);
