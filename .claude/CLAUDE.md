@@ -45,6 +45,7 @@ Imperative. This runs on every page build.
 
 - `voice-tone.md` (brand voice and the mandatory writing mechanics)
 - this page's brief in `SITE_ARCHITECTURE.md` (its target keyword, section plan, and its specified INTERNAL LINKS)
+- Read the brief's exact title, meta description, H1, target keyword, internal links, and schema-type fields as literal requirements to satisfy, not just inspiration for the page's general direction.
 - `CONTENT_EVIDENCE.md` (citable verified facts, and the do-not-publish list)
 - `CLIENT_FACTS.md` (business facts, confirmed vs unconfirmed)
 - `DESIGN_SYSTEM.md` Forbidden Patterns
@@ -63,9 +64,18 @@ Imperative. This runs on every page build.
 
 **AFTER building, run this itemized self-check (all must pass before the page is done):**
 
+Brief fidelity (the SITE_ARCHITECTURE.md brief's fields are a spec to satisfy exactly, not inspiration; this is what let /about/our-team ship with paraphrased title/meta/H1 and missing links and schema):
+
+- Title tag matches the brief's specified title for this page exactly, not a close paraphrase. If it deviates, state why in a code comment.
+- Meta description matches the brief's specified copy exactly, or a code comment states why it deviates.
+- H1 matches the brief's specified H1 exactly. Voice and warmth can still shape supporting copy, but the H1 itself hits the brief's wording, since that is the primary on-page and SEO signal.
+- Every internal link the brief specifies is present and points to a real, built page. If the brief calls for a link to a page that does not exist yet, that link is either omitted with a code comment explaining why (page not built yet) or included as plain text with no href, never silently dropped without a trace.
+- Every schema type the brief specifies, or that the page's content type implies (for example Person schema for any page listing named individuals with credentials), is present. A missing specified schema type is a build failure, not an optional nice-to-have. Schema is generated from the same data as the visible content, references the site-wide business entity by `@id`, and does not redefine MedicalBusiness per page.
+- The page's stated conversion goal and intent (from SITE_ARCHITECTURE.md's table) are served structurally, not just rhetorically. If the goal is "route to the right X," there are actual links or mechanisms doing that routing, not just prose implying it will happen after a call.
+
+Everything else:
+
 - Serves the North Star
-- Internal links from the brief are present
-- Correct schema present, generated from the same data as the visible content, and not duplicating the site-wide business entity
 - FAQs come from the approved source (or are flagged draft), not invented
 - Any stats are cited and cleared
 - Exactly one H1, ordered headings
