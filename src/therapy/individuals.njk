@@ -49,10 +49,11 @@ quote:
 next:
   eyebrow: "What we work on one-on-one"
   title: "The things that bring people in"
-  columns: 2
+  columns: 3
   cards:
     - { icon: "wave", title: "Anxiety", body: "When worry has taken the wheel and the alarm goes off for burnt toast as loudly as for a real fire, we help it learn the difference again.", href: "/specialties/anxiety", linkLabel: "Anxiety therapy" }
     - { icon: "sun", title: "Depression", body: "When everything costs more than it should and the color has drained out of ordinary days, we start by taking some of the weight off you.", href: "/specialties/depression", linkLabel: "Depression therapy" }
+    - { icon: "compass", title: "Life transitions", body: "A career pivot, an empty nest, a retirement, the identity shifts that rearrange everything at once. Steady footing while the ground moves under you.", href: "/specialties/life-transitions", linkLabel: "Life transitions" }
 faq:
   eyebrow: "Questions people ask"
   title: "Individual therapy, answered"
@@ -79,11 +80,11 @@ service:
    is not independently justified. Not on the crisis-adjacent list, so no support
    block. No em dashes. #}
 {% import "components/sections.njk" as s %}
-{# Content slot: Beach Therapy and life-transitions are named as options in plain
-   text, NOT linked, because /beach-therapy and /specialties/life-transitions are
-   not built yet (brief-fidelity: no broken hrefs; represent, do not drop). Wire
-   these as real links when those pages ship. #}
+{# Content slot: life transitions is now a real link (page shipped, and it is also
+   a card in the next section). Beach Therapy stays plain text, NOT linked, because
+   /beach-therapy is not built yet (brief-fidelity: no broken hrefs; represent, do
+   not drop). Wire Beach Therapy as a real link when that page ships. #}
 {% call s.prose({ width: "narrow" }) %}
-  <p>Not everything we work on has a tidy label. A lot of it is the life transitions that rearrange everything at once: a career pivot, an empty nest, a move, a version of the future that quietly stopped being true. Steady footing while the ground shifts is its own kind of work, and it belongs here too.</p>
+  <p>Not everything we work on has a tidy label. A lot of it is the <a href="/specialties/life-transitions">life transitions</a> that rearrange everything at once: a career pivot, an empty nest, a move, a version of the future that quietly stopped being true. Steady footing while the ground shifts is its own kind of work.</p>
   <p>And some of this goes better on the move. Walking the coastline, side by side, the conversation tends to loosen in a way it rarely does across a desk. Beach Therapy is the same one-on-one work, just outdoors, with the ocean taking a little of the pressure off. Ask about it on your call.</p>
 {% endcall %}
