@@ -11,6 +11,8 @@ layout: layouts/base.njk
     crumbs      [{label, url?}]
     hero        { eyebrow, title (required), titleEmphasis?, lead?, variant?,
                   image?, trust?, gold?, ctaLabel?, ctaHref?, secondaryCta? }
+                Hero default: variant "center" (text-only, centered). Override
+                per page via hero.variant ("split" | "bg").
     lead        string | string[]
     steps       { eyebrow, title, titleEmphasis?, lead?, steps[{title, body}] }
                 "what to expect" as the numbered timeline
@@ -51,7 +53,7 @@ layout: layouts/base.njk
   title: hero.title,
   titleEmphasis: hero.titleEmphasis,
   lead: hero.lead,
-  variant: hero.variant,
+  variant: hero.variant or "center",
   image: hero.image,
   trust: hero.trust,
   cta: { href: hero.ctaHref or site.booking.getStartedPath, label: hero.ctaLabel or site.booking.navLabel, gold: hero.gold },
