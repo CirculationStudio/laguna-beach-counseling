@@ -14,10 +14,16 @@
 
 {% macro featureCell(feature) %}
 <div class="mega-feature">
-  <div class="mega-feature__media" role="img" aria-label="{{ feature.image.alt }}">
-    <span class="mega-feature__tag">{{ feature.image.sourceTag }}</span>
-    <span class="mega-feature__brief" aria-hidden="true">{{ feature.image.brief }}</span>
-  </div>
+  {% if feature.image.src %}
+    <div class="mega-feature__media mega-feature__media--photo">
+      <img src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" loading="lazy" />
+    </div>
+  {% else %}
+    <div class="mega-feature__media" role="img" aria-label="{{ feature.image.alt }}">
+      <span class="mega-feature__tag">{{ feature.image.sourceTag }}</span>
+      <span class="mega-feature__brief" aria-hidden="true">{{ feature.image.brief }}</span>
+    </div>
+  {% endif %}
   <p class="mega-feature__eyebrow">{{ feature.eyebrow }}</p>
   <h3 class="mega-feature__title{% if not feature.published %} nav-link--soon{% endif %}">{{ feature.label }}</h3>
   <p class="mega-feature__blurb">{{ feature.blurb }}</p>

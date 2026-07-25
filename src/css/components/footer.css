@@ -43,6 +43,12 @@
   line-height: 1.1;
 }
 
+.site-footer__logo {
+  display: block;
+  height: 2.75rem;
+  width: auto;
+}
+
 .site-footer__tagline {
   font-family: var(--font-serif);
   font-style: italic;
@@ -65,7 +71,9 @@
 }
 
 .site-footer__office-label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
@@ -73,6 +81,26 @@
   text-transform: uppercase;
   color: var(--color-sea-foam);
   margin-bottom: 0.15rem;
+}
+
+.site-footer__pin {
+  flex: none;
+  color: var(--color-sea-foam);
+}
+
+/* Sister-office descriptor: normal case, quieter weight, so it reads as a
+   caption rather than joining the uppercase label above it. */
+.site-footer__office-note {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-sea-foam);
+  opacity: 0.8;
+  margin-bottom: 0.3rem;
 }
 
 .site-footer__contact {

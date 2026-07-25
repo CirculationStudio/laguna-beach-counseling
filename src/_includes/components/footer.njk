@@ -20,17 +20,25 @@
       <div class="site-footer__practice">
         {% set forceWordmark = true %}
         {% set wordmarkClass = "site-footer__wordmark" %}
+        {% set logoClass = "site-footer__logo" %}
         {% include "components/header-brand.njk" %}
         <p class="site-footer__tagline">{{ site.tagline }}</p>
         <address class="site-footer__nap">
           <span class="site-footer__office">
-            <span class="site-footer__office-label">{{ site.nap.addressLocality }}</span>
+            <span class="site-footer__office-label">
+              <svg class="site-footer__pin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.4-6.5 11-6.5 11Z" /><circle cx="12" cy="10" r="2.25" /></svg>
+              {{ site.nap.addressLocality }}
+            </span>
             {{ site.nap.streetAddress }}<br />
             {{ site.nap.addressLocality }}, {{ site.nap.addressRegion }} {{ site.nap.postalCode }}
           </span>
           {% if site.secondaryOffice %}
             <span class="site-footer__office">
-              <span class="site-footer__office-label">{{ site.secondaryOffice.addressLocality }}</span>
+              <span class="site-footer__office-label">
+                <svg class="site-footer__pin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.4-6.5 11-6.5 11Z" /><circle cx="12" cy="10" r="2.25" /></svg>
+                {{ site.secondaryOffice.addressLocality }}
+              </span>
+              {% if site.secondaryOffice.note %}<span class="site-footer__office-note">{{ site.secondaryOffice.note }}</span>{% endif %}
               {{ site.secondaryOffice.streetAddress }}<br />
               {{ site.secondaryOffice.addressLocality }}, {{ site.secondaryOffice.addressRegion }} {{ site.secondaryOffice.postalCode }}
             </span>

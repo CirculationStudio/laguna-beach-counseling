@@ -1,12 +1,22 @@
 {# Brand lockup, shared by both header variants and the footer.
    Renders the SVG logo from site.logo when set, else the DM Serif wordmark.
    The horizontal logo carries navy text, so callers on a navy ground pass
-   forceWordmark=true to render the reversed serif wordmark instead.
+   forceWordmark=true. When site.logo.reversedUrl is set, that renders the real
+   reversed logo image (confirmed legible on navy); otherwise it falls back to
+   the plain text wordmark so nothing breaks if that field is ever unset.
    Callers may also set logoClass / wordmarkClass before including. #}
 {% set logoClass = logoClass or "site-logo" %}
 {% set wordmarkClass = wordmarkClass or "brand__wordmark" %}
 <a class="brand" href="/" aria-label="{{ site.name }}, home">
-  {% if site.logo and site.logo.url and not forceWordmark %}
+  {% if forceWordmark and site.logo and site.logo.reversedUrl %}
+    <img
+      class="{{ logoClass }}"
+      src="{{ site.logo.reversedUrl }}"
+      alt="{{ site.logo.alt }}"
+      width="82"
+      height="34"
+    />
+  {% elif site.logo and site.logo.url and not forceWordmark %}
     <img
       class="{{ logoClass }}"
       src="{{ site.logo.url }}"

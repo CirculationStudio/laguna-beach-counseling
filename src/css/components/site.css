@@ -155,6 +155,7 @@
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(152, 197, 216, 0.25);
   color: var(--color-sea-foam);
+  padding: 1.25rem 1.5rem;
 }
 
 .support-resources__heading {
@@ -162,6 +163,59 @@
   font-size: 1.15rem;
   color: inherit;
   margin: 0 0 0.5rem;
+}
+
+/* Footer short-link variant: a lead line stays visible; the full resource
+   list sits behind a native disclosure, one click away. */
+.support-resources__lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-sea-foam);
+}
+
+.support-resources__disclosure {
+  border-top: 1px solid rgba(152, 197, 216, 0.25);
+  padding-top: 0.85rem;
+}
+
+.support-resources__summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-paper);
+}
+
+.support-resources__summary::-webkit-details-marker {
+  display: none;
+}
+
+.support-resources__summary:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.support-resources__chevron {
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.support-resources__disclosure[open] .support-resources__chevron {
+  transform: rotate(180deg);
+}
+
+.support-resources__panel {
+  margin-top: 0.85rem;
+}
+
+.support-resources__panel > p:first-child {
+  margin-top: 0;
 }
 
 .support-resources--onfooter .support-resources__heading {

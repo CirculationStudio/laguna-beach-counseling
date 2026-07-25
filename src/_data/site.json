@@ -9,7 +9,8 @@
   "defaultDescription": "A warm, experienced Laguna Beach psychotherapy practice for individuals, couples, and families, with signature Beach Therapy on the coast.",
   "logo": {
     "url": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/laguna-beach-counseling-logo-horizontal.svg",
-    "alt": "Laguna Beach Counseling"
+    "alt": "Laguna Beach Counseling",
+    "reversedUrl": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/laguna-beach-counseling-logo-horizontal-reversed.svg"
   },
   "nap": {
     "streetAddress": "333 Third Street, Suite 6",
@@ -26,7 +27,8 @@
     "streetAddress": "19772 MacArthur Blvd, Suite 260",
     "addressLocality": "Irvine",
     "addressRegion": "CA",
-    "postalCode": "92612"
+    "postalCode": "92612",
+    "note": "Sister office"
   },
   "positioning": {
     "priceRange": "$$$",

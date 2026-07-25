@@ -1,19 +1,47 @@
 {# Reusable support-resources block. Rendered in the footer now, and callable
    by crisis-adjacent pages (telehealth, depression, anxiety, grief).
-   Pass onFooter=true for the dark footer variant. Facts from site.crisisResources. #}
-<section
-  class="support-resources{% if onFooter %} support-resources--onfooter{% endif %}"
-  aria-labelledby="support-resources-heading"
->
-  <h2 class="support-resources__heading" id="support-resources-heading">If you need support right now</h2>
-  <p>{{ site.crisisResources.intro }}</p>
-  <ul class="support-resources__list">
-    {% for r in site.crisisResources.resources %}
-      <li>
-        <strong>{{ r.name }}:</strong>
-        {{ r.detail }}
-      </li>
-    {% endfor %}
-  </ul>
-  <p class="support-resources__note">{{ site.crisisResources.notEmergencyNote }}</p>
-</section>
+   Pass onFooter=true for the dark footer variant. Facts from site.crisisResources.
+
+   On the footer, the block is a short link: a one-line distinction between
+   everyday help and a real emergency stays always visible, and the full
+   resource list sits behind a native <details> disclosure (no JS, same idiom
+   as the FAQ accordion), one click away. Nothing is removed or demoted, it is
+   collapsed by default. Crisis-adjacent pages keep the block always expanded,
+   unchanged, so the resources stay unmissable where they matter most. #}
+{% if onFooter %}
+  <section class="support-resources support-resources--onfooter" aria-labelledby="support-resources-heading">
+    <p id="support-resources-heading" class="support-resources__lead">If it's urgent, these lines are open right now. Otherwise, we're just a free call away.</p>
+    <details class="support-resources__disclosure">
+      <summary class="support-resources__summary">
+        See crisis resources
+        <svg class="support-resources__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+      </summary>
+      <div class="support-resources__panel">
+        <p>{{ site.crisisResources.intro }}</p>
+        <ul class="support-resources__list">
+          {% for r in site.crisisResources.resources %}
+            <li>
+              <strong>{{ r.name }}:</strong>
+              {{ r.detail }}
+            </li>
+          {% endfor %}
+        </ul>
+        <p class="support-resources__note">{{ site.crisisResources.notEmergencyNote }}</p>
+      </div>
+    </details>
+  </section>
+{% else %}
+  <section class="support-resources" aria-labelledby="support-resources-heading">
+    <h2 class="support-resources__heading" id="support-resources-heading">If you need support right now</h2>
+    <p>{{ site.crisisResources.intro }}</p>
+    <ul class="support-resources__list">
+      {% for r in site.crisisResources.resources %}
+        <li>
+          <strong>{{ r.name }}:</strong>
+          {{ r.detail }}
+        </li>
+      {% endfor %}
+    </ul>
+    <p class="support-resources__note">{{ site.crisisResources.notEmergencyNote }}</p>
+  </section>
+{% endif %}
