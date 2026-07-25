@@ -126,5 +126,21 @@
     "tags": ["depression"],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; SITE_ARCHITECTURE.md /specialties/depression brief (what depression can look like day to day). Day-to-day presentation framed qualitatively, no diagnostic claim about the reader, no diagnosis in marketing (CLIENT_FACTS.md)."
+  },
+  {
+    "id": "grief-timeline",
+    "question": "How long is grief supposed to take? I feel like I should be over it by now.",
+    "answer": "There's no clock on this, and anyone who hands you one is guessing. Grief isn't a set of stages you pass through and then graduate from. It comes in waves, and the waves don't check your calendar. What changes, slowly, is not that they stop, but that you grow steadier at meeting them. If it still knocks you flat some days, you are not behind. You're grieving, and that takes as long as it takes.",
+    "tags": ["grief"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; approved framing that grief has no fixed timeline or stage sequence; CLIENT_FACTS.md Susi Q grief-group authority. No clinical or diagnostic claim."
+  },
+  {
+    "id": "grief-when-to-seek",
+    "question": "Is my loss big enough to need grief counseling?",
+    "answer": "Yes. There's no threshold you have to clear to deserve support. A death, a divorce, a diagnosis, a home, a future you were counting on: if a loss has knocked the wind out of you, that is reason enough to bring it somewhere. You don't have to be falling apart, and you don't have to measure your loss against anyone else's. Grief counseling is a steady, honest place to set it down for an hour, with someone who won't rush you.",
+    "tags": ["grief"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; grief framing including non-death and disenfranchised loss; CLIENT_FACTS.md Susi Q grief-group authority. No diagnostic claim."
   }
 ]

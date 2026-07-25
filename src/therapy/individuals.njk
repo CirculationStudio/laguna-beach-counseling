@@ -1,0 +1,89 @@
+---
+layout: layouts/reframe-led.njk
+metaTitle: "Individual Therapy Laguna Beach | Laguna Beach Counseling"
+# Meta deviates from the SITE_ARCHITECTURE brief's "Free 15-minute call" to the
+# canonical "15 to 20 minute" call length from CLIENT_FACTS.md (facts outrank the
+# brief per CLAUDE.md's reference-document priority order). Everything else is the
+# brief's copy.
+description: "One-on-one therapy for anxiety, depression, and life transitions, in Laguna Beach or statewide by telehealth. Free 15 to 20 minute call to start."
+permalink: /therapy/individuals/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy", url: "/therapy" }
+  - { label: "Individual Therapy" }
+hero:
+  eyebrow: "Individual therapy"
+  variant: "plain" # plain text hero, matching the other reframe-led service pages (no photo)
+  title: "Individual therapy in"
+  titleEmphasis: "Laguna Beach."
+  lead: "You already know what you'd do differently. So why doesn't it stick? That gap, between knowing and doing, is usually where the real work begins."
+lead:
+  - "Most people who come to me already know what they'd change. Eat better, set the limit, speak up, make the move. They've read the books and rehearsed the conversation in the shower. And still they keep landing back in the same spot, doing the thing they swore they were done with. If knowing were the same as doing, wouldn't you have this handled by now?"
+  - "So the sticking point usually isn't information, and it isn't willpower. It's that the pattern is worn in deep, like a path your feet take without asking. You're not stuck because something's wrong with you. You're stuck because the old route is the one you know in the dark. That's where we start, together: finding the exact place the path forks, and practicing the turn until it's yours."
+happening:
+  eyebrow: "Who this is for"
+  title: "The knowing-better-but-stuck loop"
+  columns: 3
+  cards:
+    - { icon: "compass", title: "You already have the insight", body: "You don't need another article or a smarter plan. You can name the problem in your sleep. What you don't have yet is the thing that makes the better choice hold when the moment actually arrives." }
+    - { icon: "anchor", title: "The pattern is older than the problem", body: "The habit you're fighting usually learned its job a long time ago, back when it was protecting something. That's why muscling through rarely lasts. You're arguing with a younger version of yourself who had real reasons." }
+    - { icon: "wave", title: "Willpower keeps running out", body: "Willpower is a sprint, and you've been asked to run a marathon on it. When the tank empties you slide back, and then you blame yourself for sliding. We work on the running, not the white-knuckling." }
+work:
+  eyebrow: "What to expect"
+  title: "How the work actually goes"
+  columns: 3
+  cards:
+    - { icon: "compass", title: "We find the fork", body: "First we get specific about where the pattern actually turns, the exact moment knowing gives way to the old default. You can't change a corner you can't yet see." }
+    - { icon: "heart", title: "We work with the reason, not against it", body: "Instead of shaming a pattern into submission, we get curious about what it has been doing for you. Patterns loosen when they feel understood, not attacked." }
+    - { icon: "sun", title: "We practice until it holds", body: "Change lives in reps, not revelations. We build small, repeatable experiments so the new turn becomes the one your feet know. That is what makes it stick." }
+crossSell:
+  eyebrow: "Who you'll work with"
+  tone: "sand"
+  title: "The fit matters more than the resume"
+  body: "One-on-one work is only as good as the person across from you. We're a small team that Kay personally trains and supervises, so whoever you see, the care holds the same standard. The free call is where we match you to the right one."
+  href: "/about/our-team"
+  label: "Meet the team"
+quote:
+  text: "You're not stuck because something's wrong with you."
+  attribution: "Kay Wenger, LMFT, LPCC"
+next:
+  eyebrow: "What we work on one-on-one"
+  title: "The things that bring people in"
+  columns: 2
+  cards:
+    - { icon: "wave", title: "Anxiety", body: "When worry has taken the wheel and the alarm goes off for burnt toast as loudly as for a real fire, we help it learn the difference again.", href: "/specialties/anxiety", linkLabel: "Anxiety therapy" }
+    - { icon: "sun", title: "Depression", body: "When everything costs more than it should and the color has drained out of ordinary days, we start by taking some of the weight off you.", href: "/specialties/depression", linkLabel: "Depression therapy" }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Individual therapy, answered"
+  tags: ["general", "medication"]
+  limit: 4
+cta:
+  title: "Ready to make it actually stick?"
+  text: "If you keep landing in the same spot, let's look at the fork together. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Individual therapy"
+  serviceType: "Individual therapy"
+  description: "One-on-one therapy in Laguna Beach and by telehealth across California, for anxiety, depression, and the life transitions that rearrange everything."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Individual therapy, the reframe-led template (COMPONENT_COVERAGE.md). Growth
+   priority. Framing is the "knowing better but not making it stick" reframe from
+   voice-tone.md (the worn-path / insight-action gap), deliberately distinct from
+   anxiety's "alarm" and depression's "weight". No research citations here by
+   design: this page routes to the specialty pages, which carry the cited
+   evidence; recycling anxiety/depression's citations onto a general convert page
+   is not independently justified. Not on the crisis-adjacent list, so no support
+   block. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: Beach Therapy and life-transitions are named as options in plain
+   text, NOT linked, because /beach-therapy and /specialties/life-transitions are
+   not built yet (brief-fidelity: no broken hrefs; represent, do not drop). Wire
+   these as real links when those pages ship. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>Not everything we work on has a tidy label. A lot of it is the life transitions that rearrange everything at once: a career pivot, an empty nest, a move, a version of the future that quietly stopped being true. Steady footing while the ground shifts is its own kind of work, and it belongs here too.</p>
+  <p>And some of this goes better on the move. Walking the coastline, side by side, the conversation tends to loosen in a way it rarely does across a desk. Beach Therapy is the same one-on-one work, just outdoors, with the ocean taking a little of the pressure off. Ask about it on your call.</p>
+{% endcall %}

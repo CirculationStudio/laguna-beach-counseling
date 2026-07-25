@@ -1,0 +1,102 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "Grief Counseling Laguna Beach | Loss & Bereavement"
+description: "Support for loss, in its many forms. Grief counseling from a practice with deep roots in senior and end-of-life community work."
+permalink: /specialties/grief/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Grief & Loss" }
+hero:
+  eyebrow: "Grief and loss"
+  variant: "plain" # text-only hero; no stock or AI grief imagery (DESIGN_SYSTEM Forbidden Patterns)
+  title: "Grief and loss counseling in"
+  titleEmphasis: "Laguna Beach."
+  lead: "Grief is not a problem to be solved. It's the shape love takes when the person you love is gone. If it has knocked the wind out of you, that isn't weakness. That's the size of what you lost."
+lead:
+  - "There is no schedule for this. No tidy set of stages you move through and graduate from, no morning you wake up finished. Grief comes in waves, and the waves do not check your calendar. They can arrive at a wedding, in a grocery aisle, on an ordinary Tuesday that had no business being hard."
+  - "So what does getting better even mean here? Not that the waves stop coming. What changes, slowly, is that you grow steadier at meeting them, and less afraid of being knocked down. That part is easier with company. You don't have to learn it alone."
+kay:
+  eyebrow: "Why us for this"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp"
+    alt: "Kay Wenger, founder of Laguna Beach Counseling."
+  name: "Kay Wenger,"
+  nameEmphasis: "LMFT, LPCC"
+  role: "Founder & Clinical Supervisor"
+  body:
+    - "The grief work here didn't come out of a textbook. In 2010, when my father came to live with me, I went looking for support and found that most senior centers offered plenty to do and almost nowhere to talk about what was actually hard. So I built it."
+    - "What started as one conversation group at the Susi Q grew into a Grief and Loss group, a Death Cafe, and a caregiver circle: places where loss could finally be said out loud instead of carried in silence. I've sat with a lot of people in the worst season of their lives, and here is what I know. Grief shrinks a little every time it gets to be witnessed. You don't have to perform being okay. You just need somewhere honest to bring it."
+  creds:
+    - { strong: "Since 2010", text: "leading senior grief and loss groups" }
+    - { strong: "Susi Q", text: "founder of the senior mental-health program" }
+    - { strong: "LMFT, LPCC", text: "licensed in California" }
+    - { strong: "In person", text: "in Laguna Beach or by telehealth" }
+  statement:
+    text: "Grief is love with nowhere to go. The work isn't to make it disappear. It's to help you carry it in a way you can actually live with."
+    cite: "Kay Wenger, LMFT, LPCC"
+quote:
+  text: "You don't move on from someone you love. You move forward, and you bring them with you."
+  attribution: "Kay Wenger, LMFT, LPCC"
+shapes:
+  eyebrow: "It doesn't have one face"
+  title: "The many shapes of grief"
+  lead: "Grief is not reserved for the obvious losses, and it rarely looks the way people expect. If any of these is yours, it counts."
+  items:
+    - { term: "The death of someone", detail: "A spouse, a parent, a friend, a child. The loss grief is supposed to look like, and often the loneliest to carry once the casseroles stop coming and the world moves on." }
+    - { term: "Losses without a funeral", detail: "A divorce, a diagnosis, a home, a career, the future you had already half-built in your head. Grief does not only arrive through death." }
+    - { term: "Grieving someone still here", detail: "When an illness takes a person by inches, the mourning can start long before the goodbye. That ache has a name too: anticipatory grief." }
+    - { term: "Caregiver grief", detail: "The exhaustion, the guilt, and yes, the relief that tangle together after you have walked someone all the way to the end. All of it is allowed." }
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "compass", title: "Individual therapy", body: "Grief is often best carried one to one, at your own pace, in a room that is only about you for an hour.", href: "/therapy/individuals", linkLabel: "Individual therapy" }
+    - { icon: "shell", title: "Later-life loss", body: "Much of this work grew out of Kay's senior grief groups. Our senior counseling page will carry that story in full when it goes live." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Grief counseling, answered"
+  tags: ["grief", "general"]
+  limit: 4
+support: true
+cta:
+  title: "You don't have to carry it alone."
+  text: "When you're ready, and not a moment before, a free 15 to 20 minute call is a gentle first step. No pressure, just a chance to be heard and to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Grief and loss counseling"
+  serviceType: "Grief counseling"
+  description: "Grief and bereavement counseling in Laguna Beach and by telehealth across California, from a practice rooted in senior and end-of-life community work."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Grief and loss, the story-led template (COMPONENT_COVERAGE.md): leans on Kay's
+   voice early via the founderNote, which carries the real Susi Q grief-group
+   credibility (2010 father story, Grief and Loss group, Death Cafe, caregiver
+   circle, all approved for web use in CLIENT_FACTS.md). Framing is "love with
+   nowhere to go" / waves / carrying forward, deliberately distinct from anxiety's
+   "alarm" and depression's "weight". No research statistics: CONTENT_EVIDENCE.md
+   says to pair grief with Kay's Susi Q authority rather than lean on numbers, and
+   its prevalence figures need fresh CDC/NASEM confirmation not done here. Grief is
+   crisis-adjacent, so support: true. No em dashes.
+
+   Brief internal links: /about/kay-wenger is represented inline by the founderNote
+   (her story in her words) and /therapy/seniors by the plain "Later-life loss"
+   next card; both target pages are not built yet, so neither is linked (no broken
+   hrefs). Wire them up when those pages ship. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: "what the work looks like", composed from pointCards so it sits
+   between the shapes list and the next section. #}
+{{ s.pointCards({
+  eyebrow: "How we help",
+  title: "What the work looks like",
+  tone: "sand",
+  columns: 3,
+  cards: [
+    { icon: "heart", title: "We don't try to fix it", body: "There is nothing here to fix, because grief is not a malfunction. It's evidence you loved someone. The work is to help you carry it, not to talk you out of it." },
+    { icon: "wave", title: "We go at your pace", body: "Some days you'll want to talk about them for the whole hour. Some days you won't want to say their name at all. Both are welcome. You set the speed, and we make sure you're not doing it alone." },
+    { icon: "shell", title: "We make room for all of it", body: "Anger, relief, guilt, numbness, the laugh that ambushes you at the funeral: grief is rarely just sadness. Nothing you feel is too much or too ugly to say out loud here." }
+  ]
+}) }}

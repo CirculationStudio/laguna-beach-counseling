@@ -5,7 +5,7 @@
       "url": "/therapy",
       "published": false,
       "children": [
-        { "label": "Individual Therapy", "url": "/therapy/individuals", "published": false },
+        { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
         { "label": "Couples & Marriage", "url": "/therapy/couples", "published": false },
         { "label": "Family Therapy", "url": "/therapy/families", "published": false },
         { "label": "Teens", "url": "/therapy/teens", "published": false },
@@ -20,7 +20,7 @@
       "children": [
         { "label": "Anxiety", "url": "/specialties/anxiety", "published": true },
         { "label": "Depression", "url": "/specialties/depression", "published": true },
-        { "label": "Grief & Loss", "url": "/specialties/grief", "published": false },
+        { "label": "Grief & Loss", "url": "/specialties/grief", "published": true },
         { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": false },
         { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": false },
         { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": false },
