@@ -142,5 +142,45 @@
     "tags": ["grief"],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; grief framing including non-death and disenfranchised loss; CLIENT_FACTS.md Susi Q grief-group authority. No diagnostic claim."
+  },
+  {
+    "id": "life-transitions-worth-it",
+    "question": "Is a life change really a big enough reason to see a therapist?",
+    "answer": "Yes. You don't have to be in crisis to deserve a steady hand through a big shift. Transition is actually one of the most useful times to come in, because you're between structures and the old ways of coping don't quite fit the new situation yet. Starting early tends to make the crossing shorter and a lot less lonely. You don't have to wait until you're underwater.",
+    "tags": ["life-transitions"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; access framing (no crisis threshold required to seek support). No clinical or diagnostic claim."
+  },
+  {
+    "id": "life-transitions-unmoored",
+    "question": "Why do I feel so unmoored when nothing is technically wrong?",
+    "answer": "Because a transition doesn't only change your circumstances, it dismantles the scaffolding you had built your routines and your sense of self around. When that structure comes down, feeling wobbly isn't a sign something is wrong with you. It's the normal physics of standing in the gap between one chapter and the next. The work is rebuilding the scaffolding, one honest piece at a time.",
+    "tags": ["life-transitions"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; the in-between / identity-scaffolding framing per SITE_ARCHITECTURE.md /specialties/life-transitions brief (why transitions destabilize). No diagnostic claim."
+  },
+  {
+    "id": "faith-do-i-have-to-be-religious",
+    "question": "Do I have to be Christian, or religious at all?",
+    "answer": "No, and you won't be pushed toward anything. This grew out of what used to be our Christian counseling, and we broadened it on purpose: we work with people of every faith and people of none. If your faith matters to you, it's welcome in the room as part of the work. If you're questioning, deconstructing, or you'd rather keep it respectfully to the side, that's welcome too. You set the terms, every time.",
+    "tags": ["faith"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Modalities (faith-integrated counseling, confirmed) and Redirects (Christian Counseling broadened to faith-based); voice-tone.md. Welcoming, non-exclusive framing; does not attribute a personal faith to any therapist or claim a religious agenda."
+  },
+  {
+    "id": "neurodiversity-diagnosis",
+    "question": "Do you diagnose ADHD or autism?",
+    "answer": "We're a therapy practice, not an assessment center, so we don't do formal ADHD or autism testing or hand out diagnoses. What we do is affirming therapy: support for living well with how your brain actually works, whether you have a formal diagnosis, a strong hunch, or a late-in-life realization that suddenly explains a lot. If a formal evaluation would help you, we can point you toward someone who does them.",
+    "tags": ["neurodiversity"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (LBC is an outpatient therapy practice, not an assessment or diagnostic facility); voice-tone.md. Sets expectations honestly; no assessment or diagnostic claim, no unconfirmed specialty claim."
+  },
+  {
+    "id": "neurodiversity-late-identified",
+    "question": "I found out I'm neurodivergent later in life. Is it too late for this to help?",
+    "answer": "Not even close. A lot of people arrive after a late realization, carrying years of wondering why the standard advice never worked for them. It never worked because it wasn't built for your wiring. It is not too late to stop running someone else's playbook. The work is building a life that fits how you're actually put together, and that is useful at any age.",
+    "tags": ["neurodiversity"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; affirming stance per SITE_ARCHITECTURE.md /specialties/neurodiversity brief. No diagnostic claim; frames therapy as affirming support, not a cure."
   }
 ]

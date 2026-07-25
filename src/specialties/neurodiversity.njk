@@ -1,0 +1,86 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Neurodivergent Therapy Laguna Beach | ADHD & Autism-Affirming"
+description: "ADHD and autism-affirming counseling that works with how your mind is wired, not against it."
+permalink: /specialties/neurodiversity/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Neurodiversity" }
+hero:
+  eyebrow: "Neurodivergent-affirming therapy"
+  title: "Neurodivergent-affirming therapy in"
+  titleEmphasis: "Laguna Beach."
+  lead: "Your brain isn't broken. It's running a different operating system, and most of the world's instructions were written for a different one. Here, we work with how you're wired, not against it."
+lead:
+  - "So much of the exhaustion of being neurodivergent isn't the wiring itself. It's the daily cost of running neurotypical software on hardware that was never built for it: masking to fit in, white-knuckling through systems designed for a different kind of brain, and quietly wondering why the advice that works for everyone else keeps failing you."
+  - "What if the problem was never you? Affirming therapy starts from one honest flip: your brain is not a defective version of someone else's, it's its own thing, with real strengths and real friction points. We don't try to sand you down into neurotypical. We help you understand your own operating system and build a life that actually runs on it."
+trust:
+  lead: "Affirming isn't a slogan here."
+  leadEmphasis: "It shows up in how we actually work."
+  tone: "navy"
+  columns: 4
+  items:
+    - { icon: "compass", title: "Work with the wiring", text: "We build strategies around how your brain actually operates, instead of asking you to force a system that fights you." }
+    - { icon: "shield", title: "The problem is the fit", text: "Often the hard part is the mismatch between you and an environment built for other brains. We treat it that way, not as a flaw in you." }
+    - { icon: "heart", title: "Masking can rest", text: "You don't have to perform neurotypical in here. Stimming, pauses, tangents, bluntness, all welcome. This is a low-demand room." }
+    - { icon: "clock", title: "Your pace, your way", text: "No forced eye contact, no shame about executive function, no one-size instructions. We flex the work to fit you." }
+points:
+  eyebrow: "Who this is for"
+  title: "Different brains, genuinely welcome"
+  columns: 3
+  cards:
+    - { icon: "wave", title: "ADHD brains", body: "The ideas-everywhere, time-is-fake, why-can't-I-start-the-easy-thing kind of mind. We work on the gap between what you intend and what actually happens, without the shame tax." }
+    - { icon: "compass", title: "Autistic adults", body: "Diagnosed as a kid or figured it out last year, either way we make room for how you truly experience the world, sensory load and all. No masking required to be here." }
+    - { icon: "shell", title: "Late-identified and AuDHD", body: "The folks who spent decades wondering what was wrong with them before the puzzle finally clicked. Nothing was wrong. It was unnamed. We start from there." }
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "compass", title: "Individual therapy", body: "Most of this is one to one, shaped around how you actually operate rather than how you're supposed to.", href: "/therapy/individuals", linkLabel: "Individual therapy" }
+    - { icon: "wave", title: "Anxiety", body: "Anxiety and neurodivergence travel together more often than not. If the worry has its own grip, we work on that too.", href: "/specialties/anxiety", linkLabel: "Anxiety therapy" }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Neurodivergent-affirming therapy, answered"
+  tags: ["neurodiversity", "general"]
+  limit: 4
+cta:
+  title: "Wired a little differently?"
+  text: "Good. Let's build something that fits how you actually work. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Neurodivergent-affirming therapy"
+  serviceType: "Neurodivergent-affirming therapy"
+  description: "ADHD and autism-affirming therapy for adults in Laguna Beach and by telehealth across California, working with how your mind is wired."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Neurodiversity, the practical-led template (COMPONENT_COVERAGE.md). Framing is
+   "different operating system / work with the wiring, not against it" (the social
+   model: the mismatch is the environment, not a flaw in the person), distinct
+   from every other page's metaphor. Affirming stance throughout. No research
+   citations (none relevant). Not crisis-adjacent, so no support block. No em dashes.
+
+   Brief flag honored: no associate is named for this specialty (CLIENT_FACTS.md
+   says confirm who holds it first), so all copy is practice-level. LBC is a
+   therapy practice, not an assessment/diagnostic center: the "Do you diagnose"
+   FAQ sets that expectation and the page claims affirming support, never testing
+   or diagnosis. Brief internal links: /therapy/individuals is a real next link;
+   /specialties/anxiety is a real bonus link (high ADHD/autism co-occurrence).
+
+   Content slot: "what the work looks like", composed from pointCards so it lands
+   after the who-this-is-for section. #}
+{% import "components/sections.njk" as s %}
+{{ s.pointCards({
+  eyebrow: "How we help",
+  title: "What the work looks like",
+  tone: "sand",
+  columns: 3,
+  cards: [
+    { icon: "compass", title: "Understand your own system", body: "We map how your particular brain works: what drains it, what fuels it, where it quietly shines. Self-knowledge is the tool everything else gets built on." },
+    { icon: "anchor", title: "Build scaffolding that fits", body: "Not generic productivity hacks that assume a neurotypical brain, but supports designed around your actual wiring, so they hold up on a hard day and not only a good one." },
+    { icon: "heart", title: "Set down the shame", body: "Years of being told to try harder, as if effort were the missing piece, leave a mark. A lot of the work is separating your worth from your executive function and letting the self-blame go." }
+  ]
+}) }}
