@@ -110,5 +110,21 @@
     "tags": ["faith"],
     "status": "draft",
     "source": "CLIENT_FACTS.md, Modalities (confirmed: faith-integrated counseling). Does not attribute personal faith to any named therapist; no claim about staff religious background."
+  },
+  {
+    "id": "depression-get-better",
+    "question": "Can therapy really help my depression, or is this just how I'm wired?",
+    "answer": "That question is often depression talking, and it deserves an honest answer. Depression lies about its own permanence; it tells you this is the shape of you now. It isn't. For most people it lifts, not by force of will, but with the right support and some patience. We start by taking a little of the weight off, so the next step feels possible, then the one after that. Where there is healing, there is hope, and there's usually more room to move than depression lets you believe.",
+    "tags": ["depression"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5 (acknowledge, reframe, ground in hope) and secondary tagline; no outcome guarantee (CLIENT_FACTS.md, voice-tone.md); modality evidence base per CONTENT_EVIDENCE.md (approaches are evidence-based, no effect-size or prevalence claim)."
+  },
+  {
+    "id": "depression-not-sadness",
+    "question": "What if I'm not really sad, more numb and unmotivated?",
+    "answer": "Then you're describing something a lot of people don't realize is depression. It doesn't always look like crying. Often it looks like flatness, low fuel, a loss of interest in things that used to matter, trouble sleeping or sleeping too much. If the color has drained out of your days and pushing harder hasn't brought it back, that's worth a conversation, whatever you end up calling it. You don't need a formal diagnosis to reach out.",
+    "tags": ["depression"],
+    "status": "draft",
+    "source": "voice-tone.md structural recipe 5; SITE_ARCHITECTURE.md /specialties/depression brief (what depression can look like day to day). Day-to-day presentation framed qualitatively, no diagnostic claim about the reader, no diagnosis in marketing (CLIENT_FACTS.md)."
   }
 ]

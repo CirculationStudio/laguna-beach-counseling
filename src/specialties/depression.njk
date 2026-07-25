@@ -1,0 +1,93 @@
+---
+layout: layouts/reframe-led.njk
+metaTitle: "Depression Therapist Laguna Beach | Depression Counseling"
+description: "When the effort you're already putting in isn't shifting things. Warm, practical depression counseling in Laguna Beach or by telehealth across California."
+permalink: /specialties/depression/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Depression" }
+hero:
+  eyebrow: "Depression"
+  title: "Depression therapy in"
+  titleEmphasis: "Laguna Beach."
+  lead: "Depression isn't laziness, and it isn't a shortage of willpower. It's a heaviness that makes ordinary things cost more than they should. If it were easy, you'd have figured it out already."
+lead:
+  - "If you're here, getting through the day has probably started to take more out of you than it used to. The shower that feels like a project. The texts you leave on read, not because you don't care but because answering feels like lifting something heavy. Depression has a way of turning the volume down on everything, the hard parts and the good parts both."
+  - "Here's what depression works hard to hide from you: this is a condition, not a verdict on who you are. It lifts. Maybe not on a schedule, and rarely by willpower alone, but the color does come back. So where do we start? Usually by taking some of the weight off you, together, so you're not carrying the whole thing by yourself."
+happening:
+  eyebrow: "What it can look like"
+  title: "How depression actually shows up"
+  columns: 3
+  cards:
+    - { icon: "wave", title: "It isn't always sadness", body: "Plenty of people expect tears and get flatness instead. Numb. A gray where the things that used to matter stop landing. If you feel more empty than sad, that's still depression, and it still counts." }
+    - { icon: "heart", title: "The tank runs empty", body: "You sleep and wake up tired. Small tasks feel enormous. This isn't you being dramatic or weak. Depression is a real drop in the fuel your brain and body run on, and no amount of pushing quite refills the tank." }
+    - { icon: "compass", title: "The story turns on you", body: "Depression is a talented liar. It narrates your life in the worst possible voice: you're behind, you're a burden, nothing will change. Those thoughts feel like facts. They're symptoms, and learning to tell the difference is part of the work." }
+work:
+  eyebrow: "How we help"
+  title: "What the work looks like"
+  columns: 3
+  cards:
+    - { icon: "wave", title: "Start with the weight, not the willpower", body: "We don't begin by asking you to try harder; you've been trying hard for a while. We start by lightening the load enough that the next step feels possible, then the one after that. Momentum, not heroics." }
+    - { icon: "compass", title: "Untangle what's underneath", body: "Depression usually keeps company: grief, a transition that didn't go how you pictured, anger with nowhere to put it, a pattern running since long before now. We get curious about your particular version, because the way out depends on what's actually keeping you stuck." }
+    - { icon: "sun", title: "Rebuild the ordinary", body: "Recovery from depression isn't fireworks. It's the shower that stops feeling like a project, the friend you finally text back, one real laugh. We work in small, doable steps, because the ordinary days are what depression takes, and getting them back is the whole point." }
+crossSell:
+  eyebrow: "A different setting"
+  tone: "sand"
+  title: "When sitting still is the hardest part"
+  body: "Depression can make a face-to-face hour across a desk feel like a lot to ask. Some people find it easier to talk while they're moving, with the horizon open in front of them and the ocean carrying part of the conversation. Beach Therapy is the same real work, outdoors and side by side."
+  href: "/beach-therapy"
+  label: "Explore Beach Therapy"
+  image:
+    sourceTag: "COASTAL"
+    alt: "A client and therapist walking and talking along the Laguna Beach shoreline."
+    brief: "Client and therapist walking side by side at the tideline near Heisler Park, soft morning light, framed from behind for privacy. Real coastal photography. Pending: Bunny CDN coastal or services/specialties set."
+quote:
+  text: "The biggest changes are usually pretty ordinary."
+  attribution: "Kay Wenger, LMFT, LPCC"
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "compass", title: "Individual therapy", body: "Depression rarely shows up by itself. When it's tangled with anxiety, a hard transition, or old patterns, one-on-one therapy gives the whole knot room to loosen.", href: "/therapy/individuals", linkLabel: "Individual therapy" }
+    - { icon: "chat", title: "Online therapy in California", body: "Some days, leaving the house is the hardest part. We see clients by secure video anywhere in California, with the same care as in the room.", href: "/telehealth", linkLabel: "Telehealth" }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Depression counseling, answered"
+  tags: ["depression", "general"]
+  limit: 4
+support: true
+cta:
+  title: "You don't have to push through this alone."
+  text: "If depression has been running the show, let's talk. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Depression therapy"
+  serviceType: "Depression therapy"
+  description: "Warm, practical depression counseling in Laguna Beach and by telehealth across California."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Depression service page on the reframe-led template, cloned from the anxiety
+   reference build. Copy is real, in Kay's voice (voice-tone.md), acknowledge,
+   reframe, ground-in-hope arc (structural recipe 5). No prevalence statistic is
+   published: CONTENT_EVIDENCE.md requires a verified current CDC/AskCHIS figure
+   pulled at publish time, and none is confirmed, so it is omitted, not invented.
+   No outcome guarantee. Depression is crisis-adjacent, so support: true renders
+   the support-resources block. subForms omitted (the brief specifies none and
+   depression's sub-forms are diagnostically sensitive). No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Evidence moment (CONTENT_EVIDENCE.md), same integration style as anxiety.njk:
+   the qualitative modality-evidence claim (line 50, class a; CBT strongly
+   supported for depression, Hofmann et al. 2012, verified via PMC full text) and
+   the 120-minutes-in-nature finding (line 34, class a; White et al. 2019,
+   Scientific Reports, n=19,806, verified at the source URL). Qualitative only,
+   no effect sizes, no prevalence figures, no outcome promises. Confirmed
+   modalities only. Renders in the template's content slot, after the work
+   section and before the Beach Therapy cross-sell. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>Does therapy actually move the needle on depression? Fair to ask before you spend your energy on it. The approaches we lean on, solution-focused work, CBT, ACT, and DBT, are among the most studied in the field, and CBT for depression in particular carries decades of meta-analytic support (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3584580/">Hofmann and colleagues' 2012 review</a> is the standard reference). An average from a study is not a promise about your particular recovery. It just means this path has been walked before, by a lot of people who also weren't sure it would work.</p>
+  <p>And the ocean a few blocks away isn't only scenery. In <a href="https://www.nature.com/articles/s41598-019-44097-3">a study of nearly 20,000 people</a>, spending at least two hours a week in natural settings was associated with noticeably better health and well-being (White et al., 2019, <em>Scientific Reports</em>). For a condition that shrinks your world, a reason to step back into it is worth something.</p>
+{% endcall %}

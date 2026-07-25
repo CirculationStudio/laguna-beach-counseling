@@ -19,7 +19,7 @@
       "published": false,
       "children": [
         { "label": "Anxiety", "url": "/specialties/anxiety", "published": true },
-        { "label": "Depression", "url": "/specialties/depression", "published": false },
+        { "label": "Depression", "url": "/specialties/depression", "published": true },
         { "label": "Grief & Loss", "url": "/specialties/grief", "published": false },
         { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": false },
         { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": false },
