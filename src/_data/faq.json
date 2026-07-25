@@ -1,0 +1,114 @@
+[
+  {
+    "id": "first-session",
+    "question": "What's a first session actually like?",
+    "answer": "Wondering what to even say? You don't need to arrive with a tidy summary of your life. That's our job to help sort out together. Less like an interview and more like a conversation, we spend the first session getting a real picture of what's going on and what you're hoping will feel different, at whatever pace feels comfortable for you. Sessions run 50, 75, or 90 minutes depending on what you book, in person in Laguna Beach or by secure video.",
+    "tags": ["getting-started"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Booking and access; rate card session lengths (50/75/90 minute formats)"
+  },
+  {
+    "id": "insurance-out-of-network",
+    "question": "Do you take insurance?",
+    "answer": "We're an out-of-network practice, so we don't bill insurance directly. That's a deliberate choice: it lets us offer full-length sessions, protect your confidentiality, and skip the diagnostic labeling insurance reimbursement requires. We provide a Superbill at every session that you can submit to your PPO for out-of-network reimbursement. If cost is the thing holding you back from reaching out, that's worth a conversation, not a reason to wait.",
+    "tags": ["cost"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Insurance and rates (canonical positioning line, used verbatim)"
+  },
+  {
+    "id": "beach-therapy-what-to-expect",
+    "question": "What is Beach Therapy, and what should I expect from a session?",
+    "answer": "Beach Therapy is real therapy, the same depth of work, just outdoors, walking side by side along the Laguna coastline instead of sitting across a desk. It didn't start as a marketing idea. It started as an observation that people open up differently when they're moving and the ocean is doing a little of the talking. You can expect comfortable shoes, a conversation that unfolds at a walking pace, and the same confidentiality as any session. The beach isn't replacing therapy. It's creating conditions that let therapy happen differently.",
+    "tags": ["beach-therapy"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Approved origin stories (Beach Therapy origin, cleared for web use); voice-tone.md canonical pull-quotes"
+  },
+  {
+    "id": "tried-therapy-before",
+    "question": "I've tried therapy before and it didn't really help. Why would this be different?",
+    "answer": "That's worth taking seriously, not brushing past. When someone tells me therapy didn't help, I don't assume they were resistant. Usually it just wasn't the right fit, or the work stayed up in your head and never quite reached the rest of you. So what would actually be different this time? We pay attention to both the thinking and the feeling, and we start by making sure you actually feel understood before we get to work on anything else.",
+    "tags": ["general"],
+    "status": "draft",
+    "source": "SITE_ARCHITECTURE.md /faq page brief, approved proof-voice quote from Kay"
+  },
+  {
+    "id": "how-do-i-know-who-to-see",
+    "question": "How do I know who to see?",
+    "answer": "Not sure who on the team would be the right fit? You don't have to figure that out alone. That's exactly what the free Get to Know Us call is for. Tell us what's going on, and we'll help match you with the right therapist, whether that's me directly or one of the associates I supervise. Most clients find the fit becomes obvious pretty quickly once they're actually talking to someone.",
+    "tags": ["getting-started"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Booking and access; team roster (associate-supervised model)"
+  },
+  {
+    "id": "evenings-weekends",
+    "question": "Do you offer evenings and weekends?",
+    "answer": "Yes. We know most people aren't free to talk about their inner lives at 2pm on a Tuesday, so evening and weekend availability is part of how we practice, alongside the free 15 to 20 minute Get to Know Us call to get you started.",
+    "tags": ["getting-started"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Differentiators (operational excellence: evening and weekend hours). Exact hours remain unconfirmed (CLIENT_FACTS.md Hours, FLAGGED, site vs Yelp conflict); answer intentionally stays qualitative, no specific times published."
+  },
+  {
+    "id": "telehealth-effectiveness",
+    "question": "Is telehealth therapy as effective as coming in person?",
+    "answer": "Can a screen really hold the same kind of conversation as a room? For most people, yes. What matters most in therapy is the relationship and the work you do together, and that travels just fine over secure video. Some people even find it easier to be honest from somewhere they already feel safe. We see clients by telehealth anywhere in California (state licensing means we can only work with clients physically located in California), and in person at our Laguna Beach office.",
+    "tags": ["telehealth"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Services (telehealth, CA-only restriction); CONTENT_EVIDENCE.md telehealth framing guardrail (parity framing, no unverified efficacy statistic)"
+  },
+  {
+    "id": "how-fast-seen",
+    "question": "How fast can I be seen?",
+    "answer": "Usually within 24 hours of reaching out. The best first step is the free 15 to 20 minute Get to Know Us call, so we can hear what's going on and point you to the right person without a long wait to even start that conversation.",
+    "tags": ["general", "getting-started"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Booking and access (Be Seen Within 24 Hours access promise)"
+  },
+  {
+    "id": "anxiety-get-better",
+    "question": "Can anxiety actually get better, or do I manage it forever?",
+    "answer": "It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up. Most people are surprised how much lighter an ordinary day can feel once the alarm stops running the show.",
+    "tags": ["anxiety"],
+    "status": "draft",
+    "source": "Approved live copy, src/specialties/anxiety.njk; voice-tone.md structural recipe 5 (acknowledge, reframe, ground in hope)"
+  },
+  {
+    "id": "anxiety-telehealth",
+    "question": "Do you offer anxiety counseling by telehealth?",
+    "answer": "Yes. We work with clients across California by secure video, and in person in Laguna Beach, an easy drive from Newport Beach, Irvine, or Dana Point. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room, and you're somewhere you already feel safe.",
+    "tags": ["anxiety", "telehealth"],
+    "status": "draft",
+    "source": "Approved live copy, src/specialties/anxiety.njk; CLIENT_FACTS.md Service area and local targets"
+  },
+  {
+    "id": "couples-what-is-it",
+    "question": "What is couples counseling, and how can it help my relationship?",
+    "answer": "It's a chance for you and your partner to work through what's actually going on with someone trained to help you see the pattern, not just referee the argument. What does that actually look like? I'm pro-commitment, but I'm not attached to a particular outcome, and the work goes best when both of you are willing to look at the relationship as a system you're both part of, not a courtroom where one person is on trial. We also offer Discernment Counseling if you're not yet sure whether to work on the relationship or part ways.",
+    "tags": ["couples"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Services (Discernment Counseling, pro-commitment stance); voice-tone.md canonical couples pull-quotes"
+  },
+  {
+    "id": "family-counseling-benefits",
+    "question": "What are the benefits of family counseling?",
+    "answer": "A family session gives everyone a chance to say the hard thing out loud, in a room built to hold it. So what actually changes? Usually not who's right, but how the whole family responds to each other once the pattern gets named instead of just repeated. Families who do this work usually come out of it with more patience for each other, not less.",
+    "tags": ["families"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Services (families listed among core service lines)"
+  },
+  {
+    "id": "medication-vs-therapy",
+    "question": "Should I consider medication, therapy, or both?",
+    "answer": "Which one is right for you? That's a conversation to have with your prescribing physician, not something we decide for you. Here's what therapy can offer either way: it addresses the patterns and the story underneath the symptom, which medication alone doesn't touch. Some clients do both. Some do just one. Either way, we're glad to work alongside whatever your medical team recommends.",
+    "tags": ["medication"],
+    "status": "draft",
+    "source": "No efficacy claim about combination treatment is published (unconfirmed, not present in CONTENT_EVIDENCE.md); scope intentionally limited to referral language, not a clinical or prescribing claim"
+  },
+  {
+    "id": "faith-integrated",
+    "question": "Do you offer faith-integrated counseling?",
+    "answer": "For clients who want their faith woven into the work, yes, faith-integrated counseling is something we offer. For clients who'd rather keep the focus elsewhere, that's just as welcome. We work with people of all faiths and none, and you're the one who decides how much your beliefs show up in the room.",
+    "tags": ["faith"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md, Modalities (confirmed: faith-integrated counseling). Does not attribute personal faith to any named therapist; no claim about staff religious background."
+  }
+]

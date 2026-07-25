@@ -249,6 +249,7 @@ These were live, indexed pages the new architecture did not account for. Status 
 - Before touching DNS, export and inventory every existing record. The domain carries Kay's email (MX), and almost certainly SPF, DKIM, and DMARC. Preserve every record that is not the website. Breaking email on launch day is the one unforgivable error.
 - After launch, watch GSC coverage and the 404 report for the first weeks and fix any missed redirect. Monitor rankings on the high-value URLs (beach-therapy, couples, senior-counseling, discernment) for dips that signal a broken redirect.
 - Preserve specific ranking blog URLs. At least one blog post ranks and pulls clicks: `/blog/1399501-the-benefits-of-therapy-for-children` (about 24 clicks, position ~10). Map every existing blog post URL to its new URL and 301 it; do not let ranking posts 404.
+- Grep `src/_data/faq.json` for `"status": "draft"` and confirm no matches. Every FAQ entry is authored as draft until reviewed and flipped to `"status": "approved"`; none should still read draft at real launch, since this file feeds the `/faq` page, every per-page FAQ section pulled by tag, and FAQPage schema. Run: `grep -c '"status": "draft"' src/_data/faq.json` (expect `0`).
 
 ---
 

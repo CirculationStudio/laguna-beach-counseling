@@ -22,7 +22,10 @@ layout: layouts/base.njk
                   image?, reverse?, imageWeight?, anchorLine?, pullQuote?, tone? }
     quote       { text, attribution?, foam? }
     next        { eyebrow, title, titleEmphasis?, columns?, cards[], tone? }
-    faq         { eyebrow, title, items[{q,a}], variant? }  also emits faqSchema
+    faq         { eyebrow, title, items[{q,a}] OR tags[], limit?, variant? }
+                items is a literal list; tags pulls from src/_data/faq.json
+                (the FAQ answer engine) instead, by tag, via the resolveFaq filter.
+                Either way also emits matching faqSchema.
     support     true renders the crisis support-resources block
     cta         { title, titleEmphasis?, text?, note?, watermark?, tagline?,
                   href?, label?, variant? }   tagline: true uses site.tagline
@@ -39,6 +42,7 @@ layout: layouts/base.njk
 #}
 {% import "components/ui.njk" as ui %}
 {% import "components/sections.njk" as s %}
+{% set faqResolvedItems = faq | resolveFaq(faqEntries) %}
 
 {% if crumbs %}{{ s.breadcrumbs(crumbs) }}{% endif %}
 
@@ -93,7 +97,7 @@ layout: layouts/base.njk
   {{ s.pointCards({ eyebrow: next.eyebrow, title: next.title, columns: next.columns or 2, cards: next.cards, tone: next.tone or "sand" }) }}
 {% endif %}
 
-{% if faq %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faq.items, variant: faq.variant }) }}{% endif %}
+{% if faq %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems, variant: faq.variant }) }}{% endif %}
 
 {% if support %}
   {% call ui.section({ tone: "paper", width: "narrow" }) %}
@@ -125,4 +129,4 @@ layout: layouts/base.njk
   }) }}
 {% endif %}
 {% if crumbs %}{{ s.breadcrumbSchema(crumbs, site.url) }}{% endif %}
-{% if faq %}{{ s.faqSchema(faq.items) }}{% endif %}
+{% if faq %}{{ s.faqSchema(faqResolvedItems) }}{% endif %}
