@@ -90,43 +90,46 @@ doc comment.
 
 ### Page-to-template mapping
 
-| Page | Template | Notes |
-|---|---|---|
-| `/specialties/anxiety` | reframe-led | The archetype; sub-forms = numberedList |
-| `/specialties/depression` | reframe-led | `support: true` |
-| `/specialties/life-transitions` | reframe-led | |
-| `/therapy/individuals` | reframe-led | Brief is the "knowing better but stuck" reframe; growth priority |
-| `/about/our-approach` | reframe-led | Model explainer ("insight and movement") |
-| `/discernment-counseling` | reframe-led | The three paths = numberedList |
-| `/specialties/grief` | story-led | `support: true`; Susi Q grief-group credibility |
-| `/specialties/infidelity` | story-led | Recovery path fits the `journey` steps block |
-| `/specialties/conflict-resolution` | story-led | TODO: confirm against brief. The SITE_ARCHITECTURE brief leans cognitive-reframe (the repeated-argument pattern); re-decide before drafting |
-| `/specialties/faith-based` | story-led | Welcoming stance narrative |
-| `/about` | story-led | Founding narrative |
-| `/about/kay-wenger` | story-led | founderNote founder variant carries the page |
-| `/beach-therapy` | story-led | Origin story; what-to-expect = `journey` steps |
-| `/specialties/neurodiversity` | practical-led | |
-| `/specialties/addiction-recovery` | practical-led | Scope-bounding copy in lead / content slot |
-| `/therapy/couples` | story-led | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
-| `/therapy/teens` | practical-led | Mother-daughter and Men's Group sections via content slot |
-| `/therapy/seniors` | practical-led | TODO: confirm against brief. Brief leans Susi-Q story; re-decide before drafting |
-| `/therapy/families` | practical-led | |
-| `/therapy/children` | practical-led | Growth priority |
-| `/therapy` (landing) | practical-led | Only hero + lead + `next` grid + cta keys |
-| `/specialties` (landing) | practical-led | Same lean usage |
-| `/couples-intensive` | practical-led | The day = steps; cta keys point at Contact, not the fit call |
-| `/telehealth` | practical-led | `support: true`; CA-only note in lead |
-| `/fees` | practical-led | Uses the optional `rates` rateTable block |
-| `/faq` | practical-led | Only hero + faq + cta keys populated |
-| `/` (homepage) | custom, no template | Routing front door, grid-driven, needs teamGrid; factory-guardrail sensitive |
-| `/about/our-team` | custom, no template | BUILT: hand-composed from `teamGrid` + `ctaBand` |
-| `/get-started` | custom | bookingEmbed one-off |
-| `/contact` | custom | napBlock, map, form one-offs; full MedicalBusiness schema |
-| `/blog` + post template | custom | postList deferred; post layout is future work |
-| `/privacy-policy`, `/thank-you` | custom minimal | Client-supplied legal text / confirmation state |
-| `/testimonials` | ON HOLD | Not built (HIPAA authorization workflow pending) |
+The Built column reflects verified status (page output present in `public/` and its nav.json `published` flag) as of the last cross-check, not intent. Some Notes below predate a page's build and may be historically stale (for example a "TODO re-decide" note on a page since shipped); the Template and Built columns are the authoritative current state.
 
-Tally: reframe-led 6, story-led 7, practical-led 13, custom 8, on hold 1.
+| Page | Template | Built | Notes |
+|---|---|---|---|
+| `/specialties/anxiety` | reframe-led | Built | The archetype; sub-forms = numberedList |
+| `/specialties/depression` | reframe-led | Built | `support: true` |
+| `/specialties/life-transitions` | reframe-led | Built | |
+| `/therapy/individuals` | reframe-led | Built | Brief is the "knowing better but stuck" reframe; growth priority |
+| `/about/our-approach` | reframe-led | Built | Model explainer ("insight and movement") |
+| `/discernment-counseling` | story-led | Built | The three paths = numberedList |
+| `/specialties/grief` | story-led | Built | `support: true`; Susi Q grief-group credibility |
+| `/specialties/infidelity` | story-led | Built | Recovery path fits the `journey` steps block |
+| `/specialties/conflict-resolution` | story-led | Built | TODO: confirm against brief. The SITE_ARCHITECTURE brief leans cognitive-reframe (the repeated-argument pattern); re-decide before drafting |
+| `/specialties/faith-based` | story-led | Built | Welcoming stance narrative |
+| `/about` | story-led | Built | Founding narrative |
+| `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page |
+| `/beach-therapy` | story-led | Built | Origin story; what-to-expect = `journey` steps |
+| `/specialties/neurodiversity` | practical-led | Built | |
+| `/specialties/addiction-recovery` | practical-led | Built | Scope-bounding copy in lead / content slot |
+| `/therapy/couples` | story-led | Built | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
+| `/therapy/teens` | practical-led | Built | Mother-daughter and Men's Group sections via content slot |
+| `/therapy/seniors` | practical-led | Built | TODO: confirm against brief. Brief leans Susi-Q story; re-decide before drafting |
+| `/therapy/families` | practical-led | Built | |
+| `/therapy/children` | practical-led | Built | Growth priority |
+| `/therapy` (landing) | practical-led | Not built | Only hero + lead + `next` grid + cta keys |
+| `/specialties` (landing) | practical-led | Not built | Same lean usage |
+| `/couples-intensive` | story-led | Built | The day = steps; cta keys point at Contact, not the fit call |
+| `/telehealth` | practical-led | Built | `support: true`; CA-only note in lead |
+| `/fees` | practical-led | Built | Uses the optional `rates` rateTable block |
+| `/faq` | custom, no template | Built | Only hero + faq + cta keys populated |
+| `/` (homepage) | custom, no template | Placeholder only | Routing front door, grid-driven, needs teamGrid; factory-guardrail sensitive |
+| `/about/our-team` | custom, no template | Built | BUILT: hand-composed from `teamGrid` + `ctaBand` |
+| `/get-started` | custom | Built | bookingEmbed one-off |
+| `/contact` | custom | Built | napBlock, map, form one-offs; full MedicalBusiness schema |
+| `/blog` + post template | custom | Not built | postList deferred; post layout is future work |
+| `/privacy-policy`, `/thank-you` | custom minimal | Not built | Client-supplied legal text / confirmation state |
+| `/testimonials` | ON HOLD | On hold | Not built (HIPAA authorization workflow pending) |
+
+Tally by template: reframe-led 5, story-led 9, practical-led 11, custom 9, on hold 1.
+Tally by status: 27 built, 5 not built, 1 placeholder only, 1 on hold.
 
 ---
 
