@@ -1,0 +1,96 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Senior Counseling Laguna Beach | Therapy for Older Adults"
+description: "Therapy for grief, retirement transitions, and later-life change, from the founder of the Susi Q senior mental-health program."
+permalink: /therapy/seniors/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy", url: "/therapy" }
+  - { label: "Seniors" }
+hero:
+  # Practical-led default hero is "center" (text-only). Kept the default; no real
+  # senior-client photograph exists and stock imagery is forbidden (DESIGN_SYSTEM).
+  eyebrow: "Senior counseling"
+  title: "Senior counseling in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Senior counseling in Laguna Beach." per the brief
+  lead: "Therapy for grief, retirement transitions, and later-life change, from the founder of the Susi Q senior mental-health program. A place to talk about what the activity calendar leaves out."
+lead:
+  - "Walk into most senior centers and you'll find plenty to do: bingo, mahjong, a lunch, a lecture, a full and busy calendar. What's often missing is anywhere to say the hard thing out loud. You can spend a whole day surrounded by people and never once get to talk about the spouse you lost, the body that won't cooperate, or the quiet question of what your days are even for now."
+  - "That gap, plenty to do and nowhere to talk, is exactly the one this practice was built to close. Later life keeps asking you to let things go: a career and the identity that came with it, people you love, certainties you counted on. Who prepared you for all that letting go? Almost no one. This is a place to bring it, with someone who won't rush you or talk down to you."
+steps:
+  eyebrow: "What we help with"
+  title: "The weather of the later chapters"
+  lead: "You spent decades being the steady one others leaned on. It is allowed, now, to have somewhere to set it down."
+  steps:
+    - { title: "Grief and the losses that stack up", body: "A spouse, a sibling, friends, a whole generation that's thinning out. Late-life grief has a particular loneliness, and it deserves real company, not a brisk sympathy card." }
+    - { title: "Retirement and the identity that went with it", body: "When the work that told you who you were stops, the freedom can feel strangely like falling. Rebuilding a sense of purpose on the other side is genuine work, and worth doing." }
+    - { title: "Caregiving and its tangle of feelings", body: "Caring for a spouse or a parent brings exhaustion, guilt, and sometimes resentment and relief all at once. All of it is human, and none of it makes you a bad person." }
+    - { title: "Isolation and the shrinking world", body: "As mobility and the calendar contract, the world can get very quiet. We work on connection and meaning, so the later years are more than something to get through." }
+trust:
+  lead: "Rooted in this community for over a decade,"
+  leadEmphasis: "not parachuted in."
+  tone: "navy"
+  columns: 4
+  items:
+    - { icon: "shell", title: "Founder of Susi Q's program", text: "Kay founded the senior mental-health program at Susi Q, Laguna Beach Seniors, in 2010, and still supervises it today." }
+    - { icon: "chat", title: "Heart to Heart and more", text: "The programs she built include Heart to Heart, Feeling the Blues for adults 55 and older, and Men's, Women's, and caregiver groups." }
+    - { icon: "heart", title: "No talking down", text: "You will be met as the whole, capable person you are, by someone who respects a long life, not a young therapist who assumes." }
+    - { icon: "phone", title: "In person or by video", text: "Prefer not to fuss with technology? Come see us in Laguna Beach. Prefer to stay home? We meet by secure video across California." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Senior counseling, answered"
+  tags: ["grief", "getting-started"]
+  limit: 3
+support: true
+cta:
+  title: "It's not too late, and you're not too much."
+  text: "Whether it's for you or a parent you're worried about, a free 15 to 20 minute call is a gentle first step. No pressure, just a chance to be heard and to see whether we're the right fit."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "wave", title: "Grief and loss counseling", body: "Much of this senior work grew from Kay's grief groups. Our grief page carries that story and the many shapes loss can take.", href: "/specialties/grief", linkLabel: "Grief counseling" }
+    - { icon: "compass", title: "More about Kay", body: "The Susi Q story, the decades of practice, and the person behind this work.", href: "/about/kay-wenger", linkLabel: "Meet Kay" }
+service:
+  name: "Senior counseling"
+  serviceType: "Counseling for older adults"
+  description: "Therapy for older adults in Laguna Beach and by telehealth across California, for grief, retirement transitions, caregiving, and isolation, from the founder of the Susi Q senior mental-health program."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Senior counseling, practical-led. TEMPLATE DECISION (documented in the batch
+   report): the seniors brief and meta REQUIRE the Susi Q authority, but the grief
+   page already owns the father-2010 origin ANECDOTE via its founderNote. To avoid
+   recycling that story a second time, this page leans on the Susi Q authority from a
+   different angle: the living programs and Kay's decade-plus institutional role
+   (naming Heart to Heart and Feeling the Blues specifically, which grief does not),
+   plus the plain fact that she founded the program in 2010, and links to
+   /about/kay-wenger and /specialties/grief for the fuller story. Practical-led is
+   chosen deliberately: it has no founderNote portrait block, so it structurally
+   avoids recycling grief's signature component, and it serves this persona's
+   logistics/reassurance needs (tech anxiety, the in-person option, adult children
+   vetting on a parent's behalf). Framing is "plenty to do, nowhere to talk," the
+   real Susi Q insight repurposed as framing, distinct from grief's waves metaphor.
+
+   support: true is a DELIBERATE extension beyond the strict crisis-adjacent list
+   (telehealth/depression/anxiety/grief): the senior persona centers spousal loss,
+   isolation, and late-life depression, exactly the risk profile the block exists for,
+   and it sits adjacent to grief, which is on the list. Flagged for veto in the report.
+
+   CONTENT_EVIDENCE: older-adult isolation/depression figures (CDC, NASEM) need a
+   fresh pull and confirmation, and the file explicitly says to pair seniors with
+   Kay's Susi Q authority rather than lean on statistics, so no research statistic is
+   used; the authority (a CLIENT_FACTS business fact, not research) carries the page.
+   Internal links: /specialties/grief, /about/kay-wenger, /get-started, all real.
+   No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the local-rootedness / "for the adult child" beat (the seniors
+   persona is often searched for by an adult child), with the real links carried in
+   the next cards above and the founder facts in the trust band. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>If you're the adult child reading this for a parent, worried and not sure how to raise it, you're doing a loving thing. Bringing it up gently is often the hardest part. You're welcome to make the free call yourself to talk through how to approach it, before anyone commits to anything.</p>
+  <p>And if you're the older adult here on your own steam, wondering whether therapy is really for people like you: it is. You've earned a place to be honest about the hard parts of a long life. That's not weakness. That's wisdom about what actually helps.</p>
+{% endcall %}

@@ -1,0 +1,91 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Teen Therapist Laguna Beach | Adolescent Counseling"
+description: "Support for teens navigating anxiety, identity, and the pressures of coastal-community life. A low-pressure way in."
+permalink: /therapy/teens/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy", url: "/therapy" }
+  - { label: "Teens" }
+hero:
+  # Practical-led default hero is "center" (text-only). Kept the default; no real
+  # teen photograph exists and stock teen imagery is forbidden (DESIGN_SYSTEM).
+  eyebrow: "Teen and adolescent therapy"
+  title: "Teen and adolescent therapy in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Teen and adolescent therapy in Laguna Beach." per the brief
+  lead: "Support for teens navigating anxiety, identity, and the pressures of coastal-community life. A low-pressure way in, for them and for you."
+lead:
+  - "The closed bedroom door can feel like a verdict. The one-word answers, the eye-roll, the friends who suddenly know more than you do. If you're the parent, it can feel like you're losing them. Here's the reframe that helps: your teenager isn't malfunctioning. They're doing the actual job of adolescence, which is building a self that's theirs, in a room you're not invited into yet."
+  - "That's developmentally healthy, and it's also lonely for everyone. A teen still needs somewhere honest to bring the anxiety, the identity questions, the pressure to perform, the things they'd never say across the dinner table. So what if that somewhere wasn't you, and didn't have to be? A neutral room, a person who isn't grading them, is often the exact place a teen finally opens the door."
+steps:
+  eyebrow: "How teen work goes"
+  title: "Built for someone who didn't choose to be here"
+  lead: "Most teens don't book their own therapy. So the first job is making the room feel like theirs, not another place they're being managed."
+  steps:
+    - { title: "We earn it, we don't assume it", body: "Trust with a teenager is not automatic and can't be faked. We move at their pace, take them seriously, and don't report every word back home. That confidentiality is what makes the room worth showing up to." }
+    - { title: "We meet them where they actually are", body: "Anxiety, perfectionism, social media, identity, the pressure of a community where everyone looks like they're winning. We talk about their real life in their real language, not a worksheet version of it." }
+    - { title: "We keep parents in the loop, wisely", body: "You're not shut out. We help you understand what your teen needs and how to support it, while protecting the privacy that makes the therapy work. It's a balance, and holding it well is part of the job." }
+points:
+  eyebrow: "For the parents"
+  title: "Parenting a teen in a high-pressure town"
+  columns: 2
+  tone: "sand"
+  cards:
+    - { icon: "wave", title: "When the achievement is the anxiety", body: "In a community that prizes performance, a teen can look like they're thriving and be quietly coming apart. Straight A's and panic attacks live in the same kid more often than you'd think." }
+    - { icon: "compass", title: "You can't logic them out of it", body: "The instinct to fix, advise, and reassure is loving, and it often makes a teen clam up harder. Sometimes the most useful thing is a third person who isn't emotionally tangled in it." }
+faq:
+  eyebrow: "Questions parents ask"
+  title: "Teen therapy, answered"
+  tags: ["getting-started"]
+  limit: 3
+cta:
+  title: "Worried about your teen?"
+  text: "You don't have to wait for a crisis. A free 15 to 20 minute call is a low-pressure way to talk it through and see whether we're the right fit for your family."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "heart", title: "Family therapy", body: "Sometimes what a teen needs most is a shift in the whole family system, not just an hour of their own.", href: "/therapy/families", linkLabel: "Family therapy" }
+    - { icon: "sun", title: "Anxiety therapy", body: "So much of teen distress is anxiety wearing other clothes. Our anxiety page goes deeper on the work itself.", href: "/specialties/anxiety", linkLabel: "Anxiety therapy" }
+service:
+  name: "Teen and adolescent therapy"
+  serviceType: "Adolescent counseling"
+  description: "Teen and adolescent therapy in Laguna Beach and by telehealth across California, for anxiety, identity, and the pressures of coastal-community life, with a low-threshold entry for young men."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Teen and adolescent therapy, practical-led (COMPONENT_COVERAGE.md and the build
+   instruction agree). Framing is adolescence-as-individuation: the closed door is
+   the developmental work, not rejection, and a neutral room is where a teen finally
+   opens up. Distinct from every other page's metaphor.
+
+   Brief flags HONORED: age-appropriate framing throughout; practitioner references
+   are kept SOFT and no one is named, because the associate who leads teen work and
+   the Men's Support Group (Austin) is transitioning out in 2026 (CLIENT_FACTS). The
+   Men's Support Group itself is a confirmed offering and is referenced without a
+   name. Mother-daughter work is kept general (no invented named program).
+   CONTENT_EVIDENCE: teen anxiety/depression figures (CDC YRBS) need a fresh pull and
+   confirmation, so no statistic is used. Internal links: /therapy/families,
+   /specialties/anxiety, /get-started, all real. Not on the crisis-adjacent list
+   (teens routes to /specialties/anxiety, which carries the support block); no support
+   block here. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the two brief-specified folded-in sections, mother-and-daughter and
+   the Men's Support Group, composed as pointCards so each gets real treatment
+   without earning its own URL. #}
+{{ s.pointCards({
+  eyebrow: "Two more ways in",
+  title: "Not every door is a solo therapy room",
+  tone: "paper",
+  columns: 2,
+  cards: [
+    { icon: "heart", title: "Mother and daughter", body: "The mother-daughter bond can go from best friends to strangers in a single school year, and back again. When the two of you keep missing each other, sometimes the most useful room holds you both, so you can hear what's underneath the slammed doors instead of just the volume." },
+    { icon: "chat", title: "The Men's Support Group", body: "Plenty of young men will walk into a group before they'll ever book a one-on-one session. Our Men's Support Group is a lower-threshold way in: a room where guys talk honestly without it feeling like therapy, and where reaching out later stops seeming like such a big leap." }
+  ]
+}) }}
+{% call s.prose({ width: "narrow" }) %}
+  <p>Not sure which of these fits your teen, or whether it's a solo session, family work, or a group? That's exactly the kind of thing we sort out on the free call, no pressure and no commitment.</p>
+{% endcall %}

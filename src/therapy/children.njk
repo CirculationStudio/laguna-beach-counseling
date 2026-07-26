@@ -1,0 +1,82 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Child Therapist Laguna Beach | Counseling for Kids"
+description: "Warm, developmentally-attuned counseling for children, in Laguna Beach or by telehealth. Find the right fit with a free call."
+permalink: /therapy/children/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy", url: "/therapy" }
+  - { label: "Children" }
+hero:
+  # Practical-led default hero is "center" (text-only). Kept the default; no real
+  # photograph of a child client exists and stock child imagery is forbidden, which
+  # matters doubly here (never use imagery implying real, identifiable child clients).
+  eyebrow: "Child therapy"
+  title: "Child therapy in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Child therapy in Laguna Beach." per the brief
+  lead: "Warm, developmentally-attuned counseling for children, in Laguna Beach or by telehealth. Find the right fit with a free call."
+lead:
+  - "A young child rarely walks in and says, I've been feeling anxious since the move. They don't have those words yet. Instead it comes out sideways: the stomachaches with no cause, the meltdown over the wrong-colored cup, the sudden clinging, the trouble at drop-off. A child's first language isn't conversation. It's behavior and play."
+  - "So we don't sit a seven-year-old down for a talk. We meet them in the language they actually speak. Through play, drawing, and stories, a child will show you what they can't yet tell you, and slowly build the words for it. What looks like acting out is usually a kid saying something important in the only way they know how. Our job is to listen in their language, not demand they learn ours first."
+steps:
+  eyebrow: "How child work looks"
+  title: "Therapy that looks a lot like play"
+  lead: "If you pictured a tiny client on a couch, picture something warmer and more hands-on. For a child, play is the work, not a distraction from it."
+  steps:
+    - { title: "We build safety first", body: "Before anything else, a child needs to feel that this is a safe, unhurried place with a grown-up who is genuinely on their side. Nothing useful happens until that's real, so we never rush it." }
+    - { title: "We work through play, not lectures", body: "Games, art, and make-believe aren't filler. They're how a child processes big feelings at a size they can handle. A lot of real change happens on the floor, not in a chair." }
+    - { title: "We build their toolkit gently", body: "Naming feelings, calming a stirred-up body, handling a hard moment at school. We help a child grow these skills at their own pace, in a way that feels like discovery rather than instruction." }
+points:
+  eyebrow: "What brings kids in"
+  title: "When a little one is struggling"
+  columns: 2
+  tone: "sand"
+  cards:
+    - { icon: "wave", title: "Big feelings, small body", body: "Anxiety, frequent meltdowns, fears that won't settle, or worry that shows up as tummy aches and trouble sleeping. Emotions can be a lot to hold when you're small." }
+    - { icon: "shell", title: "A change that rocked their world", body: "A move, a divorce, a new sibling, a loss, a scary event. Children feel these seismically, and they often need help finding words for a change they didn't choose." }
+faq:
+  eyebrow: "Questions parents ask"
+  title: "Child therapy, answered"
+  tags: ["getting-started", "general"]
+  limit: 3
+cta:
+  title: "Worried about your child?"
+  text: "Trust that parent instinct. A free 15 to 20 minute call is a low-pressure way to talk through what you're seeing and see whether we're the right fit for your family."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "heart", title: "Family therapy", body: "A struggling child is often the most sensitive part of a stressed family system. Sometimes the whole family benefits from the work.", href: "/therapy/families", linkLabel: "Family therapy" }
+    - { icon: "compass", title: "Start with a free call", body: "The fastest way to find the right fit for your child is a short conversation. We'll match you thoughtfully, no pressure.", href: "/get-started", linkLabel: "Get started" }
+service:
+  name: "Child therapy"
+  serviceType: "Child counseling"
+  description: "Warm, developmentally-attuned child therapy in Laguna Beach and by telehealth across California, working through play and behavior, a child's first language, with support for parents alongside."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Child therapy, practical-led (COMPONENT_COVERAGE.md and the build instruction
+   agree). GROWTH PRIORITY. Framing is "play is a child's first language": kids speak
+   in behavior and play, so that's where we meet them. Distinct from every other
+   page's metaphor.
+
+   Judgment call, DOCUMENTED: Rozy is named by FIRST NAME ONLY in the content slot as
+   the associate who specializes in children. She is a growth-priority asset who is
+   staying (only Austin and Christy are departing per CLIENT_FACTS), and a real,
+   supervised person aids conversion on a growth page. No license/credential is stated
+   for her, so this is not a "named individual with credentials" listing and no Person
+   schema is emitted (consistent with the Kay-founderNote precedent on grief/infidelity).
+   CONTENT_EVIDENCE has nothing child-specific, so no statistic is used. Internal links:
+   /therapy/families and /get-started, both real. Not crisis-adjacent, so no support
+   block. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: supporting parents alongside the child (brief section), plus the
+   light, no-credentials mention of Rozy as the children specialist. #}
+{% call s.prose({ width: "narrow" }) %}
+  <h2>We support the parents, too</h2>
+  <p>Here's something we tell every parent: you are not being graded, and you are not the problem to be fixed. A child's therapy works best when the grown-ups around them are part of it. So alongside the child's sessions, we coach parents on what's going on underneath the behavior and how to respond in a way that actually helps. You know your child better than anyone. We just add a set of tools.</p>
+  <p>Children's work here is a particular focus of Rozy, one of the associate therapists Kay personally supervises. On your free call, we'll make sure your child is matched with the right fit, so the very first session lands.</p>
+{% endcall %}

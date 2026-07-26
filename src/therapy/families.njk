@@ -1,0 +1,78 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Family Therapy & Counseling Laguna Beach"
+description: "Family counseling and parenting support for the hard seasons, in Laguna Beach or by telehealth across California."
+permalink: /therapy/families/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy", url: "/therapy" }
+  - { label: "Family Therapy" }
+hero:
+  # Practical-led default hero is "center" (text-only). Kept the default; no real
+  # family photograph exists and stock family imagery is forbidden (DESIGN_SYSTEM).
+  eyebrow: "Family therapy"
+  title: "Family therapy in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Family therapy in Laguna Beach." per the brief
+  lead: "Family counseling and parenting support for the hard seasons, in Laguna Beach or by telehealth across California. When the whole system is stuck, one person alone can't unstick it."
+lead:
+  - "Think of a family as one of those mobiles that hang over a crib. Every piece is tied to every other piece, so when one part gets pulled, the whole thing swings, even the parts that were holding perfectly still. That's why the person who ends up in the most pain often isn't the source of the trouble. They're just the piece the tension is tugging on hardest."
+  - "So what happens when you try to fix a mobile by grabbing only the one swinging piece? It thrashes harder. Family therapy works differently. Instead of hunting for the person to blame, we watch how the whole thing moves together, and we help the family find a new balance that doesn't cost any one member their peace. Whose fault is it? Almost always the wrong question."
+steps:
+  eyebrow: "How family work is different"
+  title: "We work the system, not the culprit"
+  lead: "One-on-one therapy helps one person. Family therapy helps the space between people, which is a different kind of work with a different shape."
+  steps:
+    - { title: "Everyone's in the room, so no one's on trial", body: "We don't gather in secret to decide who's the problem. When the family sits together, the pattern shows itself, and it stops being one person's fault and starts being something you can all change." }
+    - { title: "We name the pattern, not the villain", body: "The blow-up, the shutdown, the person who always smooths it over, the one who always pushes. These are roles the system handed out. Once they're named out loud, they loosen their grip." }
+    - { title: "We rebalance so no one carries it alone", body: "The goal isn't to win. It's a family where the weight is shared more fairly, the hard conversations can actually happen, and everyone gets to be a full person, not just their role." }
+points:
+  eyebrow: "What brings families in"
+  title: "The knots families get tied in"
+  columns: 2
+  tone: "sand"
+  cards:
+    - { icon: "chat", title: "The same conflict, on every holiday", body: "Certain topics, or certain people together in one room, and it's the same eruption every time. The calendar changes, the choreography doesn't." }
+    - { icon: "anchor", title: "One kid carrying it for everyone", body: "When a child's behavior suddenly turns loud, it's often the family's stress finding the most sensitive place to land. The behavior is a message, not just a problem." }
+    - { icon: "compass", title: "Parents split on the plan", body: "Two parents, two playbooks, and a child who's learned to slip through the gap between them. Getting the adults on the same page changes everything downstream." }
+    - { icon: "heart", title: "A season that rearranged everyone", body: "A divorce, a blended family, a move, an illness, a loss. Big changes ask every member to find a new place to stand, and that renegotiation is rarely smooth." }
+next:
+  eyebrow: "Where to go next"
+  title: "For the younger members of the family"
+  columns: 2
+  cards:
+    - { icon: "sun", title: "Teen and adolescent therapy", body: "When the person the tension lands on is a teenager, they often need a room of their own alongside the family work.", href: "/therapy/teens", linkLabel: "Teen therapy" }
+    - { icon: "shell", title: "Child therapy", body: "For younger children, the work looks different, because a child's first language is play, not conversation.", href: "/therapy/children", linkLabel: "Child therapy" }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Family therapy, answered"
+  tags: ["families", "general"]
+  limit: 3
+cta:
+  title: "Ready to unstick the whole thing?"
+  text: "You don't need everyone on board to start. A free 15 to 20 minute call is a low-pressure way to talk through what's going on and see whether we're the right fit for your family."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Family therapy"
+  serviceType: "Family counseling"
+  description: "Family therapy and parenting support in Laguna Beach and by telehealth across California, working with the whole family system rather than singling out one member."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Family therapy, practical-led (COMPONENT_COVERAGE.md and the build instruction
+   agree). Framing is the family-as-a-mobile: touch one piece and the whole thing
+   swings, so we work the system, not the culprit. Distinct from every other page's
+   metaphor. Brief flag honored implicitly: no one member is pathologized (the whole
+   point of the framing). No unconfirmed modality claimed (Family Mediation is
+   confirmed in CLIENT_FACTS but not leaned on as a headline). CONTENT_EVIDENCE has
+   nothing family-specific, so no statistic is used. Internal links: /therapy/teens
+   and /therapy/children are real (built this batch), /get-started is the CTA. Not
+   crisis-adjacent, so no support block. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: parenting support, the brief's dedicated section, as a short prose
+   beat between the "how it differs" steps and the younger-members next cards. #}
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Parenting support, without the judgment</h2>
+  <p>Sometimes the family doesn't all need to come in. Sometimes it's the parents who need a place to think, out loud, with someone who won't hand them a pamphlet. How do you hold a limit and stay warm at the same time? How do you parent the child you have, not the one the books assumed? We work with parents on exactly these questions, whether the rest of the family ever sets foot in the room or not.</p>
+  <p>Parenting in a high-pressure coastal community adds its own weather: the comparison, the packed schedules, the sense that everyone else has it handled. You don't have to have it handled. That's what the free call is for.</p>
+{% endcall %}

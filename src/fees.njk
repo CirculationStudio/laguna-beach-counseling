@@ -1,0 +1,134 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Therapy Cost Laguna Beach | Out-of-Network & Superbills"
+description: "We're out-of-network by design: longer sessions, real confidentiality, no diagnostic label required. Superbills provided for PPO reimbursement."
+permalink: /fees/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Fees & Insurance" }
+hero:
+  # Practical-led default hero is "center" (text-only). Kept the default; a fees page
+  # is logistics-forward and needs no image.
+  eyebrow: "Fees and insurance"
+  title: "Fees and"
+  titleEmphasis: "insurance." # H1 renders "Fees and insurance." per the brief
+  lead: "We're out-of-network by design: longer sessions, real confidentiality, and no diagnostic label required. Here's what that means, and exactly what it costs, before you ever pick up the phone."
+lead:
+  - "Let's talk about money plainly, because guessing is worse. We're an out-of-network practice on purpose. For insurance to pay, it needs a diagnosis, a code that goes on your permanent record, plus a set of rules about how long your sessions can be and what your therapy is allowed to focus on. Out-of-network means none of that follows you around."
+  - "So you're not really paying for a more expensive hour. You're buying the room back: an hour shaped around you and what you need, instead of around a reimbursement form. Is that worth it for everyone? No. But for a lot of people, the difference is the whole point. And if cost is the thing standing in your way, please say so. That's a conversation, not a closed door."
+points:
+  eyebrow: "Why out-of-network"
+  title: "What the choice actually buys you"
+  columns: 2
+  tone: "sand"
+  cards:
+    - { icon: "clock", title: "Full-length sessions", body: "Real 50, 75, or 90 minute sessions, not the rushed version the clock allows when a payer is dictating the terms. The work needs room to breathe, so we give it room." }
+    - { icon: "shield", title: "Real confidentiality", body: "No diagnosis sitting in an insurer's database, no third party deciding you need a label to deserve care. What happens in the room stays a great deal more private." }
+    - { icon: "compass", title: "Clinical autonomy", body: "Your therapy is shaped by what actually helps you, not by what a reimbursement code will approve. We answer to your goals, not to a claims department." }
+    - { icon: "heart", title: "Time on care, not paperwork", body: "Less of everyone's energy goes into fighting with billing systems, which means more of it goes where it belongs: into the work you came here to do." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Fees and insurance, answered"
+  tags: ["cost", "getting-started"]
+  limit: 3
+cta:
+  title: "Questions about cost? Ask them."
+  text: "Money should never be the reason you don't reach out. A free 15 to 20 minute call is a no-pressure way to talk through fees, fit, and whatever else is on your mind."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{# Fees and insurance, practical-led. First real use of the rateTable component.
+   Framing is "what out-of-network buys back": no diagnostic code follows you, the
+   hour is shaped around you, not an insurer's form. Distinct from every other page's
+   metaphor.
+
+   SCHEMA: the brief specifies "Service with PriceSpecification," which the
+   serviceSchema macro cannot express. So the `service` front-matter key is
+   deliberately OMITTED here (so the template does not emit a price-less Service), and
+   a Service block IS HAND-WRITTEN at the end of the content slot, referencing the
+   same business @id (site.url + "/#business", byte-identical to every serviceSchema
+   provider) and carrying a PriceSpecification with the real minPrice 160 / maxPrice
+   390 USD range from the confirmed CLIENT_FACTS rate cards. BreadcrumbList (from
+   crumbs) and FAQPage (from faq) are still auto-emitted by the template.
+
+   FLAG HONORED: never implies insurance is billed directly (Superbills are for the
+   client to submit). All figures are confirmed CLIENT_FACTS rate cards, none invented.
+   CONTENT_EVIDENCE: a usable, non-recycled market benchmark exists (the TherapyTribe
+   Laguna Beach ~$205 average) but is NOT used: it needs current-figure confirmation
+   at publish, it isn't needed for the page's job, and citing an average invites a
+   comparison that undercuts the premium positioning. Internal links: the brief
+   specifies /faq and /get-started; /get-started is the CTA (real), and /faq is named
+   as PLAIN TEXT below because that page is not built yet (no broken href). Not
+   crisis-adjacent, so no support block. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the canonical out-of-network line, the two rate cards (associates and
+   Kay, separately), the Superbill explanation, sliding-scale and cancellation notes,
+   the plain-text /faq pointer, and the hand-written Service + PriceSpecification. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>{{ site.positioning.outOfNetworkLine }}</p>
+{% endcall %}
+
+{{ s.rateTable({
+  caption: "Sessions with an associate therapist",
+  rows: [
+    { service: "50 minutes, individual", rate: "$160" },
+    { service: "50 minutes, couples or family", rate: "$180" },
+    { service: "75 minutes, individual", rate: "$235" },
+    { service: "75 minutes, couples or family", rate: "$265" },
+    { service: "90 minutes, individual", rate: "$275" },
+    { service: "90 minutes, couples or family", rate: "$315" }
+  ],
+  footnote: "Associate therapists are the clinicians Kay personally trains and supervises."
+}) }}
+
+{{ s.rateTable({
+  caption: "Sessions with Kay Wenger",
+  rows: [
+    { service: "50 minutes, individual", rate: "$190" },
+    { service: "50 minutes, couples or family", rate: "$220" },
+    { service: "75 minutes, individual", rate: "$280" },
+    { service: "75 minutes, couples or family", rate: "$325" },
+    { service: "90 minutes, individual", rate: "$330" },
+    { service: "90 minutes, couples or family", rate: "$390" }
+  ],
+  footnote: "The right fit and session length are things we sort out together on the free call."
+}) }}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>About Superbills and reimbursement</h2>
+  <p>We provide a Superbill at every session: an itemized receipt you can submit to your PPO insurance for out-of-network reimbursement. To be clear, we don't bill your insurance for you, and we can't promise what they'll reimburse, since that depends on your specific plan. Many PPO plans reimburse a meaningful portion of out-of-network care. It's worth a quick call to your insurer to ask about your out-of-network mental health benefits.</p>
+  <h2>Sliding scale, payment, and cancellations</h2>
+  <p>A limited sliding scale is available on request, handled quietly between you and your therapist. We accept cash, check, Venmo, Zelle, and all major credit cards. We ask for 24 hours' notice to change or cancel a session, since a reserved hour that goes unused can't be given to someone else on short notice; without that notice, the full session fee applies.</p>
+  <p>Still have questions about what to expect? Our full FAQ page is on the way, and in the meantime the free call is the best place to ask anything at all.</p>
+{% endcall %}
+
+{# Hand-written Service with PriceSpecification (the brief's specified schema). @id
+   of the provider is byte-identical to every serviceSchema provider across the site. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Psychotherapy sessions",
+  "serviceType": "Psychotherapy",
+  "description": {{ "Out-of-network individual, couples, and family therapy in Laguna Beach and by telehealth across California. Superbills provided for PPO out-of-network reimbursement." | dump | safe }},
+  "url": {{ (site.url + page.url) | dump | safe }},
+  "provider": {
+    "@type": "MedicalBusiness",
+    "@id": {{ (site.url + "/#business") | dump | safe }},
+    "name": {{ site.name | dump | safe }},
+    "telephone": {{ site.nap.telephone | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  },
+  "areaServed": [ "Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California" ],
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "160",
+      "maxPrice": "390",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>

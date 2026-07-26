@@ -7,10 +7,10 @@
       "children": [
         { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
         { "label": "Couples & Marriage", "url": "/therapy/couples", "published": true },
-        { "label": "Family Therapy", "url": "/therapy/families", "published": false },
-        { "label": "Teens", "url": "/therapy/teens", "published": false },
-        { "label": "Children", "url": "/therapy/children", "published": false },
-        { "label": "Seniors", "url": "/therapy/seniors", "published": false }
+        { "label": "Family Therapy", "url": "/therapy/families", "published": true },
+        { "label": "Teens", "url": "/therapy/teens", "published": true },
+        { "label": "Children", "url": "/therapy/children", "published": true },
+        { "label": "Seniors", "url": "/therapy/seniors", "published": true }
       ]
     },
     "specialties": {
@@ -52,7 +52,7 @@
   "practical": {
     "label": "Practical",
     "children": [
-      { "label": "Fees", "url": "/fees", "published": false },
+      { "label": "Fees", "url": "/fees", "published": true },
       { "label": "FAQ", "url": "/faq", "published": false },
       { "label": "Get Started", "url": "/get-started", "published": true },
       { "label": "Contact", "url": "/contact", "published": true }
@@ -79,7 +79,7 @@
     { "ref": "specialties", "panel": "columns", "panelTitle": "What people struggle with" },
     { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
     { "ref": "about" },
-    { "label": "Fees", "url": "/fees", "published": false },
+    { "label": "Fees", "url": "/fees", "published": true },
     { "label": "Contact", "url": "/contact", "published": true }
   ]
 }
