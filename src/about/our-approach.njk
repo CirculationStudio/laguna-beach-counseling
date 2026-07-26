@@ -1,0 +1,100 @@
+---
+layout: layouts/reframe-led.njk
+metaTitle: "Our Approach to Therapy | Laguna Beach Counseling"
+description: "Insight and movement, together. How a Pepperdine-trained, Kay-supervised team helps people feel understood and actually change."
+permalink: /about/our-approach/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "About", url: "/about" }
+  - { label: "Our Approach" }
+hero:
+  # Override reframe-led's "split" default to "plain": no image, and the /about
+  # cluster is text-forward. Consistent with the kay-wenger and about heroes.
+  variant: "plain"
+  eyebrow: "Our approach"
+  title: "How the work"
+  titleEmphasis: "actually works." # H1 renders "How the work actually works." per the brief
+  lead: "Insight and movement, together. How a Pepperdine-trained team, personally supervised by Kay Wenger, helps people feel genuinely understood and then actually change."
+lead:
+  - "Most people picture therapy as a toolbox: the right technique for the right problem, applied by someone who knows which tool to grab. So here's the part that surprises people. The technique was never the medicine. You can feel the difference in the first five minutes, between a therapist who is listening to you and one who is quietly listening for the next technique to deploy."
+  - "The change happens in the relationship, not in the toolkit. That isn't a soft or fuzzy claim; it's the most practical thing we know. When you feel truly understood by someone who also isn't afraid to challenge you, something loosens that no clever intervention can force. Everything else we do is built on top of that."
+happening:
+  eyebrow: "What we actually believe"
+  title: "Relationship first, technique second"
+  columns: 3
+  cards:
+    - { icon: "heart", title: "Listening to you, not for a technique", body: "People can tell the difference, even if they can't name it. We're paying attention to you and your actual life, not scanning for the next move to make. That attention is where trust starts." }
+    - { icon: "anchor", title: "The relationship is the medicine", body: "Decades of research and thirty years of practice point the same way: the strength of the working relationship predicts how well therapy goes, more than any single method does. So we treat it as the main event, not the warm-up." }
+    - { icon: "compass", title: "We know the methods cold", body: "This isn't technique-phobia. We're trained in evidence-based approaches like solution-focused therapy, CBT, ACT, and DBT, and we use them well. We just don't lead with them, or make you feel like a diagnosis being processed." }
+work:
+  eyebrow: "What that feels like in the room"
+  title: "Understood, and challenged"
+  columns: 3
+  tone: "sand"
+  cards:
+    - { icon: "shell", title: "Understood first", body: "Before we push on anything, you need to feel that we actually get it. If you don't feel understood, nothing else we do will land. So that's where we start, every time, without rushing it." }
+    - { icon: "sun", title: "And then challenged", body: "Feeling understood is necessary, and on its own it's not enough. Good therapy needs both insight and movement. We'll gently ask the harder question and hold you to the change you say you want, because comfort alone doesn't get you there." }
+    - { icon: "wave", title: "Tailored to you", body: "We're solution-focused and integrative, which is a plain way of saying the method bends to fit the person, never the reverse. What helps a grieving widower isn't what helps an anxious founder, and we don't pretend otherwise." }
+quote:
+  text: "Good therapy needs both. Insight and movement."
+  attribution: "Kay Wenger, LMFT, LPCC"
+next:
+  eyebrow: "Where to go next"
+  title: "See the approach up close"
+  columns: 2
+  cards:
+    - { icon: "heart", title: "The person behind the philosophy", body: "This approach didn't come from a textbook. It came from Kay's thirty-plus years in the room. Her story is worth knowing.", href: "/about/kay-wenger", linkLabel: "Meet Kay" }
+    - { icon: "compass", title: "The approach, applied", body: "See what relationship-first work looks like one-on-one, for the things that actually bring people in.", href: "/therapy/individuals", linkLabel: "Individual therapy" }
+cta:
+  title: "Curious whether this is the right fit?"
+  text: "The best way to feel an approach is to feel it. A free 15 to 20 minute call is a low-pressure way to see whether the way we work is the way you've been looking for."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{# /about/our-approach, the reframe-led template (COMPONENT_COVERAGE.md). The MODEL
+   explainer: relationship-first, not technique-first, in plain language. Deliberately
+   distinct from /about/kay-wenger, which STATES the philosophy as part of her bio.
+   This page EXPLAINS the mechanism (why the relationship heals, what "understood AND
+   challenged" and "insight and movement" mean, how the method bends to the person).
+   The marquee lines here are "listening to you, not for the next technique" and
+   "insight and movement", NOT kay-wenger's "Techniques don't heal people. Relationships
+   do." (which stays her line); the idea is expanded in fresh words rather than repeated.
+
+   Brief flag HONORED: approaches described generically, and only CONFIRMED modalities
+   are named (solution-focused, CBT, ACT, DBT, and by implication the person-centered
+   and existential roots), never an unconfirmed one (no Gottman/EFT/EMDR/IFS/Imago).
+   Schema is AboutPage (brief), hand-written below (no macro exists); no `service`
+   front matter, so no serviceSchema, and no FAQ, so this page adds no FAQPage entity
+   (the canonical FAQ hub is /faq). BreadcrumbList still emits from the template.
+
+   CONTENT_EVIDENCE: the "confirmed methods are evidence-based" fact (line 50) is
+   ALREADY recycled on /therapy/individuals, so it is kept here as a light, generic,
+   uncited mention ("evidence-based approaches") rather than a cited lean, and the
+   relationship-predicts-outcome point is framed qualitatively as research context,
+   not a specific statistic (no effect size, no citation, no promise). Brief internal
+   links: /about/kay-wenger, /therapy/individuals, /get-started, all real. Not
+   crisis-adjacent, so no support block. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the supervision model (distinct from kay-wenger), then AboutPage
+   JSON-LD. #}
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Whoever you see, the standard holds</h2>
+  <p>Here's a fair worry about any group practice: will I get the founder, or a junior therapist I've never heard of? Our answer is built into how we work. Kay personally trains and supervises every associate, the same way she trained a generation of therapists at Pepperdine. So the care isn't Kay-or-nothing; it's the same relationship-first standard whether you see her or one of the team. The free call is where we match you to the right person for what you're carrying.</p>
+{% endcall %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": {{ "Our Approach to Therapy" | dump | safe }},
+  "description": {{ description | dump | safe }},
+  "url": {{ (site.url + page.url) | dump | safe }},
+  "isPartOf": { "@type": "WebSite", "url": {{ site.url | dump | safe }}, "name": {{ site.name | dump | safe }} },
+  "about": {
+    "@type": "MedicalBusiness",
+    "@id": {{ (site.url + "/#business") | dump | safe }},
+    "name": {{ site.name | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  }
+}
+</script>

@@ -1,0 +1,88 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "About Laguna Beach Counseling | Kay Wenger, LMFT"
+description: "Founded by Kay Wenger, LMFT, LPCC, to put excellent clinical care and genuine warmth side by side. Meet the practice and our approach."
+permalink: /about/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "About" }
+hero:
+  # Override story-led's "bg" default to "plain". No dedicated real photograph of
+  # the practice or office exists, and the single coastal image is already carrying
+  # /therapy/individuals and /couples-intensive; a third full-bleed reuse would
+  # cheapen it. Same reasoning as the discernment/conflict/couples heroes. A real
+  # LBC place-or-office photo is the right future upgrade to a bg hero here.
+  variant: "plain"
+  eyebrow: "About us"
+  title: "The practice behind the"
+  titleEmphasis: "coastline." # H1 renders "The practice behind the coastline." per the brief
+  lead: "Founded by Kay Wenger, LMFT, LPCC, to put excellent clinical care and genuine human warmth side by side. Not a bigger practice. A better one."
+lead:
+  - "Laguna Beach Counseling was founded in 2001 on a deceptively simple idea: that excellent clinical care and genuine human warmth could exist side by side, in the same room, without either one crowding out the other. Kay Wenger had spent years training therapists by then, and she had watched how easily a growing practice starts treating people like a caseload. She wanted to build the opposite of that."
+  - "So this was never designed to be the biggest practice in Orange County. It was designed to be one where you're a person, not a slot on a conveyor belt. Does that sound like a small ambition? It isn't. Staying a place where the work actually goes deep, while everything around it races to scale, turns out to be the harder thing to build, and the whole point of building it."
+quote:
+  text: "The quality of the work matters more than the scale of the business."
+  attribution: "Kay Wenger, LMFT, LPCC"
+shapes:
+  eyebrow: "How this place is built"
+  title: "A promise, not a slogan"
+  lead: "Never a therapy factory is easy to say and hard to hold. Here is what we actually mean by it, stated as things you can hold us to."
+  items:
+    - { term: "Small on purpose", detail: "We stay a size where the person across from you knows your name and your story, not just your appointment time. Growth is never allowed to cost us that." }
+    - { term: "Neighbors, not a market", detail: "We're not chasing a demographic. We're serving the people Kay runs into at the market and at the Susi Q. That changes how the work feels, and it should." }
+    - { term: "Depth over volume", detail: "Success here is whether the work actually helped you, not how many sessions moved through the calendar. We measure the right thing on purpose." }
+    - { term: "The founder is still in the room", detail: "Kay still practices, and personally trains and supervises every associate. The standard doesn't get watered down as it passes from her to the team." }
+next:
+  eyebrow: "Meet the practice"
+  title: "Three ways to get to know us"
+  columns: 3
+  cards:
+    - { icon: "heart", title: "Kay Wenger", body: "The founder: thirty-plus years in the room, NRMFT co-founder, and the person whose standard the whole practice is built around.", href: "/about/kay-wenger", linkLabel: "Meet Kay" }
+    - { icon: "compass", title: "Our team", body: "The Pepperdine-trained associates Kay personally supervises. The free call matches you to the right one for what you're navigating.", href: "/about/our-team", linkLabel: "Meet the team" }
+    - { icon: "sun", title: "Our approach", body: "How the work actually works here: relationship first, technique second, and why that order matters more than it sounds.", href: "/about/our-approach", linkLabel: "Our approach" }
+cta:
+  title: "This is the part where you say hello."
+  text: "If a practice built like this is the kind you've been looking for, the first step is a free 15 to 20 minute call. No pressure, just a chance to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{# /about, the story-led template. This page is about the PRACTICE as an entity,
+   deliberately distinct from /about/kay-wenger (her personal bio and career arc)
+   and /about/our-team (the roster). It is written in practice voice, not Kay's
+   first person, and it does not re-tell her bio or the Susi Q origin (those live on
+   kay-wenger). Framing is "built like a place, not a factory": the never-a-therapy-
+   factory guardrail rendered as a promise you can hold us to. Distinct metaphor from
+   every other page. Identity pull-quotes are the approved canonical lines
+   (voice-tone.md): "excellent clinical care and genuine human warmth side by side"
+   and "the quality of the work matters more than the scale of the business."
+
+   Schema is AboutPage (brief), hand-written below because there is no AboutPage
+   macro; its "about" references the canonical business @id that /contact defines and
+   every serviceSchema references. No `service` front matter, so no serviceSchema.
+   BreadcrumbList still emits from the template. All four brief internal links are
+   real, built pages: /about/kay-wenger, /about/our-team, /about/our-approach (this
+   batch), /get-started. Not crisis-adjacent, so no support block. CONTENT_EVIDENCE
+   has nothing about-specific; no statistic is used. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the "not a therapy factory" promise stated plainly, then the
+   AboutPage JSON-LD. The three children are routed via the next cards above. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>Here's the promise underneath all of it, said plainly: you will never be treated like an appointment being processed. Not on the phone, not in the room, not on the way out the door. The moment this place starts to feel like a machine that turns people into billing codes is the moment it has lost the only thing that made it worth building. We would rather stay small and stay real.</p>
+{% endcall %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": {{ "About Laguna Beach Counseling" | dump | safe }},
+  "description": {{ description | dump | safe }},
+  "url": {{ (site.url + page.url) | dump | safe }},
+  "isPartOf": { "@type": "WebSite", "url": {{ site.url | dump | safe }}, "name": {{ site.name | dump | safe }} },
+  "about": {
+    "@type": "MedicalBusiness",
+    "@id": {{ (site.url + "/#business") | dump | safe }},
+    "name": {{ site.name | dump | safe }},
+    "url": {{ site.url | dump | safe }}
+  }
+}
+</script>
