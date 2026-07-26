@@ -1,0 +1,158 @@
+---
+layout: layouts/base.njk
+metaTitle: "Contact | Laguna Beach Counseling"
+description: "Reach Laguna Beach Counseling by phone, email, or a free Get to Know Us call. Our Laguna Beach office and Orange County Airport Area sister office."
+permalink: /contact/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Contact" }
+---
+{# /contact, a CUSTOM page (no page template). Two jobs:
+   1. The human contact surface: both offices with correct labels per CLIENT_FACTS
+      (Laguna Beach is the primary, canonical NAP; Irvine is the "Orange County
+      Airport Area" sister office shared with OCCC), phone, email, and a VISIBLE
+      contact-form PLACEHOLDER that is clearly marked pending and is not a working
+      form (fields disabled, no action, no fake submit).
+   2. The site's canonical business entity: this page emits the sitewide
+      MedicalBusiness JSON-LD with @id {{ site.url }}/#business, the exact @id that
+      every serviceSchema provider across the site already references. Until now that
+      @id was a dangling reference (17 pages pointed at an entity nothing defined);
+      this closes that gap.
+
+   Schema discipline: the canonical NAP in JSON-LD is the Laguna Beach address ONLY
+   (CLIENT_FACTS: NAP must be byte-identical everywhere and Laguna Beach is canonical);
+   the Irvine office is shown visibly but kept out of the schema address to protect
+   NAP consistency. HOURS are omitted entirely (FLAGGED CONFIRM in CLIENT_FACTS,
+   site-vs-Yelp conflict), GEO is omitted (FLAGGED CONFIRM), and there is NO
+   aggregateRating (never publish placeholder ratings). sameAs uses the confirmed
+   directory/social URLs from site.sameAs. All facts come from site data. No em dashes. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{{ s.hero({
+  eyebrow: "Contact",
+  title: "Get in",
+  titleEmphasis: "touch.",
+  variant: "center",
+  lead: "The simplest way to start is a free Get to Know Us call, but you're welcome to reach us however feels easiest. Here's where to find us, and how to say hello.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{% call ui.section({ tone: "paper", width: "wide" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("Reach us directly") }}
+    <h2 class="section__title">Phone, email, or a free call</h2>
+  </div>
+  <ul class="contact-methods" style="list-style:none;padding:0;display:grid;gap:0.75rem;max-width:40rem;">
+    <li><strong>Phone:</strong> <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a></li>
+    <li><strong>Email:</strong> <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a></li>
+    <li><strong>Book a call:</strong> <a href="{{ site.booking.getStartedPath }}">Free 15 to 20 minute Get to Know Us call</a></li>
+    <li><strong>Telehealth:</strong> available to any client located in California.</li>
+  </ul>
+  <p style="max-width:40rem;color:var(--color-ink-soft,#5a6b76);">No walk-ins, so an appointment is recommended. Prefer to talk it through first? The free call is the easiest front door.</p>
+{% endcall %}
+
+{% call ui.section({ tone: "sand", width: "wide" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("Where we are") }}
+    <h2 class="section__title">Two offices, one team</h2>
+  </div>
+  <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));max-width:52rem;">
+    <address style="font-style:normal;padding:1.5rem;background:var(--color-paper,#fff);border-radius:12px;">
+      <p style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.72rem;color:var(--color-teal,#28a0c9);margin:0 0 0.5rem;">Laguna Beach office (main)</p>
+      <p style="margin:0 0 0.75rem;line-height:1.5;">
+        {{ site.nap.streetAddress }}<br />
+        {{ site.nap.addressLocality }}, {{ site.nap.addressRegion }} {{ site.nap.postalCode }}
+      </p>
+      <p style="margin:0;line-height:1.5;">
+        <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a><br />
+        <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a>
+      </p>
+      <p style="margin:0.75rem 0 0;color:var(--color-ink-soft,#5a6b76);font-size:0.92rem;">Our primary office, a few blocks from the coast in the heart of Laguna Beach.</p>
+    </address>
+    <address style="font-style:normal;padding:1.5rem;background:var(--color-paper,#fff);border-radius:12px;">
+      <p style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.72rem;color:var(--color-teal,#28a0c9);margin:0 0 0.5rem;">Orange County Airport Area (sister office)</p>
+      <p style="margin:0 0 0.75rem;line-height:1.5;">
+        {{ site.secondaryOffice.streetAddress }}<br />
+        {{ site.secondaryOffice.addressLocality }}, {{ site.secondaryOffice.addressRegion }} {{ site.secondaryOffice.postalCode }}
+      </p>
+      <p style="margin:0;color:var(--color-ink-soft,#5a6b76);font-size:0.92rem;line-height:1.5;">Shared with our sister practice, Orange County Couples Counseling. Please book through the free call so we can point you to the right location.</p>
+    </address>
+  </div>
+{% endcall %}
+
+{% call ui.section({ tone: "paper", width: "narrow" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("Send a message") }}
+    <h2 class="section__title">A contact form is on the way</h2>
+  </div>
+  <p role="note" style="padding:1rem 1.25rem;border-left:3px solid var(--color-sun-deep,#dfa108);background:var(--color-sand,#faf6ec);border-radius:0 8px 8px 0;max-width:38rem;">
+    Heads up: this form isn't wired up to send yet. For now, the quickest ways to reach us are by <a href="tel:{{ site.nap.telephoneHref }}">phone</a>, <a href="mailto:{{ site.nap.email }}">email</a>, or by <a href="{{ site.booking.getStartedPath }}">booking a free call</a>. The preview below shows the form that's coming soon.
+  </p>
+  <form aria-label="Contact form (preview, not yet active)" style="max-width:38rem;margin-top:1.5rem;">
+    <fieldset disabled style="border:0;padding:0;margin:0;display:grid;gap:1rem;">
+      <label style="display:grid;gap:0.35rem;">Your name
+        <input type="text" name="name" autocomplete="name" style="padding:0.6rem;border:1px solid #cdd6dc;border-radius:8px;" />
+      </label>
+      <label style="display:grid;gap:0.35rem;">Email
+        <input type="email" name="email" autocomplete="email" style="padding:0.6rem;border:1px solid #cdd6dc;border-radius:8px;" />
+      </label>
+      <label style="display:grid;gap:0.35rem;">Phone (optional)
+        <input type="tel" name="phone" autocomplete="tel" style="padding:0.6rem;border:1px solid #cdd6dc;border-radius:8px;" />
+      </label>
+      <label style="display:grid;gap:0.35rem;">How can we help?
+        <textarea name="message" rows="4" style="padding:0.6rem;border:1px solid #cdd6dc;border-radius:8px;"></textarea>
+      </label>
+      <button type="submit" disabled style="padding:0.7rem 1.2rem;border-radius:999px;border:0;background:#cdd6dc;color:#5a6b76;font-weight:600;justify-self:start;cursor:not-allowed;">Form coming soon</button>
+    </fieldset>
+  </form>
+{% endcall %}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "The easiest first step is a call.",
+  text: "Free, confidential, and 15 to 20 minutes. Tell us what's going on and we'll help you find the right fit.",
+  tagline: site.tagline,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ s.breadcrumbSchema(crumbs, site.url) }}
+
+{# Sitewide canonical business entity. @id is byte-identical to the provider @id
+   every serviceSchema across the site references (site.url + "/#business"). #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "@id": {{ (site.url + "/#business") | dump | safe }},
+  "name": {{ site.name | dump | safe }},
+  "legalName": {{ site.legalName | dump | safe }},
+  "url": {{ site.url | dump | safe }},
+  "telephone": {{ site.nap.telephone | dump | safe }},
+  "email": {{ site.nap.email | dump | safe }},
+  "priceRange": {{ site.positioning.priceRange | dump | safe }},
+  "image": {{ site.logo.url | dump | safe }},
+  "logo": {{ site.logo.url | dump | safe }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ site.nap.streetAddress | dump | safe }},
+    "addressLocality": {{ site.nap.addressLocality | dump | safe }},
+    "addressRegion": {{ site.nap.addressRegion | dump | safe }},
+    "postalCode": {{ site.nap.postalCode | dump | safe }},
+    "addressCountry": {{ site.nap.addressCountry | dump | safe }}
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Kathleen Wenger",
+    "jobTitle": "Founder and Clinical Supervisor"
+  },
+  "areaServed": [ "Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California" ],
+  "sameAs": [
+    {% for link in site.sameAs %}{{ link.url | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
+  ]
+}
+</script>
