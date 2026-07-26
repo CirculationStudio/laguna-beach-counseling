@@ -222,5 +222,101 @@
     "tags": ["infidelity", "couples"],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; CLIENT_FACTS.md (Discernment Counseling; pro-commitment but not attached to a particular outcome). Non-blaming, no pressure toward a predetermined outcome."
+  },
+  {
+    "id": "families-whole-family-or-one",
+    "question": "Do you work with the whole family, or just the one person who's struggling?",
+    "answer": "Either, and often it's a mix. A lot of what hurts in a family lives in the space between people, not inside any one of them, so sometimes the most useful thing is to get everyone in one room. Other times we work with a parent alone, or with one member individually, and let that ripple outward. We start by understanding your particular family, then figure out together who needs to be in the room and when.",
+    "tags": ["families"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (families among core service lines; family work); voice-tone.md systemic framing. Describes the practice's family approach, no invented program or unconfirmed modality."
+  },
+  {
+    "id": "families-not-about-blame",
+    "question": "Are you going to sit us down and decide it's the parents' fault?",
+    "answer": "No. Hunting for the guilty party is one of the few things almost certain not to help. When a family is stuck, it's usually a pattern doing the damage, a loop everyone is caught in, not one villain who needs catching. So we name the pattern instead of the person, which tends to loosen things for everyone, parents included. You came in as a family, and that's how we'll work: as a team, not a trial.",
+    "tags": ["families"],
+    "status": "draft",
+    "source": "SITE_ARCHITECTURE.md /therapy/families brief and voice-tone.md (systemic, no pathologizing of one member). No blame framing."
+  },
+  {
+    "id": "families-parenting-only",
+    "question": "Can we come in just for parenting support, without the whole family?",
+    "answer": "Absolutely. Plenty of parents come in on their own to think out loud with someone who won't hand them a pamphlet or a verdict. How do you hold a firm limit and stay warm at the same time? How do you parent the kid you actually have? We work on exactly those questions, whether or not the rest of the family ever comes to a session. Sometimes the fastest way to help a child is to support the grown-ups around them.",
+    "tags": ["families"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (parenting support); voice-tone.md. No invented facts."
+  },
+  {
+    "id": "teens-confidentiality",
+    "question": "Will you tell me everything my teenager says? Will they tell you everything I say?",
+    "answer": "Here's the honest answer, because it matters: a teen needs to trust that the room is theirs, or they won't really use it. So we protect their privacy and we don't report every word back home. What we will do is keep you in the loop on the things that matter for supporting them, and we'll always step in if there's a genuine safety concern. It's a balance, and holding it well is exactly what makes teen therapy work.",
+    "tags": ["teens"],
+    "status": "draft",
+    "source": "SITE_ARCHITECTURE.md /therapy/teens brief (age-appropriate; parents kept in the loop wisely); standard clinical confidentiality and duty-to-protect practice. No specific claim beyond standard ethics."
+  },
+  {
+    "id": "teens-refuses-to-go",
+    "question": "My teen flat-out refuses to go to therapy. Now what?",
+    "answer": "You're not alone, this is one of the most common calls we get, because most teens don't sign themselves up. Sometimes the first step is a conversation with you, the parent, before your teen ever comes in. And some young people will walk into a group before they'll ever book a one-on-one session, which is part of why we run a lower-threshold Men's Support Group. The free call is a good place to figure out the least forced way in for your particular kid.",
+    "tags": ["teens"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md (Men's Support Group is a confirmed offering; free Get to Know Us call). Practitioner kept unnamed (the associate who leads teen work is departing in 2026, CLIENT_FACTS)."
+  },
+  {
+    "id": "teens-alone-or-family",
+    "question": "Do you see my teen on their own, or does the whole family have to come?",
+    "answer": "Usually your teen gets a room of their own, because a private space they don't have to share is often the whole point. That said, some of what a teenager is carrying is really a family pattern, so there are times we'll bring parents or the family in for part of the work. We stay flexible and go with what actually helps, rather than a one-size rule.",
+    "tags": ["teens"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (teens and families among core service lines); voice-tone.md. No invented facts."
+  },
+  {
+    "id": "children-what-it-looks-like",
+    "question": "What does therapy even look like for a young child?",
+    "answer": "Warmer and more hands-on than you might picture, and a lot less like a tiny adult on a couch. For a young child, play is the work, not a break from it. Through games, drawing, and stories, a child processes big feelings at a size they can actually handle, and slowly builds words for what's going on. We meet your child where they are developmentally, so the room feels like discovery, not a lecture.",
+    "tags": ["children"],
+    "status": "draft",
+    "source": "SITE_ARCHITECTURE.md /therapy/children brief (developmentally-attuned); voice-tone.md. Approach described descriptively (play, art, stories); no formal named modality or credential (e.g. Registered Play Therapist) is claimed."
+  },
+  {
+    "id": "children-cant-talk-about-feelings",
+    "question": "My child can't sit still and talk about feelings. Can this really help?",
+    "answer": "Yes, and honestly, that's most kids. A young child's first language isn't conversation, it's behavior and play. The meltdown over the wrong-colored cup, the tummy ache with no cause, the clinginess at drop-off, these are often a child saying something important in the only way they've got. Our job is to listen in their language rather than demand they learn ours first. Sitting and talking comes later, if at all.",
+    "tags": ["children"],
+    "status": "draft",
+    "source": "voice-tone.md and the /therapy/children page framing (behavior and play as a child's first language). No diagnostic claim about any child."
+  },
+  {
+    "id": "children-parent-involved",
+    "question": "Will you work with me, the parent, or just my kid?",
+    "answer": "Both, and the parent part matters more than people expect. A child's therapy works best when the grown-ups around them are part of it, so alongside your child's sessions we help you understand what's underneath the behavior and how to respond in a way that helps. You are not being graded, and you are not the problem to be fixed. You know your child better than anyone; we just add some tools.",
+    "tags": ["children"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (children specialty; parenting support alongside); voice-tone.md."
+  },
+  {
+    "id": "seniors-isolation-or-loss",
+    "question": "Do you offer anything specifically for older adults dealing with isolation or loss?",
+    "answer": "Yes, and it's some of the work closest to my heart. I founded the senior mental-health program at the Susi Q, Laguna Beach Seniors, back in 2010, and built groups like Heart to Heart and Feeling the Blues around exactly this: grief, isolation, and the quiet losses that stack up in the later years. Whether it's one-on-one or a place to feel less alone with it, there's a spot for you. Most senior centers have plenty to do; we make room for the harder conversations too.",
+    "tags": ["seniors"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md (Kay founded the Susi Q senior mental-health program in 2010 and still supervises it; Heart to Heart and Feeling the Blues are confirmed programs). Kay's first-person voice, approved Susi Q authority. Real facts only."
+  },
+  {
+    "id": "seniors-not-tech-savvy",
+    "question": "I'm not comfortable with video calls. Can I still see someone?",
+    "answer": "Of course. If technology isn't your thing, come see us in person at our Laguna Beach office, no screens required. Telehealth is there if you'd rather not travel, but it's an option, never a requirement. We'll meet you whichever way feels easiest, and we won't make you feel silly about it either way.",
+    "tags": ["seniors"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md Services (in-person Laguna Beach office; telehealth statewide CA) and persona 3 (senior tech-anxiety mitigated by the in-person option)."
+  },
+  {
+    "id": "seniors-adult-child-reaching-out",
+    "question": "I'm worried about my aging parent. Can I reach out on their behalf?",
+    "answer": "Yes, and it's a loving thing to do. A lot of our first calls about senior counseling come from an adult son or daughter, not the older person themselves. You're welcome to book the free call yourself to talk through what you're seeing and how to bring it up gently, before anyone commits to anything. Raising it is often the hardest part, and you don't have to figure that out alone.",
+    "tags": ["seniors"],
+    "status": "draft",
+    "source": "CLIENT_FACTS.md persona 3 (seniors often searched for and contacted by adult children); Booking and access (free Get to Know Us call)."
   }
 ]

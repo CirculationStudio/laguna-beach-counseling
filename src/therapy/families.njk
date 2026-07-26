@@ -45,7 +45,11 @@ next:
 faq:
   eyebrow: "Questions people ask"
   title: "Family therapy, answered"
-  tags: ["families", "general"]
+  # Pulls the family-specific tag alone (not the shared getting-started/general pool):
+  # resolveFaq returns file-order then truncates to limit, and the general-tagged
+  # entries sit early in faq.json, so mixing in "general" would bury the family
+  # questions. The "families" tag has enough dedicated entries to fill the block.
+  tags: ["families"]
   limit: 3
 cta:
   title: "Ready to unstick the whole thing?"

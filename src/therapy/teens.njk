@@ -36,7 +36,10 @@ points:
 faq:
   eyebrow: "Questions parents ask"
   title: "Teen therapy, answered"
-  tags: ["getting-started"]
+  # Teen-specific tag (not the shared getting-started/general pool). See the wiring
+  # note on /therapy/families: resolveFaq is file-order then limit, so a dedicated
+  # tag is how each audience page surfaces its own questions.
+  tags: ["teens"]
   limit: 3
 cta:
   title: "Worried about your teen?"
