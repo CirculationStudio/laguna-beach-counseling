@@ -1,0 +1,106 @@
+---
+layout: layouts/base.njk
+metaTitle: "FAQ | What to Expect | Laguna Beach Counseling"
+description: "What a first session is like, whether you take insurance, how Beach Therapy works, and what happens if therapy didn't help before."
+permalink: /faq/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "FAQ" }
+---
+{# /faq, a CUSTOM page (no page template): the canonical answer-engine hub. It
+   presents the ENTIRE faq.json answer engine (every entry) in one place, organized
+   into logical category accordions, and emits the ONE canonical FAQPage schema over
+   all of them. Every other page's FAQ pulls a small tag-subset of the same faq.json
+   and emits its own (subset) FAQPage; /get-started deliberately emits none, so this
+   page is the single complete FAQPage. Duplication of a question across different
+   page URLs is expected and fine; each page's FAQPage validly describes its own
+   visible Q&A.
+
+   The category buckets are built by auto-partitioning faqEntries: each entry is
+   placed in the FIRST category (in the order below) whose tags intersect the entry's
+   tags, and never twice (placedIds guard), so no question repeats across categories
+   or in the schema. A catch-all sweeps up any entry whose tags match no category, so
+   future faq.json additions can never silently vanish from this page. Accumulation
+   uses the Nunjucks array-mutation pattern (.push on arrays declared in an outer
+   scope), since Nunjucks {% set %} inside a loop does not otherwise persist.
+
+   Brief internal links: /fees and /beach-therapy (intro) and /get-started (CTA), all
+   real. H1/title/meta match the brief exactly. One gold CTA (the closing band). No
+   em dashes. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{{ s.hero({
+  eyebrow: "FAQ",
+  title: "Questions people ask before",
+  titleEmphasis: "reaching out.",
+  variant: "center",
+  lead: "The honest answers to what people wonder before they pick up the phone. If yours isn't here, the free call is the best place to ask it.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{% call s.prose({ width: "narrow" }) %}
+  <p>A couple of the big ones have pages of their own: what therapy actually costs lives on the <a href="/fees">fees page</a>, and how walk-and-talk sessions work is all on the <a href="/beach-therapy">Beach Therapy</a> page. Everything else is right here, grouped so you can find your question fast.</p>
+{% endcall %}
+
+{% set cats = [
+  { title: "Getting started", eyebrow: "First things first", tags: ["getting-started"] },
+  { title: "Cost and insurance", eyebrow: "The money question", tags: ["cost"] },
+  { title: "Telehealth", eyebrow: "Therapy by video", tags: ["telehealth"] },
+  { title: "Beach Therapy", eyebrow: "Our signature service", tags: ["beach-therapy"] },
+  { title: "Couples and relationships", eyebrow: "When there are two of you", tags: ["couples", "infidelity"] },
+  { title: "Families, teens, and children", eyebrow: "The whole family", tags: ["families", "teens", "children"] },
+  { title: "Seniors and later life", eyebrow: "The later chapters", tags: ["seniors", "grief"] },
+  { title: "Anxiety and depression", eyebrow: "When it feels heavy", tags: ["anxiety", "depression"] },
+  { title: "More about the work", eyebrow: "Everything else", tags: ["life-transitions", "neurodiversity", "faith", "medication", "general"] }
+] %}
+
+{% set allItems = [] %}
+{% set placedIds = [] %}
+{% for cat in cats %}
+  {% set catItems = [] %}
+  {% for e in faqEntries %}
+    {% if e.id not in placedIds %}
+      {% set matches = [] %}
+      {% for t in cat.tags %}{% if t in e.tags %}{% set _ = matches.push(1) %}{% endif %}{% endfor %}
+      {% if matches | length %}
+        {% set _ = catItems.push({ q: e.question, a: e.answer }) %}
+        {% set _ = allItems.push({ q: e.question, a: e.answer }) %}
+        {% set _ = placedIds.push(e.id) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if catItems | length %}
+    {{ s.faq({ eyebrow: cat.eyebrow, title: cat.title, items: catItems }) }}
+  {% endif %}
+{% endfor %}
+
+{# Catch-all: any entry whose tags matched no category above, so nothing is dropped. #}
+{% set restItems = [] %}
+{% for e in faqEntries %}
+  {% if e.id not in placedIds %}
+    {% set _ = restItems.push({ q: e.question, a: e.answer }) %}
+    {% set _ = allItems.push({ q: e.question, a: e.answer }) %}
+    {% set _ = placedIds.push(e.id) %}
+  {% endif %}
+{% endfor %}
+{% if restItems | length %}
+  {{ s.faq({ eyebrow: "One more thing", title: "Other questions", items: restItems }) }}
+{% endif %}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "Still wondering about something?",
+  text: "The best answers come from an actual conversation. A free 15 to 20 minute call is a no-pressure way to ask us anything at all.",
+  tagline: site.tagline,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{# The single canonical FAQPage schema over every entry, each exactly once, in the
+   same order they appear above. #}
+{{ s.faqSchema(allItems) }}
+{{ s.breadcrumbSchema(crumbs, site.url) }}

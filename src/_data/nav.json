@@ -53,7 +53,7 @@
     "label": "Practical",
     "children": [
       { "label": "Fees", "url": "/fees", "published": true },
-      { "label": "FAQ", "url": "/faq", "published": false },
+      { "label": "FAQ", "url": "/faq", "published": true },
       { "label": "Get Started", "url": "/get-started", "published": true },
       { "label": "Contact", "url": "/contact", "published": true }
     ]
