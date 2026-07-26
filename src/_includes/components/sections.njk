@@ -260,6 +260,10 @@
 
 {# 7. featureRow(opts): { lead?, leadEmphasis?, items: [{icon,title,text}],
    variant?, columns?: 3|4, tone? }. Icon + heading + text.
+   Each item's description is `text` (the documented, preferred key). `body` is
+   also accepted as a fallback (f.text or f.body), because every other card
+   component in this library uses `body`, and the mismatch would otherwise render
+   a silently empty card instead of erroring. Prefer `text` in new code.
    variant "inline" is the finalized trust-band treatment: icon beside the text,
    an optional serif lead line above the grid, 4-up by default. On the navy tone
    the inline icons go gold-light (the a11y-safe gold-on-navy pairing finalized
@@ -277,11 +281,11 @@
           {% if inline %}
             <span class="feature__copy">
               <h3 class="feature__title">{{ f.title }}</h3>
-              <p class="feature__text">{{ f.text }}</p>
+              <p class="feature__text">{{ f.text or f.body }}</p>
             </span>
           {% else %}
             <h3 class="feature__title">{{ f.title }}</h3>
-            <p class="feature__text">{{ f.text }}</p>
+            <p class="feature__text">{{ f.text or f.body }}</p>
           {% endif %}
         </li>
       {% endfor %}
