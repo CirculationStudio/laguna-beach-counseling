@@ -23,10 +23,10 @@
         { "label": "Grief & Loss", "url": "/specialties/grief", "published": true },
         { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": true },
         { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": true },
-        { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": false },
+        { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": true },
         { "label": "Neurodiversity", "url": "/specialties/neurodiversity", "published": true },
         { "label": "Faith-Based", "url": "/specialties/faith-based", "published": true },
-        { "label": "Addiction & Recovery", "url": "/specialties/addiction-recovery", "published": false }
+        { "label": "Addiction & Recovery", "url": "/specialties/addiction-recovery", "published": true }
       ]
     },
     "about": {
@@ -44,9 +44,9 @@
     "label": "Signature Services",
     "children": [
       { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
-      { "label": "Couples Intensive", "url": "/couples-intensive", "published": false },
-      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": false },
-      { "label": "Telehealth", "url": "/telehealth", "published": false }
+      { "label": "Couples Intensive", "url": "/couples-intensive", "published": true },
+      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": true },
+      { "label": "Telehealth", "url": "/telehealth", "published": true }
     ]
   },
   "practical": {

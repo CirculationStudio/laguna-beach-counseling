@@ -1,0 +1,85 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Addiction Counseling Laguna Beach | Recovery Support"
+description: "Compassionate, non-judgmental support for addiction and recovery, for the person struggling and for the people who love them."
+permalink: /specialties/addiction-recovery/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Addiction & Recovery" }
+hero:
+  # Practical-led default hero is "center" (text-only, centered). Kept the default;
+  # no image override. No real addiction photography exists, and a stock recovery
+  # image would read as exactly the kind of imagery DESIGN_SYSTEM forbids.
+  eyebrow: "Addiction and recovery"
+  title: "Addiction and recovery counseling in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Addiction and recovery counseling in Laguna Beach." per the brief
+  lead: "Compassionate, non-judgmental support for addiction and recovery, for the person in it and for the people who love them. No shame, no lectures, just an honest place to do the work."
+lead:
+  - "Whatever you're leaning on to get through, whether it's alcohol, a substance, or a behavior that's quietly taken over more of your life than you meant it to, it almost certainly started as a solution. A way to take the edge off, to feel something or feel less, to get through a night. The trouble is that the thing that once helped is now the thing that hurts, and somewhere in there it stopped feeling like a choice."
+  - "So we don't start with shame, because shame is fuel, not a brake. We start with understanding: what the substance or the habit has been doing for you, and what it's been costing. Recovery isn't only putting the thing down. It's building a life you actually want to stay present for, so that staying down becomes possible."
+steps:
+  eyebrow: "What the work looks like"
+  title: "How we support recovery"
+  lead: "This is outpatient therapy that walks alongside your recovery. Here's the shape of it, without the lectures."
+  steps:
+    - { title: "We get the real picture", body: "No judgment, no script. We look honestly at what's happening, what you're using and why, what's already been tried, and what you actually want your life to look like on the other side of this." }
+    - { title: "We work on what's underneath", body: "Often there's pain the substance was managing: anxiety, trauma, depression, loss. We work with that directly, because recovery holds a lot better when the thing being medicated finally gets tended to." }
+    - { title: "We build a life that competes with it", body: "Staying present gets easier when there's something worth being present for. We help you rebuild the connections, structure, and meaning that use tends to hollow out, so the pull loosens its grip." }
+    - { title: "We coordinate, we don't go it alone", body: "We work alongside your other supports, a physician, a group, a program, a sponsor, so the care fits together instead of pulling in different directions." }
+trust:
+  lead: "An honest note about what we are, and what we aren't."
+  items:
+    - { icon: "heart", title: "No shame here", text: "You will not be lectured or made to feel like a case. You'll be met as a person doing hard work." }
+    - { icon: "shield", title: "Confidential by design", text: "Full-length sessions and real privacy, with no diagnostic label required to reach out." }
+    - { icon: "compass", title: "Outpatient support", text: "We support recovery through therapy. We are not a detox or a treatment facility." }
+    - { icon: "phone", title: "We'll point the way", text: "If a higher level of care is the right call, we'll help you find it, not hand you off." }
+points:
+  eyebrow: "Who this is for"
+  title: "For the person in it, and the people who love them"
+  columns: 2
+  tone: "sand"
+  cards:
+    - { icon: "anchor", title: "The person struggling", body: "Whether you're sure you have a problem, or just quietly worried about how much you're relying on something, you don't need to hit a bottom to deserve support. Earlier is easier, and reaching out is not a confession, it's a start." }
+    - { icon: "heart", title: "The people around it", body: "Living with someone else's addiction has its own grief and its own patterns, the walking on eggshells, the covering, the exhaustion that comes from loving someone you can't fix. Family and codependency support is part of this work too." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Addiction and recovery support, answered"
+  tags: ["general", "medication"]
+  limit: 3
+support: true
+cta:
+  title: "Ready to take some of the weight off?"
+  text: "You don't have to have it all figured out first. A free 15 to 20 minute call is a low-pressure, confidential way to talk about what's going on and see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Forward"
+  tagline: true
+service:
+  name: "Addiction and recovery counseling"
+  serviceType: "Addiction and recovery counseling"
+  description: "Compassionate, non-judgmental outpatient therapy supporting addiction and recovery for the person struggling and for the people who love them, in Laguna Beach or by telehealth across California. Not a detox or treatment facility."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Addiction and recovery, the practical-led template (COMPONENT_COVERAGE.md and the
+   build instruction agree). A carryover page preserving the old /addictionandrecovery
+   URL, so title matches the brief exactly. Framing is "the thing you're using was
+   doing a job": recovery isn't only putting it down, it's building a life that makes
+   it unnecessary. Distinct from every other page's metaphor.
+
+   CLIENT_FACTS scope, HELD GENERAL: (1) NO clinician is named. This was Austin
+   Whitman's area and he is departing in 2026, and CLIENT_FACTS says confirm coverage
+   before naming anyone, so all copy is in the practice "we" voice, no individual
+   attribution. (2) The page states plainly that this is outpatient therapy that
+   SUPPORTS recovery and is NOT a detox or treatment facility (trust band + service
+   description), and that a higher level of care is signposted when appropriate.
+   Scope is not overstated. CONTENT_EVIDENCE: there is no addiction-specific evidence
+   in the file, so NO statistic is used. Crisis-adjacent topic, so support: true.
+   Internal links: brief specifies /therapy/individuals (real, below), /therapy/families
+   (not built yet, plain text below), /get-started (real, the CTA). No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: how this fits alongside individual and family work. /therapy/individuals
+   is a real link; /therapy/families is named in plain text (page not built yet). #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>For a lot of people, this work runs alongside <a href="/therapy/individuals">individual therapy</a>, a private hour that's only about you and the pattern you're trying to change. When addiction has reached into the whole household, family therapy gives everyone a place to say the hard thing and start untangling the roles the addiction handed out. That family work is part of what we do here, and its own page will carry the full picture when it goes live.</p>
+  <p>One honest reminder: if you or someone you love is in immediate danger, please use the crisis resources listed further down this page. We are glad to be a steady part of recovery, and we are not an emergency service. When the moment isn't a crisis, we'd be glad to hear from you.</p>
+{% endcall %}

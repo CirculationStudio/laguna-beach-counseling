@@ -1,0 +1,108 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "Conflict Resolution Counseling | Couples Communication"
+description: "When you keep having the same fight. Help changing the pattern underneath the argument, not just the argument."
+permalink: /specialties/conflict-resolution/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties", url: "/specialties" }
+  - { label: "Conflict Resolution" }
+hero:
+  # Override to "plain" (story-led default is a full-bleed photo). No real,
+  # topic-appropriate couples-conflict photography exists, and a stock argument
+  # photo would read exactly like the AI/stock imagery DESIGN_SYSTEM forbids. The
+  # single real coastal image is already carrying /couples-intensive; reusing it on
+  # every sibling page cheapens it. Text-only hero, consistent with grief/infidelity.
+  variant: "plain"
+  eyebrow: "Conflict and communication"
+  title: "Conflict and communication help"
+  titleEmphasis: "for couples." # H1 renders "Conflict and communication help for couples." per the brief
+  lead: "When you keep having the same fight. We help you change the pattern underneath the argument, not just the argument itself."
+lead:
+  - "Here's the strange part about the fight you keep having: the subject changes every time. It's the dishes, then it's money, then it's your mother, then it's the tone somebody used in the kitchen on a Tuesday. Different words, different night. And yet somehow you both already know your lines. Doesn't it feel less like a new argument and more like a rerun?"
+  - "That's because the surface topic is rarely the real one. Underneath the dishes is a quieter question, the one that actually stings: do I matter to you? Am I in this alone? Are you on my side? The content is just the costume. The fight has choreography, and until you can see the steps, you keep dancing them."
+kay:
+  eyebrow: "How we see it"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp"
+    alt: "Kay Wenger, founder of Laguna Beach Counseling."
+  name: "Kay Wenger,"
+  nameEmphasis: "LMFT, LPCC"
+  role: "Founder & Clinical Supervisor"
+  body:
+    - "When a couple tells me they have a communication problem, I've learned to gently push back. Most couples I see communicate their frustration very clearly. The trouble isn't that the message isn't getting through. It's that the same painful loop keeps running, and neither of you knows how to step out of it."
+    - "So we don't referee the argument about the dishes. We slow the whole thing down until you can both see the pattern from the outside: who reaches, who retreats, and what each of you is really asking for underneath the volume. Once a couple can name the dance, they can finally choose different steps."
+  creds:
+    - { strong: "30-plus years", text: "with couples in conflict and repair" }
+    - { strong: "The pattern", text: "not just the argument" }
+    - { strong: "Both partners", text: "one system, never one villain" }
+    - { strong: "In person", text: "in Laguna Beach or by telehealth" }
+  statement:
+    text: "Most couples don't have a communication problem. They have a pattern problem, and the pattern is learnable in reverse."
+    cite: "Kay Wenger, LMFT, LPCC"
+quote:
+  text: "The fight is almost never about the dishes. It's about whether you're still on the same team while you do them."
+  attribution: "Kay Wenger, LMFT, LPCC"
+journey:
+  eyebrow: "The work"
+  title: "How the pattern actually changes"
+  lead: "You can't argue your way out of a loop you can't see. So the work moves in a sequence, from noticing the dance to learning new steps in it."
+  steps:
+    - { title: "We slow the loop down", body: "First we catch the pattern in slow motion: the trigger, the reaction, the reaction to the reaction. When you can see the choreography frame by frame, it stops feeling like fate and starts looking like a habit." }
+    - { title: "We find what's underneath", body: "Beneath most recurring fights is a softer, more vulnerable ask that never quite makes it into the room. We help you get to that, because the real conversation is the one you've both been talking around." }
+    - { title: "We practice a different move", body: "Insight alone doesn't change a marriage. Reps do. We practice the new response in the room, the small turn that interrupts the old loop, until it starts to feel available to you at home, in the moment, when it counts." }
+next:
+  eyebrow: "Where to go next"
+  title: "Related ways we can help"
+  columns: 2
+  cards:
+    - { icon: "sun", title: "Go deeper in a day", body: "When the same loop has worn a deep groove, a focused intensive can do a lot of the work at once instead of a sliver at a time.", href: "/couples-intensive", linkLabel: "Couples intensives" }
+    - { icon: "heart", title: "When trust was broken", body: "If the conflict traces back to betrayal, affair recovery has its own structured path. Our infidelity page walks through it.", href: "/specialties/infidelity", linkLabel: "Infidelity and affair recovery" }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Conflict and communication, answered"
+  tags: ["couples"]
+  limit: 3
+cta:
+  title: "Tired of the same argument?"
+  text: "If you can hear the rerun starting before it even gets going, that's worth a conversation. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you both."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Conflict resolution and couples communication counseling"
+  serviceType: "Couples communication counseling"
+  description: "Help for couples caught in the same recurring argument, changing the pattern underneath the conflict rather than refereeing the argument, in Laguna Beach or by telehealth across California."
+  areaServed: ["Laguna Beach, CA", "Newport Beach, CA", "Irvine, CA", "Dana Point, CA", "California"]
+---
+{# Conflict and communication help for couples, the story-led template
+   (COMPONENT_COVERAGE.md and the build instruction agree on story-led; its TODO
+   flag noted the brief leans cognitive-reframe, and the framing below does exactly
+   that: the recurring-argument pattern and what's underneath it). Framing is "the
+   fight has choreography / it's never about the dishes," deliberately distinct from
+   infidelity's courtroom, individuals' worn path, and grief's waves.
+
+   Brief HONORED: never one villain, the couple is treated as one system.
+   Modalities: no unconfirmed method (no Gottman/EFT/Imago) claimed; only Kay's
+   pattern-focused stance. CONTENT_EVIDENCE: there is no conflict- or
+   communication-specific evidence in the file, so no statistic is used.
+   Internal links: the brief specifies /therapy/couples and /get-started. /get-started
+   is the CTA (real); /therapy/couples is not built yet and is named as plain text
+   in the content slot below (no broken href). /couples-intensive and
+   /specialties/infidelity are added as genuinely-related real next links. No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: a short definition list of the loops couples recognize, then a
+   plain-text pointer to ongoing couples work (page not built yet, no href). #}
+{{ s.definitionList({
+  eyebrow: "You might recognize these",
+  title: "The loops couples get caught in",
+  items: [
+    { term: "Pursue and withdraw", detail: "One of you presses harder for a resolution while the other shuts down and backs away, and each move makes the other one worse. The more you chase, the more they retreat." },
+    { term: "Keeping score", detail: "Every fight quietly reaches back for the last one, and the one before that. You stop arguing about tonight and start relitigating the whole history." },
+    { term: "The blow-up and the freeze", detail: "It escalates fast, somebody says the thing they can't unsay, and then come days of cold silence until it all resets and waits to happen again." },
+    { term: "The topic that's never the topic", detail: "You fight about logistics, chores, or money, but the heat is way out of proportion to the subject, because the subject was never really the point." }
+  ]
+}) }}
+{% call s.prose({ width: "narrow" }) %}
+  <p>This work lives inside our broader couples and marriage therapy, and it's often where the deeper repair begins. Change the pattern under the everyday argument, and a surprising amount of the rest tends to soften on its own. What would your week feel like without the rerun?</p>
+{% endcall %}

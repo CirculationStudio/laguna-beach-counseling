@@ -1,0 +1,84 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Online Therapy California | Telehealth Counseling"
+description: "Secure, HIPAA-compliant therapy for any California resident. The same team and care, from wherever you are in the state."
+permalink: /telehealth/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Telehealth" }
+hero:
+  # Practical-led default hero is "center" (text-only, centered). Kept the default;
+  # no image override needed for a logistics-forward page.
+  eyebrow: "Telehealth"
+  title: "Online therapy across"
+  titleEmphasis: "California." # H1 renders "Online therapy across California." per the brief
+  lead: "Secure, HIPAA-compliant therapy for any California resident. The same team and the same care, from wherever you are in the state."
+  trust:
+    - { label: "Any California resident" }
+    - { label: "Secure and HIPAA-compliant" }
+    - { label: "The same team as in person" }
+lead:
+  - "Here's something worth saying plainly: the room was never the therapy. What actually does the work is the relationship and the honest conversation inside it, and that travels just fine down a secure video connection. A screen isn't a lesser version of the office. It's another doorway into the same room."
+  - "For a lot of people, telehealth is the difference between starting and not starting. No traffic on the 405, no waiting room, no hour carved out of a workday for the drive. And some people are just more honest from their own couch, in a place where they already feel safe. Would it be easier to talk if you never had to leave home to do it?"
+steps:
+  eyebrow: "How it works"
+  title: "Getting started online is simple"
+  lead: "No new app to wrestle with, no complicated setup. If you can open a link, you can meet with us."
+  steps:
+    - { title: "Start with a free call", body: "It begins the same way everything here does: a free 15 to 20 minute Get to Know Us call, so we can hear what's going on and match you with the right therapist for it." }
+    - { title: "We send you a secure link", body: "Before your session you get a link to our HIPAA-compliant video platform. No account to create, no software to install. You click it when it's time, from your phone, tablet, or computer." }
+    - { title: "You meet from wherever you are", body: "Find a private spot, put in headphones if you'd like, and we do the same real, full-length work we'd do in the office. Same depth, same confidentiality, just without the commute." }
+next:
+  eyebrow: "Good to know"
+  title: "The same care, a few honest details"
+  columns: 3
+  cards:
+    - { icon: "shield", title: "Private and secure", body: "Sessions run on a HIPAA-compliant platform, and we keep no protected health information on this website. Your confidentiality is protected exactly as it is in the office." }
+    - { icon: "heart", title: "The same team, the same care", body: "Telehealth isn't a stripped-down tier or a different set of therapists. It's the same team Kay personally trains and supervises, doing the same work, on a screen instead of a couch." }
+    - { icon: "wave", title: "Mix and match", body: "Plenty of clients do some sessions online and some in person at our Laguna Beach office, and even out on the coast for Beach Therapy. You're not locked into one way of meeting." }
+faq:
+  eyebrow: "Questions people ask"
+  title: "Online therapy, answered"
+  tags: ["telehealth", "getting-started"]
+  limit: 4
+support: true
+cta:
+  title: "Ready to meet from wherever you are?"
+  text: "If getting to an office has been the thing standing between you and starting, this removes it. A free 15 to 20 minute call is a low-pressure way to see whether we're the right fit for you."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+service:
+  name: "Online therapy and telehealth counseling"
+  serviceType: "Telehealth counseling"
+  description: "Secure, HIPAA-compliant online therapy for any California resident, with the same team and care as in-person sessions. State licensing limits service to clients located in California."
+  areaServed: ["California"]
+---
+{# Telehealth, the practical-led template (COMPONENT_COVERAGE.md and the build
+   instruction agree; support: true, CA-only note). A reworked page. Framing is "the
+   room was never the therapy / a screen is another doorway into the same room,"
+   deliberately distinct from every other page's metaphor.
+
+   CONTENT_EVIDENCE, USED (this is the one page of the five where the evidence layer
+   genuinely applies and is not recycled elsewhere): the premise is built on
+   California's PERMANENT payment-parity framing, not a post-pandemic growth stat
+   (the file and CLIENT_FACTS both mandate this) — see the content slot below, which
+   frames telehealth as a permanent, first-class modality that California has
+   committed to, kept as light policy context. The "as effective as in person"
+   note stays qualitative with no effect-size number (the Fernandez 2021
+   non-inferiority finding, framing only), matching the approved faq.json
+   telehealth-effectiveness answer. No unverified efficacy statistic, no secondhand
+   telehealth figures (both flagged do-not-use pending primary-source confirmation).
+
+   CA-ONLY note is stated in the hero trust, the lead, the content slot, and the
+   Service areaServed = California. Crisis-adjacent, so support: true. Internal links:
+   brief specifies /about/our-team (real, below) and /get-started (real, the CTA).
+   No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: the CA-only licensing note (stated plainly), the permanent
+   payment-parity framing as light context, and the /about/our-team link. #}
+{% call s.prose({ width: "narrow" }) %}
+  <p>One important limit, stated up front: because of how state licensing works, we can only see clients who are physically located in California. You can be anywhere in the state, from a home office in Sacramento to a kitchen table in San Diego, but if you've moved out of California, we're not able to continue care across the state line. It isn't a preference, it's the law we practice under, and we take it seriously.</p>
+  <p>If you're wondering whether online therapy is a real, lasting option or just a leftover from the pandemic, it's worth knowing that California has made telehealth a permanent, first-class part of how care is delivered here, not a temporary workaround. That's part of why we treat it as the same care rather than a lesser substitute. And research has consistently found video therapy about as effective as meeting in person for most people. What matters most, the relationship and the work, comes through the screen intact.</p>
+  <p>Whoever you meet with online is part of the same team Kay trains and supervises. If you'd like to see who you might be working with, <a href="/about/our-team">meet the team</a>.</p>
+{% endcall %}
