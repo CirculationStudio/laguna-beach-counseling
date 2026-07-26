@@ -90,7 +90,7 @@ doc comment.
 
 ### Page-to-template mapping
 
-The Built column reflects verified status (page output present in `public/` and its nav.json `published` flag) as of the last cross-check, not intent. Some Notes below predate a page's build and may be historically stale (for example a "TODO re-decide" note on a page since shipped); the Template and Built columns are the authoritative current state.
+The Built column reflects verified status (page output present in `public/` and its nav.json `published` flag) as of the last cross-check, not intent. Some Notes below may still predate a page's build; the Template and Built columns are the authoritative current state.
 
 | Page | Template | Built | Notes |
 |---|---|---|---|
@@ -99,10 +99,10 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/specialties/life-transitions` | reframe-led | Built | |
 | `/therapy/individuals` | reframe-led | Built | Brief is the "knowing better but stuck" reframe; growth priority |
 | `/about/our-approach` | reframe-led | Built | Model explainer ("insight and movement") |
-| `/discernment-counseling` | story-led | Built | The three paths = numberedList |
+| `/discernment-counseling` | story-led | Built | The three paths shipped as `journey` steps content |
 | `/specialties/grief` | story-led | Built | `support: true`; Susi Q grief-group credibility |
 | `/specialties/infidelity` | story-led | Built | Recovery path fits the `journey` steps block |
-| `/specialties/conflict-resolution` | story-led | Built | TODO: confirm against brief. The SITE_ARCHITECTURE brief leans cognitive-reframe (the repeated-argument pattern); re-decide before drafting |
+| `/specialties/conflict-resolution` | story-led | Built | Shipped story-led: the recurring-argument pattern framing (the "same fight has choreography" angle) |
 | `/specialties/faith-based` | story-led | Built | Welcoming stance narrative |
 | `/about` | story-led | Built | Founding narrative |
 | `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page |
@@ -111,7 +111,7 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/specialties/addiction-recovery` | practical-led | Built | Scope-bounding copy in lead / content slot |
 | `/therapy/couples` | story-led | Built | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
 | `/therapy/teens` | practical-led | Built | Mother-daughter and Men's Group sections via content slot |
-| `/therapy/seniors` | practical-led | Built | TODO: confirm against brief. Brief leans Susi-Q story; re-decide before drafting |
+| `/therapy/seniors` | practical-led | Built | Shipped practical-led: the Susi Q "plenty to do, nowhere to talk" angle, not a re-tell of the grief page origin story |
 | `/therapy/families` | practical-led | Built | |
 | `/therapy/children` | practical-led | Built | Growth priority |
 | `/therapy` (landing) | practical-led | Not built | Only hero + lead + `next` grid + cta keys |
