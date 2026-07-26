@@ -6,7 +6,7 @@
       "published": false,
       "children": [
         { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
-        { "label": "Couples & Marriage", "url": "/therapy/couples", "published": false },
+        { "label": "Couples & Marriage", "url": "/therapy/couples", "published": true },
         { "label": "Family Therapy", "url": "/therapy/families", "published": false },
         { "label": "Teens", "url": "/therapy/teens", "published": false },
         { "label": "Children", "url": "/therapy/children", "published": false },

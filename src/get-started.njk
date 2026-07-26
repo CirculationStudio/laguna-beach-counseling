@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+metaTitle: "Get Started | Book a Free Consultation Call | Laguna Beach Counseling"
+description: "Start with a free 15 to 20 minute Get to Know Us call. Here's what happens on the call, what sessions cost, and how to book. No pressure."
+permalink: /get-started/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Get Started" }
+faq:
+  eyebrow: "Before you book"
+  title: "The questions people ask first"
+  tags: ["getting-started", "cost"]
+  limit: 4
+---
+{# /get-started, a CUSTOM conversion page (no page template). This is the endpoint
+   every built page's CTA links to, so it composes the library macros directly on
+   base.njk. Schema is BreadcrumbList ONLY, per the build instruction: it's an action
+   page, not a Service or Person entity. The light FAQ is rendered VISIBLY but WITHOUT
+   FAQPage schema, to honor "just BreadcrumbList" and to leave the canonical FAQPage
+   entity to the dedicated /faq page (no competing FAQPage nodes).
+
+   Gold discipline: the two gold moments (the hero booking button and the closing
+   booking band) both point at the real Calendly scheduler and sit in separate
+   viewports. Booking goes straight to site.booking.calendlyUrl (we are already ON
+   /get-started, so the CTA is the actual scheduler, not the getStartedPath). Fees
+   are surfaced BEFORE the call per the DNA instruction, using confirmed CLIENT_FACTS
+   ranges (a /fees page does not exist yet, so ranges are stated inline, not linked).
+   All facts come from site data. No em dashes. #}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+{% set faqResolvedItems = faq | resolveFaq(faqEntries) %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{{ s.hero({
+  eyebrow: "Get started",
+  title: "Getting started is one",
+  titleEmphasis: "low-pressure call.",
+  variant: "center",
+  lead: "It begins with a free 15 to 20 minute Get to Know Us call. No intake interrogation, no commitment, just a chance to tell us what's going on and see whether we're the right fit. Ready when you are.",
+  cta: { href: site.booking.calendlyUrl, label: "Book your free call", gold: true }
+}) }}
+
+{{ s.steps({
+  eyebrow: "What happens on the call",
+  title: "Four small steps, and none of them are scary",
+  lead: "Reaching out is the part people dread most. Here's exactly how it goes, so nothing about it is a surprise.",
+  steps: [
+    { title: "You book the free call", body: "Pick a time that works on our scheduler. It's 15 to 20 minutes, by phone or video, and it's genuinely free. You don't need to prepare anything or have your story tidy." },
+    { title: "We listen", body: "You tell us what's bringing you in, in your own words and at your own pace. We're listening for what you need and hoping you'll feel understood, not running you through a checklist." },
+    { title: "We match you to the right person", body: "Based on what you share, we point you to the right therapist, whether that's Kay directly or one of the associates she personally trains and supervises. The fit matters more than the resume." },
+    { title: "You book your first session", body: "If it feels right, we schedule your first full session with that therapist, usually within 24 hours. If we're not the right fit, we'll happily point you toward someone who is." }
+  ]
+}) }}
+
+{{ s.rateTable({
+  caption: "What sessions cost, before you ever get on the call",
+  rows: [
+    { service: "Sessions with an associate therapist", rate: "$160 to $315" },
+    { service: "Sessions with Kay Wenger", rate: "$190 to $390" }
+  ],
+  footnote: "The range reflects session length (50, 75, or 90 minutes) and format (individual, couples, or family). We're out-of-network and provide a Superbill at every session for PPO reimbursement. A sliding scale is available on request. The free Get to Know Us call is always free."
+}) }}
+
+{% call s.prose({ width: "narrow" }) %}
+  <p>Why don't we take insurance directly? {{ site.positioning.outOfNetworkLine }}</p>
+  <p>Wondering if that's worth it? For a lot of people it is, and if cost is the thing standing between you and starting, say so on the call. That's a conversation, not a closed door.</p>
+{% endcall %}
+
+{% if faq.tags or faq.items %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems }) }}{% endif %}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "Whenever you're ready.",
+  text: "The hardest step is the first one. A free 15 to 20 minute call is a gentle place to take it.",
+  tagline: site.tagline,
+  cta: { href: site.booking.calendlyUrl, label: "Book your free call" }
+}) }}
+
+{{ s.breadcrumbSchema(crumbs, site.url) }}
