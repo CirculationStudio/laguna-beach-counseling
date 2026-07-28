@@ -165,29 +165,48 @@
   margin: 0 0 0.5rem;
 }
 
-/* Footer short-link variant: a lead line stays visible; the full resource
-   list sits behind a native disclosure, one click away. */
+/* Footer short-link variant: one expandable bar. The lead line, the ring mark
+   and the "See crisis resources" toggle share a single summary row, so there
+   is one thing to click and the full resource list is one click away. */
+.support-resources__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.support-resources__ring {
+  flex: none;
+  color: var(--color-sea-foam);
+}
+
 .support-resources__lead {
-  margin: 0 0 0.85rem;
+  flex: 1 1 18rem;
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--color-sea-foam);
 }
 
-.support-resources__disclosure {
-  border-top: 1px solid rgba(152, 197, 216, 0.25);
-  padding-top: 0.85rem;
-}
-
-.support-resources__summary {
+.support-resources__toggle {
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  list-style: none;
-  cursor: pointer;
-  font-family: var(--font-sans);
+  flex: none;
   font-weight: 600;
   font-size: 0.92rem;
+  color: var(--color-paper);
+}
+
+.support-resources__summary:hover .support-resources__toggle {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.support-resources__summary:hover .support-resources__ring {
   color: var(--color-paper);
 }
 
@@ -197,8 +216,8 @@
 
 .support-resources__summary:focus-visible {
   outline: 3px solid var(--color-water);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .support-resources__chevron {
@@ -212,6 +231,8 @@
 
 .support-resources__panel {
   margin-top: 0.85rem;
+  border-top: 1px solid rgba(152, 197, 216, 0.25);
+  padding-top: 0.85rem;
 }
 
 .support-resources__panel > p:first-child {

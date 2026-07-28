@@ -2,19 +2,29 @@
    by crisis-adjacent pages (telehealth, depression, anxiety, grief).
    Pass onFooter=true for the dark footer variant. Facts from site.crisisResources.
 
-   On the footer, the block is a short link: a one-line distinction between
-   everyday help and a real emergency stays always visible, and the full
-   resource list sits behind a native <details> disclosure (no JS, same idiom
-   as the FAQ accordion), one click away. Nothing is removed or demoted, it is
-   collapsed by default. Crisis-adjacent pages keep the block always expanded,
-   unchanged, so the resources stay unmissable where they matter most. #}
+   On the footer, the block is a single expandable bar: the one-line
+   distinction between everyday help and a real emergency IS the summary, with
+   the "See crisis resources" toggle sitting at the right end of that same
+   line. The full resource list sits behind a native <details> disclosure (no
+   JS, same idiom as the FAQ accordion), one click away. Nothing is removed or
+   demoted, it is collapsed by default. Crisis-adjacent pages keep the block
+   always expanded, unchanged, so the resources stay unmissable where they
+   matter most.
+
+   The ring mark is lifted straight from the LBC lifeguard-tower brand icon
+   (brand/laguna-beach-counseling-icon-reversed.svg), cropped to the life ring
+   alone so it still reads at 24px. Inlined, not linked, so it costs no runtime
+   request and inherits currentColor. #}
 {% if onFooter %}
   <section class="support-resources support-resources--onfooter" aria-labelledby="support-resources-heading">
-    <p id="support-resources-heading" class="support-resources__lead">If it's urgent, these lines are open right now. Otherwise, we're just a free call away.</p>
     <details class="support-resources__disclosure">
       <summary class="support-resources__summary">
-        See crisis resources
-        <svg class="support-resources__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+        <svg class="support-resources__ring" width="26" height="26" viewBox="173 225 62 62" fill="currentColor" aria-hidden="true" focusable="false"><path d="M214.2,280.69c-5.66,4.68-14.7,2.51-20.67.46l-1.78-3.08c-4.24-2.24-8.65-6.56-10.6-11.27l-2.22-.63c-3.44-7.19-3.19-21.41,2.03-22.2,2.76-4.39,6.38-8.57,11.29-11.31l1.66-2.71c6.84-3,14.39-2.84,21.32.08l1.51,2.8c4.58,2.72,8.05,6.1,10.51,10.92l2.78,1.61c2.58,6.45,3.13,14.33-.26,20.66-3.66,2.28-4.77,5.74-11.17,11.04l-4.4,3.64h0ZM193.01,249.39l5.48-5.58-4.27-9.92c-5.11,3.35-8.46,6.52-11.05,11.32l9.83,4.18h0ZM215.84,249.74l10.02-4.05c-2.72-5.39-6.43-8.91-11.27-11.35l-4.07,9.88,5.31,5.51h0ZM208.12,263.81c1.01.01,3.02-.35,3.5-1.06s.76-2.55.77-3.49l.08-7.67c.01-.97-.14-3.25-.98-3.67-.7-.35-2.25-.41-3.28-.43l-7.57-.16c-1.13-.02-3.39.53-3.98,1.35-.5.7-.53,2.38-.55,3.55l-.09,6.15c-.02,1.48.08,3.84,1.12,4.7.81.67,2.98.62,4.24.64l6.73.09h.01ZM198.22,266.95l-5.44-5.45-9.92,3.8c2.22,4.93,5.98,8.68,11.12,11.39l4.24-9.74h0ZM214.19,277.05c4.73-2.62,8.17-5.61,11.4-10.96l-9.9-4.51-5.49,5.49,3.99,9.99h0Z" /></svg>
+        <span id="support-resources-heading" class="support-resources__lead">If it's urgent, these lines are open right now. Otherwise, we're just a free call away.</span>
+        <span class="support-resources__toggle">
+          See crisis resources
+          <svg class="support-resources__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
+        </span>
       </summary>
       <div class="support-resources__panel">
         <p>{{ site.crisisResources.intro }}</p>
