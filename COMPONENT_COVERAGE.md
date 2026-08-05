@@ -107,7 +107,7 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/about` | story-led | Built | Founding narrative |
 | `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page |
 | `/beach-therapy` | story-led | Built | Origin story; what-to-expect = `journey` steps. Carries a `promoCallout` cross-link to `/sand-castle-therapy` in the content slot |
-| `/sand-castle-therapy` | story-led | Built | Signature service, the children's counterpart to Beach Therapy. Six Pillars = `journey` steps; "what makes it different" + who-it-helps in the content slot; cross-sell `promoCallout` uses the photo-placeholder pattern |
+| `/sand-castle-therapy` | story-led | Built | Signature service, the children's counterpart to Beach Therapy. Six Pillars = `journey` steps; "what makes it different" + who-it-helps in the content slot; real photography throughout (hands close-up in the hero, the wide sandcastle shot in the cross-sell) |
 | `/specialties/neurodiversity` | practical-led | Built | |
 | `/specialties/addiction-recovery` | practical-led | Built | Scope-bounding copy in lead / content slot |
 | `/therapy/couples` | story-led | Built | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
