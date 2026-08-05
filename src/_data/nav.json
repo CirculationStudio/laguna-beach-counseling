@@ -44,6 +44,7 @@
     "label": "Signature Services",
     "children": [
       { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
+      { "label": "Sand Castle Therapy", "url": "/sand-castle-therapy", "published": true },
       { "label": "Couples Intensive", "url": "/couples-intensive", "published": true },
       { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": true },
       { "label": "Telehealth", "url": "/telehealth", "published": true }

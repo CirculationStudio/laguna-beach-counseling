@@ -130,3 +130,21 @@ service:
   <p>Is there anything to this beyond a nice walk? Actually, yes. In <a href="https://www.nature.com/articles/s41598-019-44097-3">a study of nearly 20,000 people</a>, spending at least two hours a week in natural settings was associated with noticeably better health and well-being (White et al., 2019, <em>Scientific Reports</em>). And the coast in particular tends to outperform other settings: follow-up research found coastal visits were linked to the biggest boosts in well-being of any natural environment (White et al., 2021).</p>
   <p>None of that is a promise about your particular Tuesday. It just means the shoreline is a well-worn place to do this kind of work, and the map has been walked before.</p>
 {% endcall %}
+{# Added: the children's variant of the same philosophy. Proportionate cross-link
+   only, no rewrite of the page. Reuses the real Sand Castle Therapy photograph.
+   Sand tone so it does not stack a second sea-foam panel against the "next" cards,
+   and the text link keeps gold out of this viewport. #}
+{{ s.promoCallout({
+  eyebrow: "For the younger ones",
+  tone: "sand",
+  reverse: true,
+  title: "The same idea, scaled to",
+  titleEmphasis: "a seven-year-old",
+  body: "Children do not walk and talk. They build. Sand Castle Therapy™ is our nature-based play therapy model for kids: a child builds a castle on the sand, builds trust with the therapist while they are at it, and practices coping and resilience the moment a wave takes a wall out. Same conviction that the setting matters, in the language a child already speaks.",
+  href: "/sand-castle-therapy",
+  label: "Sand Castle Therapy",
+  image: {
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/sandcastle-therapy.webp",
+    alt: "A child and an adult kneeling together on the sand beside a tall sandcastle with a small flag, looking out toward the surf."
+  }
+}) }}

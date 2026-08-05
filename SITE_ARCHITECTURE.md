@@ -72,6 +72,7 @@ Status key: Keep (exists, carries over), Reworked (exists, restructured), New (n
 | URL | Status | Target keyword (primary) | Intent | Conversion goal |
 |---|---|---|---|---|
 | `/beach-therapy` | Keep | beach therapy Laguna Beach | Commercial / category-of-one | Fit call. HIGHEST internal-link priority, the defensible differentiator |
+| `/sand-castle-therapy` | New | play therapy Laguna Beach | Commercial / category-of-one | Fit call. The children's counterpart to Beach Therapy; supports the `/therapy/children` growth priority |
 | `/couples-intensive` | New | couples intensive Orange County | Commercial | Contact for intensive; links to couples + infidelity |
 | `/discernment-counseling` | Reworked | discernment counseling Laguna Beach | Commercial | Fit call; links to couples |
 | `/telehealth` | Reworked | online therapy California | Commercial | Fit call; statewide-CA framing |
@@ -233,7 +234,7 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 
 ### Net-new pages (no old URL, nothing to redirect)
 
-`/about`, `/about/our-approach`, `/therapy` (landing), `/therapy/individuals`, `/specialties` (landing), `/specialties/infidelity`, `/specialties/neurodiversity`, `/couples-intensive`.
+`/about`, `/about/our-approach`, `/therapy` (landing), `/therapy/individuals`, `/specialties` (landing), `/specialties/infidelity`, `/specialties/neurodiversity`, `/couples-intensive`, `/sand-castle-therapy`.
 
 ### Decisions the crawl surfaced (resolve before writing `_redirects`)
 
@@ -471,6 +472,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Internal links: linked from homepage, about, couples, anxiety, individuals; links to /get-started.
 - Schema: Service.
 - Flags: confirm any liability/insurance note before the SEO push (Open Question 10).
+
+**`/sand-castle-therapy`** (New, category-of-one, supports the children growth priority)
+- H1: Sand Castle Therapy™.
+- Title: Sand Castle Therapy Laguna Beach | Play Therapy for Kids
+- Meta: A nature-based play therapy model for children, built on the sand in Laguna Beach. Building resilience, one sand castle at a time.
+- Purpose: give the trademarked children's model its own home; convert parents; feed the `/therapy/children` growth priority. The children's variant of the Beach Therapy philosophy, not a duplicate of it.
+- Sections: what the model is; Kay on developing it; the Six Pillars (Build, Create, Explore, Repair, Grow, Take Home) as a numbered sequence; what makes it different from an office; who it helps; who delivers it and when; CTA.
+- Proof/voice: the tagline "Building resilience, one sand castle at a time." Kay's voice on why a castle is the right size for a child's hardest feelings.
+- Internal links: /therapy/children, /beach-therapy, /get-started.
+- Schema: Service + BreadcrumbList + FAQPage.
+- Flags: the trademark is UNREGISTERED, so ™ only, never ®, and only on first prominent use per section (not in the title tag or meta). Trauma is deliberately absent from who-it-helps (unconfirmed EMDR / TF-CBT training, see CLIENT_FACTS.md). The internal roadmap material (book, workbook, manual, certification, CE, research study, TEDx) never appears on this page. Rozy is named by first name with her AMFT credential, no license number.
 
 **`/couples-intensive`** (New)
 - H1: Couples Intensives.

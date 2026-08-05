@@ -106,7 +106,8 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/specialties/faith-based` | story-led | Built | Welcoming stance narrative |
 | `/about` | story-led | Built | Founding narrative |
 | `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page |
-| `/beach-therapy` | story-led | Built | Origin story; what-to-expect = `journey` steps |
+| `/beach-therapy` | story-led | Built | Origin story; what-to-expect = `journey` steps. Carries a `promoCallout` cross-link to `/sand-castle-therapy` in the content slot |
+| `/sand-castle-therapy` | story-led | Built | Signature service, the children's counterpart to Beach Therapy. Six Pillars = `journey` steps; "what makes it different" + who-it-helps in the content slot; cross-sell `promoCallout` uses the photo-placeholder pattern |
 | `/specialties/neurodiversity` | practical-led | Built | |
 | `/specialties/addiction-recovery` | practical-led | Built | Scope-bounding copy in lead / content slot |
 | `/therapy/couples` | story-led | Built | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
@@ -128,8 +129,8 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/privacy-policy`, `/thank-you` | custom minimal | Not built | Client-supplied legal text / confirmation state |
 | `/testimonials` | ON HOLD | On hold | Not built (HIPAA authorization workflow pending) |
 
-Tally by template: reframe-led 5, story-led 9, practical-led 11, custom 9, on hold 1.
-Tally by status: 27 built, 5 not built, 1 placeholder only, 1 on hold.
+Tally by template: reframe-led 5, story-led 10, practical-led 11, custom 9, on hold 1.
+Tally by status: 28 built, 5 not built, 1 placeholder only, 1 on hold.
 
 ---
 

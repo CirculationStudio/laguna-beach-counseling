@@ -296,6 +296,30 @@
     "source": "CLIENT_FACTS.md Services (children specialty; parenting support alongside); voice-tone.md."
   },
   {
+    "id": "sand-castle-what-is-it",
+    "question": "What is Sand Castle Therapy?",
+    "answer": "Sand Castle Therapy™ is a nature-based play therapy model developed by Kay Wenger, LMFT, LPCC, and Laguna Beach Counseling. A child builds a sandcastle on the beach while building trust with their therapist, and along the way uses sand, imagination, storytelling, and play to grow emotional resilience, coping skills, confidence, communication, and stronger family relationships. The tagline says it plainly: building resilience, one sand castle at a time. Sessions are offered after school and on weekends, so it fits around a family's actual week.",
+    "tags": ["sand-castle-therapy"],
+    "status": "draft",
+    "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), recorded in CLIENT_FACTS.md Services. Unregistered mark only. No modality or credential claim beyond the CLIENT_FACTS confirmed list."
+  },
+  {
+    "id": "sand-castle-when-the-wave-comes",
+    "question": "What happens when a wave knocks the castle down?",
+    "answer": "That is not the session going wrong. It is often the most useful ten minutes of it. A wave arrives, a tower gives way, and a child gets to practice the hardest skills there are: feeling the disappointment, staying with it, and deciding to rebuild anyway. The therapist is right there while it happens, helping them name the feeling and find a next move. A castle is small enough for a child to handle and real enough to matter, which is what makes it such good practice for everything else.",
+    "tags": ["sand-castle-therapy"],
+    "status": "draft",
+    "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), Pillar 4 (Repair): waves and accidents as practice in coping, flexibility, and resilience. No outcome promise, no diagnostic claim."
+  },
+  {
+    "id": "sand-castle-vs-office-play-therapy",
+    "question": "How is this different from play therapy in an office?",
+    "answer": "It is the same kind of real work, with the sky for a ceiling. Instead of sitting still indoors, children move, build, create, imagine, and settle a stirred-up body the way bodies naturally do outside, next to the water and an open horizon. For a lot of kids, that is the difference between enduring an appointment and forgetting they are in one. The beach becomes part of the healing rather than the scenery around it. When weather or fit calls for it, indoor sessions are always available.",
+    "tags": ["sand-castle-therapy"],
+    "status": "draft",
+    "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), \"what makes it different\" section. Framed descriptively; no named modality, certification, or research claim."
+  },
+  {
     "id": "seniors-isolation-or-loss",
     "question": "Do you offer anything specifically for older adults dealing with isolation or loss?",
     "answer": "Yes, and it's some of the work closest to my heart. I founded the senior mental-health program at the Susi Q, Laguna Beach Seniors, back in 2010, and built groups like Heart to Heart and Feeling the Blues around exactly this: grief, isolation, and the quiet losses that stack up in the later years. Whether it's one-on-one or a place to feel less alone with it, there's a spot for you. Most senior centers have plenty to do; we make room for the harder conversations too.",
