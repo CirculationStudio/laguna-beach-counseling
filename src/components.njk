@@ -128,13 +128,18 @@ sitemapExclude: true
     lead: "Private walk-and-talk sessions on the Laguna coastline, steps from the Pacific.",
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     image: {
-      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/ocean-surface-waves.webp",
-      alt: "The open ocean surface with gentle waves off the Laguna coast"
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-ocean-surface-waves-hz.webp",
+      alt: "The open ocean surface in daylight, low blue swells folding over one another with no shoreline in view"
     }
   }) }}
 </div>
 
-{# ---- 1d. Hero, split variant ------------------------------------------- #}
+{# ---- 1d. Hero, split variant -------------------------------------------
+   IMAGE NOTE: was laguna-beach-therapy-02_1.JPG (404, a corrupted "_1" suffix).
+   The real photo exists on the legacy CDN as laguna-beach-therapy-02.JPG, but it
+   is stored rotated 90 degrees with no EXIF orientation tag, so browsers render
+   it sideways. Coastal-library substitute here until that file is re-uploaded
+   upright, at which point this src can go back to the real Beach Therapy photo. #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">1d. hero, split variant</p>
@@ -155,8 +160,8 @@ sitemapExclude: true
       { label: "Laguna Beach or telehealth" }
     ],
     image: {
-      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/laguna-beach-therapy-02_1.JPG",
-      alt: "A therapist and client together on the Laguna coast during a Beach Therapy session"
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-rocky-cove-sandy-beach-portrait.webp",
+      alt: "A small rocky Laguna cove seen from the bluff above, turquoise surf breaking around scattered boulders onto a narrow crescent of sand"
     }
   }) }}
 </div>
@@ -194,8 +199,8 @@ sitemapExclude: true
     cta: { href: site.booking.getStartedPath, label: "Book a free call", gold: true },
     video: {
       src: "https://cdn.emkt.mx/videos/el-eclat-d-or.mp4",
-      poster: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/crescent-bay-cove.jpeg",
-      posterAlt: "Poster still of the Laguna coastline, gentle waves at the tideline"
+      poster: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-crescent-bay-cove-hz.webp",
+      posterAlt: "A Laguna cove at sunset, wet sand and tide pools reflecting the orange sky, homes on the bluff at the left"
     }
   }) }}
 </div>
@@ -287,7 +292,11 @@ sitemapExclude: true
   }) }}
 </div>
 
-{# ---- 3e. Point cards, overlay picture tile ------------------------------ #}
+{# ---- 3e. Point cards, overlay picture tile ------------------------------
+   IMAGE NOTE: the second card is an AI-generated service image, not the client's
+   own photography, and it is used here as a showcase demo only (no content page
+   ships it). Its alt describes what the photo actually shows, an outdoor cafe
+   table, rather than the therapy session the previous alt claimed. #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">3e. pointCards, cardStyle "overlay"</p>
@@ -299,8 +308,8 @@ sitemapExclude: true
     columns: 2,
     cardStyle: "overlay",
     cards: [
-      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-lifeguardtower.jpeg", alt: "A lifeguard tower on the Laguna Beach shoreline under open sky" }, title: "Beach Therapy", body: "Therapy that moves, on the coast.", href: "/beach-therapy" },
-      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/services/specialties/two-womenconversation.jpeg", alt: "Two women in a warm, unhurried conversation during a therapy session" }, title: "Individual therapy", body: "One-to-one, at your pace.", href: "/therapy/individuals" }
+      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-lifeguard-tower-sunny-beach-portrait.webp", alt: "A white lifeguard tower on clean Laguna sand under a bright blue sky, palm trees along the bluff behind it" }, title: "Beach Therapy", body: "Therapy that moves, on the coast.", href: "/beach-therapy" },
+      { image: { src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/services/specialties/laguna-beach-counseling-two-women-happpy-conversation.webp", alt: "Two women laughing together over coffee at an outdoor table, a garden patio and open countryside behind them" }, title: "Individual therapy", body: "One-to-one, at your pace.", href: "/therapy/individuals" }
     ]
   }) }}
 </div>
@@ -453,7 +462,10 @@ sitemapExclude: true
   }) }}
 </div>
 
-{# ---- 9. Promo callout ------------------------------------------------- #}
+{# ---- 9. Promo callout -------------------------------------------------
+   IMAGE NOTE: was laguna-beach-therapy-01_1.JPG (404, a corrupted "_1" suffix).
+   This block mirrors the real /specialties/anxiety cross-sell, so it now ships the
+   same photo that page does, which is what a showcase should demonstrate. #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">9. promoCallout</p>
@@ -465,13 +477,18 @@ sitemapExclude: true
     body: "Some people find it easier to breathe, in both senses, walking the coastline than sitting across a desk. Beach Therapy is the same real work, outdoors and side by side.",
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     image: {
-      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/laguna-beach-therapy-01_1.JPG",
-      alt: "A therapist and client walking together on the Laguna Beach shoreline"
+      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-low-angle-shoreline-foam-hz.webp",
+      alt: "A low view along the Laguna shoreline, sea foam running up firm wet sand toward the camera, palms and hillside homes small in the distance"
     }
   }) }}
 </div>
 
-{# ---- 9b. Promo callout, flipped and image-dominant ----------------------- #}
+{# ---- 9b. Promo callout, flipped and image-dominant -----------------------
+   IMAGE NOTE: was beach-walk-frombehind.jpeg, which exists on neither CDN under
+   any name. laguna-beach-therapy-01.JPG is the real photo this slot wanted (two
+   people walking the shoreline from behind), and it lives on the LEGACY CDN only,
+   same as the /beach-therapy hero. FOLLOW-UP: migrate it to
+   cdn.circulationstudio.com and update this src alongside that page's. #}
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">9b. promoCallout, reverse + imageWeight "image" + anchorLine + pullQuote</p>
@@ -492,8 +509,8 @@ sitemapExclude: true
     cta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
     pullQuote: "That's not a character flaw. That's just how the nervous system works.",
     image: {
-      src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/beach-therapy/beach-walk-frombehind.jpeg",
-      alt: "Two people walking side by side along the Laguna shoreline, seen from behind"
+      src: "https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach-therapy-01.JPG",
+      alt: "Two people walking side by side along the shoreline at dusk, seen from behind, a thatched beach umbrella in the foreground and a dog trotting near the waterline"
     }
   }) }}
 </div>
@@ -513,7 +530,7 @@ sitemapExclude: true
 
 {# ---- 12. Founder note --------------------------------------------------- #}
 {% set kayPortrait = {
-  src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-transparent.png",
+  src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp",
   alt: "Kay Wenger, LMFT, LPCC, founder of Laguna Beach Counseling"
 } %}
 <div class="showcase__item">
