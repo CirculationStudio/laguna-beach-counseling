@@ -1843,3 +1843,145 @@
   padding: 0.06em 0.12em 0 0;
   color: var(--color-navy);
 }
+
+/* ---- 18. Home hero ------------------------------------------------------ */
+/* The homepage's own opening. Every other page leads with coastline under the
+   sand veil; the front door leads with the actual team, so this is a two-column
+   band rather than a full-bleed photo. The photo sits on a sea-foam wash offset
+   behind it, the same static wash the founder note uses, so the treatment is
+   familiar without repeating the hero device. */
+.home-hero {
+  padding-block: clamp(2.75rem, 7vw, 5rem);
+  overflow: hidden;
+}
+
+.home-hero__inner {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 3.5rem);
+  align-items: center;
+}
+
+@media (min-width: 64rem) {
+  .home-hero__inner {
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: 4rem;
+  }
+}
+
+.home-hero__inner > * {
+  min-width: 0;
+}
+
+.home-hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.6vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+  margin: 0.25rem 0 0;
+  max-width: 15ch;
+}
+
+.home-hero__em {
+  font-style: italic;
+}
+
+.home-hero__lead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+  margin: 1.25rem 0 0;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.home-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.home-hero__trust li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-water-deep);
+}
+
+.home-hero__trust .icon {
+  width: 17px;
+  height: 17px;
+  flex: none;
+  color: var(--color-water);
+}
+
+/* Photo card with the sea-foam wash offset behind it. */
+.home-hero__media {
+  position: relative;
+}
+
+.home-hero__media::before {
+  content: "";
+  position: absolute;
+  inset: auto -1.25rem -1.25rem auto;
+  width: 72%;
+  height: 72%;
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--color-sea-foam) 55%, var(--color-paper));
+}
+
+.home-hero__img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---- 19. Video embed ---------------------------------------------------- */
+/* The wrapper owns the 16:9 box, so the space is reserved before the lazy
+   iframe arrives and the block contributes no layout shift. */
+.video-embed {
+  margin: 0;
+}
+
+.video-embed__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--color-navy);
+  box-shadow: var(--shadow-card);
+}
+
+.video-embed__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-embed__caption {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+  margin-top: 0.9rem;
+  text-align: center;
+}

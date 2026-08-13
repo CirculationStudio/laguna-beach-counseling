@@ -272,7 +272,12 @@
   {% set inline = opts.variant == "inline" %}
   {% call ui.section({ tone: opts.tone or "sand" }) %}
     {% if opts.lead %}
-      <p class="feature-row__lead">{{ opts.lead }}{% if opts.leadEmphasis %} <em>{{ opts.leadEmphasis }}</em>{% endif %}</p>
+      {# leadAs (default "p"): render the serif lead line as a real heading where
+         this band is the section's only heading, so its item h3s are not orphaned
+         under the page h1. The class carries all the styling, so an h2 renders
+         identically to the p. Existing callers pass nothing and are unchanged. #}
+      {% set leadTag = opts.leadAs or "p" %}
+      <{{ leadTag }} class="feature-row__lead">{{ opts.lead }}{% if opts.leadEmphasis %} <em>{{ opts.leadEmphasis }}</em>{% endif %}</{{ leadTag }}>
     {% endif %}
     <ul class="feature-row{% if inline %} feature-row--inline{% endif %} feature-row--{{ opts.columns or (4 if inline else 3) }}">
       {% for f in opts.items %}
@@ -634,6 +639,94 @@
   {% endcall %}
 {% endmacro %}
 
+{# 18. homeHero(opts): { eyebrow?, title, titleEmphasis?, lead?, cta?{href,label,gold?},
+   secondaryCta?{href,label}, trust?[{label}], image{src,alt,width,height} }.
+   The homepage's own hero, deliberately NOT the shared `hero` macro: every other
+   page opens on coastline under the sand veil, and the front door opens on the
+   actual people instead. Copy column beside a photo card on a sea-foam wash, and
+   the photo carries explicit width/height so it reserves its space (this is the
+   LCP element, so it is eager with high fetch priority). Homepage only. #}
+{% macro homeHero(opts) %}
+  <section class="section home-hero section--sand">
+    <div class="container home-hero__inner">
+      <div class="home-hero__content">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        <h1 class="home-hero__title">{{ opts.title }}{% if opts.titleEmphasis %} <em class="home-hero__em">{{ opts.titleEmphasis }}</em>{% endif %}</h1>
+        {% if opts.lead %}<p class="home-hero__lead">{{ opts.lead }}</p>{% endif %}
+        {% if opts.cta or opts.secondaryCta %}
+          <div class="home-hero__actions">
+            {% if opts.cta %}
+              {% if opts.cta.gold %}
+                <a class="btn btn-accent" href="{{ opts.cta.href }}">
+                  {{ opts.cta.label }}
+                  <span class="btn-accent__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+                </a>
+              {% else %}
+                {{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "primary", arrow: true }) }}
+              {% endif %}
+            {% endif %}
+            {% if opts.secondaryCta %}{{ ui.button({ href: opts.secondaryCta.href, label: opts.secondaryCta.label, variant: "ghost" }) }}{% endif %}
+          </div>
+        {% endif %}
+        {% if opts.trust %}
+          <ul class="home-hero__trust">
+            {% for t in opts.trust %}
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                {{ t.label }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="home-hero__media">
+        <img
+          class="home-hero__img"
+          src="{{ opts.image.src }}"
+          alt="{{ opts.image.alt }}"
+          width="{{ opts.image.width }}"
+          height="{{ opts.image.height }}"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+{% endmacro %}
+
+{# 19. videoEmbed(opts): { eyebrow?, title?, titleEmphasis?, lead?, src, title_ (iframe
+   title), caption?, tone? }. A responsive 16:9 privacy-friendly YouTube embed.
+   The iframe is lazy-loaded and uses youtube-nocookie, so nothing from YouTube
+   loads (and no cookie is set) until the frame scrolls near the viewport, which
+   keeps it off the critical path for LCP and INP. The wrapper owns the aspect
+   ratio, so the space is reserved before the frame arrives and CLS stays at 0.
+   The iframe needs an accessible name, hence the required title_ param. #}
+{% macro videoEmbed(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper", width: "narrow" }) %}
+    {% if opts.eyebrow or opts.title %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <figure class="video-embed">
+      <div class="video-embed__frame">
+        <iframe
+          src="{{ opts.src }}"
+          title="{{ opts.title_ }}"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      {% if opts.caption %}<figcaption class="video-embed__caption">{{ opts.caption }}</figcaption>{% endif %}
+    </figure>
+  {% endcall %}
+{% endmacro %}
+
 {# 11. serviceSchema(opts): { name, serviceType, description, url,
    business: {url, name, telephone}, areaServed? (array) }. Emits a Service that references the
    business by @id (the full MedicalBusiness record is defined later on the homepage and
@@ -684,6 +777,47 @@
       "worksFor": { "@type": "MedicalBusiness", "@id": {{ (business.url + "/#business") | dump | safe }}, "name": {{ business.name | dump | safe }}, "url": {{ business.url | dump | safe }} }
     }{% if not loop.last %},{% endif %}
     {% endfor %}
+  ]
+}
+</script>
+{% endmacro %}
+
+{# 20. homeSchema(business): the homepage's structured data. Per SCHEMA.md the
+   homepage is an anchor REFERENCE, not a redefinition: the full MedicalBusiness
+   record lives on /contact, and this points at the same @id so both describe one
+   entity. Adds the WebSite node with the canonical URL. Facts are passed in from
+   site.json. No aggregateRating and no Review: there are no real totals yet, and
+   fabricated ones are a trust violation (SCHEMA.md validation gate). #}
+{% macro homeSchema(business) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": {{ (business.url + "/#website") | dump | safe }},
+      "url": {{ business.url | dump | safe }},
+      "name": {{ business.name | dump | safe }},
+      "description": {{ business.defaultDescription | dump | safe }},
+      "inLanguage": "en-US",
+      "publisher": { "@id": {{ (business.url + "/#business") | dump | safe }} }
+    },
+    {
+      "@type": "MedicalBusiness",
+      "@id": {{ (business.url + "/#business") | dump | safe }},
+      "name": {{ business.name | dump | safe }},
+      "url": {{ business.url | dump | safe }},
+      "telephone": {{ business.nap.telephone | dump | safe }},
+      "priceRange": {{ business.positioning.priceRange | dump | safe }},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ business.nap.streetAddress | dump | safe }},
+        "addressLocality": {{ business.nap.addressLocality | dump | safe }},
+        "addressRegion": {{ business.nap.addressRegion | dump | safe }},
+        "postalCode": {{ business.nap.postalCode | dump | safe }},
+        "addressCountry": {{ business.nap.addressCountry | dump | safe }}
+      }
+    }
   ]
 }
 </script>

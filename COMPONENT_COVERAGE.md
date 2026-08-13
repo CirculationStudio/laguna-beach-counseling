@@ -64,6 +64,25 @@ Sections (`src/_includes/components/sections.njk`), with the device extraction l
 17. `prose` `{ dropCap?, width?, tone? }` with a `{% call %}` body. Longform with the navy
     serif drop-cap.
 
+18. `homeHero` `{ eyebrow?, title, titleEmphasis?, lead?, cta?{href,label,gold?},
+    secondaryCta?, trust?[{label}], image{src,alt,width,height} }`. The homepage's own
+    opening: copy column beside a photo card on an offset sea-foam wash. Deliberately not
+    `hero`, because every other page opens on coastline under the sand veil and the front
+    door opens on the team instead. The image is the LCP element, so it is eager, high
+    fetch priority, and carries explicit width/height. Homepage only.
+19. `videoEmbed` `{ eyebrow?, title?, titleEmphasis?, lead?, src, title_, caption?, tone? }`.
+    Responsive 16:9 YouTube embed. The wrapper owns the aspect ratio (so no layout shift)
+    and the iframe is lazy-loaded from youtube-nocookie, keeping the YouTube payload off
+    the critical path and setting no cookie until playback. `title_` is required: it is the
+    iframe's accessible name.
+20. `homeSchema(business)` emits the homepage's `WebSite` node plus a `MedicalBusiness`
+    `@id` reference. A reference, never a redefinition: the full business record lives on
+    `/contact` (SCHEMA.md).
+
+`featureRow` also takes `leadAs` (default `"p"`). Pass `"h2"` where the band is a section's
+only heading, so its item `h3`s are not orphaned under the page `h1`. The class carries the
+styling, so the rendered result is visually identical.
+
 Also present and reusable: `support-resources.njk` (the 911 / 988 / Crisis Text / SAMHSA block,
 already built) and the shared `header` / `footer` / mega menu.
 
@@ -115,6 +134,7 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/therapy/seniors` | practical-led | Built | Shipped practical-led: the Susi Q "plenty to do, nowhere to talk" angle, not a re-tell of the grief page origin story |
 | `/therapy/families` | practical-led | Built | |
 | `/therapy/children` | practical-led | Built | Growth priority |
+| `/` (homepage) | none, hand-composed | Built | Deliberately not templated: the three templates share one block order and the front door should not read like another service page. Composes `homeHero` (team photo), `lead`, `featureRow` (three-tier proof, navy), `videoEmbed`, `pullQuote`, `pointCards` (who we help, from nav.json), `promoCallout` (Beach Therapy), `pillLinks` (specialties, from nav.json), `promoCallout` reversed (team teaser), `definitionList` (out-of-network and Superbill line), `pillLinks`, `ctaBand` sand, `homeSchema` |
 | `/therapy` (landing) | practical-led | Not built | Only hero + lead + `next` grid + cta keys |
 | `/specialties` (landing) | practical-led | Not built | Same lean usage |
 | `/couples-intensive` | story-led | Built | The day = steps; cta keys point at Contact, not the fit call |

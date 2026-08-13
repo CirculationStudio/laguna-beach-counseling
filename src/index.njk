@@ -1,13 +1,306 @@
 ---
 layout: layouts/base.njk
-title: null
-description: A warm, experienced Laguna Beach psychotherapy practice for individuals, couples, and families.
+metaTitle: "Therapist in Laguna Beach | Laguna Beach Counseling"
+description: "A warm, experienced Laguna Beach therapy practice for individuals, couples, and families. Signature Beach Therapy on the coast. Free 15 to 20 minute call."
 ---
-{# Foundation placeholder only. Real homepage content is built in a later phase
-   (see SITE_ARCHITECTURE.md). This exists so the shell renders and / resolves. #}
-<section class="container page-shell">
-  <p style="font-family: var(--font-sans); letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; color: var(--color-sun-deep);">{{ site.shortName }}</p>
-  <h1>{{ site.tagline }}</h1>
-  <p style="max-width: 55ch;">The new Laguna Beach Counseling website is being built. The foundation, brand, and shared components are in place. Page content is on the way.</p>
-  <p><a class="btn btn-primary" href="{{ site.booking.getStartedPath }}">{{ site.booking.callLabel }}</a></p>
-</section>
+{#
+  HOMEPAGE. Hand-composed (no reframe/story/practical template) by design: the
+  three page templates all open breadcrumbs, hero, lead, then their fixed block
+  order, and the front door should not read like the twenty-third service page.
+  Composed from the shared library instead, with two homepage-specific components
+  added to that library rather than inlined here (s.homeHero and s.videoEmbed,
+  numbered 18 and 19 in components/sections.njk).
+
+  BRIEF FIDELITY (SITE_ARCHITECTURE.md, "/ Homepage"):
+  - Title tag: exact.
+  - Meta: matches the brief except "Free 15-minute call" is corrected to
+    "Free 15 to 20 minute call". CLIENT_FACTS.md outranks SITE_ARCHITECTURE.md on
+    facts, and the offering is a free 15 to 20 minute Get to Know Us call.
+  - H1: the brief offers the brand tagline or a warmer variant. Using the tagline
+    ("Navigating Life's Waves Together") since it is the brand lockup and the
+    brief's first choice. The target keyword ("therapist Laguna Beach") therefore
+    carries in the title tag, meta, eyebrow, hero lead, and the section h2s
+    instead of the h1.
+  - Every section the brief lists is present: hero with the intro copy, the
+    three-tier proof rendered as warmth, the Beach Therapy teaser, the who-we-help
+    grid, the what-people-struggle-with grid, the team teaser, the out-of-network
+    and Superbill line, and the gold CTA band. Plus the approved pull-quote.
+  - Internal links: /beach-therapy, /get-started, /about/kay-wenger,
+    /about/our-team, /fees, all six /therapy/* and all nine /specialties/*.
+  - Schema: WebSite + a MedicalBusiness @id reference, not a redefinition. The
+    full business record lives on /contact (SCHEMA.md).
+
+  No breadcrumbs: this is the root, and a one-item trail is noise.
+  Gold discipline: two gold actions on the page (hero and CTA band), a full page
+  apart, so no viewport ever shows two. Every other action is navy or teal.
+  Facts come from site.json and nav.json, never hardcoded. No em dashes.
+#}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{#
+  HERO. Team photo, not coastline. The brand guardrail this page is most at risk
+  of failing is the "therapy factory" one, and the strongest answer to it is the
+  actual five people who work here, above the fold, before any claim is made.
+  Dimensions are the real intrinsic size of the asset (1920x1568), so the box is
+  reserved and the LCP image cannot shift the page.
+  ROSTER NOTE: per CLIENT_FACTS.md, Austin Whitman transitions out October 2026
+  and Christy Hill December 2026. This is a group photo, so it needs reshooting
+  once the roster settles. Do not caption it with names.
+#}
+{{ s.homeHero({
+  eyebrow: "Therapy in Laguna Beach",
+  title: "Navigating Life's Waves",
+  titleEmphasis: "Together",
+  lead: "We're a small, experienced team of therapists in Laguna Beach, here for individuals, couples, and families, and for the seasons that ask more of you than you expected. Start with a free call. No pressure comes attached to it.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.callLabel, gold: true },
+  secondaryCta: { href: "/beach-therapy", label: "Explore Beach Therapy" },
+  trust: [
+    { label: site.access.seenWithin },
+    { label: "Free 15 to 20 minute call" },
+    { label: "Laguna Beach or telehealth statewide" }
+  ],
+  image: {
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/laguna-beach-counseling-team-hz.webp",
+    alt: "The five therapists of Laguna Beach Counseling standing together in the practice's office, a lamp and coastal artwork behind them.",
+    width: 1920,
+    height: 1568
+  }
+}) }}
+
+{# The reframe. Pattern 1 from voice-tone.md: problem, normalize, reframe, invite. #}
+{{ s.lead({
+  tone: "paper",
+  text: [
+    "Most people don't call a therapist the week something starts. They call months later, after telling themselves it would settle down on its own, after the same argument has run its fourth lap, after the mornings quietly got harder to start. If that's roughly where you are, you are not late. That is usually just when it gets loud enough to do something about.",
+    "Waves work the same way. You can stand in the shallows and let them knock you sideways, or you can learn to read them and time your footing. So what if the thing you're carrying isn't evidence that something is wrong with you, but a signal that something needs attention? That is where the work starts, and it tends to be far more ordinary than people expect."
+  ]
+}) }}
+
+{#
+  THE THREE-TIER PROOF, rendered as warmth rather than a credential stack. The
+  brief flags this as the spot most at risk of reading as a brag, so each item
+  leads with what it buys the reader, not with the qualification itself. Every
+  claim traces to CLIENT_FACTS.md: founded 2001, 30-plus years, Kay supervises the
+  team, Beach Therapy is category-of-one, Sand Castle Therapy was developed here,
+  and the access line is quoted from site.json rather than paraphrased into a stat.
+#}
+{{ s.featureRow({
+  tone: "navy",
+  variant: "inline",
+  columns: 3,
+  lead: "Thirty years of practice, held lightly.",
+  leadEmphasis: "Here is what that actually buys you.",
+  leadAs: "h2",
+  items: [
+    {
+      icon: "anchor",
+      title: "Someone who has seen this before",
+      text: "Kay Wenger founded this practice in 2001 and has spent more than 30 years in the room with individuals, couples, and families. She spent decades training other therapists, and she personally supervises everyone here, so the standard of care holds whoever you end up seeing."
+    },
+    {
+      icon: "wave",
+      title: "Therapy that isn't stuck indoors",
+      text: "Beach Therapy is real therapy on the Laguna coastline, walking side by side instead of sitting across a desk. Sand Castle Therapy is its counterpart for children, on the sand, at their pace. Both were developed here."
+    },
+    {
+      icon: "clock",
+      title: "A start that isn't a production",
+      text: "One free 15 to 20 minute call with a real person, and nothing to fill out first. " + site.access.seenWithin + ", in our Laguna Beach office or by secure video anywhere in California."
+    }
+  ]
+}) }}
+
+{#
+  THE INTRO VIDEO. Client-supplied YouTube embed.
+  Three deliberate changes to the supplied iframe, all noted back to the client:
+  1. youtube.com becomes youtube-nocookie.com. Same video, but YouTube sets no
+     tracking cookie until playback. On a mental-health site, where the visit
+     itself is sensitive, that is the right default.
+  2. The "si" share-tracking parameter is dropped.
+  3. Fixed 560x315 becomes a fluid 16:9 wrapper, so it fits every breakpoint and
+     reserves its own space (no layout shift).
+  controls=0 is kept as supplied. Note it hides the control bar; playback is
+  click-initiated and never autoplays, so nothing moves without user intent.
+  loading="lazy" keeps the whole YouTube payload off the critical path.
+#}
+{{ s.videoEmbed({
+  tone: "paper",
+  eyebrow: "In our own words",
+  title: "Hear how we think about",
+  titleEmphasis: "the work.",
+  lead: "Choosing a therapist off a website is a strange thing to have to do. This one is on marriage and family therapy, which is as good a window as any into how the work actually goes here.",
+  src: "https://www.youtube-nocookie.com/embed/ipWH9vtJPVk?controls=0",
+  title_: "Marriage and Family Therapy: Improve Your Marriage, Improve your Relationships, from Laguna Beach Counseling",
+  caption: "Marriage and Family Therapy: Improve Your Marriage, Improve your Relationships."
+}) }}
+
+{# Approved pull-quote, verbatim from voice-tone.md's canonical list. #}
+{{ s.pullQuote({
+  tone: "paper",
+  foam: true,
+  quote: "We're not serving a market. We're serving our neighbors.",
+  attribution: "Kay Wenger, LMFT, LPCC, founder"
+}) }}
+
+{#
+  WHO WE HELP. Labels and URLs come from nav.json so the grid can never drift out
+  of sync with the menu; only the card copy lives here. Filtered on `published`,
+  so an unbuilt page can never be linked from the front door.
+#}
+{% set therapyCopy = {
+  "/therapy/individuals": { icon: "compass", body: "You already know what you'd do differently. The gap between knowing it and doing it is usually where the real work begins." },
+  "/therapy/couples": { icon: "heart", body: "For the slow disconnection, the argument on repeat, and the fresh start before a wedding. Pro-commitment, never pro-pressure." },
+  "/therapy/families": { icon: "shell", body: "When the whole household is stuck, no single person can unstick it alone. We work with the system, not against one member of it." },
+  "/therapy/teens": { icon: "chat", body: "A low-pressure way in for a teenager who did not ask to be here, and steady footing for the parents alongside them." },
+  "/therapy/children": { icon: "sun", body: "Warm, developmentally-attuned counseling for young children, indoors with play and stories or outdoors on the sand." },
+  "/therapy/seniors": { icon: "clock", body: "Grief, retirement, and later-life change, from the founder of the Heart to Heart program at Susi Q. A place for what the activity calendar leaves out." }
+} %}
+{% set therapyCards = [] %}
+{% for child in nav.sections.therapy.children %}
+  {% if child.published %}
+    {% set copy = therapyCopy[child.url] %}
+    {% set _ = therapyCards.push({
+      icon: copy.icon,
+      title: child.label,
+      body: copy.body,
+      href: child.url,
+      linkLabel: child.label
+    }) %}
+  {% endif %}
+{% endfor %}
+{{ s.pointCards({
+  tone: "sand",
+  columns: 3,
+  eyebrow: "Who we help",
+  title: "Counseling in Laguna Beach, for wherever you are in it",
+  cards: therapyCards
+}) }}
+
+{#
+  BEACH THERAPY TEASER. Title is the approved pull-quote from voice-tone.md.
+  Photo is real coastal work from the client's own library (IMAGE_MANIFEST.md),
+  and it is the only page using this shot. Figures are distant silhouettes, so
+  nothing here reads as a client.
+#}
+{{ s.promoCallout({
+  tone: "seafoam",
+  eyebrow: "Signature service",
+  title: "Sometimes the environment",
+  titleEmphasis: "matters.",
+  body: [
+    "Beach Therapy started as an observation, not a marketing idea. Some people open up walking that never quite manage it sitting still, facing another person across a room. Something about moving side by side, with the horizon out in front of you, takes the pressure off the eye contact and lets the harder sentence out.",
+    "It is the same real therapy, with the same therapist, held on a quiet stretch of the Laguna shoreline. When the weather or the week calls for a room instead, we use the office. Nothing about it is precious."
+  ],
+  anchorLine: "The beach isn't replacing therapy. It's creating conditions that let therapy happen differently.",
+  href: "/beach-therapy",
+  label: "Explore Beach Therapy",
+  image: {
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-surfers-shoreline-dusk-hz.webp",
+    alt: "Silhouetted figures heading down to the water at dusk along a Laguna beach, the wet sand reflecting a golden sky."
+  }
+}) }}
+
+{#
+  WHAT PEOPLE STRUGGLE WITH. Pill links rather than a second card grid: nine
+  items would make a heavy second grid right after the first, and the compact
+  treatment keeps the internal linking dense without the templated feel. URLs and
+  labels from nav.json, filtered on `published`.
+#}
+{% set specialtyLinks = [] %}
+{% for child in nav.sections.specialties.children %}
+  {% if child.published %}
+    {% set _ = specialtyLinks.push({ href: child.url, label: child.label }) %}
+  {% endif %}
+{% endfor %}
+{{ s.pillLinks({
+  tone: "paper",
+  eyebrow: "What people struggle with",
+  title: "The things that actually bring people in",
+  lead: "Most people arrive with more than one of these tangled together, which is normal and not a complication. Start anywhere that sounds like you.",
+  links: specialtyLinks
+}) }}
+
+{#
+  TEAM TEASER. Second real team photograph, flipped so it does not mirror the
+  Beach Therapy band above it. Routes to the full roster and to Kay's page, the
+  two internal links the brief asks for here.
+#}
+{{ s.promoCallout({
+  tone: "sand",
+  reverse: true,
+  eyebrow: "The people",
+  title: "A small team,",
+  titleEmphasis: "on purpose.",
+  body: [
+    "A bigger practice was never the goal. Kay built this one so that the quality of the work would matter more than the scale of the business, which means a handful of therapists she trains and supervises herself rather than a directory of names you have to guess between.",
+    "Wondering who you would actually click with? That is precisely what the free call is for. We listen first, then point you toward the right person, and we will say so honestly if that person is somewhere else."
+  ],
+  href: "/about/our-team",
+  label: "Meet the team",
+  image: {
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/laguna-beach-counseling-team-couch-hz.webp",
+    alt: "Four therapists from Laguna Beach Counseling seated together on the orange sofa and armchair in the practice's office."
+  }
+}) }}
+
+{#
+  THE PRACTICAL LAYER. The out-of-network and Superbill line the brief calls for,
+  quoted verbatim from site.json rather than restated, so the canonical wording
+  stays byte-identical across footer, FAQ, fees page, and Calendly. Session
+  lengths are from the CLIENT_FACTS.md rate card. No rates are repeated here; the
+  fees page owns those, and duplicating them invites drift.
+#}
+{{ s.definitionList({
+  tone: "paper",
+  eyebrow: "Before you ask",
+  title: "The practical parts, up front",
+  items: [
+    {
+      term: "What sessions cost",
+      detail: "Sessions run 50, 75, or 90 minutes, and the rate depends on the length and on who you see. Every figure is published on the fees page, so you can check it before you ever pick up the phone."
+    },
+    {
+      term: "Insurance",
+      detail: site.positioning.outOfNetworkLine
+    },
+    {
+      term: "Where we meet",
+      detail: "Our office at " + site.nap.streetAddress + " in " + site.nap.addressLocality + ", on the coastline for Beach Therapy, or by secure video anywhere in California."
+    },
+    {
+      term: "How it starts",
+      detail: "A free 15 to 20 minute Get to Know Us call. We hear what is going on, answer what you want to ask, and match you with the right therapist. No obligation follows it."
+    }
+  ]
+}) }}
+
+{{ s.pillLinks({
+  tone: "paper",
+  links: [
+    { href: "/fees", label: "Fees and insurance" },
+    { href: "/faq", label: "Questions people ask" },
+    { href: "/about/kay-wenger", label: "About Kay Wenger" },
+    { href: "/telehealth", label: "Online therapy in California" },
+    { href: "/contact", label: "Contact" }
+  ]
+}) }}
+
+{#
+  CLOSING CTA. Tone "sand", never navy: the navy band directly above the navy
+  footer creates a seam (the constraint the three page templates enforce, and it
+  applies to hand-composed pages too).
+#}
+{{ s.ctaBand({
+  tone: "sand",
+  variant: "center",
+  watermark: "Together",
+  title: "Something needs to shift.",
+  titleEmphasis: "Let's start there.",
+  text: "A free 15 to 20 minute call is a low-pressure way to find out whether we are the right fit for you. Worst case, we point you somewhere better.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.callLabel },
+  note: "Free and confidential. " + site.access.seenWithin + ".",
+  tagline: site.tagline
+}) }}
+
+{{ s.homeSchema(site) }}
