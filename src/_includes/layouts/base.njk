@@ -21,9 +21,15 @@
        one-year cache on /css/* can never serve stale styles after a deploy. #}
     <link rel="stylesheet" href="/css/main.css?v={{ cssVersion }}" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {# Icons come from the brand folder on the CDN (the teal life-ring mark). These
+       previously pointed at /favicon.svg, /favicon.ico and /apple-touch-icon.png,
+       none of which exist in the build, so every page shipped three 404s and no
+       favicon. The .ico link is gone rather than repointed: browsers request
+       /favicon.ico at the root on their own, and declaring one that 404s is worse
+       than declaring none. Sources are listed in IMAGE_MANIFEST.md. #}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.icons.favicon32 }}" />
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ site.icons.favicon512 }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.icons.appleTouch }}" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

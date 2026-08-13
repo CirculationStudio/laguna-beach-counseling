@@ -12,6 +12,11 @@
     "alt": "Laguna Beach Counseling",
     "reversedUrl": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/laguna-beach-counseling-logo-horizontal-reversed.svg"
   },
+  "icons": {
+    "favicon32": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/favicon-32.png",
+    "favicon512": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/favicon-512.png",
+    "appleTouch": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/favicon-180.png"
+  },
   "nap": {
     "streetAddress": "333 Third Street, Suite 6",
     "addressLocality": "Laguna Beach",

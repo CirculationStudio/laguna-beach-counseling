@@ -102,6 +102,34 @@ crumbs:
   </div>
 {% endcall %}
 
+{#
+  WAYFINDING. This is the only photograph in the whole library showing the
+  practice's signage and its suite number, which makes it worth more on /contact
+  than anywhere else: a first-time visitor arriving at Third Street is looking for
+  exactly this staircase. It happens to have the team standing on it, which is a
+  bonus rather than the point, so the copy leads with the wayfinding.
+  ROSTER NOTE: per CLIENT_FACTS.md, Austin Whitman transitions out October 2026 and
+  Christy Hill December 2026, so this group shot needs replacing once the roster
+  settles. No names in the copy or alt, deliberately.
+#}
+{{ s.promoCallout({
+  tone: "paper",
+  reverse: true,
+  eyebrow: "Finding us",
+  title: "Look for Suite 6,",
+  titleEmphasis: "up the stairs.",
+  body: [
+    "The Laguna Beach office is on Third Street, a few blocks back from the water. Head up the staircase and you will see our name on the wall at the top, which is the point at which most people know they are in the right place.",
+    "There is no reception desk and no waiting-room queue, so if you arrive early, you are welcome to sit for a minute. No walk-ins though, so please book first."
+  ],
+  href: site.booking.getStartedPath,
+  label: "Book a free call first",
+  image: {
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/laguna-beach-counseling-team-stairs-portrait.webp",
+    alt: "The staircase up to the practice, with the hand-painted Laguna Beach Counseling name and a suite number six on the wall at the top, four of the team standing on the stairs."
+  }
+}) }}
+
 {% call ui.section({ tone: "paper", width: "narrow" }) %}
   <div class="section__head">
     {{ ui.eyebrow("Send a message") }}

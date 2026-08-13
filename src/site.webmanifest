@@ -1,21 +1,22 @@
 {
   "name": "Laguna Beach Counseling",
   "short_name": "LB Counseling",
-  "description": "Professional counseling services in Laguna Beach",
+  "description": "A warm, experienced Laguna Beach psychotherapy practice for individuals, couples, and families, with signature Beach Therapy on the coast.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#003657",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/favicon-180.png",
+      "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/brand/favicon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

@@ -47,9 +47,12 @@ crossSell:
   body: "Beach Therapy is offered by therapists who build walk-and-talk into how they work. On your free call, we'll match you with the right one, and if a session is better done indoors, we'll be honest about that too."
   href: "/about/our-team"
   label: "Meet the team"
+  # Was laguna-beach.webp on the legacy host, absent from the current CDN inventory
+  # (IMAGE_MANIFEST.md) and carrying three pages at once. Replaced from the client's
+  # own coastal library; this is the only page using this shot.
   image:
-    src: "https://circulation-studio-cdn.b-cdn.net/clients/Laguna%20Beach%20Counseling/laguna-beach.webp"
-    alt: "The Laguna Beach coastline."
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-golden-hour-breaking-wave-hz.webp"
+    alt: "A single clean wave breaking under a pale gold sky, the water otherwise open and quiet."
 quote:
   text: "Sometimes the environment matters."
   attribution: "Kay Wenger, LMFT, LPCC"
@@ -97,11 +100,17 @@ service:
    belongs here; used as research context, never a promise (independently
    justified, this is its primary home, not a recycle).
 
-   IMAGES: the real Beach Therapy photos live on the LEGACY CDN
-   (circulation-studio-cdn.b-cdn.net), verified live (200); they were not migrated
-   to cdn.circulationstudio.com (404 there). Used as-is because the brand requires
-   real coastal photography, never stock or AI (DESIGN_SYSTEM Forbidden Patterns).
-   FOLLOW-UP: migrate these to the current CDN and update the src values.
+   IMAGES: the hero is the ONE remaining legacy-CDN asset on the site,
+   laguna-beach-therapy-01.JPG on circulation-studio-cdn.b-cdn.net (verified 200).
+   It is absent from the current inventory (IMAGE_MANIFEST.md) and is the only real
+   walk-and-talk photograph anywhere in the library, which is exactly what this page
+   needs and what the brand requires (never stock or AI, DESIGN_SYSTEM Forbidden
+   Patterns), so it stays until it is migrated. The cross-sell photo used to be the
+   legacy laguna-beach.webp, which was carrying three pages at once; it now comes
+   from the client's own coastal library on the current CDN.
+   FOLLOW-UP: migrate laguna-beach-therapy-01.JPG to cdn.circulationstudio.com and
+   update this src and the matching one on /components. Note laguna-beach-therapy-02
+   is stored rotated 90 degrees and needs re-uploading upright before it is usable.
    The reference VIDEO asset is 404 (gone), so the video section is omitted. The
    GALLERY is omitted (not in the SITE_ARCHITECTURE brief, and no gallery
    component exists; would be net-new markup).
