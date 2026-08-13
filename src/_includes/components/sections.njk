@@ -424,6 +424,9 @@
         {% if opts.sign %}
           <p class="founder-note__sign"><span class="founder-note__sign-name">{{ opts.sign.name }}</span><span class="founder-note__sign-role">{{ opts.sign.role }}</span></p>
         {% endif %}
+        {% if opts.cta %}
+          <p class="founder-note__cta">{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}</p>
+        {% endif %}
       </div>
     {% else %}
       <div class="founder-note">
@@ -460,6 +463,9 @@
           {% endif %}
           {% if opts.sign %}
             <p class="founder-note__sign"><span class="founder-note__sign-name">{{ opts.sign.name }}</span><span class="founder-note__sign-role">{{ opts.sign.role }}</span></p>
+          {% endif %}
+          {% if opts.cta %}
+            <p class="founder-note__cta">{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}</p>
           {% endif %}
         </div>
       </div>

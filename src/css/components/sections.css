@@ -2028,3 +2028,9 @@
   margin: 1rem 0 0;
   text-align: center;
 }
+
+/* Optional CTA closing a founder note, so the block can route onward (for
+   example /about linking through to Kay's own page). Teal text link, never gold. */
+.founder-note__cta {
+  margin: 1.5rem 0 0;
+}

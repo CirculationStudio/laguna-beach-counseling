@@ -17,8 +17,10 @@ layout: layouts/base.njk
     lead        string | string[]
     kay         founderNote opts: { eyebrow?, variant? (founder | note),
                   portrait{src,alt}, name?, nameEmphasis?, role?, quote?,
-                  quoteEmphasis?, body[], creds?, statement?, sign?, tone? }
-                Placed early: this template leans on her voice.
+                  quoteEmphasis?, body[], creds?, statement?, sign?,
+                  cta?{href,label}, tone? }
+                Placed early: this template leans on her voice. cta closes the
+                block with a teal text link, for routing onward to her own page.
     crossSell   { eyebrow, title, titleEmphasis?, body, href, label, image?,
                   reverse?, imageWeight?, anchorLine?, pullQuote?, tone? }
                 Defaults to the image-dominant weight for the narrative feel.
@@ -78,6 +80,7 @@ layout: layouts/base.njk
     creds: kay.creds,
     statement: kay.statement,
     sign: kay.sign,
+    cta: kay.cta,
     tone: kay.tone
   }) }}
 {% endif %}

@@ -60,6 +60,19 @@
     ]
   },
   "features": {
+    "kayWenger": {
+      "variant": "person",
+      "eyebrow": "The founder",
+      "label": "Kay Wenger",
+      "url": "/about/kay-wenger",
+      "published": true,
+      "blurb": "Thirty years in the room, and still convinced the work is mostly about the relationship.",
+      "linkLabel": "Meet Kay",
+      "image": {
+        "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/kay-wenger-cutout.webp",
+        "alt": "Kay Wenger, LMFT, LPCC, founder of Laguna Beach Counseling."
+      }
+    },
     "beachTherapy": {
       "eyebrow": "Signature service",
       "label": "Beach Therapy",
@@ -79,7 +92,14 @@
     { "ref": "therapy", "panel": "featured", "panelTitle": "Who we help", "feature": "beachTherapy" },
     { "ref": "specialties", "panel": "columns", "panelTitle": "What people struggle with" },
     { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
-    { "ref": "about" },
+    {
+      "ref": "about",
+      "panel": "person",
+      "panelTitle": "Get to know us",
+      "allLabel": "About the practice",
+      "feature": "kayWenger",
+      "extraLinks": [{ "label": "Fees & Insurance", "url": "/fees", "published": true }]
+    },
     { "label": "Fees", "url": "/fees", "published": true },
     { "label": "Contact", "url": "/contact", "published": true }
   ]

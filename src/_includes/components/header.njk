@@ -12,6 +12,23 @@
 </svg>
 {% endmacro %}
 
+{# Person feature cell: a transparent cutout portrait on the same static sea-foam
+   wash the founder note uses, rather than the 16:10 photo tile featureCell
+   renders. Used for Kay in the About panel. #}
+{% macro personCell(feature) %}
+<div class="mega-feature mega-feature--person">
+  <div class="mega-feature__portrait">
+    <img src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" loading="lazy" decoding="async" />
+  </div>
+  <p class="mega-feature__eyebrow">{{ feature.eyebrow }}</p>
+  <h3 class="mega-feature__title{% if not feature.published %} nav-link--soon{% endif %}">{{ feature.label }}</h3>
+  <p class="mega-feature__blurb">{{ feature.blurb }}</p>
+  <a class="mega-feature__link{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">
+    {{ feature.linkLabel }}{{ arrow("btn__arrow") }}
+  </a>
+</div>
+{% endmacro %}
+
 {% macro featureCell(feature) %}
 <div class="mega-feature">
   {% if feature.image.src %}
@@ -62,16 +79,31 @@
                 <div class="mega-panel__body">
                   <div class="mega-panel__nav">
                     <h2 class="mega-panel__title">{{ item.panelTitle }}</h2>
-                    <ul class="mega-links">
-                      {% for child in node.children %}
+                    {# A child that is also the feature cell is skipped here, so Kay
+                       is not listed twice in the same panel. extraLinks let a header
+                       entry pull in a page that lives in another nav section (Fees
+                       under About) without duplicating it in the shared section data,
+                       which the footer also renders. Four or fewer links read better
+                       in one column than split across two. #}
+                    {% set feat = nav.features[item.feature] if item.feature else null %}
+                    {% set panelLinks = [] %}
+                    {% for child in node.children %}
+                      {% if not (feat and child.url == feat.url) %}{% set _ = panelLinks.push(child) %}{% endif %}
+                    {% endfor %}
+                    {% for extra in item.extraLinks or [] %}{% set _ = panelLinks.push(extra) %}{% endfor %}
+                    <ul class="mega-links{% if panelLinks | length <= 4 %} mega-links--single{% endif %}">
+                      {% for child in panelLinks %}
                         <li><a class="mega-link{% if not child.published %} nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
                       {% endfor %}
                     </ul>
-                    <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">All {{ node.label }}{{ arrow("mega-panel__all-arrow") }}</a>
+                    {# allLabel overrides the default "All <label>", which reads
+                       fine for Therapy and Specialties but produces "All About". #}
+                    <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}{{ arrow("mega-panel__all-arrow") }}</a>
                   </div>
                   {% if item.feature and nav.features[item.feature] %}
+                    {% set feature = nav.features[item.feature] %}
                     <div class="mega-panel__aside">
-                      {{ featureCell(nav.features[item.feature]) }}
+                      {% if feature.variant == "person" %}{{ personCell(feature) }}{% else %}{{ featureCell(feature) }}{% endif %}
                     </div>
                   {% endif %}
                 </div>
@@ -127,12 +159,22 @@
                 </svg>
               </button>
               <ul class="mobile-nav__sublist" id="m-dd-{{ item.ref }}" hidden>
-                <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">All {{ node.label }}</a></li>
+                <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}</a></li>
+                {# Mobile keeps the full child list, including any child that is the
+                   desktop feature cell (there is no cell to duplicate here), so Kay
+                   stays first under About rather than being pushed to the bottom.
+                   The feature link is only appended when it is NOT already a child,
+                   which is how Beach Therapy still reaches the Therapy accordion. #}
+                {% set feature = nav.features[item.feature] if item.feature else null %}
+                {% set childUrls = [] %}
+                {% for child in node.children %}{% set _ = childUrls.push(child.url) %}{% endfor %}
                 {% for child in node.children %}
                   <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
                 {% endfor %}
-                {% if item.feature and nav.features[item.feature] %}
-                  {% set feature = nav.features[item.feature] %}
+                {% for extra in item.extraLinks or [] %}
+                  <li><a class="{% if not extra.published %}nav-link--soon{% endif %}" href="{{ extra.url }}">{{ extra.label }}</a></li>
+                {% endfor %}
+                {% if feature and feature.url not in childUrls %}
                   <li><a class="mobile-nav__feature{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">{{ feature.label }}</a></li>
                 {% endif %}
               </ul>
