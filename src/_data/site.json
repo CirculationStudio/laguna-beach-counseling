@@ -38,7 +38,9 @@
     "calendlyUrl": "https://calendly.com/lbc-occc/30min",
     "callLabel": "Book a free Get to Know Us call",
     "navLabel": "Book a free call",
-    "getStartedPath": "/get-started"
+    "getStartedPath": "/get-started",
+    "embedParams": "hide_event_type_details=1&hide_gdpr_banner=1&text_color=003657&primary_color=28a0c9",
+    "_embedParamsNote": "Display config for the inline Calendly widget, kept here so the three pages carrying it stay in sync. text_color and primary_color are the DESIGN_SYSTEM navy (#003657) and teal (#28a0c9). The client-supplied snippet used 003455 and 269dc6, which are near-misses of those two brand values; corrected here so the scheduler matches the site. Revert if the off-brand pair was deliberate."
   },
   "access": {
     "seenWithin": "Be seen within 24 hours"

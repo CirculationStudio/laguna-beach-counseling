@@ -3,6 +3,7 @@ layout: layouts/base.njk
 metaTitle: "Contact | Laguna Beach Counseling"
 description: "Reach Laguna Beach Counseling by phone, email, or a free Get to Know Us call. Our Laguna Beach office and Orange County Airport Area sister office."
 permalink: /contact/
+calendly: true
 crumbs:
   - { label: "Home", url: "/" }
   - { label: "Contact" }
@@ -53,6 +54,24 @@ crumbs:
   </ul>
   <p style="max-width:40rem;color:var(--color-ink-soft,#5a6b76);">No walk-ins, so an appointment is recommended. Prefer to talk it through first? The free call is the easiest front door.</p>
 {% endcall %}
+
+{#
+  THE SCHEDULER, directly under the contact methods. "Book a call" is listed as
+  one of the three ways to reach us, so the scheduler sits right beneath it and
+  makes that option actionable in place. It also matters more than usual on this
+  page: the contact form below is still a preview and does not send, so this is
+  the only working self-serve route on /contact.
+#}
+{{ s.calendlyEmbed({
+  id: "book",
+  tone: "seafoam",
+  eyebrow: "Pick a time",
+  title: "Or just grab a slot",
+  titleEmphasis: "right here.",
+  lead: "The free Get to Know Us call runs 15 to 20 minutes, by phone or video. No commitment follows it.",
+  url: site.booking.calendlyUrl + "?" + site.booking.embedParams,
+  note: "Booking is handled by Calendly. Please keep anything sensitive off the booking form; we will cover it on the call."
+}) }}
 
 {% call ui.section({ tone: "sand", width: "wide" }) %}
   <div class="section__head">

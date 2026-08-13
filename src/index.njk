@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 metaTitle: "Therapist in Laguna Beach | Laguna Beach Counseling"
 description: "A warm, experienced Laguna Beach therapy practice for individuals, couples, and families. Signature Beach Therapy on the coast. Free 15 to 20 minute call."
+calendly: true
 ---
 {#
   HOMEPAGE. Hand-composed (no reframe/story/practical template) by design: the
@@ -273,6 +274,24 @@ description: "A warm, experienced Laguna Beach therapy practice for individuals,
       detail: "A free 15 to 20 minute Get to Know Us call. We hear what is going on, answer what you want to ask, and match you with the right therapist. No obligation follows it."
     }
   ]
+}) }}
+
+{#
+  THE SCHEDULER. Placed after the practical layer on purpose: someone who has
+  read this far knows who we are, what it costs, and how insurance works, which
+  is the point at which picking a time is a small step rather than a leap. The
+  closing CTA band below still routes to /get-started for anyone who scrolled
+  past, and for anyone who wants the fuller explanation of the call first.
+#}
+{{ s.calendlyEmbed({
+  id: "book",
+  tone: "seafoam",
+  eyebrow: "When you're ready",
+  title: "Pick a time for your",
+  titleEmphasis: "free call.",
+  lead: "Fifteen to twenty minutes, by phone or video. We listen, we answer what you want to ask, and we point you to the right person. Nothing is owed after it.",
+  url: site.booking.calendlyUrl + "?" + site.booking.embedParams,
+  note: "Booking is handled by Calendly. Please keep anything sensitive off the booking form; we will cover it on the call."
 }) }}
 
 {{ s.pillLinks({

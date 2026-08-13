@@ -79,6 +79,16 @@ Sections (`src/_includes/components/sections.njk`), with the device extraction l
     `@id` reference. A reference, never a redefinition: the full business record lives on
     `/contact` (SCHEMA.md).
 
+21. `calendlyEmbed` `{ eyebrow?, title?, titleEmphasis?, lead?, url, id?, note?, tone?,
+    width? }`. The inline Calendly scheduler, so booking happens on the page instead of
+    bouncing to calendly.com. `calendly-inline-widget` and `data-url` are Calendly's
+    contract and must not be renamed. Sizing lives in CSS (fixed height), so the box is
+    reserved and the widget cannot shift the page. Carries a `noscript` fallback link,
+    since without JS the widget div renders empty. The script is NOT in the macro:
+    `base.njk` loads it once for any page whose front matter sets `calendly: true`
+    (currently `/`, `/contact`, `/get-started`), so the other 28 pages pay nothing.
+    Embed URL is built from `site.booking.calendlyUrl` + `site.booking.embedParams`.
+
 `featureRow` also takes `leadAs` (default `"p"`). Pass `"h2"` where the band is a section's
 only heading, so its item `h3`s are not orphaned under the page `h1`. The class carries the
 styling, so the rendered result is visually identical.

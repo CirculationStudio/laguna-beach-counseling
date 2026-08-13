@@ -3,6 +3,7 @@ layout: layouts/base.njk
 metaTitle: "Get Started | Book a Free Consultation Call | Laguna Beach Counseling"
 description: "Start with a free 15 to 20 minute Get to Know Us call. Here's what happens on the call, what sessions cost, and how to book. No pressure."
 permalink: /get-started/
+calendly: true
 crumbs:
   - { label: "Home", url: "/" }
   - { label: "Get Started" }
@@ -38,7 +39,7 @@ faq:
   titleEmphasis: "low-pressure call.",
   variant: "center",
   lead: "It begins with a free 15 to 20 minute Get to Know Us call. No intake interrogation, no commitment, just a chance to tell us what's going on and see whether we're the right fit. Ready when you are.",
-  cta: { href: site.booking.calendlyUrl, label: "Book your free call", gold: true }
+  cta: { href: "#book", label: "Book your free call", gold: true }
 }) }}
 
 {{ s.steps({
@@ -51,6 +52,26 @@ faq:
     { title: "We match you to the right person", body: "Based on what you share, we point you to the right therapist, whether that's Kay directly or one of the associates she personally trains and supervises. The fit matters more than the resume." },
     { title: "You book your first session", body: "If it feels right, we schedule your first full session with that therapist, usually within 24 hours. If we're not the right fit, we'll happily point you toward someone who is." }
   ]
+}) }}
+
+{#
+  THE SCHEDULER. This is the page every CTA on the site points at, so booking
+  belongs on it rather than one more click away. Placed after the four steps: the
+  reader now knows what the call is, so this is the moment to pick a time.
+  The hero's gold button was pointing at calendly.com and now points at #book,
+  because sending someone off-site when the scheduler is right here is the worse
+  of the two experiences. The closing band still links out, as a fallback for
+  anyone who reached the bottom without booking.
+#}
+{{ s.calendlyEmbed({
+  id: "book",
+  tone: "sand",
+  eyebrow: "Pick a time",
+  title: "Book your free",
+  titleEmphasis: "Get to Know Us call.",
+  lead: "Choose whatever slot suits you. It is 15 to 20 minutes, by phone or video, and nothing is owed after it.",
+  url: site.booking.calendlyUrl + "?" + site.booking.embedParams,
+  note: "Booking is handled by Calendly. Please keep anything sensitive off the booking form; we will cover it on the call."
 }) }}
 
 {# NOTE (flagged, not yet actioned): /fees now exists and carries the full rate cards

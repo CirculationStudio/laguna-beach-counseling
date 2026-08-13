@@ -37,5 +37,12 @@
     {% include "components/footer.njk" %}
 
     <script src="/js/menu.js" defer></script>
+
+    {# Calendly's widget script, loaded once and only on pages whose front matter
+       sets `calendly: true` (currently /, /contact, /get-started). Keeping it out
+       of the global bundle means the other 28 pages pay nothing for it. Async, so
+       it never blocks parsing; the embed reserves its own height in CSS, so a slow
+       third party cannot shift the layout. #}
+    {% if calendly %}<script src="https://assets.calendly.com/assets/external/widget.js" async></script>{% endif %}
   </body>
 </html>

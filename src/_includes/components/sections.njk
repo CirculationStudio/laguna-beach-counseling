@@ -822,3 +822,40 @@
 }
 </script>
 {% endmacro %}
+
+{# 21. calendlyEmbed(opts): { eyebrow?, title?, titleEmphasis?, lead?, url,
+   id?, note?, tone?, width? }. The inline Calendly scheduler, so booking happens
+   on the page instead of bouncing to calendly.com.
+   The `calendly-inline-widget` class and `data-url` are Calendly's contract, so
+   they must not be renamed; widget.js finds the element by that class. Sizing
+   lives in CSS rather than the inline style the snippet ships with, and the box
+   is a fixed height, so the space is reserved and the widget cannot shift the
+   page as it loads.
+   The script itself is NOT here: base.njk loads it once per page for any page
+   whose front matter sets `calendly: true`, so a page carrying two embeds still
+   loads one copy, and pages without an embed load none.
+   No PHI touches this site. The scheduler is Calendly's iframe end to end, which
+   is the arrangement ARCHITECTURE.md already assumes.
+   The noscript fallback matters: without JS the widget div stays empty, so the
+   booking link has to survive on its own. #}
+{% macro calendlyEmbed(opts) %}
+  {% call ui.section({ tone: opts.tone or "paper", width: opts.width or "narrow", id: opts.id }) %}
+    {% if opts.eyebrow or opts.title or opts.lead %}
+      <div class="section__head">
+        {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
+        {% if opts.title %}<h2 class="section__title">{{ opts.title }}{% if opts.titleEmphasis %} <em>{{ opts.titleEmphasis }}</em>{% endif %}</h2>{% endif %}
+        {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <div class="calendly-embed">
+      <div class="calendly-inline-widget calendly-embed__widget" data-url="{{ opts.url }}"></div>
+      <noscript>
+        <p class="calendly-embed__fallback">
+          The scheduler needs JavaScript to load.
+          <a href="{{ opts.url }}">Open the booking page directly</a> to pick a time.
+        </p>
+      </noscript>
+    </div>
+    {% if opts.note %}<p class="calendly-embed__note">{{ opts.note }}</p>{% endif %}
+  {% endcall %}
+{% endmacro %}
