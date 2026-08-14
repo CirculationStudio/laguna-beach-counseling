@@ -259,7 +259,12 @@
    to its trigger: About sits right of centre in the nav, so a left-anchored panel
    this wide would run off the viewport. */
 .mega-panel--person {
-  width: 33rem;
+  /* Content-box width, so the real footprint is this plus 4rem padding and the
+     border. 30rem keeps the panel inside the viewport at the 60rem breakpoint
+     where the nav first appears; the max-width is a belt-and-braces guard so a
+     narrower trigger position can never push its left edge off-screen. */
+  width: 30rem;
+  max-width: calc(100vw - 3rem);
   left: auto;
   right: 0;
 }
@@ -276,7 +281,9 @@
    matching .founder-note__portrait, because these cutouts are bottom-weighted. */
 .mega-feature__portrait {
   position: relative;
-  aspect-ratio: 4 / 5;
+  /* Square, matching the 1:1 cutouts. At 4/5 the contained image fit by width and
+     sat on the bottom edge, leaving a band of empty wash above her head. */
+  aspect-ratio: 1 / 1;
   margin-bottom: 0.9rem;
   overflow: hidden;
   border-radius: var(--radius-input);
