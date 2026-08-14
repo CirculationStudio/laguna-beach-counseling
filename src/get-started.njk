@@ -118,7 +118,7 @@ faq:
   <p>Wondering if that's worth it? For a lot of people it is, and if cost is the thing standing between you and starting, say so on the call. That's a conversation, not a closed door.</p>
 {% endcall %}
 
-{% if faq.tags or faq.items %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems }) }}{% endif %}
+{% if faqResolvedItems | length %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems }) }}{% endif %}
 
 {{ s.ctaBand({
   variant: "center",

@@ -61,7 +61,7 @@ crumbs:
 {% set placedIds = [] %}
 {% for cat in cats %}
   {% set catItems = [] %}
-  {% for e in faqEntries %}
+  {% for e in faqEntries %}{% if not e.blocked %}
     {% if e.id not in placedIds %}
       {% set matches = [] %}
       {% for t in cat.tags %}{% if t in e.tags %}{% set _ = matches.push(1) %}{% endif %}{% endfor %}
@@ -71,7 +71,7 @@ crumbs:
         {% set _ = placedIds.push(e.id) %}
       {% endif %}
     {% endif %}
-  {% endfor %}
+  {% endif %}{% endfor %}
   {% if catItems | length %}
     {{ s.faq({ eyebrow: cat.eyebrow, title: cat.title, items: catItems }) }}
   {% endif %}
@@ -79,13 +79,13 @@ crumbs:
 
 {# Catch-all: any entry whose tags matched no category above, so nothing is dropped. #}
 {% set restItems = [] %}
-{% for e in faqEntries %}
+{% for e in faqEntries %}{% if not e.blocked %}
   {% if e.id not in placedIds %}
     {% set _ = restItems.push({ q: e.question, a: e.answer }) %}
     {% set _ = allItems.push({ q: e.question, a: e.answer }) %}
     {% set _ = placedIds.push(e.id) %}
   {% endif %}
-{% endfor %}
+{% endif %}{% endfor %}
 {% if restItems | length %}
   {{ s.faq({ eyebrow: "One more thing", title: "Other questions", items: restItems }) }}
 {% endif %}

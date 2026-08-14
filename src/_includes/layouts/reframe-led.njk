@@ -101,7 +101,7 @@ layout: layouts/base.njk
   {{ s.pointCards({ eyebrow: next.eyebrow, title: next.title, columns: next.columns or 2, cards: next.cards, tone: next.tone or "sand" }) }}
 {% endif %}
 
-{% if faq.tags or faq.items %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems, variant: faq.variant }) }}{% endif %}
+{% if faqResolvedItems | length %}{{ s.faq({ eyebrow: faq.eyebrow, title: faq.title, items: faqResolvedItems, variant: faq.variant }) }}{% endif %}
 
 {% if support %}
   {% call ui.section({ tone: "paper", width: "narrow" }) %}
@@ -133,4 +133,4 @@ layout: layouts/base.njk
   }) }}
 {% endif %}
 {% if crumbs %}{{ s.breadcrumbSchema(crumbs, site.url) }}{% endif %}
-{% if faq.tags or faq.items %}{{ s.faqSchema(faqResolvedItems) }}{% endif %}
+{% if faqResolvedItems | length %}{{ s.faqSchema(faqResolvedItems) }}{% endif %}

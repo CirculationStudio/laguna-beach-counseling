@@ -37,14 +37,26 @@ export default function (eleventyConfig) {
   // one tag, in the file's own authored order, optionally capped at
   // faqOpts.limit. Does not filter on status: "draft" entries still render;
   // status is a pre-launch content gate (see the launch checklist in
-  // SITE_ARCHITECTURE.md), not a runtime visibility rule. A single filter,
-  // not a template include, so there is no Nunjucks include-scope pitfall:
-  // {% set %} inside an included file does not leak back to the includer.
+  // SITE_ARCHITECTURE.md), not a runtime visibility rule.
+  //
+  // It DOES filter on `blocked`, which is a different thing from status. A
+  // blocked entry carries a claim awaiting Kay's sign-off (the Christian
+  // counseling claim strength, Beach Therapy scope, addiction-recovery
+  // clinician naming, and the Susi Q credential wording). Those must not reach
+  // a page, the same treatment as the CONTENT_EVIDENCE do-not-publish list.
+  // Without this, importing an approved-but-blocked answer publishes it
+  // immediately, which is exactly what happened on the first import pass.
+  //
+  // A single filter, not a template include, so there is no Nunjucks
+  // include-scope pitfall: {% set %} inside an included file does not leak
+  // back to the includer.
   eleventyConfig.addFilter("resolveFaq", (faqOpts, allEntries) => {
     if (!faqOpts) return [];
     if (faqOpts.items) return faqOpts.items;
     const tags = faqOpts.tags || [];
-    let matched = (allEntries || []).filter((e) => (e.tags || []).some((t) => tags.includes(t)));
+    let matched = (allEntries || [])
+      .filter((e) => !e.blocked)
+      .filter((e) => (e.tags || []).some((t) => tags.includes(t)));
     if (faqOpts.limit) matched = matched.slice(0, faqOpts.limit);
     return matched.map((e) => ({ q: e.question, a: e.answer }));
   });
