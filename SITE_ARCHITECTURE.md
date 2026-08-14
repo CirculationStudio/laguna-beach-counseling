@@ -318,6 +318,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 
 ### Who we help (`/therapy`)
 
+**`/therapy` (section landing)** (New)
+- H1: Therapy in Laguna Beach, by who you are.
+- Title: Therapy Services in Laguna Beach | Laguna Beach Counseling
+- Meta: Individual, couples, family, teen, child and senior therapy in Laguna Beach and by telehealth across California. Find your starting point, then book a free call.
+- Target keyword (primary): therapy services Laguna Beach. Deliberately BROAD. Every named cluster in the SEO baseline (panic and phobia, premarital, senior, grief) is assigned to a child page, so this page must not compete with its own children.
+- Purpose: routing. Get a visitor to the right audience page fast, and make the WHO / WHAT split legible so they know which of the two sections they want.
+- Sections: hero, a short intro naming the organizing idea, a linkable grid of the six children, pill links across to `/specialties` and the practical pages, the gold CTA band. Nothing else: depth belongs to the children.
+- Internal links: all six `/therapy/*` children, `/specialties`, `/beach-therapy`, `/telehealth`, `/fees`, `/get-started`.
+- Schema: `ItemList` + `BreadcrumbList`. NOT `Service`; that belongs to the children.
+- Flags: the grid is generated from nav.json children filtered on `published`, never hand-typed, so it cannot link an unbuilt page. Card order weights the growth priorities (individuals, children) first.
+
 **`/therapy/individuals`** (Reworked, GROWTH PRIORITY)
 - H1: Individual therapy in Laguna Beach.
 - Title: Individual Therapy Laguna Beach | Laguna Beach Counseling
@@ -376,6 +387,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Schema: Service.
 
 ### What people struggle with (`/specialties`)
+
+**`/specialties` (section landing)** (New)
+- H1: Counseling specialties in Laguna Beach.
+- Title: Counseling Specialties in Laguna Beach | Laguna Beach Counseling
+- Meta: Anxiety, depression, grief, life transitions, infidelity, conflict, neurodiversity, faith-based and addiction counseling in Laguna Beach. Start with a free call.
+- Target keyword (primary): counseling specialties Laguna Beach. Deliberately BROAD, for the same de-cannibalization reason as `/therapy`. The panic, phobia and social-anxiety cluster is the largest untapped opportunity on the site and belongs to `/specialties/anxiety`, not here.
+- Purpose: routing. Name the struggle plainly, then hand off to the child page that carries it.
+- Sections: hero, a short intro, a linkable grid of the nine children, pill links across to `/therapy` and the practical pages, the gold CTA band.
+- Internal links: all nine `/specialties/*` children, `/therapy`, `/beach-therapy`, `/telehealth`, `/fees`, `/get-started`.
+- Schema: `ItemList` + `BreadcrumbList`. NOT `Service`.
+- Flags: links the three crisis-adjacent children (anxiety, depression, grief) but is not itself on the crisis-adjacent list, so it carries no support block; each of those children carries its own, and the footer block is sitewide. Card order weights anxiety and depression first.
 
 **`/specialties/anxiety`** (New, GROWTH PRIORITY, first in queue)
 - H1: Anxiety therapy in Laguna Beach.
