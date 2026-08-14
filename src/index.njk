@@ -121,9 +121,12 @@ calendly: true
   2. The "si" share-tracking parameter is dropped.
   3. Fixed 560x315 becomes a fluid 16:9 wrapper, so it fits every breakpoint and
      reserves its own space (no layout shift).
-  controls=0 is kept as supplied. Note it hides the control bar; playback is
-  click-initiated and never autoplays, so nothing moves without user intent.
-  loading="lazy" keeps the whole YouTube payload off the critical path.
+  4. controls=0 REMOVED. It was in the supplied embed and was kept on the first
+     pass, but hiding the player control bar takes away pause, volume, playback
+     speed and the captions button, which is a real accessibility barrier and not
+     something the surrounding copy can compensate for. Default controls restored.
+  loading="lazy" keeps the whole YouTube payload off the critical path, and
+  playback is click-initiated and never autoplays.
 #}
 {{ s.videoEmbed({
   tone: "paper",
@@ -131,7 +134,7 @@ calendly: true
   title: "Hear how we think about",
   titleEmphasis: "the work.",
   lead: "Choosing a therapist off a website is a strange thing to have to do. This one is on marriage and family therapy, which is as good a window as any into how the work actually goes here.",
-  src: "https://www.youtube-nocookie.com/embed/ipWH9vtJPVk?controls=0",
+  src: "https://www.youtube-nocookie.com/embed/ipWH9vtJPVk",
   title_: "Marriage and Family Therapy: Improve Your Marriage, Improve your Relationships, from Laguna Beach Counseling",
   caption: "Marriage and Family Therapy: Improve Your Marriage, Improve your Relationships."
 }) }}
