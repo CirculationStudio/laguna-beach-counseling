@@ -1,6 +1,6 @@
 # Image manifest
 
-**Last verified:** 2026-08-13, all 78 assets confirmed live (HTTP 200).
+**Last verified:** 2026-08-13, all 80 assets confirmed live (HTTP 200).
 
 The complete image inventory for Laguna Beach Counseling, what each asset is, where it
 comes from, and where the site uses it today. Read this before placing any image, so a
@@ -107,12 +107,15 @@ atmosphere or place.
 | `beach-hands-sandcastle-hz.webp` | hz | 1448x1086 | Close up of a child's and an adult's hands packing wet sand on a sandcastle wall | /sand-castle-therapy |
 | `sandcastle-therapy-hz.webp` | hz | 1448x1086 | A child and adult kneeling beside a tall sandcastle with a small flag, surf beyond | /sand-castle-therapy, /beach-therapy |
 
-## interior/ (11 assets, mixed provenance)
+## interior/ (13 assets, mixed provenance)
 
-**Read the dimensions column.** The six at 1280x853 or 853x1280 are the real practice.
+**Read the dimensions column.** The eight real ones are 1280x853, 853x1280 or 765x1020.
 The five at 1376x768 are AI-generated rooms that are not our office.
 
-### Real photographs of the practice (6)
+The folder name is unreliable twice over: it holds AI images alongside real ones, and
+`laguna-beach-counseling-exterior.webp` is an exterior sitting in `interior/`.
+
+### Real photographs of the practice (8)
 
 Amateur snapshots rather than styled photography, but genuinely the actual rooms:
 seafoam recliners, seahorse lamps, starfish garland, coastal art, an orange sofa.
@@ -125,6 +128,8 @@ seafoam recliners, seahorse lamps, starfish garland, coastal art, an orange sofa
 | `office-interior-4.webp` | hz | 1280x853 | Waiting area, seahorse drawing on the door, wicker chairs, magazines, coffee table | unused |
 | `office-interior-5.webp` | **portrait** | 853x1280 | Second suite, orange sofa, woven coffee table, grey armchair, framed landscapes | /fees |
 | `office-interior-6.webp` | hz | 1280x853 | Same orange-sofa room from the doorway, lamps lit, tissue box on the table | /get-started |
+| `laguna-beach-counseling-exterior.webp` | **portrait** | 765x1020 | EXTERIOR despite the folder: the white Spanish-style building at 333 Third Street, street number beside an arched entrance, "Main Beach Realty" sign on the front (the ground-floor tenant; the practice is upstairs in Suite 6) | /contact |
+| `orange-county-couples-counseling-interior.webp` | **portrait** | 765x1020 | The shared Irvine sister office: corner room, white sofa, patterned rug, windows over trees and low hills | /contact |
 
 ### AI-generated interiors (5)
 

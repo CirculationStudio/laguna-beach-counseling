@@ -80,6 +80,11 @@ crumbs:
   </div>
   <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));max-width:52rem;">
     <address style="font-style:normal;padding:1.5rem;background:var(--color-paper,#fff);border-radius:12px;">
+      {# The building itself, so a first-time visitor can recognise it from the
+         street. Note the signage on the front reads "Main Beach Realty", the
+         ground-floor tenant; the practice is upstairs in Suite 6, which is what
+         the stairs photo below picks up. #}
+      <img class="office-card__photo" src="https://cdn.circulationstudio.com/clients/laguna-beach-counseling/interior/laguna-beach-counseling-exterior.webp" alt="The white Spanish-style building at 333 Third Street, its street number painted beside an arched entrance under a red tile roof, with a Main Beach Realty sign on the front." width="765" height="1020" loading="lazy" decoding="async" />
       <p style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.72rem;color:var(--color-teal,#28a0c9);margin:0 0 0.5rem;">Laguna Beach office (main)</p>
       <p style="margin:0 0 0.75rem;line-height:1.5;">
         {{ site.nap.streetAddress }}<br />
@@ -92,6 +97,9 @@ crumbs:
       <p style="margin:0.75rem 0 0;color:var(--color-ink-soft,#5a6b76);font-size:0.92rem;">Our primary office, a few blocks from the coast in the heart of Laguna Beach.</p>
     </address>
     <address style="font-style:normal;padding:1.5rem;background:var(--color-paper,#fff);border-radius:12px;">
+      {# Interior of the shared Irvine suite, not an exterior. Until now this
+         office had no visual at all next to the photographed Laguna one. #}
+      <img class="office-card__photo" src="https://cdn.circulationstudio.com/clients/laguna-beach-counseling/interior/orange-county-couples-counseling-interior.webp" alt="The sister office in Irvine, a corner room with a white sofa, a patterned rug and floor lamps, its windows looking out over trees and low hills." width="765" height="1020" loading="lazy" decoding="async" />
       <p style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.72rem;color:var(--color-teal,#28a0c9);margin:0 0 0.5rem;">Orange County Airport Area (sister office)</p>
       <p style="margin:0 0 0.75rem;line-height:1.5;">
         {{ site.secondaryOffice.streetAddress }}<br />
