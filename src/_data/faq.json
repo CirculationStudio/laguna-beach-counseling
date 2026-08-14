@@ -3,71 +3,97 @@
     "id": "first-session",
     "question": "What's a first session actually like?",
     "answer": "Wondering what to even say? You don't need to arrive with a tidy summary of your life. That's our job to help sort out together. Less like an interview and more like a conversation, we spend the first session getting a real picture of what's going on and what you're hoping will feel different, at whatever pace feels comfortable for you. Sessions run 50, 75, or 90 minutes depending on what you book, in person in Laguna Beach or by secure video.",
-    "tags": ["getting-started"],
+    "tags": [
+      "getting-started"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md, Booking and access; rate card session lengths (50/75/90 minute formats)"
   },
   {
     "id": "insurance-out-of-network",
     "question": "Do you take insurance?",
-    "answer": "We're an out-of-network practice, so we don't bill insurance directly. That's a deliberate choice: it lets us offer full-length sessions, protect your confidentiality, and skip the diagnostic labeling insurance reimbursement requires. We provide a Superbill at every session that you can submit to your PPO for out-of-network reimbursement. If cost is the thing holding you back from reaching out, that's worth a conversation, not a reason to wait.",
-    "tags": ["cost"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md, Insurance and rates (canonical positioning line, used verbatim)"
+    "answer": "We are out-of-network and do not bill insurance directly. If you have a PPO plan, we give you a Superbill at every session that you can submit to your insurer for possible out-of-network reimbursement. We do not accept HMO or EPO plans.\nWe accept payment at the time of service. Whether your plan reimburses you, and how much, is between you and your insurance company, so it is worth calling them before you start.",
+    "tags": [
+      "cost"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /fees (Kay-approved)",
+    "page": "/fees"
   },
   {
     "id": "beach-therapy-what-to-expect",
     "question": "What is Beach Therapy, and what should I expect from a session?",
-    "answer": "Beach Therapy is real therapy, the same depth of work, just outdoors, walking side by side along the Laguna coastline instead of sitting across a desk. It didn't start as a marketing idea. It started as an observation that people open up differently when they're moving and the ocean is doing a little of the talking. You can expect comfortable shoes, a conversation that unfolds at a walking pace, and the same confidentiality as any session. The beach isn't replacing therapy. It's creating conditions that let therapy happen differently.",
-    "tags": ["beach-therapy"],
+    "answer": "Beach Therapy is a real therapy session that happens while you walk the Laguna coastline with your therapist, instead of sitting in an office. It is the same confidential, professional care, but the setting itself helps: walking side by side often makes it easier to say the hard thing.\nThe beach is not replacing therapy. It is creating conditions that let therapy happen differently. Sometimes the environment matters.",
+    "tags": [
+      "beach-therapy"
+    ],
     "status": "draft",
-    "source": "CLIENT_FACTS.md, Approved origin stories (Beach Therapy origin, cleared for web use); voice-tone.md canonical pull-quotes"
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /beach-therapy (Kay-approved)",
+    "page": "/beach-therapy",
+    "blocked": "Kay sign-off required: Beach Therapy scope (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "tried-therapy-before",
     "question": "I've tried therapy before and it didn't really help. Why would this be different?",
-    "answer": "That's worth taking seriously, not brushing past. When someone tells me therapy didn't help, I don't assume they were resistant. Usually it just wasn't the right fit, or the work stayed up in your head and never quite reached the rest of you. So what would actually be different this time? We pay attention to both the thinking and the feeling, and we start by making sure you actually feel understood before we get to work on anything else.",
-    "tags": ["general"],
-    "status": "draft",
-    "source": "SITE_ARCHITECTURE.md /faq page brief, approved proof-voice quote from Kay"
+    "answer": "That is worth talking about, not a reason to give up. When someone tells us therapy did not help before, we do not assume they were resistant. Usually it just was not the right fit.\nFit is exactly what the [free Get to Know Us call](/get-started) is for.",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)",
+    "page": "/faq"
   },
   {
     "id": "how-do-i-know-who-to-see",
     "question": "How do I know who to see?",
     "answer": "Not sure who on the team would be the right fit? You don't have to figure that out alone. That's exactly what the free Get to Know Us call is for. Tell us what's going on, and we'll help match you with the right therapist, whether that's me directly or one of the associates I supervise. Most clients find the fit becomes obvious pretty quickly once they're actually talking to someone.",
-    "tags": ["getting-started"],
+    "tags": [
+      "getting-started"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md, Booking and access; team roster (associate-supervised model)"
   },
   {
     "id": "evenings-weekends",
     "question": "Do you offer evenings and weekends?",
-    "answer": "Yes. We know most people aren't free to talk about their inner lives at 2pm on a Tuesday, so evening and weekend availability is part of how we practice, alongside the free 15 to 20 minute Get to Know Us call to get you started.",
-    "tags": ["getting-started"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md, Differentiators (operational excellence: evening and weekend hours). Exact hours remain unconfirmed (CLIENT_FACTS.md Hours, FLAGGED, site vs Yelp conflict); answer intentionally stays qualitative, no specific times published."
+    "answer": "Yes to all three. Several therapists offer evening and weekend availability, and we provide secure online therapy to anyone located anywhere in California. Exact openings vary by therapist.\nLearn how [telehealth across California](/telehealth) works.",
+    "tags": [
+      "getting-started"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)",
+    "page": "/faq"
   },
   {
     "id": "telehealth-effectiveness",
     "question": "Is telehealth therapy as effective as coming in person?",
-    "answer": "Can a screen really hold the same kind of conversation as a room? For most people, yes. What matters most in therapy is the relationship and the work you do together, and that travels just fine over secure video. Some people even find it easier to be honest from somewhere they already feel safe. We see clients by telehealth anywhere in California (state licensing means we can only work with clients physically located in California), and in person at our Laguna Beach office.",
-    "tags": ["telehealth"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md, Services (telehealth, CA-only restriction); CONTENT_EVIDENCE.md telehealth framing guardrail (parity framing, no unverified efficacy statistic)"
+    "answer": "For most people and most concerns, yes. Research and our own experience both show online therapy can be just as effective as in-person work. What matters most is the relationship with your therapist, and that comes through the screen more than people expect.",
+    "tags": [
+      "telehealth"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /telehealth (Kay-approved)",
+    "page": "/telehealth"
   },
   {
     "id": "how-fast-seen",
     "question": "How fast can I be seen?",
-    "answer": "Usually within 24 hours of reaching out. The best first step is the free 15 to 20 minute Get to Know Us call, so we can hear what's going on and point you to the right person without a long wait to even start that conversation.",
-    "tags": ["general", "getting-started"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md, Booking and access (Be Seen Within 24 Hours access promise)"
+    "answer": "Usually within 24 hours. We hold time for people who are ready to start rather than keeping a long waitlist. Start with a free 20-minute call, or call (949) 357-3587.\nReady when you are. [Book your free call](/get-started).\n*End of FAQ knowledge base. 28 page blocks plus a master /faq, \\~100 questions. Every answer is in the approved brand voice (warm, direct, real), free of banned words, and leads with a direct answer for AI answer-engine citation. Rate specifics live only on /fees. Mark up each page's FAQ block with FAQPage schema matching the visible text exactly. Resolve the three gold-flagged items (Christian-counseling claim, Beach Therapy scope, addiction-recovery clinician) before those pages publish.*",
+    "tags": [
+      "general",
+      "getting-started"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)",
+    "page": "/faq"
   },
   {
     "id": "anxiety-get-better",
     "question": "Can anxiety actually get better, or do I manage it forever?",
     "answer": "It gets better. Not by force, and not overnight, but the racing thoughts quiet, the body settles, and the world opens back up. Most people are surprised how much lighter an ordinary day can feel once the alarm stops running the show.",
-    "tags": ["anxiety"],
+    "tags": [
+      "anxiety"
+    ],
     "status": "draft",
     "source": "Approved live copy, src/specialties/anxiety.njk; voice-tone.md structural recipe 5 (acknowledge, reframe, ground in hope)"
   },
@@ -75,7 +101,10 @@
     "id": "anxiety-telehealth",
     "question": "Do you offer anxiety counseling by telehealth?",
     "answer": "Yes. We work with clients across California by secure video, and in person in Laguna Beach, an easy drive from Newport Beach, Irvine, or Dana Point. For anxiety, telehealth is often a gentle way in: no traffic, no waiting room, and you're somewhere you already feel safe.",
-    "tags": ["anxiety", "telehealth"],
+    "tags": [
+      "anxiety",
+      "telehealth"
+    ],
     "status": "draft",
     "source": "Approved live copy, src/specialties/anxiety.njk; CLIENT_FACTS.md Service area and local targets"
   },
@@ -83,7 +112,9 @@
     "id": "couples-what-is-it",
     "question": "What is couples counseling, and how can it help my relationship?",
     "answer": "It's a chance for you and your partner to work through what's actually going on with someone trained to help you see the pattern, not just referee the argument. What does that actually look like? I'm pro-commitment, but I'm not attached to a particular outcome, and the work goes best when both of you are willing to look at the relationship as a system you're both part of, not a courtroom where one person is on trial. We also offer Discernment Counseling if you're not yet sure whether to work on the relationship or part ways.",
-    "tags": ["couples"],
+    "tags": [
+      "couples"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md, Services (Discernment Counseling, pro-commitment stance); voice-tone.md canonical couples pull-quotes"
   },
@@ -91,7 +122,9 @@
     "id": "family-counseling-benefits",
     "question": "What are the benefits of family counseling?",
     "answer": "A family session gives everyone a chance to say the hard thing out loud, in a room built to hold it. So what actually changes? Usually not who's right, but how the whole family responds to each other once the pattern gets named instead of just repeated. Families who do this work usually come out of it with more patience for each other, not less.",
-    "tags": ["families"],
+    "tags": [
+      "families"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md, Services (families listed among core service lines)"
   },
@@ -99,47 +132,63 @@
     "id": "medication-vs-therapy",
     "question": "Should I consider medication, therapy, or both?",
     "answer": "Which one is right for you? That's a conversation to have with your prescribing physician, not something we decide for you. Here's what therapy can offer either way: it addresses the patterns and the story underneath the symptom, which medication alone doesn't touch. Some clients do both. Some do just one. Either way, we're glad to work alongside whatever your medical team recommends.",
-    "tags": ["medication"],
+    "tags": [
+      "medication"
+    ],
     "status": "draft",
     "source": "No efficacy claim about combination treatment is published (unconfirmed, not present in CONTENT_EVIDENCE.md); scope intentionally limited to referral language, not a clinical or prescribing claim"
   },
   {
     "id": "faith-integrated",
     "question": "Do you offer faith-integrated counseling?",
-    "answer": "For clients who want their faith woven into the work, yes, faith-integrated counseling is something we offer. For clients who'd rather keep the focus elsewhere, that's just as welcome. We work with people of all faiths and none, and you're the one who decides how much your beliefs show up in the room.",
-    "tags": ["faith"],
+    "answer": "Yes, as much or as little as you want. Faith-based counseling integrates your spiritual values into the work when you want that, and respects them without making them the focus when you would rather keep the focus elsewhere. You set the terms.\nYou can weave faith into any of our services, including [couples therapy](/therapy/couples) and [individual therapy](/therapy/individuals).",
+    "tags": [
+      "faith"
+    ],
     "status": "draft",
-    "source": "CLIENT_FACTS.md, Modalities (confirmed: faith-integrated counseling). Does not attribute personal faith to any named therapist; no claim about staff religious background."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/faith-based (Kay-approved)",
+    "page": "/specialties/faith-based",
+    "blocked": "Kay sign-off required: Christian-counseling claim strength (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "depression-get-better",
     "question": "Can therapy really help my depression, or is this just how I'm wired?",
-    "answer": "That question is often depression talking, and it deserves an honest answer. Depression lies about its own permanence; it tells you this is the shape of you now. It isn't. For most people it lifts, not by force of will, but with the right support and some patience. We start by taking a little of the weight off, so the next step feels possible, then the one after that. Where there is healing, there is hope, and there's usually more room to move than depression lets you believe.",
-    "tags": ["depression"],
-    "status": "draft",
-    "source": "voice-tone.md structural recipe 5 (acknowledge, reframe, ground in hope) and secondary tagline; no outcome guarantee (CLIENT_FACTS.md, voice-tone.md); modality evidence base per CONTENT_EVIDENCE.md (approaches are evidence-based, no effect-size or prevalence claim)."
+    "answer": "For many people, yes. Therapy on its own helps a great deal with depression, and some people prefer to start there. For others, therapy works alongside medication prescribed by a physician. We help you think through what fits you, and coordinate with your doctor when that is useful.",
+    "tags": [
+      "depression"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/depression (Kay-approved)",
+    "page": "/specialties/depression"
   },
   {
     "id": "depression-not-sadness",
     "question": "What if I'm not really sad, more numb and unmotivated?",
     "answer": "Then you're describing something a lot of people don't realize is depression. It doesn't always look like crying. Often it looks like flatness, low fuel, a loss of interest in things that used to matter, trouble sleeping or sleeping too much. If the color has drained out of your days and pushing harder hasn't brought it back, that's worth a conversation, whatever you end up calling it. You don't need a formal diagnosis to reach out.",
-    "tags": ["depression"],
+    "tags": [
+      "depression"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; SITE_ARCHITECTURE.md /specialties/depression brief (what depression can look like day to day). Day-to-day presentation framed qualitatively, no diagnostic claim about the reader, no diagnosis in marketing (CLIENT_FACTS.md)."
   },
   {
     "id": "grief-timeline",
     "question": "How long is grief supposed to take? I feel like I should be over it by now.",
-    "answer": "There's no clock on this, and anyone who hands you one is guessing. Grief isn't a set of stages you pass through and then graduate from. It comes in waves, and the waves don't check your calendar. What changes, slowly, is not that they stop, but that you grow steadier at meeting them. If it still knocks you flat some days, you are not behind. You're grieving, and that takes as long as it takes.",
-    "tags": ["grief"],
-    "status": "draft",
-    "source": "voice-tone.md structural recipe 5; approved framing that grief has no fixed timeline or stage sequence; CLIENT_FACTS.md Susi Q grief-group authority. No clinical or diagnostic claim."
+    "answer": "There is no timeline for grief, and anyone who gives you one is wrong. Grief is not a problem to solve, it is something to carry, and it changes shape over time. Getting help makes sense whenever the weight of it is more than you can hold alone.\nWe support people through every kind of loss. Grief work connects closely with our [senior counseling](/therapy/seniors). Reach out for a [free call](/get-started) when you are ready.",
+    "tags": [
+      "grief"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/grief (Kay-approved)",
+    "page": "/specialties/grief"
   },
   {
     "id": "grief-when-to-seek",
     "question": "Is my loss big enough to need grief counseling?",
     "answer": "Yes. There's no threshold you have to clear to deserve support. A death, a divorce, a diagnosis, a home, a future you were counting on: if a loss has knocked the wind out of you, that is reason enough to bring it somewhere. You don't have to be falling apart, and you don't have to measure your loss against anyone else's. Grief counseling is a steady, honest place to set it down for an hour, with someone who won't rush you.",
-    "tags": ["grief"],
+    "tags": [
+      "grief"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; grief framing including non-death and disenfranchised loss; CLIENT_FACTS.md Susi Q grief-group authority. No diagnostic claim."
   },
@@ -147,7 +196,9 @@
     "id": "life-transitions-worth-it",
     "question": "Is a life change really a big enough reason to see a therapist?",
     "answer": "Yes. You don't have to be in crisis to deserve a steady hand through a big shift. Transition is actually one of the most useful times to come in, because you're between structures and the old ways of coping don't quite fit the new situation yet. Starting early tends to make the crossing shorter and a lot less lonely. You don't have to wait until you're underwater.",
-    "tags": ["life-transitions"],
+    "tags": [
+      "life-transitions"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; access framing (no crisis threshold required to seek support). No clinical or diagnostic claim."
   },
@@ -155,87 +206,122 @@
     "id": "life-transitions-unmoored",
     "question": "Why do I feel so unmoored when nothing is technically wrong?",
     "answer": "Because a transition doesn't only change your circumstances, it dismantles the scaffolding you had built your routines and your sense of self around. When that structure comes down, feeling wobbly isn't a sign something is wrong with you. It's the normal physics of standing in the gap between one chapter and the next. The work is rebuilding the scaffolding, one honest piece at a time.",
-    "tags": ["life-transitions"],
+    "tags": [
+      "life-transitions"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; the in-between / identity-scaffolding framing per SITE_ARCHITECTURE.md /specialties/life-transitions brief (why transitions destabilize). No diagnostic claim."
   },
   {
     "id": "faith-do-i-have-to-be-religious",
     "question": "Do I have to be Christian, or religious at all?",
-    "answer": "No, and you won't be pushed toward anything. This grew out of what used to be our Christian counseling, and we broadened it on purpose: we work with people of every faith and people of none. If your faith matters to you, it's welcome in the room as part of the work. If you're questioning, deconstructing, or you'd rather keep it respectfully to the side, that's welcome too. You set the terms, every time.",
-    "tags": ["faith"],
+    "answer": "Not at all. Faith is available if you want it and completely optional if you do not.\n#",
+    "tags": [
+      "faith"
+    ],
     "status": "draft",
-    "source": "CLIENT_FACTS.md Modalities (faith-integrated counseling, confirmed) and Redirects (Christian Counseling broadened to faith-based); voice-tone.md. Welcoming, non-exclusive framing; does not attribute a personal faith to any therapist or claim a religious agenda."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/faith-based (Kay-approved)",
+    "page": "/specialties/faith-based",
+    "blocked": "Kay sign-off required: Christian-counseling claim strength (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "neurodiversity-diagnosis",
     "question": "Do you diagnose ADHD or autism?",
-    "answer": "We're a therapy practice, not an assessment center, so we don't do formal ADHD or autism testing or hand out diagnoses. What we do is affirming therapy: support for living well with how your brain actually works, whether you have a formal diagnosis, a strong hunch, or a late-in-life realization that suddenly explains a lot. If a formal evaluation would help you, we can point you toward someone who does them.",
-    "tags": ["neurodiversity"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md Services (LBC is an outpatient therapy practice, not an assessment or diagnostic facility); voice-tone.md. Sets expectations honestly; no assessment or diagnostic claim, no unconfirmed specialty claim."
+    "answer": "Our focus is therapy and support rather than formal diagnostic testing. If a full assessment is what you need, we will help you understand that and point you toward the right resource. Many people come to us to live and cope well, with or without a formal label.",
+    "tags": [
+      "neurodiversity"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/neurodiversity (Kay-approved)",
+    "page": "/specialties/neurodiversity"
   },
   {
     "id": "neurodiversity-late-identified",
     "question": "I found out I'm neurodivergent later in life. Is it too late for this to help?",
     "answer": "Not even close. A lot of people arrive after a late realization, carrying years of wondering why the standard advice never worked for them. It never worked because it wasn't built for your wiring. It is not too late to stop running someone else's playbook. The work is building a life that fits how you're actually put together, and that is useful at any age.",
-    "tags": ["neurodiversity"],
+    "tags": [
+      "neurodiversity"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; affirming stance per SITE_ARCHITECTURE.md /specialties/neurodiversity brief. No diagnostic claim; frames therapy as affirming support, not a cure."
   },
   {
     "id": "beach-is-it-real-therapy",
     "question": "Is Beach Therapy real therapy, or just a walk?",
-    "answer": "It's real therapy. Same training, same depth, and the same standards of care and privacy. We've changed the setting, not the work. For a lot of people the walk is exactly what helps the work go deeper.",
-    "tags": ["beach-therapy"],
+    "answer": "You walk a quiet stretch of coastline with your therapist and talk, the same way you would in an office, just side by side and in motion. It is real therapy, not a beach activity: the conversation is the work, and the setting helps the words come more easily.\nIf a walk is not right for a given day, you can always move the session indoors or [online](/telehealth).",
+    "tags": [
+      "beach-therapy"
+    ],
     "status": "draft",
-    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ); CLIENT_FACTS.md Services (Beach Therapy, same depth of work outdoors)."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /beach-therapy (Kay-approved)",
+    "page": "/beach-therapy",
+    "blocked": "Kay sign-off required: Beach Therapy scope (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "beach-weather",
     "question": "What if the weather's bad?",
-    "answer": "A gray morning never means a missed week. We keep an office session on Third Street or a telehealth visit as backup, and we sort out the plan with you ahead of time. You're never left stranded.",
-    "tags": ["beach-therapy"],
+    "answer": "Wear whatever is comfortable to walk in, and bring sunglasses or a hat if you like. If the weather does not cooperate, you and your therapist reschedule or move the session indoors or online. Nothing about it is complicated.",
+    "tags": [
+      "beach-therapy"
+    ],
     "status": "draft",
-    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ); CLIENT_FACTS.md NAP (333 Third Street office) and Services (telehealth backup)."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /beach-therapy (Kay-approved)",
+    "page": "/beach-therapy",
+    "blocked": "Kay sign-off required: Beach Therapy scope (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "beach-privacy",
     "question": "Is it private? It's a public beach.",
-    "answer": "We take privacy seriously. We choose quiet times and stretches of coast, keep a natural distance from other people, and never use names within earshot. If a session ever feels too exposed, we move indoors. Your comfort comes first.",
-    "tags": ["beach-therapy"],
+    "answer": "It is private. Your therapist chooses quieter stretches of coastline and off-peak times, and to anyone passing by it looks like two people on a walk. Nothing about the conversation is visible to anyone else.\nRead more about [how Beach Therapy works](/beach-therapy), or [book a free call](/get-started) to try it.\n#",
+    "tags": [
+      "beach-therapy"
+    ],
     "status": "draft",
-    "source": "Approved reference design (reference/LBC_Beach_Therapy_Page.html FAQ). HIPAA-conscious privacy framing; no client-identifying detail."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /beach-therapy (Kay-approved)",
+    "page": "/beach-therapy",
+    "blocked": "Kay sign-off required: Beach Therapy scope (FAQ_KNOWLEDGE_BASE.md preamble)."
   },
   {
     "id": "infidelity-can-survive",
     "question": "Can a relationship actually survive an affair?",
-    "answer": "Many do, and some come out steadier than before, though the road there is real work, not a quick apology. Research on affair recovery finds that couples who commit to the process can rebuild to a healthy place, on par with other couples who do therapy. It isn't about deciding who was right. It's about understanding what happened, rebuilding trust in a structured way, and deciding together what you both want next. We never make one partner the villain.",
-    "tags": ["infidelity", "couples"],
-    "status": "draft",
-    "source": "CONTENT_EVIDENCE.md (affair-recovery outcomes, Atkins and colleagues; qualitative framing, no guaranteed outcome); voice-tone.md. Never assigns blame to one partner (SITE_ARCHITECTURE.md /specialties/infidelity flag)."
+    "answer": "Yes, many do. It is hard, and it takes honesty and time from both people, but affairs do not automatically mean the end of a relationship. With the right support, a lot of couples rebuild trust, and some describe their relationship afterward as more honest than it was before.\nThis work is part of our [couples therapy](/therapy/couples), and for couples who want to move faster, a [couples intensive with Kay](/couples-intensive) can help.",
+    "tags": [
+      "infidelity",
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/infidelity (Kay-approved)",
+    "page": "/specialties/infidelity"
   },
   {
     "id": "infidelity-decide-first",
     "question": "Do we have to decide whether to stay together before we start?",
     "answer": "No. A lot of couples come in not knowing yet, and that is allowed. The early work is about stabilizing things and understanding how you got here, not forcing a verdict. Some couples rebuild, some decide to part with more clarity and less bitterness. Either way, you don't have to have the answer before you walk in.",
-    "tags": ["infidelity", "couples"],
+    "tags": [
+      "infidelity",
+      "couples"
+    ],
     "status": "draft",
     "source": "voice-tone.md structural recipe 5; CLIENT_FACTS.md (Discernment Counseling; pro-commitment but not attached to a particular outcome). Non-blaming, no pressure toward a predetermined outcome."
   },
   {
     "id": "families-whole-family-or-one",
     "question": "Do you work with the whole family, or just the one person who's struggling?",
-    "answer": "Either, and often it's a mix. A lot of what hurts in a family lives in the space between people, not inside any one of them, so sometimes the most useful thing is to get everyone in one room. Other times we work with a parent alone, or with one member individually, and let that ripple outward. We start by understanding your particular family, then figure out together who needs to be in the room and when.",
-    "tags": ["families"],
-    "status": "draft",
-    "source": "CLIENT_FACTS.md Services (families among core service lines; family work); voice-tone.md systemic framing. Describes the practice's family approach, no invented program or unconfirmed modality."
+    "answer": "Not necessarily. Family therapy is flexible. Sometimes everyone meets together, sometimes the therapist works with a pair or an individual for a session, depending on what will help most. Your therapist will shape it around your family.",
+    "tags": [
+      "families"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/families (Kay-approved)",
+    "page": "/therapy/families"
   },
   {
     "id": "families-not-about-blame",
     "question": "Are you going to sit us down and decide it's the parents' fault?",
     "answer": "No. Hunting for the guilty party is one of the few things almost certain not to help. When a family is stuck, it's usually a pattern doing the damage, a loop everyone is caught in, not one villain who needs catching. So we name the pattern instead of the person, which tends to loosen things for everyone, parents included. You came in as a family, and that's how we'll work: as a team, not a trial.",
-    "tags": ["families"],
+    "tags": [
+      "families"
+    ],
     "status": "draft",
     "source": "SITE_ARCHITECTURE.md /therapy/families brief and voice-tone.md (systemic, no pathologizing of one member). No blame framing."
   },
@@ -243,23 +329,30 @@
     "id": "families-parenting-only",
     "question": "Can we come in just for parenting support, without the whole family?",
     "answer": "Absolutely. Plenty of parents come in on their own to think out loud with someone who won't hand them a pamphlet or a verdict. How do you hold a firm limit and stay warm at the same time? How do you parent the kid you actually have? We work on exactly those questions, whether or not the rest of the family ever comes to a session. Sometimes the fastest way to help a child is to support the grown-ups around them.",
-    "tags": ["families"],
+    "tags": [
+      "families"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md Services (parenting support); voice-tone.md. No invented facts."
   },
   {
     "id": "teens-confidentiality",
     "question": "Will you tell me everything my teenager says? Will they tell you everything I say?",
-    "answer": "Here's the honest answer, because it matters: a teen needs to trust that the room is theirs, or they won't really use it. So we protect their privacy and we don't report every word back home. What we will do is keep you in the loop on the things that matter for supporting them, and we'll always step in if there's a genuine safety concern. It's a balance, and holding it well is exactly what makes teen therapy work.",
-    "tags": ["teens"],
-    "status": "draft",
-    "source": "SITE_ARCHITECTURE.md /therapy/teens brief (age-appropriate; parents kept in the loop wisely); standard clinical confidentiality and duty-to-protect practice. No specific claim beyond standard ethics."
+    "answer": "Not word for word, and that is what makes the therapy work. Teens need to trust that they can speak freely. Your therapist keeps you involved in the big picture and will always tell you about genuine safety concerns, while protecting the day-to-day confidentiality your teen needs.",
+    "tags": [
+      "teens"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/teens (Kay-approved)",
+    "page": "/therapy/teens"
   },
   {
     "id": "teens-refuses-to-go",
     "question": "My teen flat-out refuses to go to therapy. Now what?",
     "answer": "You're not alone, this is one of the most common calls we get, because most teens don't sign themselves up. Sometimes the first step is a conversation with you, the parent, before your teen ever comes in. And some young people will walk into a group before they'll ever book a one-on-one session, which is part of why we run a lower-threshold Men's Support Group. The free call is a good place to figure out the least forced way in for your particular kid.",
-    "tags": ["teens"],
+    "tags": [
+      "teens"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md (Men's Support Group is a confirmed offering; free Get to Know Us call). Practitioner kept unnamed (the associate who leads teen work is departing in 2026, CLIENT_FACTS)."
   },
@@ -267,23 +360,30 @@
     "id": "teens-alone-or-family",
     "question": "Do you see my teen on their own, or does the whole family have to come?",
     "answer": "Usually your teen gets a room of their own, because a private space they don't have to share is often the whole point. That said, some of what a teenager is carrying is really a family pattern, so there are times we'll bring parents or the family in for part of the work. We stay flexible and go with what actually helps, rather than a one-size rule.",
-    "tags": ["teens"],
+    "tags": [
+      "teens"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md Services (teens and families among core service lines); voice-tone.md. No invented facts."
   },
   {
     "id": "children-what-it-looks-like",
     "question": "What does therapy even look like for a young child?",
-    "answer": "Warmer and more hands-on than you might picture, and a lot less like a tiny adult on a couch. For a young child, play is the work, not a break from it. Through games, drawing, and stories, a child processes big feelings at a size they can actually handle, and slowly builds words for what's going on. We meet your child where they are developmentally, so the room feels like discovery, not a lecture.",
-    "tags": ["children"],
-    "status": "draft",
-    "source": "SITE_ARCHITECTURE.md /therapy/children brief (developmentally-attuned); voice-tone.md. Approach described descriptively (play, art, stories); no formal named modality or credential (e.g. Registered Play Therapist) is claimed."
+    "answer": "For children, therapy often looks like play, art, and activity rather than sitting and talking, because that is how kids naturally express what they feel. The therapist builds trust first, then helps the child work through what is going on in a way that fits their age.\nWe help children with anxiety, big feelings, family changes, grief, and school stress, and we keep parents involved throughout. [Book a free consultation](/get-started).",
+    "tags": [
+      "children"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/children (Kay-approved)",
+    "page": "/therapy/children"
   },
   {
     "id": "children-cant-talk-about-feelings",
     "question": "My child can't sit still and talk about feelings. Can this really help?",
     "answer": "Yes, and honestly, that's most kids. A young child's first language isn't conversation, it's behavior and play. The meltdown over the wrong-colored cup, the tummy ache with no cause, the clinginess at drop-off, these are often a child saying something important in the only way they've got. Our job is to listen in their language rather than demand they learn ours first. Sitting and talking comes later, if at all.",
-    "tags": ["children"],
+    "tags": [
+      "children"
+    ],
     "status": "draft",
     "source": "voice-tone.md and the /therapy/children page framing (behavior and play as a child's first language). No diagnostic claim about any child."
   },
@@ -291,7 +391,9 @@
     "id": "children-parent-involved",
     "question": "Will you work with me, the parent, or just my kid?",
     "answer": "Both, and the parent part matters more than people expect. A child's therapy works best when the grown-ups around them are part of it, so alongside your child's sessions we help you understand what's underneath the behavior and how to respond in a way that helps. You are not being graded, and you are not the problem to be fixed. You know your child better than anyone; we just add some tools.",
-    "tags": ["children"],
+    "tags": [
+      "children"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md Services (children specialty; parenting support alongside); voice-tone.md."
   },
@@ -299,7 +401,9 @@
     "id": "sand-castle-what-is-it",
     "question": "What is Sand Castle Therapy?",
     "answer": "Sand Castle Therapy™ is a nature-based play therapy model developed by Kay Wenger, LMFT, LPCC, and Laguna Beach Counseling. A child builds a sandcastle on the beach while building trust with their therapist, and along the way uses sand, imagination, storytelling, and play to grow emotional resilience, coping skills, confidence, communication, and stronger family relationships. The tagline says it plainly: building resilience, one sand castle at a time. Sessions are offered after school and on weekends, so it fits around a family's actual week.",
-    "tags": ["sand-castle-therapy"],
+    "tags": [
+      "sand-castle-therapy"
+    ],
     "status": "draft",
     "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), recorded in CLIENT_FACTS.md Services. Unregistered mark only. No modality or credential claim beyond the CLIENT_FACTS confirmed list."
   },
@@ -307,7 +411,9 @@
     "id": "sand-castle-when-the-wave-comes",
     "question": "What happens when a wave knocks the castle down?",
     "answer": "That is not the session going wrong. It is often the most useful ten minutes of it. A wave arrives, a tower gives way, and a child gets to practice the hardest skills there are: feeling the disappointment, staying with it, and deciding to rebuild anyway. The therapist is right there while it happens, helping them name the feeling and find a next move. A castle is small enough for a child to handle and real enough to matter, which is what makes it such good practice for everything else.",
-    "tags": ["sand-castle-therapy"],
+    "tags": [
+      "sand-castle-therapy"
+    ],
     "status": "draft",
     "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), Pillar 4 (Repair): waves and accidents as practice in coping, flexibility, and resilience. No outcome promise, no diagnostic claim."
   },
@@ -315,23 +421,31 @@
     "id": "sand-castle-vs-office-play-therapy",
     "question": "How is this different from play therapy in an office?",
     "answer": "It is the same kind of real work, with the sky for a ceiling. Instead of sitting still indoors, children move, build, create, imagine, and settle a stirred-up body the way bodies naturally do outside, next to the water and an open horizon. For a lot of kids, that is the difference between enduring an appointment and forgetting they are in one. The beach becomes part of the healing rather than the scenery around it. When weather or fit calls for it, indoor sessions are always available.",
-    "tags": ["sand-castle-therapy"],
+    "tags": [
+      "sand-castle-therapy"
+    ],
     "status": "draft",
     "source": "Client-supplied Sand Castle Therapy materials (via Kay, August 2026), \"what makes it different\" section. Framed descriptively; no named modality, certification, or research claim."
   },
   {
     "id": "seniors-isolation-or-loss",
     "question": "Do you offer anything specifically for older adults dealing with isolation or loss?",
-    "answer": "Yes, and it's some of the work closest to my heart. I founded the senior mental-health program at the Susi Q, Laguna Beach Seniors, back in 2010, and built groups like Heart to Heart and Feeling the Blues around exactly this: grief, isolation, and the quiet losses that stack up in the later years. Whether it's one-on-one or a place to feel less alone with it, there's a spot for you. Most senior centers have plenty to do; we make room for the harder conversations too.",
-    "tags": ["seniors"],
+    "answer": "Yes, and it is close to Kay's heart. She helped create and runs the senior mental-health programs at the Susi Q community center in Laguna Beach, so this practice has deep roots in the challenges of later life: grief, retirement identity, caregiving, chronic illness, and loneliness. Some of our associates also have group therapy sessions, including a men’s group and divorce support.\nThat community work began when Kay's own father came to live with her. Read [how Kay's senior work started](/about/kay-wenger). For loss specifically, see [grief counseling](/specialties/grief).",
+    "tags": [
+      "seniors"
+    ],
     "status": "draft",
-    "source": "CLIENT_FACTS.md (Kay founded the Susi Q senior mental-health program in 2010 and still supervises it; Heart to Heart and Feeling the Blues are confirmed programs). Kay's first-person voice, approved Susi Q authority. Real facts only."
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/seniors (Kay-approved)",
+    "page": "/therapy/seniors",
+    "blocked": "Kay sign-off required: the approved wording says Kay 'helped create and runs' the Susi Q program and drops the 2010 date, while CLIENT_FACTS says she founded it, 2010 to present, a credential downgrade. It also adds a men's group, divorce support, and the detail that the work began when Kay's father came to live with her, none of which are in CLIENT_FACTS."
   },
   {
     "id": "seniors-not-tech-savvy",
     "question": "I'm not comfortable with video calls. Can I still see someone?",
     "answer": "Of course. If technology isn't your thing, come see us in person at our Laguna Beach office, no screens required. Telehealth is there if you'd rather not travel, but it's an option, never a requirement. We'll meet you whichever way feels easiest, and we won't make you feel silly about it either way.",
-    "tags": ["seniors"],
+    "tags": [
+      "seniors"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md Services (in-person Laguna Beach office; telehealth statewide CA) and persona 3 (senior tech-anxiety mitigated by the in-person option)."
   },
@@ -339,8 +453,817 @@
     "id": "seniors-adult-child-reaching-out",
     "question": "I'm worried about my aging parent. Can I reach out on their behalf?",
     "answer": "Yes, and it's a loving thing to do. A lot of our first calls about senior counseling come from an adult son or daughter, not the older person themselves. You're welcome to book the free call yourself to talk through what you're seeing and how to bring it up gently, before anyone commits to anything. Raising it is often the hardest part, and you don't have to figure that out alone.",
-    "tags": ["seniors"],
+    "tags": [
+      "seniors"
+    ],
     "status": "draft",
     "source": "CLIENT_FACTS.md persona 3 (seniors often searched for and contacted by adult children); Booking and access (free Get to Know Us call)."
+  },
+  {
+    "id": "home-do-i-need-to-know-exactly-what-is-wrong-before-i",
+    "question": "Do I need to know exactly what is wrong before I reach out?",
+    "answer": "No. Most people who contact us cannot quite put it into words yet, and that is completely normal. You do not need a diagnosis or a tidy explanation to start. Figuring out what is actually going on is part of the work.\nThe simplest first step is a [free 20-minute Get to Know Us call](/get-started). No pressure, no paperwork, just a conversation.",
+    "page": "/",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, / (Kay-approved)"
+  },
+  {
+    "id": "home-who-is-laguna-beach-counseling-for",
+    "question": "Who is Laguna Beach Counseling for?",
+    "answer": "We work with individuals, couples, families, teens, children, and seniors across Laguna Beach and South Orange County, and with anyone in California by telehealth. Whatever you are carrying, there is very likely a good fit for it on our team.\nYou can explore who we help by [the kind of support you want](/therapy/individuals) or by [what you are struggling with](/specialties/anxiety), or let us match you on a [free call](/get-started).",
+    "page": "/",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, / (Kay-approved)"
+  },
+  {
+    "id": "home-what-makes-this-practice-different-from-other-th",
+    "question": "What makes this practice different from other therapists in the area?",
+    "answer": "Three things: a team personally trained and supervised by founder Kay Wenger, more than 30 years of experience rooted in this specific community, and our signature Beach Therapy, private walk-and-talk sessions on the Laguna coastline that no other local practice offers.\nLearn more about [Kay Wenger and how the practice began](/about/kay-wenger), or about [Beach Therapy on the Laguna coastline](/beach-therapy).\n#",
+    "page": "/",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, / (Kay-approved)"
+  },
+  {
+    "id": "about-who-founded-laguna-beach-counseling",
+    "question": "Who founded Laguna Beach Counseling?",
+    "answer": "The practice was founded by Kay Wenger, a licensed marriage and family therapist and licensed professional clinical counselor with more than 30 years of experience. She built it to put excellent clinical care and genuine human warmth side by side.\nRead more [about Kay Wenger](/about/kay-wenger) and [our approach to therapy](/about/our-approach).",
+    "page": "/about",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about (Kay-approved)"
+  },
+  {
+    "id": "about-is-laguna-beach-counseling-a-big-therapy-chain",
+    "question": "Is Laguna Beach Counseling a big therapy chain?",
+    "answer": "No, and that is on purpose. We are a small, local, independently owned practice where the quality of the work matters more than the scale of the business. You will not be treated like another appointment on a calendar.\nMeet [the team you would actually work with](/about/our-team).",
+    "page": "/about",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about (Kay-approved)"
+  },
+  {
+    "id": "about-how-do-i-get-started",
+    "question": "How do I get started?",
+    "answer": "Start with a free 15 to 20 minute Get to Know Us call. It is a no-pressure way to tell us what is going on and let us match you with the right therapist. From there we schedule your first session.\nBook the [free Get to Know Us call](/get-started), or call (949) 357-3587.\n#",
+    "page": "/about",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about (Kay-approved)"
+  },
+  {
+    "id": "about-kay-wenger-who-is-kay-wenger",
+    "question": "Who is Kay Wenger?",
+    "answer": "Kay Wenger is the founder of Laguna Beach Counseling, a licensed marriage and family therapist and licensed professional clinical counselor with more than 30 years of clinical experience. She co-founded the National Registry of Marriage Friendly Therapists and spent three decades training therapists at Pepperdine University.\nShe also founded and runs the senior mental-health programs at the Susi Q community center, which anchors our [senior counseling](/therapy/seniors) work.",
+    "page": "/about/kay-wenger",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/kay-wenger (Kay-approved)"
+  },
+  {
+    "id": "about-kay-wenger-what-is-kay-s-approach-to-therapy",
+    "question": "What is Kay's approach to therapy?",
+    "answer": "Kay believes relationships heal people, not techniques. Methods matter, but they only work when you actually feel understood by the person across from you. So she trains the whole team to slow down, understand your experience first, and then help you move.\nRead more about [our therapy approach](/about/our-approach).",
+    "page": "/about/kay-wenger",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/kay-wenger (Kay-approved)"
+  },
+  {
+    "id": "about-kay-wenger-does-kay-see-clients-directly-or-only-supervise",
+    "question": "Does Kay see clients directly, or only supervise?",
+    "answer": "Both. Kay sees her own clients, including couples, individuals and the intensive one-day sessions, and she personally supervises every associate on the team. When you work with an associate, you are getting care shaped by Kay's three decades of experience.\nYou can request Kay specifically or ask us to match you on a [free call](/get-started). Note that Kay's session rates differ from the associates', shown on the [fees page](/fees).\n#",
+    "page": "/about/kay-wenger",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/kay-wenger (Kay-approved)"
+  },
+  {
+    "id": "about-our-team-how-do-i-know-which-therapist-is-right-for-me",
+    "question": "How do I know which therapist is right for me?",
+    "answer": "You do not have to figure that out alone. When you reach out, we learn a little about what you are looking for and match you with the therapist who fits, rather than whoever happens to be free. Fit is the single biggest predictor of whether therapy helps.\nTell us what you are navigating on a [free Get to Know Us call](/get-started) and we will point you to the right person.",
+    "page": "/about/our-team",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-team (Kay-approved)"
+  },
+  {
+    "id": "about-our-team-are-your-therapists-licensed",
+    "question": "Are your therapists licensed?",
+    "answer": "Every therapist on our team holds a clinical license or is a registered associate working toward full licensure under supervision. All associates are personally supervised by founder Kay Wenger, who is a licensed marriage and family therapist and licensed professional clinical counselor.",
+    "page": "/about/our-team",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-team (Kay-approved)"
+  },
+  {
+    "id": "about-our-team-can-i-choose-my-own-therapist",
+    "question": "Can I choose my own therapist?",
+    "answer": "Yes. If you already know who you would like to work with, or you would prefer to see Kay specifically, just tell us. If you are not sure, we are glad to match you based on what you are looking for.\nStart with a [free consultation](/get-started).\n#",
+    "page": "/about/our-team",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-team (Kay-approved)"
+  },
+  {
+    "id": "about-our-approach-what-is-your-approach-to-therapy",
+    "question": "What is your approach to therapy?",
+    "answer": "We believe relationships heal people, not techniques. Tools and methods matter, but they only work when you feel understood by the person across from you. So we slow down, get to know what is really going on, and then help you move.\nThat means you leave sessions with two things: the sense that you were heard, and something practical to work with. [Book a free fit call](/get-started) to see how it feels.",
+    "page": "/about/our-approach",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-approach (Kay-approved)"
+  },
+  {
+    "id": "about-our-approach-how-long-will-i-need-to-be-in-therapy",
+    "question": "How long will I need to be in therapy?",
+    "answer": "It depends on what you are working on, and we will be honest with you about it. Some people come for a specific issue and finish in a few months. Others value ongoing support. We work toward your goals, not toward keeping you in the room.",
+    "page": "/about/our-approach",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-approach (Kay-approved)"
+  },
+  {
+    "id": "about-our-approach-will-therapy-actually-change-anything",
+    "question": "Will therapy actually change anything?",
+    "answer": "It can, and the changes are usually pretty ordinary in the best way. Conversations that used to end in arguments get easier. Decisions get clearer. You spend less energy managing anxiety or resentment and have more left for actually living.\nThe goal is not a perfect life. It is having the tools and resilience to handle a real one. [Start with a free call](/get-started).\n**SECTION 2**\n**Who we help  ·  /therapy**\n#",
+    "page": "/about/our-approach",
+    "tags": [
+      "about"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /about/our-approach (Kay-approved)"
+  },
+  {
+    "id": "therapy-individuals-what-can-individual-therapy-help-with",
+    "question": "What can individual therapy help with?",
+    "answer": "Individual therapy helps with anxiety, depression, stress and burnout, self-esteem, grief, life transitions, and the quieter sense that something needs to change even when you cannot name it. You do not need to be in crisis to benefit.\nIf a specific concern brought you here, read about [anxiety therapy](/specialties/anxiety), [depression therapy](/specialties/depression), or [counseling for life transitions](/specialties/life-transitions).",
+    "page": "/therapy/individuals",
+    "tags": [
+      "individuals"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/individuals (Kay-approved)"
+  },
+  {
+    "id": "therapy-individuals-how-do-i-know-if-i-need-therapy-or-if-i-am-just",
+    "question": "How do I know if I need therapy or if I am just stressed?",
+    "answer": "A good rule of thumb: if something has been weighing on you long enough that you are wondering whether this is just how it is going to feel, that is reason enough to talk to someone. You do not have to hit a crisis to deserve support.",
+    "page": "/therapy/individuals",
+    "tags": [
+      "individuals"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/individuals (Kay-approved)"
+  },
+  {
+    "id": "therapy-individuals-what-if-i-have-tried-therapy-before-and-it-did-n",
+    "question": "What if I have tried therapy before and it did not help?",
+    "answer": "That is worth talking about, not a reason to give up. When someone tells us therapy did not help before, we do not assume they were resistant. Usually it just was not the right fit, and fit is exactly what we pay attention to.\nThe [free Get to Know Us call](/get-started) is a low-pressure way to find out whether one of our therapists is the right person this time.\n#",
+    "page": "/therapy/individuals",
+    "tags": [
+      "individuals"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/individuals (Kay-approved)"
+  },
+  {
+    "id": "therapy-couples-when-should-a-couple-start-therapy",
+    "question": "When should a couple start therapy?",
+    "answer": "Sooner than most couples think. You do not have to be in crisis. If you are having the same argument over and over, feeling more like roommates than partners, or sensing a distance you cannot explain, that is a good time to come in.\nIf trust has been broken, see [infidelity and affair recovery](/specialties/infidelity). If you are unsure whether to stay together at all, [discernment counseling](/discernment-counseling) may be the right first step.",
+    "page": "/therapy/couples",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/couples (Kay-approved)"
+  },
+  {
+    "id": "therapy-couples-do-you-offer-premarital-counseling",
+    "question": "Do you offer premarital counseling?",
+    "answer": "Yes, and it is some of our favorite work, because it helps couples build strong habits before the hard seasons arrive rather than after. It covers communication, expectations, money, family, and the conversations that are easy to skip while planning a wedding.\nPremarital work is part of our [couples therapy](/therapy/couples). Start with a [free consultation](/get-started).",
+    "page": "/therapy/couples",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/couples (Kay-approved)"
+  },
+  {
+    "id": "therapy-couples-do-we-always-meet-together-or-can-we-each-talk-t",
+    "question": "Do we always meet together, or can we each talk to the therapist alone?",
+    "answer": "Most couples sessions are held with both of you together, which is where the real work happens. That said, there is room for each of you to meet with the therapist individually when it helps, so both partners feel heard.\nSessions run 50 to 90 minutes, in person or [online anywhere in California](/telehealth).",
+    "page": "/therapy/couples",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/couples (Kay-approved)"
+  },
+  {
+    "id": "therapy-couples-will-a-therapist-take-sides-or-push-us-to-stay-t",
+    "question": "Will a therapist take sides, or push us to stay together or split up?",
+    "answer": "Neither. We are pro-commitment but not attached to a particular outcome. The job is not to push you toward staying or leaving, it is to help you both get clear, talk honestly, and make a decision you can actually live with.\nWhen a couple is genuinely on the fence, [discernment counseling](/discernment-counseling) is a short, structured way to find clarity first.\n#",
+    "page": "/therapy/couples",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/couples (Kay-approved)"
+  },
+  {
+    "id": "therapy-families-what-does-family-therapy-help-with",
+    "question": "What does family therapy help with?",
+    "answer": "Family therapy helps when the tension is between people rather than inside one person: parent and teen conflict, communication that keeps breaking down, big transitions, or the long work of rebuilding trust. We help the family work as a system rather than looking for someone to blame.\nIf the concern centers on a teenager or younger child, you may also want [teen therapy](/therapy/teens) or [child therapy](/therapy/children).",
+    "page": "/therapy/families",
+    "tags": [
+      "families"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/families (Kay-approved)"
+  },
+  {
+    "id": "therapy-families-can-family-therapy-help-with-a-teenager-who-will",
+    "question": "Can family therapy help with a teenager who will not open up?",
+    "answer": "Often, yes. A skilled therapist gives a reluctant teen room to trust the process at their own pace, and helps the rest of the family communicate in a way that invites the teen in rather than pushing them further out.\nLearn more about [therapy for teens](/therapy/teens), or [book a free call](/get-started).\n#",
+    "page": "/therapy/families",
+    "tags": [
+      "families"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/families (Kay-approved)"
+  },
+  {
+    "id": "therapy-teens-how-do-i-know-if-my-teenager-needs-therapy",
+    "question": "How do I know if my teenager needs therapy?",
+    "answer": "Watch for changes that last more than a couple of weeks: pulling away from friends or family, slipping grades, sleeping or eating very differently, ongoing irritability or sadness, or losing interest in things they used to love. When those stick around, therapy can help.\nWe work with teens on anxiety, depression, anger, and self-esteem, and this is also home to [mother-and-daughter counseling](/therapy/teens).",
+    "page": "/therapy/teens",
+    "tags": [
+      "teens"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/teens (Kay-approved)"
+  },
+  {
+    "id": "therapy-teens-do-you-offer-therapy-for-young-adults",
+    "question": "Do you offer therapy for young adults?",
+    "answer": "Yes. The stretch from the late teens into the twenties has its own challenges, from identity and independence to career pressure and relationships. We help young adults navigate that season with support that fits where they actually are.\nThis overlaps with our [individual therapy](/therapy/individuals). Start with a [free consultation](/get-started).\n#",
+    "page": "/therapy/teens",
+    "tags": [
+      "teens"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/teens (Kay-approved)"
+  },
+  {
+    "id": "therapy-children-how-do-i-know-if-my-child-needs-to-see-a-therapi",
+    "question": "How do I know if my child needs to see a therapist?",
+    "answer": "Trust your instincts, and watch for changes that last: new fears or clinginess, trouble sleeping, big shifts in mood or behavior, withdrawal, or struggles at school. If something feels off for more than a few weeks, a conversation with a therapist can help.",
+    "page": "/therapy/children",
+    "tags": [
+      "children"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/children (Kay-approved)"
+  },
+  {
+    "id": "therapy-children-will-i-be-involved-in-my-child-s-therapy",
+    "question": "Will I be involved in my child's therapy?",
+    "answer": "Yes. With younger children especially, parents are part of the work. Your therapist keeps you informed, gives you practical ways to support your child at home, and partners with you rather than working around you.\nLearn more about [child therapy in Laguna Beach](/therapy/children).\n#",
+    "page": "/therapy/children",
+    "tags": [
+      "children"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/children (Kay-approved)"
+  },
+  {
+    "id": "therapy-seniors-is-therapy-really-worth-it-later-in-life",
+    "question": "Is therapy really worth it later in life?",
+    "answer": "Absolutely. There is no age at which it stops being worth understanding yourself better or feeling less alone. Many older adults tell us they wish they had come in sooner. Later life brings real transitions, and support through them makes a genuine difference.",
+    "page": "/therapy/seniors",
+    "tags": [
+      "seniors"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/seniors (Kay-approved)"
+  },
+  {
+    "id": "therapy-seniors-can-we-meet-somewhere-easier-than-an-office",
+    "question": "Can we meet somewhere easier than an office?",
+    "answer": "Yes. We offer sessions in our Laguna Beach office, secure video sessions from home anywhere in California, and for some clients the option of a gentle walk-and-talk session by the coast. We will find the format that feels most comfortable. If you’re closer to Irvine, we can meet at our sister office as well.\nLearn about [telehealth across California](/telehealth) and [Beach Therapy](/beach-therapy).\n**SECTION 3**\n**What people struggle with  ·  /specialties**\n#",
+    "page": "/therapy/seniors",
+    "tags": [
+      "seniors"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /therapy/seniors (Kay-approved)"
+  },
+  {
+    "id": "specialties-anxiety-how-do-i-know-if-i-have-anxiety-or-if-i-am-just",
+    "question": "How do I know if I have anxiety or if I am just a worrier?",
+    "answer": "A useful line: worry visits, anxiety moves in. If the worry is constant, hard to switch off, and starting to affect your sleep, your body, your work, or your relationships, that is worth talking to someone about. You do not have to wait until it is unbearable.\nAnxiety convinces you the worst-case scenario is also the most likely one. That is not a character flaw, it is your nervous system doing its job a little too well. Understanding that is often where the work starts.\nWe help with generalized anxiety, panic attacks, phobias, and social anxiety. [Book a free call](/get-started).",
+    "page": "/specialties/anxiety",
+    "tags": [
+      "anxiety"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/anxiety (Kay-approved)"
+  },
+  {
+    "id": "specialties-anxiety-can-therapy-actually-help-with-panic-attacks",
+    "question": "Can therapy actually help with panic attacks?",
+    "answer": "Yes. Panic attacks feel dangerous but are treatable, and therapy is one of the most effective ways to reduce how often they happen and how much they frighten you. You can learn what is happening in your body and how to respond to it differently.",
+    "page": "/specialties/anxiety",
+    "tags": [
+      "anxiety"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/anxiety (Kay-approved)"
+  },
+  {
+    "id": "specialties-anxiety-does-anxiety-therapy-help-with-social-anxiety-an",
+    "question": "Does anxiety therapy help with social anxiety and phobias?",
+    "answer": "Yes. Social anxiety and specific phobias both respond well to therapy. The work helps you understand what is driving the fear and build real, gradual confidence in the situations that have felt off-limits, at a pace that feels manageable.\nThis is part of our [individual therapy](/therapy/individuals) for adults, teens, and children.\n#",
+    "page": "/specialties/anxiety",
+    "tags": [
+      "anxiety"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/anxiety (Kay-approved)"
+  },
+  {
+    "id": "specialties-depression-how-do-i-know-if-it-is-depression-or-just-a-roug",
+    "question": "How do I know if it is depression or just a rough patch?",
+    "answer": "The clue is usually time and reach. A rough patch lifts. Depression tends to stay for weeks and spread into everything, draining your energy, your interest, and your hope. If getting through an ordinary day has started to feel like a lot, it is worth talking to someone.\nDepression is treatable, and you do not have to wait until you hit bottom. [Start with a free consultation](/get-started).\n*If you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.*",
+    "page": "/specialties/depression",
+    "tags": [
+      "depression"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/depression (Kay-approved)"
+  },
+  {
+    "id": "specialties-depression-i-do-not-even-have-the-energy-to-start-what-is-t",
+    "question": "I do not even have the energy to start. What is the first step?",
+    "answer": "Start as small as it needs to be. One free 15 to 20 minute phone call, where you do not have to explain everything or have it figured out. Depression makes starting feel enormous, so we keep that very first step as light as possible.\nWhen you are ready, [book the free call](/get-started), or call (949) 357-3587.\n#",
+    "page": "/specialties/depression",
+    "tags": [
+      "depression"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/depression (Kay-approved)"
+  },
+  {
+    "id": "specialties-grief-is-it-normal-to-still-be-grieving-after-a-long-t",
+    "question": "Is it normal to still be grieving after a long time?",
+    "answer": "Completely normal. Grief does not run on a schedule, and it can resurface around anniversaries, holidays, or out of nowhere. That does not mean something is wrong with you. It means the loss mattered. Therapy can help you carry it.\n*If you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.*",
+    "page": "/specialties/grief",
+    "tags": [
+      "grief"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/grief (Kay-approved)"
+  },
+  {
+    "id": "specialties-grief-can-you-help-with-grief-that-is-not-about-a-deat",
+    "question": "Can you help with grief that is not about a death?",
+    "answer": "Yes. Grief follows many kinds of loss: a divorce, a diagnosis, a move, a job, a friendship, the life you thought you would have. All of it is real, and all of it is worth support. You do not have to justify your grief to work on it.\nThis overlaps with our [life transitions counseling](/specialties/life-transitions).\n#",
+    "page": "/specialties/grief",
+    "tags": [
+      "grief"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/grief (Kay-approved)"
+  },
+  {
+    "id": "specialties-life-transitions-can-therapy-help-with-a-major-life-change-even-i",
+    "question": "Can therapy help with a major life change even if nothing is wrong?",
+    "answer": "Yes. You do not need a problem to benefit from support through a transition. New job, new city, new baby, empty nest, divorce, retirement, a diagnosis. Even good changes ask a lot of us, and having someone to think it through with helps you land on your feet.\nThis is core to our [individual therapy](/therapy/individuals). [Book a free consultation](/get-started).",
+    "page": "/specialties/life-transitions",
+    "tags": [
+      "life-transitions"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/life-transitions (Kay-approved)"
+  },
+  {
+    "id": "specialties-life-transitions-is-it-normal-to-feel-lost-even-when-the-change-i",
+    "question": "Is it normal to feel lost even when the change is a good one?",
+    "answer": "Very. A promotion, a wedding, a move somewhere beautiful, a long-awaited retirement. Good changes still ask you to let go of something familiar, and that can leave you unexpectedly unmoored. That feeling is worth taking seriously, not brushing off.",
+    "page": "/specialties/life-transitions",
+    "tags": [
+      "life-transitions"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/life-transitions (Kay-approved)"
+  },
+  {
+    "id": "specialties-life-transitions-how-is-transition-counseling-different-from-regu",
+    "question": "How is transition counseling different from regular therapy?",
+    "answer": "It is regular therapy, focused. Instead of open-ended work, it centers on the specific change you are moving through: what you are losing, what you are stepping into, and how to steady yourself in between. Many people come for a defined stretch rather than indefinitely.\n#",
+    "page": "/specialties/life-transitions",
+    "tags": [
+      "life-transitions"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/life-transitions (Kay-approved)"
+  },
+  {
+    "id": "specialties-infidelity-should-we-start-couples-therapy-right-away-after",
+    "question": "Should we start couples therapy right away after an affair?",
+    "answer": "When you are both willing to be in the room, yes, sooner tends to help. Early support can keep the first raw weeks from doing more damage and give you a structured, steadier place to have the hardest conversations. If one of you is unsure the relationship should continue, that is worth naming too.\nIf one partner is genuinely undecided, [discernment counseling](/discernment-counseling) is designed for exactly that.",
+    "page": "/specialties/infidelity",
+    "tags": [
+      "infidelity"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/infidelity (Kay-approved)"
+  },
+  {
+    "id": "specialties-infidelity-do-you-take-sides-if-there-has-been-an-affair",
+    "question": "Do you take sides if there has been an affair?",
+    "answer": "No. We do not assign a villain and a victim. Both people are hurting, in different ways, and both need to be understood for the relationship to have a real chance. We stay curious about what happened rather than putting anyone on trial.\nStart with a [free consultation](/get-started).\n#",
+    "page": "/specialties/infidelity",
+    "tags": [
+      "infidelity"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/infidelity (Kay-approved)"
+  },
+  {
+    "id": "specialties-conflict-resolution-we-keep-having-the-same-fight-can-therapy-fix-th",
+    "question": "We keep having the same fight. Can therapy fix that?",
+    "answer": "Usually, yes, because the repeating fight is rarely about what it looks like on the surface. Therapy helps you see the pattern underneath the argument, the one you cannot spot while you are in it, and change how the two of you get stuck.\nThis is core to our [couples therapy in Laguna Beach](/therapy/couples). [Book a free fit call](/get-started).",
+    "page": "/specialties/conflict-resolution",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/conflict-resolution (Kay-approved)"
+  },
+  {
+    "id": "specialties-conflict-resolution-is-it-too-late-if-we-have-been-fighting-like-thi",
+    "question": "Is it too late if we have been fighting like this for years?",
+    "answer": "It is rarely too late. Long-standing patterns are more worn-in, not permanent. Couples who have been stuck for years regularly find that once they can finally see the cycle clearly, it starts to loosen. The length of the pattern matters less than the willingness to look at it.",
+    "page": "/specialties/conflict-resolution",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/conflict-resolution (Kay-approved)"
+  },
+  {
+    "id": "specialties-conflict-resolution-what-if-only-one-of-us-wants-to-work-on-it",
+    "question": "What if only one of us wants to work on it?",
+    "answer": "That happens often, and it is workable. It helps enormously if both partners come, but change can start even when one person is more hopeful than the other. What matters most is a willingness to show up and stay curious about the relationship as a whole.\nStart with a [free call](/get-started) and we will talk it through.\n#",
+    "page": "/specialties/conflict-resolution",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/conflict-resolution (Kay-approved)"
+  },
+  {
+    "id": "specialties-neurodiversity-do-you-offer-neurodivergent-affirming-therapy-fo",
+    "question": "Do you offer neurodivergent-affirming therapy for ADHD or autism?",
+    "answer": "Yes. We offer therapy that treats being neurodivergent as a different way of being wired, not a defect to be corrected. The goal is to help you work with how your brain actually functions rather than against it, and to feel understood while you do it.\nThis support runs through our [individual therapy](/therapy/individuals) and [child therapy](/therapy/children).",
+    "page": "/specialties/neurodiversity",
+    "tags": [
+      "neurodiversity"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/neurodiversity (Kay-approved)"
+  },
+  {
+    "id": "specialties-neurodiversity-can-therapy-help-a-neurodivergent-child-or-teen",
+    "question": "Can therapy help a neurodivergent child or teen?",
+    "answer": "Yes. We help neurodivergent kids and teens build on their strengths, understand their own wiring, and navigate school, friendships, and big feelings, while giving parents practical ways to support them at home.\nSee [child therapy](/therapy/children) and [teen therapy](/therapy/teens), or [book a free call](/get-started).\n#",
+    "page": "/specialties/neurodiversity",
+    "tags": [
+      "neurodiversity"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/neurodiversity (Kay-approved)"
+  },
+  {
+    "id": "specialties-faith-based-do-you-offer-christian-counseling",
+    "question": "Do you offer Christian counseling?",
+    "answer": "Yes. Several of our therapists are comfortable bringing a Christian perspective into the work when that is what you are looking for, at whatever depth feels right to you. We also work with people of every other faith and no faith at all, so you are welcome here either way.\nTell us what you are hoping for on a [free Get to Know Us call](/get-started), and we will match you with the right therapist.",
+    "page": "/specialties/faith-based",
+    "tags": [
+      "faith"
+    ],
+    "status": "draft",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/faith-based (Kay-approved)",
+    "blocked": "Kay sign-off required: Christian-counseling claim strength (FAQ_KNOWLEDGE_BASE.md preamble)."
+  },
+  {
+    "id": "specialties-addiction-recovery-do-you-help-with-addiction-and-recovery",
+    "question": "Do you help with addiction and recovery?",
+    "answer": "We support people in recovery and the families around them, with a non-shaming approach that treats the whole person. Note that we are a counseling practice, not a detox or residential treatment facility, so for some situations we help alongside a higher level of care.\nThis work connects with our [individual therapy](/therapy/individuals) and [family therapy](/therapy/families).",
+    "page": "/specialties/addiction-recovery",
+    "tags": [
+      "addiction-recovery"
+    ],
+    "status": "draft",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/addiction-recovery (Kay-approved)",
+    "blocked": "Kay sign-off required: name no clinician until substance-use coverage is confirmed (Austin departing 2026)."
+  },
+  {
+    "id": "specialties-addiction-recovery-can-therapy-help-my-family-if-someone-we-love-is",
+    "question": "Can therapy help my family if someone we love is struggling with addiction?",
+    "answer": "Yes. Addiction affects everyone around it, and the people who love someone in the grip of it often carry enormous stress, worry, and guilt. Therapy gives family members their own place to process, set healthy boundaries, and take care of themselves too.\nSee [family therapy](/therapy/families), or [book a free call](/get-started).",
+    "page": "/specialties/addiction-recovery",
+    "tags": [
+      "addiction-recovery"
+    ],
+    "status": "draft",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/addiction-recovery (Kay-approved)",
+    "blocked": "Kay sign-off required: name no clinician until substance-use coverage is confirmed (Austin departing 2026)."
+  },
+  {
+    "id": "specialties-addiction-recovery-is-your-approach-to-addiction-shaming-or-judgmen",
+    "question": "Is your approach to addiction shaming or judgmental?",
+    "answer": "Never. Shame keeps people stuck; it does not help them heal. We meet you as a whole person, not a diagnosis or a habit, and we work with genuine respect for how hard this is and how much strength it takes to reach out at all.\n**SECTION 4**\n**Signature services**\n#",
+    "page": "/specialties/addiction-recovery",
+    "tags": [
+      "addiction-recovery"
+    ],
+    "status": "draft",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /specialties/addiction-recovery (Kay-approved)",
+    "blocked": "Kay sign-off required: name no clinician until substance-use coverage is confirmed (Austin departing 2026)."
+  },
+  {
+    "id": "couples-intensive-what-is-a-couples-intensive",
+    "question": "What is a couples intensive?",
+    "answer": "A couples intensive is a single focused day of therapy with Kay, running 4 to 8 hours with breaks, instead of spreading the work across many weekly sessions. It is designed for couples who want to make real progress faster, including couples working through infidelity.\nIntensives are priced separately from regular sessions. [Contact us about an intensive](/contact). Related: [couples therapy](/therapy/couples) and [infidelity recovery](/specialties/infidelity).",
+    "page": "/couples-intensive",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /couples-intensive (Kay-approved)"
+  },
+  {
+    "id": "couples-intensive-who-is-a-couples-intensive-right-for",
+    "question": "Who is a couples intensive right for?",
+    "answer": "Couples who want momentum: partners recovering from an affair, couples stuck in the same loop for years, or people whose schedules make weekly sessions hard to sustain. A concentrated day can move things that weekly hours sometimes cannot.",
+    "page": "/couples-intensive",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /couples-intensive (Kay-approved)"
+  },
+  {
+    "id": "couples-intensive-what-does-a-typical-intensive-day-look-like",
+    "question": "What does a typical intensive day look like?",
+    "answer": "A full day of focused work with Kay, structured around your specific situation, with breaks built in so it stays humane rather than exhausting. You leave with real clarity and a plan, not just a longer conversation.\nReach out to [ask about scheduling an intensive](/contact).\n#",
+    "page": "/couples-intensive",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /couples-intensive (Kay-approved)"
+  },
+  {
+    "id": "discernment-counseling-what-is-discernment-counseling-and-how-is-it-dif",
+    "question": "What is discernment counseling, and how is it different from couples therapy?",
+    "answer": "Discernment counseling is short-term help for couples on the brink, especially when one person is leaning out of the relationship and the other is leaning in. It is not about fixing the marriage in the room. It is about gaining enough clarity to choose a direction with confidence, usually in one to five sessions.\nIt is pro-commitment, never pro-pressure. The goal is a clear-eyed decision you can live with, whichever way it goes. If you both decide to work on the relationship, that is when couples therapy begins.",
+    "page": "/discernment-counseling",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /discernment-counseling (Kay-approved)"
+  },
+  {
+    "id": "discernment-counseling-is-discernment-counseling-just-a-step-toward-div",
+    "question": "Is discernment counseling just a step toward divorce?",
+    "answer": "No. It is a step toward clarity, and clarity sometimes leads to recommitting to the relationship with new energy. The point is to help you decide on purpose rather than by drift or exhaustion, whatever that decision turns out to be.\nIf you choose to work on the relationship, our [couples therapy](/therapy/couples) is the next step.",
+    "page": "/discernment-counseling",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /discernment-counseling (Kay-approved)"
+  },
+  {
+    "id": "discernment-counseling-what-if-my-partner-and-i-want-different-things",
+    "question": "What if my partner and I want different things?",
+    "answer": "That is exactly who discernment counseling is for. It is built for the situation where one of you is leaning out and the other is leaning in. Each of you gets heard, and the structure helps you reach a decision together instead of staying stuck.\nStart with a [free consultation](/get-started).\n#",
+    "page": "/discernment-counseling",
+    "tags": [
+      "couples"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /discernment-counseling (Kay-approved)"
+  },
+  {
+    "id": "telehealth-do-you-offer-online-therapy-in-california",
+    "question": "Do you offer online therapy in California?",
+    "answer": "Yes. We offer secure, HIPAA-compliant online therapy to anyone located anywhere in California. It is the same therapists and the same quality of care as in-person, just from wherever you are in the state.\nBecause we are licensed in California, we can only work with clients who are physically in the state during the session. [Book a free consultation](/get-started).",
+    "page": "/telehealth",
+    "tags": [
+      "telehealth"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /telehealth (Kay-approved)"
+  },
+  {
+    "id": "telehealth-what-do-i-need-for-a-telehealth-session",
+    "question": "What do I need for a telehealth session?",
+    "answer": "A private space, a stable internet connection, and a phone, tablet, or computer with a camera. We send a secure link, and you join from wherever you feel comfortable. No special software to buy, nothing complicated to set up.\nSee our full [team](/about/our-team), all available by telehealth across California.\n**SECTION 5**\n**Practical & conversion pages**\n#",
+    "page": "/telehealth",
+    "tags": [
+      "telehealth"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /telehealth (Kay-approved)"
+  },
+  {
+    "id": "fees-how-much-does-therapy-cost-at-laguna-beach-couns",
+    "question": "How much does therapy cost at Laguna Beach Counseling?",
+    "answer": "Sessions with our associate therapists range from about $160 to $315, and sessions with founder Kay Wenger range from about $190 to $220.00, depending on session length and whether it is individual, couples, or family work. The full rate card is on this page.\nOur 50-minute sessions are the most popular. Longer 75- and 90-minute sessions are available for more complex situations, or for anyone who feels the extra time would help.\nKay also offers [couples intensives](/couples-intensive), single days of focused work priced separately.",
+    "page": "/fees",
+    "tags": [
+      "cost"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /fees (Kay-approved)"
+  },
+  {
+    "id": "fees-why-are-you-out-of-network-instead-of-taking-ins",
+    "question": "Why are you out-of-network instead of taking insurance?",
+    "answer": "Because it lets us do better work. Staying out-of-network means we can offer full-length sessions, protect your privacy, and make clinical decisions based on what you need rather than what an insurance reviewer will approve.\nThree real reasons sit behind it. Session length: insurance often pushes therapists toward 45-minute sessions, and we would rather give you the full 50, 75, or 90 minutes. Confidentiality: billing insurance requires putting a diagnosis on your permanent record, and out-of-network work means you can do personal or relationship work without a label following you. Autonomy: we design your care with you, not around a utilization reviewer.",
+    "page": "/fees",
+    "tags": [
+      "cost"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /fees (Kay-approved)"
+  },
+  {
+    "id": "fees-what-is-a-superbill-and-what-is-your-cancellatio",
+    "question": "What is a Superbill, and what is your cancellation policy?",
+    "answer": "A Superbill is an itemized receipt with everything your PPO insurer needs to consider reimbursing you: you pay at the time of service, we provide the Superbill, and you submit it. Our cancellation policy asks for at least 24 hours' notice, or the full session fee is charged.\nGood questions to ask your insurer before starting:\n* Do I have out-of-network mental health benefits?\n* What is my deductible, and has it been met?\n* How many sessions per year does my plan cover, and at what reimbursement rate?\n* Is a referral from my primary care physician required?\nPayment methods: cash, check, Venmo, Zelle, and all major credit cards. A reduced fee may be available on request, so ask before you schedule. [Book a free call](/get-started).\n#",
+    "page": "/fees",
+    "tags": [
+      "cost"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /fees (Kay-approved)"
+  },
+  {
+    "id": "get-started-how-do-i-book-a-first-appointment",
+    "question": "How do I book a first appointment?",
+    "answer": "Start with a free 15 to 20 minute Get to Know Us call. It is a no-pressure conversation to see whether we are the right fit, and from there we match you with a therapist and schedule your first session. No paperwork required just to talk.\nBook the [free call online](/get-started), or call (949) 357-3587.",
+    "page": "/get-started",
+    "tags": [
+      "getting-started"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /get-started (Kay-approved)"
+  },
+  {
+    "id": "get-started-what-is-the-free-get-to-know-us-call",
+    "question": "What is the free Get to Know Us call?",
+    "answer": "It is a short, free phone call, about 15 to 20 minutes, where you tell us a little about what is going on and we help you figure out the right next step. No commitment, no cost, no pressure to book anything.\nThink of it as a chance to hear a voice and get a feel for us before you decide anything. Most people find it takes the edge off the whole process of starting therapy.",
+    "page": "/get-started",
+    "tags": [
+      "getting-started"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /get-started (Kay-approved)"
+  },
+  {
+    "id": "get-started-how-quickly-can-i-be-seen",
+    "question": "How quickly can I be seen?",
+    "answer": "Usually within 24 hours. We hold time for people who are ready to start, and in most cases we can get you a first conversation quickly rather than putting you on a long waitlist.\nSee [fees and insurance](/fees) so costs are clear before your call.\n#",
+    "page": "/get-started",
+    "tags": [
+      "getting-started"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /get-started (Kay-approved)"
+  },
+  {
+    "id": "contact-where-are-you-located",
+    "question": "Where are you located?",
+    "answer": "Our office is at 333 Third Street, Suite 6, in Laguna Beach, California, a short walk from the coast. We also see clients throughout California by telehealth.\nIf in-person is not convenient, we offer [online therapy across California](/telehealth).",
+    "page": "/contact",
+    "tags": [
+      "contact"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /contact (Kay-approved)"
+  },
+  {
+    "id": "contact-what-areas-do-you-serve",
+    "question": "What areas do you serve?",
+    "answer": "Our Laguna Beach office serves the surrounding South Orange County communities, including Newport Beach, Dana Point, Aliso Viejo, Laguna Niguel, and Corona del Mar. Through telehealth, we serve clients anywhere in California.",
+    "page": "/contact",
+    "tags": [
+      "contact"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /contact (Kay-approved)"
+  },
+  {
+    "id": "contact-what-is-the-best-way-to-reach-you",
+    "question": "What is the best way to reach you?",
+    "answer": "The fastest way to get started is to book the free Get to Know Us call online. You are also welcome to call us at (949) 357-3587 or send a message through the contact form, and we will get back to you quickly, usually within 24 hours.\nBook the [free Get to Know Us call](/get-started).\n**SECTION 6**\n**Master FAQ page**\n#",
+    "page": "/contact",
+    "tags": [
+      "contact"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /contact (Kay-approved)"
+  },
+  {
+    "id": "faq-what-is-a-first-therapy-session-actually-like",
+    "question": "What is a first therapy session actually like?",
+    "answer": "Your first session is mostly a conversation, not an evaluation. You will talk about what brought you in, what you have already tried, and what you are hoping feels different. Nothing is expected of you except showing up and being honest as far as you are comfortable.\nYou do not need to prepare anything or have your thoughts organized. If you would like to see who you would work with first, meet [our team](/about/our-team), or start with a [free call](/get-started).",
+    "page": "/faq",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
+  },
+  {
+    "id": "faq-do-you-take-insurance",
+    "question": "Do you take insurance?",
+    "answer": "We are an out-of-network practice, so we do not bill insurance directly. If you have a PPO plan, we provide a Superbill at every session that you can submit for possible out-of-network reimbursement. Full details are on the [fees and insurance page](/fees).\nBeing out-of-network lets us offer full-length sessions, protect your privacy, and avoid putting a diagnosis on your permanent record when you do not need one.",
+    "page": "/faq",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
+  },
+  {
+    "id": "faq-what-is-beach-therapy",
+    "question": "What is Beach Therapy?",
+    "answer": "Beach Therapy is a private walk-and-talk session with your therapist on the Laguna Beach coastline, instead of sitting in an office. The setting is part of the work: walking side by side tends to make hard conversations feel a little easier.\nHere is [how Beach Therapy works and who it is for](/beach-therapy).",
+    "page": "/faq",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
+  },
+  {
+    "id": "faq-how-do-i-know-which-therapist-to-see",
+    "question": "How do I know which therapist to see?",
+    "answer": "You do not have to figure that out on your own. When you reach out, we learn a little about what you are looking for and match you with the therapist who fits, rather than whoever happens to be available.\nSee focus areas on the [meet the team page](/about/our-team), or let us match you on a [free call](/get-started).",
+    "page": "/faq",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
+  },
+  {
+    "id": "faq-how-much-does-therapy-cost",
+    "question": "How much does therapy cost?",
+    "answer": "Associate sessions range from about $160 to $315, and sessions with Kay Wenger range from about $190 to 220.00, depending on length and format. The full rate card and out-of-network details are on the [fees page](/fees).",
+    "page": "/faq",
+    "tags": [
+      "general"
+    ],
+    "status": "approved",
+    "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
   }
 ]

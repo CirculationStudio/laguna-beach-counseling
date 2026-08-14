@@ -12,6 +12,30 @@ Framing from the roadmap: the structured knowledge layer is the most valuable th
 - What goes in it: a short plain-language description of the practice (who it is, what it offers, where), the key pages with a one-line description each (the service and specialty pages, About, Beach Therapy, fees, contact, get-started), the canonical contact and booking info, and the out-of-network posture. Pull all facts from CLIENT_FACTS.md. Keep it current with the sitemap.
 - Timing: the file references finished pages, so it is populated near launch once the pages and their URLs exist. Write it after the sitemap is built, not before. (Reminder to Steve: this is the deferred item; do not let it slip past launch.)
 
+## The entity layer (planned, not built)
+
+`reference/ANSWER_ENGINE_ENTITY_FACTS.md` is a client-approved, machine-facing layer: 42
+question-and-answer pairs of dry operational and credential facts, explicitly never shown on
+the website. It is a different thing from `reference/FAQ_KNOWLEDGE_BASE.md`, which is the
+customer-facing FAQ text that feeds `src/_data/faq.json`. Approved architecture, not yet built:
+
+1. **Most of it belongs in structured data that already exists.** Identity, founder,
+   credentials, address, phone, price range, payment methods, area served and languages map
+   onto properties of the `MedicalBusiness` node on `/contact` and the `Person` node on
+   `/about/kay-wenger`. Extend those nodes rather than inventing a new one.
+2. **The guardrails belong in `llms.txt`.** "What the practice does not do" and the
+   disambiguation from Orange County Couples Counseling have no clean schema property, and
+   free prose is what `llms.txt` is for. A few added lines alongside the description, key
+   pages, contact and out-of-network posture specified above.
+3. **Nine items are flagged NEEDS CONFIRMATION and publish nowhere**, including business hours
+   (the known site-versus-Yelp conflict), languages spoken, wheelchair access and parking, and
+   which modalities may be attributed to the practice.
+
+DO NOT emit `FAQPage` schema from this document. `SCHEMA.md` and this file both require
+`FAQPage` to mirror visible page text exactly, and this content is by definition never visible.
+Emitting it would be a direct violation and a documented penalty risk. That rules out the
+most obvious-looking option, so it is written down here rather than rediscovered later.
+
 ## What this site does NOT need
 
 - No `agents.md`. That file is for sites where an agent can act (booking, ordering, commerce). This site does not transact: booking is an external Calendly embed, there are no payments, and no PHI touches the repo. Skip it.
