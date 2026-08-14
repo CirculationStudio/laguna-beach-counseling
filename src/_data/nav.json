@@ -112,7 +112,12 @@
       "feature": "kayWenger",
       "extraLinks": [{ "label": "Fees and insurance", "url": "/fees", "published": true }]
     },
-    { "label": "Fees and insurance", "url": "/fees", "published": true },
+    {
+      "label": "Fees",
+      "url": "/fees",
+      "published": true,
+      "_labelNote": "DELIBERATE EXCEPTION, do not 'fix' this to match. Everywhere else /fees is called 'Fees and insurance': the page H1, its breadcrumb, the BreadcrumbList schema name, the About panel link, and the footer. Only this top-level bar entry is terse. Two reasons. First, terse top-level labels are the convention here; every other item in this array is one or two words. Second, the long label measurably breaks the header: it pushed the bar 3px past the viewport at 960px and forced the nav gap down from 1rem, in a band that has already needed two separate overflow fixes. The breadcrumb and schema still agree with each other, which is the consistency that actually matters for structured data."
+    },
     { "label": "Contact", "url": "/contact", "published": true }
   ]
 }

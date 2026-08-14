@@ -662,11 +662,8 @@
     gap: 1rem;
   }
 
-  /* 0.85rem rather than 1rem: the /fees nav label is "Fees and insurance", the
-     canonical name matching the page's H1 and its breadcrumb, which is longer
-     than a typical nav item and put the header 3px over at 960px. */
   .site-nav__list {
-    gap: 0.8rem;
+    gap: 1rem;
   }
 
   .site-header__cta {
