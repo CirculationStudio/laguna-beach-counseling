@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+metaTitle: "Accessibility Statement | Laguna Beach Counseling"
+description: "Our accessibility target is WCAG 2.2 Level AA. What we have built, what is still outstanding, and how to tell us if something on this site gets in your way."
+permalink: /accessibility/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Accessibility" }
+---
+{#
+  /accessibility, a CUSTOM page (no template). Deliberately short and plain: this
+  is a good-faith statement, not a legal document and not a marketing page.
+
+  BRIEF: SITE_ARCHITECTURE.md had no brief for this URL, so the title, meta and H1
+  were authored to house convention and written back into that file.
+
+  LANGUAGE DISCIPLINE, non-negotiable on this page:
+  - WCAG 2.2 AA is stated as a TARGET we work toward and test against, never as a
+    certification, never as compliance, never as "fully accessible".
+  - No claim of legal compliance (ADA, Section 508, EN 301 549). Not a legal doc.
+  - The limitations section is honest. Everything in it was verified against the
+    codebase, not assumed. Items that turned out NOT to be problems were left out
+    rather than padded in: notably the six navigation headings that precede the h1
+    in source order sit inside `hidden` containers, so they are not in the
+    accessibility tree, and are not a barrier.
+  - No accessibility overlay, and the page says why. DESIGN_SYSTEM forbids them
+    and they interfere with assistive technology more often than they help.
+
+  The review date is HARDCODED on purpose. Generating it from the build date would
+  make the page claim it was reviewed every time the site rebuilds, which is not
+  true. Update it by hand when the statement is genuinely reviewed.
+
+  Schema: BreadcrumbList only, per the brief. No Service, no WebPage.
+  Gold discipline: one gold action, the closing CTA band. No em dashes.
+#}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{% call ui.section({ width: "narrow" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("Accessibility") }}
+    <h1 class="section__title">Accessibility at Laguna Beach Counseling.</h1>
+    <p class="section__lead">We want this site to work for everyone who needs it, including people using a screen reader, a keyboard on its own, magnification, or voice control. Here is where we actually stand, what is still on the list, and how to tell us when something gets in your way.</p>
+  </div>
+{% endcall %}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>What we are aiming for</h2>
+  <p>Our target is <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2 Level AA</a>. That is a target we build and test against, not a certificate we hold. Nobody has audited or certified this site, and we are not claiming it meets any legal standard. We are telling you what we aim for and how close we think we are.</p>
+{% endcall %}
+
+{{ s.definitionList({
+  tone: "sand",
+  eyebrow: "What we have done",
+  title: "The parts we have built in",
+  items: [
+    { term: "Structure a screen reader can follow", detail: "Semantic HTML throughout, one main heading per page, and headings in order underneath it. Real lists, real tables, real buttons, with nothing important hidden inside a script." },
+    { term: "Keyboard operable", detail: "Every interactive part of the site works without a mouse, including the main menu and the answer accordions. A skip link jumps you straight to the content, and the menu closes on Escape and returns focus to the button that opened it." },
+    { term: "Visible focus", detail: "Anything you can tab to shows a clear focus outline, so you can always see where you are on the page." },
+    { term: "Images described", detail: "Every meaningful image carries alt text written from the actual photograph. Decorative marks are hidden from assistive technology rather than described." },
+    { term: "Motion respected", detail: "If your device asks for reduced motion, the site honors it site-wide. Nothing on the site autoplays." },
+    { term: "Contrast checked", detail: "Text and interface colors are checked against the AA contrast thresholds, including the lighter states." },
+    { term: "No accessibility overlay", detail: "We deliberately do not use one of the widget or toolbar products that promise instant accessibility. They tend to interfere with the screen readers and other tools people already have set up, and they do not fix the underlying markup. We would rather build the page properly." }
+  ]
+}) }}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Where we fall short</h2>
+  <p>An honest list is more useful than a confident one, so here is what we know is outstanding right now.</p>
+  <ul>
+    <li><strong>Our booking scheduler is a third-party embed.</strong> Appointment booking runs through Calendly, which we embed on the home, contact, and get started pages. We do not control what happens inside it. If the scheduler is difficult for you, please call or email instead and we will book the time for you ourselves.</li>
+    <li><strong>The contact form is a preview and does not send.</strong> It is marked as such on the page and its fields are switched off, but if you reach it with a screen reader you will still meet form controls that cannot be used. Phone, email, and the scheduler all work today.</li>
+    <li><strong>Some images do not reserve their space before they load</strong>, so a few blocks can shift slightly as a page finishes loading. That is on our list to fix.</li>
+    <li><strong>We have not tested with real assistive technology or with disabled users.</strong> The work so far has been careful building and checking, not user testing, and we would rather say that plainly than imply an audit we have not done.</li>
+  </ul>
+{% endcall %}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Found a barrier? Please tell us</h2>
+  <p>If something on this site blocked you, we would genuinely like to know, and you do not need to explain it in technical terms. Tell us the page and what happened, and we will take it from there.</p>
+  <ul>
+    <li><strong>Phone:</strong> <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a></li>
+    <li><strong>Email:</strong> <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a></li>
+  </ul>
+  <p>We aim to reply within two business days, and we will tell you what we can fix and roughly when. If something is blocking you from reaching us at all, calling is the most reliable route.</p>
+  <p>This statement was last reviewed on <strong>14 August 2026</strong>. We review it periodically and whenever we make a significant change to the site.</p>
+{% endcall %}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "Rather just talk to a person?",
+  text: "A free 15 to 20 minute call is the simplest way in, and we can handle the booking for you if the scheduler is in your way.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel },
+  note: "Free and confidential. " + site.access.seenWithin + ".",
+  tagline: site.tagline
+}) }}
+
+{{ s.breadcrumbSchema(crumbs, site.url) }}

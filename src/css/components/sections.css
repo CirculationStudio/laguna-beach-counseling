@@ -1815,6 +1815,37 @@
   margin-bottom: 0;
 }
 
+/* Lists inside prose. Tailwind's preflight strips list markers and padding, so
+   both are restored here. /accessibility is the first page to put a list in a
+   prose block, and without this the items ran together as unmarked paragraphs:
+   still a real <ul> for a screen reader, but visually not a list at all. */
+.prose ul,
+.prose ol {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--color-ink-soft);
+  margin: 0 0 1.4rem;
+  padding-inline-start: 1.4rem;
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.7rem;
+}
+
+.prose li::marker {
+  color: var(--color-water);
+}
+
+.prose li:last-child {
+  margin-bottom: 0;
+}
+
 /* In-prose links must be visibly distinct beyond color alone (WCAG 1.4.1):
    Tailwind's preflight strips the browser underline, so restore it here. */
 .prose a {
