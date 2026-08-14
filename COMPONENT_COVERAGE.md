@@ -151,8 +151,8 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/therapy/families` | practical-led | Built | |
 | `/therapy/children` | practical-led | Built | Growth priority |
 | `/` (homepage) | none, hand-composed | Built | Deliberately not templated: the three templates share one block order and the front door should not read like another service page. Composes `homeHero` (team photo), `lead`, `featureRow` (three-tier proof, navy), `videoEmbed`, `pullQuote`, `pointCards` (who we help, from nav.json), `promoCallout` (Beach Therapy), `pillLinks` (specialties, from nav.json), `promoCallout` reversed (team teaser), `definitionList` (out-of-network and Superbill line), `pillLinks`, `ctaBand` sand, `homeSchema` |
-| `/therapy` (landing) | practical-led | Not built | Only hero + lead + `next` grid + cta keys |
-| `/specialties` (landing) | practical-led | Not built | Same lean usage |
+| `/therapy` (landing) | practical-led | Built | Lean routing page: hero, lead, grid, cta. Grid is composed in the content slot from nav.json children filtered on `published`, NOT the `next:` key, so it cannot link a page that does not exist and cannot drift from the menu; the same array feeds `itemListSchema`. No FAQ, no support block, no `service:` key |
+| `/specialties` (landing) | practical-led | Built | Same lean usage and the same nav.json-driven grid. Links the three crisis-adjacent children but carries no support block itself; each of those children carries its own |
 | `/couples-intensive` | story-led | Built | The day = steps; cta keys point at Contact, not the fit call |
 | `/telehealth` | practical-led | Built | `support: true`; CA-only note in lead |
 | `/fees` | practical-led | Built | Uses the optional `rates` rateTable block |

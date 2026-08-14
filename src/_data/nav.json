@@ -3,7 +3,7 @@
     "therapy": {
       "label": "Therapy",
       "url": "/therapy",
-      "published": false,
+      "published": true,
       "children": [
         { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
         { "label": "Couples & Marriage", "url": "/therapy/couples", "published": true },
@@ -16,7 +16,7 @@
     "specialties": {
       "label": "Specialties",
       "url": "/specialties",
-      "published": false,
+      "published": true,
       "children": [
         { "label": "Anxiety", "url": "/specialties/anxiety", "published": true },
         { "label": "Depression", "url": "/specialties/depression", "published": true },

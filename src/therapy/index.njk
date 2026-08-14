@@ -1,0 +1,114 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Therapy Services in Laguna Beach | Laguna Beach Counseling"
+description: "Individual, couples, family, teen, child and senior therapy in Laguna Beach and by telehealth across California. Find your starting point, then book a free call."
+permalink: /therapy/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Therapy" }
+hero:
+  eyebrow: "Who we help"
+  variant: "split"
+  title: "Therapy in Laguna Beach,"
+  titleEmphasis: "by who you are." # H1 renders "Therapy in Laguna Beach, by who you are."
+  image:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-palm-silhouette-pink-sunset-portrait.webp"
+    alt: "A tall palm and a pine silhouetted together against a pink and orange sunset over the ocean."
+  lead: "Six starting points, one practice. Pick the one that sounds like your life and we will take it from there, or let the free call sort it out for you."
+lead:
+  - "This section is organized by who you are. The pages under it are for individuals, couples, families, teens, children and seniors, because someone looking for help with their twelve-year-old and a couple in their fortieth year of marriage are not really asking the same question. One page pretending to serve both would serve neither."
+  - "Looking for the other door? Our specialties are organized the other way around, by what you are actually struggling with: anxiety, grief, a betrayal, a change you did not choose. Most people arrive with a foot in both, which is completely normal. Start wherever the words come easiest, and we will find the rest together."
+cta:
+  title: "Not sure which one is you?"
+  titleEmphasis: "That is what the call is for."
+  text: "A free 15 to 20 minute Get to Know Us call is the fastest way to land in the right place. Tell us what is going on and we will point you to the right person."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{#
+  /therapy, the "who we help" section landing. A ROUTING page, not a content page:
+  its job is to get someone to the right child page quickly, so it keeps to the
+  lean key set COMPONENT_COVERAGE.md specifies for section landings (hero, lead,
+  grid, cta) and deliberately carries no FAQ, no support block and no Service
+  schema. Depth belongs to the six children (SITE_ARCHITECTURE.md: "One page, one
+  job. Depth beats breadth.").
+
+  BRIEF: SITE_ARCHITECTURE.md had no per-page brief and no sitemap row for this
+  URL when it was built, so the title, meta and H1 here were authored to house
+  convention and then written back into SITE_ARCHITECTURE.md. Keywording targets
+  broad hub terms only. Every named cluster in the SEO baseline (panic/phobia,
+  premarital, senior, grief) is explicitly assigned to a CHILD page, so this page
+  must not compete with them.
+
+  WHY THE GRID IS NOT THE `next:` FRONT-MATTER KEY: a routing page must never link
+  a page that does not exist. Building the cards here from nav.json, filtered on
+  `published`, makes that structurally impossible and keeps the grid in step with
+  the menu forever. The same array feeds the ItemList schema, so the two cannot
+  drift. This is the pattern already shipped on the homepage. Only the card copy
+  lives in this file.
+
+  NOTE the `lead` macro escapes its text, so the cross-link to /specialties is a
+  pill link below rather than inline prose.
+
+  Gold discipline: the hero CTA stays navy (no hero.gold); the single gold action
+  is the closing ctaBand. No em dashes.
+#}
+{% import "components/sections.njk" as s %}
+
+{% set therapyCopy = {
+  "/therapy/individuals": { icon: "compass", body: "You already know what you would do differently. The gap between knowing it and doing it is usually where the real work begins." },
+  "/therapy/children": { icon: "sun", body: "Warm, developmentally-attuned counseling for young children, indoors with play and stories or outdoors on the sand." },
+  "/therapy/couples": { icon: "heart", body: "For the slow disconnection, the argument on repeat, and the fresh start before a wedding. Pro-commitment, never pro-pressure." },
+  "/therapy/teens": { icon: "chat", body: "A low-pressure way in for a teenager who did not ask to be here, and steady footing for the parents alongside them." },
+  "/therapy/families": { icon: "shell", body: "When the whole household is stuck, no single person can unstick it alone. We work with the system, not against one member of it." },
+  "/therapy/seniors": { icon: "clock", body: "Grief, retirement, and later-life change, from the founder of the Heart to Heart program at Susi Q." }
+} %}
+
+{# Growth priority first (SITE_ARCHITECTURE.md weights individuals and children),
+   then the rest in nav.json order. #}
+{% set priority = ["/therapy/individuals", "/therapy/children"] %}
+{% set ordered = [] %}
+{% for url in priority %}
+  {% for child in nav.sections.therapy.children %}
+    {% if child.published and child.url == url %}{% set _ = ordered.push(child) %}{% endif %}
+  {% endfor %}
+{% endfor %}
+{% for child in nav.sections.therapy.children %}
+  {% if child.published and child.url not in priority %}{% set _ = ordered.push(child) %}{% endif %}
+{% endfor %}
+
+{% set cards = [] %}
+{% for child in ordered %}
+  {% set copy = therapyCopy[child.url] %}
+  {% set _ = cards.push({ icon: copy.icon, title: child.label, body: copy.body, href: child.url, linkLabel: child.label }) %}
+{% endfor %}
+
+{{ s.pointCards({
+  tone: "sand",
+  columns: 3,
+  eyebrow: "Start here",
+  title: "Six ways in, depending on who is coming",
+  cards: cards
+}) }}
+
+{{ s.pillLinks({
+  tone: "paper",
+  eyebrow: "The other door",
+  title: "Or start from what is going on",
+  lead: "If you would rather begin with the struggle than the label, the specialties pages are organized that way.",
+  links: [
+    { href: "/specialties", label: "What people struggle with" },
+    { href: "/beach-therapy", label: "Beach Therapy" },
+    { href: "/telehealth", label: "Online therapy in California" },
+    { href: "/fees", label: "Fees and insurance" }
+  ]
+}) }}
+
+{{ s.itemListSchema({
+  name: "Therapy services at Laguna Beach Counseling",
+  description: "The audience pages at Laguna Beach Counseling, organized by who the therapy is for.",
+  url: page.url,
+  baseUrl: site.url,
+  items: ordered
+}) }}

@@ -1,0 +1,117 @@
+---
+layout: layouts/practical-led.njk
+metaTitle: "Counseling Specialties in Laguna Beach | Laguna Beach Counseling"
+description: "Anxiety, depression, grief, life transitions, infidelity, conflict, neurodiversity, faith-based and addiction counseling in Laguna Beach. Start with a free call."
+permalink: /specialties/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Specialties" }
+hero:
+  eyebrow: "What people struggle with"
+  variant: "split"
+  title: "Counseling specialties in"
+  titleEmphasis: "Laguna Beach." # H1 renders "Counseling specialties in Laguna Beach."
+  image:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-silhouetted-rocks-sunset-shore-portrait.webp"
+    alt: "Dark rocks on wet sand against a warm cream sky, surf running in around them."
+  lead: "Nine places to start, named plainly. Find the one that sounds like your week, or bring the whole tangle to a free call and we will sort it out together."
+lead:
+  - "This section is organized by what you are actually dealing with. Not a diagnosis you have to arrive with, just the plain name for the thing that has been taking up room: the worry that will not switch off, the heaviness, the loss, the betrayal, the argument on its fourth lap."
+  - "Almost nobody arrives with exactly one of these. Anxiety and a hard transition travel together. Grief shows up wearing depression's coat. So does picking the wrong door mean starting over? Not at all. Start with whichever word came to mind first, and the rest tends to come up on its own."
+cta:
+  title: "More than one of these?"
+  titleEmphasis: "That is the normal case."
+  text: "A free 15 to 20 minute Get to Know Us call is a low-pressure way to untangle where to start. No commitment follows it."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Together"
+  tagline: true
+---
+{#
+  /specialties, the "what people struggle with" section landing. A ROUTING page,
+  not a content page: it keeps to the lean key set COMPONENT_COVERAGE.md specifies
+  for section landings (hero, lead, grid, cta) and deliberately carries no FAQ, no
+  Service schema, and no support block.
+
+  SUPPORT BLOCK, deliberate: this page links to the crisis-adjacent children
+  (depression, anxiety, grief), but is not itself on the crisis-adjacent list in
+  CONTENT_EVIDENCE.md, and each of those children carries the block itself. The
+  sitewide footer block appears here as on every page.
+
+  BRIEF: SITE_ARCHITECTURE.md had no per-page brief and no sitemap row for this
+  URL when it was built, so the title, meta and H1 were authored to house
+  convention and written back into SITE_ARCHITECTURE.md. Keywording is broad hub
+  terms only. The panic/phobia/social-anxiety cluster (the largest untapped
+  opportunity in the SEO baseline) belongs to /specialties/anxiety, not here.
+
+  WHY THE GRID IS NOT THE `next:` FRONT-MATTER KEY: see the matching comment on
+  /therapy. Cards are built from nav.json filtered on `published`, so this page
+  cannot link a page that does not exist, and the same array feeds the ItemList
+  schema so the two cannot drift.
+
+  NOTE the `lead` macro escapes its text, so the cross-link to /therapy is a pill
+  link below rather than inline prose.
+
+  Gold discipline: hero CTA navy, single gold action in the closing ctaBand.
+  No em dashes.
+#}
+{% import "components/sections.njk" as s %}
+
+{% set specialtyCopy = {
+  "/specialties/anxiety": { icon: "wave", body: "When worry has taken the wheel and the alarm goes off for burnt toast as loudly as for a real fire. Panic, phobias and social anxiety included." },
+  "/specialties/depression": { icon: "sun", body: "When everything costs more than it should and the color has drained out of ordinary days. Not laziness, and not a shortage of willpower." },
+  "/specialties/grief": { icon: "shell", body: "Grief is not a problem to be solved. It is the shape love takes when the person you love is gone." },
+  "/specialties/life-transitions": { icon: "clock", body: "The middle of a big change, where you are no longer who you were and not yet who you are becoming. That gap is the work." },
+  "/specialties/infidelity": { icon: "heart", body: "Rebuilding after a betrayal is possible, and hard, and not the same as pretending it did not happen. It also is not a courtroom." },
+  "/specialties/conflict-resolution": { icon: "chat", body: "When you keep having the same fight. We work on the pattern underneath the argument, not just the argument." },
+  "/specialties/neurodiversity": { icon: "compass", body: "ADHD and autism-affirming work that starts from how your mind is actually wired, rather than treating the wiring as the problem." },
+  "/specialties/faith-based": { icon: "anchor", body: "For people whose faith is the frame the whole thing hangs in, not one more topic to bring to therapy." },
+  "/specialties/addiction-recovery": { icon: "shield", body: "Compassionate support for the person in it and the people who love them. No shame and no lectures." }
+} %}
+
+{# Growth priority first (SITE_ARCHITECTURE.md weights anxiety and depression),
+   then the rest in nav.json order. #}
+{% set priority = ["/specialties/anxiety", "/specialties/depression"] %}
+{% set ordered = [] %}
+{% for url in priority %}
+  {% for child in nav.sections.specialties.children %}
+    {% if child.published and child.url == url %}{% set _ = ordered.push(child) %}{% endif %}
+  {% endfor %}
+{% endfor %}
+{% for child in nav.sections.specialties.children %}
+  {% if child.published and child.url not in priority %}{% set _ = ordered.push(child) %}{% endif %}
+{% endfor %}
+
+{% set cards = [] %}
+{% for child in ordered %}
+  {% set copy = specialtyCopy[child.url] %}
+  {% set _ = cards.push({ icon: copy.icon, title: child.label, body: copy.body, href: child.url, linkLabel: child.label }) %}
+{% endfor %}
+
+{{ s.pointCards({
+  tone: "sand",
+  columns: 3,
+  eyebrow: "Start here",
+  title: "Nine places people usually begin",
+  cards: cards
+}) }}
+
+{{ s.pillLinks({
+  tone: "paper",
+  eyebrow: "The other door",
+  title: "Or start from who is coming",
+  lead: "If it is clearer to you who the therapy is for than what to call the problem, the audience pages are organized that way.",
+  links: [
+    { href: "/therapy", label: "Who we help" },
+    { href: "/beach-therapy", label: "Beach Therapy" },
+    { href: "/telehealth", label: "Online therapy in California" },
+    { href: "/fees", label: "Fees and insurance" }
+  ]
+}) }}
+
+{{ s.itemListSchema({
+  name: "Counseling specialties at Laguna Beach Counseling",
+  description: "The specialty pages at Laguna Beach Counseling, organized by what people are struggling with.",
+  url: page.url,
+  baseUrl: site.url,
+  items: ordered
+}) }}
