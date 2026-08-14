@@ -53,7 +53,7 @@
   "practical": {
     "label": "Practical",
     "children": [
-      { "label": "Fees", "url": "/fees", "published": true },
+      { "label": "Fees and insurance", "url": "/fees", "published": true },
       { "label": "FAQ", "url": "/faq", "published": true },
       { "label": "Get Started", "url": "/get-started", "published": true },
       { "label": "Contact", "url": "/contact", "published": true }
@@ -110,9 +110,9 @@
       "panelTitle": "Get to know us",
       "allLabel": "About the practice",
       "feature": "kayWenger",
-      "extraLinks": [{ "label": "Fees", "url": "/fees", "published": true }]
+      "extraLinks": [{ "label": "Fees and insurance", "url": "/fees", "published": true }]
     },
-    { "label": "Fees", "url": "/fees", "published": true },
+    { "label": "Fees and insurance", "url": "/fees", "published": true },
     { "label": "Contact", "url": "/contact", "published": true }
   ]
 }

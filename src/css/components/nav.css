@@ -263,9 +263,9 @@
    sits further along the bar than Therapy, so at 960px its left edge is 277px and
    828px would put the right edge at 1105, well off screen. Therapy was already
    39px over at that width before Specialties gained a feature cell.
-   Below 78rem the panel narrows and the body stacks to one column, so the feature
-   cell sits under the links and nothing is hidden. Above it, the measured full
-   layout fits: at a 1265px viewport Specialties ends at 1220. */
+   Below 78rem the panel narrows and the link list drops to one column, keeping the
+   two-column body. Above it, the measured full layout fits: at a 1265px viewport
+   Specialties ends at 1220. */
 @media (max-width: 77.99rem) {
   .mega-panel--featured {
     width: 36rem;
@@ -662,8 +662,11 @@
     gap: 1rem;
   }
 
+  /* 0.85rem rather than 1rem: the /fees nav label is "Fees and insurance", the
+     canonical name matching the page's H1 and its breadcrumb, which is longer
+     than a typical nav item and put the header 3px over at 960px. */
   .site-nav__list {
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .site-header__cta {
