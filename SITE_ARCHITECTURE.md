@@ -546,6 +546,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Schema: Service with PriceSpecification.
 - Flags: never imply insurance is billed directly. Redirect any old /rates here.
 
+**`/accessibility`** (New)
+- H1: Accessibility at Laguna Beach Counseling.
+- Title: Accessibility Statement | Laguna Beach Counseling
+- Meta: Our accessibility target is WCAG 2.2 Level AA. What we have built, what is still outstanding, and how to tell us if something on this site gets in your way.
+- Target keyword: none. This page is not an SEO surface and should not compete for anything.
+- Purpose: a good-faith accessibility statement. Say what the site actually does, admit what it does not, and give a real person to contact.
+- Sections: the WCAG 2.2 AA target stated as a target; what has been built; known limitations, honest and verified against the codebase rather than assumed; how to report a barrier, with the phone and email from site.json; a dated review note.
+- Internal links: /get-started (the CTA). Outbound to the W3C WCAG 2.2 spec.
+- Schema: BreadcrumbList only.
+- Flags: NEVER claim legal compliance, certification, an audit, or that the site is fully accessible. No accessibility overlay, and the page states why (DESIGN_SYSTEM forbids them). The review date is hardcoded, not generated, so the page cannot claim a review it did not have. Linked from the footer legal strip via site.json footerLinks, not nav.json.
+
 **`/faq`** (New)
 - H1: Questions people ask before reaching out.
 - Title: FAQ | What to Expect | Laguna Beach Counseling

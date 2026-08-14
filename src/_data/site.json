@@ -50,8 +50,16 @@
   "access": {
     "seenWithin": "Be seen within 24 hours"
   },
+  "privacy": {
+    "lastUpdated": "14 August 2026",
+    "_note": "Flags below gate the matching sections of /privacy-policy so the published policy always describes what the site ACTUALLY does. As of the last check there is no Google Analytics, Google Ads, or Tag Manager code anywhere in the build, and the contact form is a disabled preview that does not send. Flip a flag to true in the same change that installs the corresponding tag or activates the form, never before.",
+    "googleAnalytics": false,
+    "googleAds": false,
+    "contactFormActive": false
+  },
   "footerLinks": [
-    { "label": "Privacy Policy", "url": "/privacy-policy" }
+    { "label": "Privacy Policy", "url": "/privacy-policy" },
+    { "label": "Accessibility", "url": "/accessibility" }
   ],
   "sameAs": [
     { "label": "Google Business Profile", "url": "https://g.page/lagunabeachcounseling" },
