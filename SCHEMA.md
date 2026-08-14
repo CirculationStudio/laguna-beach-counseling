@@ -39,6 +39,7 @@ Two cautions:
 |---|---|---|
 | `/` homepage | `MedicalBusiness` (reference `@id`) + `WebSite` | Anchor entity reference, not a redefinition |
 | `/contact` | `MedicalBusiness` full record + `PostalAddress` + `geo` + `hasMap` | The canonical NAP page |
+| `/therapy`, `/specialties` (section landings) | `ItemList` + `BreadcrumbList` | Hub pages, not services. `ItemList` enumerates the child pages so a machine can read what the section contains. Do NOT emit `Service` here; the children own that. Feed the list from the same nav.json-derived array that renders the visible grid so the two cannot drift |
 | `/about` | `AboutPage` | Links to Person entities |
 | `/about/kay-wenger` | `Person` | Kay's entity: name, jobTitle, credentials, `worksFor` the business, `sameAs` (her LinkedIn, Psychology Today, NRMFT). The strongest entity page on the site |
 | `/about/our-team` | `Person` (one per associate) | Each associate: name, credential, `worksFor`, `supervisor` = Kay where accurate. Only publish confirmed credentials (see CLIENT_FACTS.md) |

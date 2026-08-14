@@ -865,3 +865,36 @@
     {% if opts.note %}<p class="calendly-embed__note">{{ opts.note }}</p>{% endif %}
   {% endcall %}
 {% endmacro %}
+
+{# 22. itemListSchema(opts): { name, description, url, baseUrl, items: [{label, url}] }.
+   ItemList for a section landing page, which is a hub rather than a service: it
+   tells a machine exactly which pages the section contains. SCHEMA.md assigns
+   Service to the individual child pages, so a landing must NOT emit one.
+   Feed `items` from the same array that renders the visible grid (nav.json
+   children, filtered on `published`) so the schema and the page cannot drift,
+   the same discipline SCHEMA.md already requires of FAQPage.
+   URLs are absolute, built from baseUrl. No aggregateRating, ever. #}
+{% macro itemListSchema(opts) %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": {{ (opts.baseUrl + opts.url + "#list") | dump | safe }},
+  "name": {{ opts.name | dump | safe }},
+  {% if opts.description %}"description": {{ opts.description | dump | safe }},
+  {% endif %}"url": {{ (opts.baseUrl + opts.url) | dump | safe }},
+  "numberOfItems": {{ opts.items | length }},
+  "itemListOrder": "https://schema.org/ItemListUnordered",
+  "itemListElement": [
+    {% for item in opts.items %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": {{ item.label | dump | safe }},
+      "url": {{ (opts.baseUrl + item.url) | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endmacro %}

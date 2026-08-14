@@ -89,6 +89,12 @@ Sections (`src/_includes/components/sections.njk`), with the device extraction l
     (currently `/`, `/contact`, `/get-started`), so the other 28 pages pay nothing.
     Embed URL is built from `site.booking.calendlyUrl` + `site.booking.embedParams`.
 
+22. `itemListSchema` `{ name, description?, url, baseUrl, items: [{label, url}] }`. Emits
+    `ItemList` for a section landing, which is a hub rather than a service. SCHEMA.md
+    assigns `Service` to the individual child pages, so a landing must not emit one. Feed
+    `items` from the same array that renders the visible grid (nav.json children filtered
+    on `published`) so schema and page cannot drift.
+
 `featureRow` also takes `leadAs` (default `"p"`). Pass `"h2"` where the band is a section's
 only heading, so its item `h3`s are not orphaned under the page `h1`. The class carries the
 styling, so the rendered result is visually identical.
