@@ -232,6 +232,12 @@
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   padding: 1.75rem 2rem;
+  /* Safety net: a panel taller than the viewport would put its lower links out
+     of reach entirely, since it is absolutely positioned and cannot scroll with
+     the page. Nothing currently exceeds this, but it guarantees no future
+     content change can make a menu item unreachable. */
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.18s ease, transform 0.18s ease;
@@ -248,6 +254,32 @@
 
 .mega-panel--featured {
   width: 46rem;
+}
+
+/* Narrow-desktop clamp for the two featured panels (Therapy and Specialties).
+   .mega-panel is content-box and there is no border-box reset in this codebase,
+   so `width: 46rem` actually renders 828px once 2rem of padding each side and the
+   borders are counted. Panels are left-anchored to their trigger, and Specialties
+   sits further along the bar than Therapy, so at 960px its left edge is 277px and
+   828px would put the right edge at 1105, well off screen. Therapy was already
+   39px over at that width before Specialties gained a feature cell.
+   Below 78rem the panel narrows and the body stacks to one column, so the feature
+   cell sits under the links and nothing is hidden. Above it, the measured full
+   layout fits: at a 1265px viewport Specialties ends at 1220. */
+@media (max-width: 77.99rem) {
+  .mega-panel--featured {
+    width: 36rem;
+  }
+
+  /* Keep the two-column body and narrow the LINK list to one column instead.
+     Stacking the body was tried first and is wrong: it made the panel up to
+     901px tall, which is clipped at every realistic screen height, putting the
+     feature cell's link out of reach. Narrowing the links keeps the panel short.
+     Compound selector so it beats the base `.mega-links` rule, which is defined
+     later in this file and would otherwise win on source order. */
+  .mega-panel.mega-panel--featured .mega-links {
+    column-count: 1;
+  }
 }
 
 .mega-panel--columns {

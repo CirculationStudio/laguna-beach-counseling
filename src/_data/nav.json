@@ -60,6 +60,18 @@
     ]
   },
   "features": {
+    "sandCastleTherapy": {
+      "eyebrow": "Signature service",
+      "label": "Sand Castle Therapy",
+      "url": "/sand-castle-therapy",
+      "published": true,
+      "blurb": "Nature-based play therapy for children, on the Laguna sand.",
+      "linkLabel": "Explore Sand Castle Therapy",
+      "image": {
+        "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-sandcastle-therapy-hz.webp",
+        "alt": "A child and an adult kneeling together on the sand beside a tall sandcastle with a small flag, looking out toward the surf."
+      }
+    },
     "kayWenger": {
       "variant": "person",
       "eyebrow": "The founder",
@@ -77,7 +89,7 @@
       "eyebrow": "Signature service",
       "label": "Beach Therapy",
       "url": "/beach-therapy",
-      "published": false,
+      "published": true,
       "blurb": "Private walk-and-talk sessions on the Laguna coastline.",
       "linkLabel": "Explore Beach Therapy",
       "image": {
@@ -90,7 +102,7 @@
   },
   "header": [
     { "ref": "therapy", "panel": "featured", "panelTitle": "Who we help", "feature": "beachTherapy" },
-    { "ref": "specialties", "panel": "columns", "panelTitle": "What people struggle with" },
+    { "ref": "specialties", "panel": "featured", "panelTitle": "What people struggle with", "feature": "sandCastleTherapy" },
     { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
     {
       "ref": "about",
@@ -98,7 +110,7 @@
       "panelTitle": "Get to know us",
       "allLabel": "About the practice",
       "feature": "kayWenger",
-      "extraLinks": [{ "label": "Fees & Insurance", "url": "/fees", "published": true }]
+      "extraLinks": [{ "label": "Fees", "url": "/fees", "published": true }]
     },
     { "label": "Fees", "url": "/fees", "published": true },
     { "label": "Contact", "url": "/contact", "published": true }

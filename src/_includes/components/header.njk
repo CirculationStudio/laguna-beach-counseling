@@ -33,7 +33,7 @@
 <div class="mega-feature">
   {% if feature.image.src %}
     <div class="mega-feature__media mega-feature__media--photo">
-      <img src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" loading="lazy" />
+      <img src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" loading="lazy" decoding="async" />
     </div>
   {% else %}
     <div class="mega-feature__media" role="img" aria-label="{{ feature.image.alt }}">
