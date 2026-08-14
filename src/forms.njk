@@ -1,0 +1,101 @@
+---
+layout: layouts/base.njk
+metaTitle: "New Client Forms | Laguna Beach Counseling"
+description: "Intake, consent, and authorization forms for new clients at Laguna Beach Counseling, plus the Board of Behavioral Sciences complaint notice required of California mental health counselors."
+permalink: /forms/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "Forms" }
+---
+{#
+  /forms, a CUSTOM page (no template). Practical and utilitarian on purpose: this
+  is paperwork, not marketing. Carried over from the old site at the SAME URL,
+  which resolves the open DECISION recorded in SITE_ARCHITECTURE.md.
+
+  WHY THIS PAGE MUST EXIST: it carries the Board of Behavioral Sciences complaint
+  notice that California mental health counselors are required to give clients
+  under AB 630 (Chapter 229, Statutes of 2019), effective 1 July 2020. That is a
+  legal disclosure, so the notice text below is reproduced VERBATIM from the
+  practice's own BBS notice PDF (extracted from the file itself, not written from
+  memory), including the statutory parentheses around the list of professions.
+  Do not paraphrase it, tighten it, or fix its punctuation.
+
+  PDFs are served from src/documents via Eleventy passthrough, on our own origin
+  rather than the marketing CDN. Therapy paperwork should not live on a public
+  asset host.
+
+  TWO DOCUMENTS SHARE A TITLE. lbc-confidentiality-and-cancellation-policy.pdf and
+  lbc-consent-form.pdf are both headed "Consent for Treatment and Limits of
+  Liability" but are genuinely different files (32% text overlap): the first
+  carries the 24-hour cancellation policy, the second carries the financial
+  agreement. They are labeled here by what they actually contain, because that
+  distinction matters to a client and the filename does not.
+
+  FLAGGED FOR KAY, not fixed here: lbc-consent-form.pdf contains a signed fee
+  agreement reading "$160 individual per each 50-minute session and $200
+  couple/family per each 80-minute session". That contradicts /fees, which
+  publishes 50/75/90-minute tiers with couples at $180 (associates) or $220
+  (Kay), and no 80-minute tier exists anywhere in CLIENT_FACTS.md. Published as
+  supplied because it is a client legal document, but it needs revising.
+
+  ACCESSIBILITY: four of the six PDFs are tagged with a language set; the
+  confidentiality/cancellation and authorization files are not, and the
+  authorization file has no extractable text at all. None has been screen-reader
+  verified. Hence the alternative-format offer below, which is deliberately
+  specific rather than boilerplate. Mirrored in /accessibility.
+
+  Schema: BreadcrumbList only. No em dashes.
+#}
+{% import "components/ui.njk" as ui %}
+{% import "components/sections.njk" as s %}
+
+{% set docs = "/documents/" %}
+
+{{ s.breadcrumbs(crumbs) }}
+
+{% call ui.section({ width: "narrow" }) %}
+  <div class="section__head">
+    {{ ui.eyebrow("New client forms") }}
+    <h1 class="section__title">Forms for your first session.</h1>
+    <p class="section__lead">If you are coming in as a new client, please fill these out ahead of time and bring them with you to your first session. Doing the paperwork at home means the first hour can be spent on you rather than on a clipboard.</p>
+  </div>
+{% endcall %}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Client forms</h2>
+  <ul>
+    <li><a href="{{ docs }}lbc-client-intake-form.pdf">Client Intake Form</a> (PDF)</li>
+    <li><a href="{{ docs }}lbc-confidentiality-and-cancellation-policy.pdf">Limits of Confidentiality and Cancellation Policy</a> (PDF), which covers what confidentiality does and does not protect, and our 24 hour notice policy for changing an appointment</li>
+    <li><a href="{{ docs }}lbc-consent-form.pdf">Consent for Treatment and Financial Agreement</a> (PDF)</li>
+    <li><a href="{{ docs }}lbc-covid19-in-person-consent-form.pdf">COVID-19 In Person Consent Form</a> (PDF)</li>
+    <li><a href="{{ docs }}lbc-authorization-to-disclose-information.pdf">Authorization to Disclose Information</a> (PDF)</li>
+  </ul>
+  <p>The Authorization to Disclose Information form is only needed if you would like us to coordinate your care with another provider, such as a psychiatrist, your primary care doctor, or a previous therapist. Nothing is shared with anyone without your written permission, and you can withdraw that permission at any time.</p>
+  <p>Not sure which ones apply to you? Bring what you can and we will sort out the rest together. Nobody has ever been turned away for arriving with incomplete paperwork.</p>
+
+  <h2>If the PDFs do not work for you</h2>
+  <p>These are downloadable PDF documents, and some of them are not built for screen readers. If that makes them difficult or impossible to use, please <a href="tel:{{ site.nap.telephoneHref }}">call us at {{ site.nap.telephone }}</a> or <a href="mailto:{{ site.nap.email }}">email {{ site.nap.email }}</a> and we will get you the same information in a format that works, including going through the forms with you over the phone or in person at your first session. You will not be at any disadvantage for needing them a different way.</p>
+{% endcall %}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Notice to clients: how to file a complaint</h2>
+  <p>Beginning 1 July 2020, California mental health counselors are required to give every client a notice stating where a complaint can be filed. That requirement comes from AB 630 (Chapter 229, Statutes of 2019). Here is ours.</p>
+  <blockquote>
+    <p>The Board of Behavioral Sciences receives and responds to complaints regarding services provided within the scope of practice of (marriage and family therapists, licensed educational psychologists, clinical social workers, or professional clinical counselors). You may contact the Board online at <a href="https://www.bbs.ca.gov">www.bbs.ca.gov</a>, or by calling <a href="tel:+19165747830">(916) 574-7830</a> if you have a complaint.</p>
+  </blockquote>
+  <p>A printable copy is available here: <a href="{{ docs }}lbc-bbs-required-notice-to-clients-as-of-july-2020-1.pdf">BBS Required Notice to Clients</a> (PDF).</p>
+{% endcall %}
+
+{{ s.ctaBand({
+  variant: "center",
+  tone: "sand",
+  watermark: "Together",
+  title: "Not a client yet?",
+  titleEmphasis: "Start with a call.",
+  text: "None of this paperwork is needed before the free 15 to 20 minute Get to Know Us call. The forms come later, once you have decided we are the right fit.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel },
+  note: "Free and confidential. " + site.access.seenWithin + ".",
+  tagline: site.tagline
+}) }}
+
+{{ s.breadcrumbSchema(crumbs, site.url) }}

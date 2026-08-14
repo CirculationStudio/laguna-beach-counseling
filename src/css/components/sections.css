@@ -1846,6 +1846,21 @@
   margin-bottom: 0;
 }
 
+/* A bare blockquote inside prose. The pull-quote and founder-note components
+   carry their own treatments, but a quotation in body copy had none, so a quoted
+   passage read as an ordinary paragraph. /forms needs the distinction: the BBS
+   complaint notice is a legally required disclosure reproduced verbatim, and it
+   should look quoted rather than paraphrased. Teal rule, never gold. */
+.prose blockquote {
+  margin: 0 0 1.4rem;
+  padding: 0.2rem 0 0.2rem 1.4rem;
+  border-inline-start: 3px solid color-mix(in srgb, var(--color-water) 55%, transparent);
+}
+
+.prose blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
 /* In-prose links must be visibly distinct beyond color alone (WCAG 1.4.1):
    Tailwind's preflight strips the browser underline, so restore it here. */
 .prose a {

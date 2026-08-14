@@ -12,6 +12,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/site.webmanifest": "site.webmanifest" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+  // Client intake and consent PDFs. Deliberately served from our own domain
+  // rather than the marketing asset CDN: these are therapy paperwork, not brand
+  // imagery, and they belong on the practice's own origin.
+  eleventyConfig.addPassthroughCopy({ "src/documents": "documents" });
 
   // Rerun the browser when the compiled stylesheet changes during `npm start`.
   eleventyConfig.addWatchTarget("public/css/main.css");

@@ -227,7 +227,7 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 | `/ratesinsurance` | `/fees` | 301 |
 | `/appointment` | `/get-started` | 301 |
 | `/contact` | `/contact` | Keep |
-| `/forms` | `/forms` or `/get-started` | [DECISION, see below] |
+| `/forms` | `/forms` | Keep (BBS complaint notice must survive the migration) |
 | `/faqs` | `/faq` | 301 (note plural to singular) |
 | `/blog` | `/blog` | Keep (preserve individual post URLs where possible) |
 | `/sitemap` | `/` | 301 (the XML sitemap replaces this HTML page) |
@@ -241,7 +241,7 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 These were live, indexed pages the new architecture did not account for. Status as of July 2026:
 
 1. RESOLVED: `/addictionandrecovery` gets a new home at `/specialties/addiction-recovery` (added to the sitemap and briefs above). Still CONFIRM which clinician covers substance-use work before naming anyone, since this was Austin's area and he is departing.
-2. OPEN: `/forms` (Helpful Forms), the new-client intake-forms page. Decision deferred. Until decided, do not delete it or point its redirect anywhere; hold the URL. Recommendation on the table when you are ready: keep a `/forms` or `/new-clients` page rather than folding into `/get-started`, so the intake step stays clean.
+2. RESOLVED: `/forms` is KEPT at the same URL rather than folded into `/get-started`. It was not optional: the page carries the Board of Behavioral Sciences complaint notice that California mental health counselors must give clients under AB 630 (Chapter 229, Statutes of 2019), so it had to survive the migration. The intake step also stays cleanly separate from the free-call conversion page, which was the earlier recommendation.
 3. RESOLVED: `/parenting-support`, `/work-and-career-issues`, and `/stress-management` are consolidated into their parent pages (families, life-transitions, anxiety). The 301s preserve link equity; they stop being standalone ranking targets, which is the intended "depth beats breadth" tradeoff.
 4. RESOLVED: no per-associate bio pages for now. All associate bio URLs 301 to `/about/our-team`, which carries a card per therapist. Kay keeps her own page at `/about/kay-wenger`. Per-associate pages can be added later if entity SEO calls for it.
 
@@ -545,6 +545,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Internal links: /faq, /get-started.
 - Schema: Service with PriceSpecification.
 - Flags: never imply insurance is billed directly. Redirect any old /rates here.
+
+**`/forms`** (Keep, same URL)
+- H1: Forms for your first session.
+- Title: New Client Forms | Laguna Beach Counseling
+- Meta: Intake, consent, and authorization forms for new clients at Laguna Beach Counseling, plus the Board of Behavioral Sciences complaint notice required of California mental health counselors.
+- Target keyword: none. A utility page, not an SEO surface.
+- Purpose: give new clients their paperwork before the first session, and carry the legally required BBS complaint notice.
+- Sections: intro; the five client forms as links; a line explaining the Authorization to Disclose form is for coordinating care with another provider; an alternative-format offer for anyone who cannot use PDFs; the BBS notice reproduced verbatim with its printable PDF; the CTA band.
+- Internal links: /get-started (the CTA).
+- Schema: BreadcrumbList only.
+- Flags: the BBS notice is a LEGAL DISCLOSURE reproduced verbatim from the practice's own PDF, statutory parentheses included. Do not paraphrase or repunctuate it. PDFs live in src/documents and are served from our own origin via Eleventy passthrough, never the marketing CDN. The old "download Adobe Acrobat Reader" link is deliberately not carried over. OPEN FOR KAY: lbc-consent-form.pdf states a fee of $160 individual per 50 minutes and $200 couple/family per 80 minutes, which matches neither the published rate card on /fees nor CLIENT_FACTS.md, and no 80-minute tier exists.
 
 **`/accessibility`** (New)
 - H1: Accessibility at Laguna Beach Counseling.
