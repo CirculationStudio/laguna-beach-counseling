@@ -1,0 +1,181 @@
+---
+layout: layouts/base.njk
+metaTitle: "H1 treatment test"
+description: "Internal comparison of hero H1 treatments. Not for publication."
+permalink: /test/h1-treatments/
+robots: "noindex, nofollow"
+eleventyExcludeFromCollections: true
+sitemapExclude: true
+---
+{# TEMPORARY. Internal comparison surface for the /specialties/depression H1
+   treatment decision. Delete this file, the treatment branch in
+   components/sections.njk, the "1b. H1 treatment test" block in
+   css/components/sections.css, and the Disallow line in robots.njk together
+   once a treatment is chosen or the idea is dropped.
+
+   Suppression follows the same recipe as /components/: noindex + nofollow,
+   out of collections, out of the sitemap, and disallowed in robots.txt. It is
+   linked from nowhere.
+
+   Every hero here passes titleTag: "h2" so the page keeps exactly one h1 (the
+   page title below), the same trick /components/ uses. The type is identical
+   either way because all of the styling is class-based, not tag-based.
+
+   Hero copy is the real depression page's, so the comparison is honest. The
+   evocative line is "Heavy is not the same as broken." (approved), split so the
+   second half takes the house italic. #}
+{% import "components/sections.njk" as s %}
+
+{% set heroImage = {
+  src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-curlew-golden-hour-shoreline-portrait.webp",
+  alt: "A long-billed curlew standing alone at the water's edge in low golden light, the wet sand mirroring the sky and beachfront buildings soft in the distance."
+} %}
+{% set heroLead = "Depression isn't laziness, and it isn't a shortage of willpower. It's a heaviness that makes ordinary things cost more than they should. If it were easy, you'd have figured it out already." %}
+
+{% macro label(tag, name, note) %}
+  <div class="container">
+    <div class="treatment-label">
+      <span class="treatment-label__tag">{{ tag }}</span>
+      <span class="treatment-label__name">{{ name }}</span>
+      <span class="treatment-label__note">{{ note }}</span>
+    </div>
+  </div>
+{% endmacro %}
+
+<div class="container">
+  <div class="test-intro">
+    <h1>H1 treatment test</h1>
+    <p>
+      Four hero treatments for <a href="/specialties/depression/">/specialties/depression/</a>, same copy, same photo,
+      so only the type treatment differs. Open the live page in another tab to compare against the control.
+      Check all four at 375, 768 and 1440. Internal only, noindexed, linked from nowhere.
+    </p>
+    <p class="test-intro__ax">
+      Reminder on the tradeoff: in the swap treatments the big line is a paragraph, not a heading, on purpose.
+      The H1 is still first in the DOM and still reads as the descriptive heading, so reading order and
+      heading quality are fine. What is exposed is SC 1.3.1, because sighted readers will take the big line
+      for the page title when it is not one. Treatment C has none of that exposure.
+    </p>
+  </div>
+</div>
+
+{{ label("Control", "As live today", "Eyebrow, then the keyword line at display scale.") }}
+{{ s.hero({
+  titleTag: "h2",
+  eyebrow: "Depression",
+  variant: "split",
+  image: heroImage,
+  title: "Depression therapy in",
+  titleEmphasis: "Laguna Beach.",
+  lead: heroLead,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ label("A", "Keyword as eyebrow", "H1 at eyebrow scale in the eyebrow's slot. Evocative line takes the display slot. Topic eyebrow dropped, two would compete.") }}
+{{ s.hero({
+  titleTag: "h2",
+  treatment: "swap",
+  variant: "split",
+  image: heroImage,
+  title: "Depression therapy in",
+  titleEmphasis: "Laguna Beach.",
+  display: "Heavy is not",
+  displayEmphasis: "the same as broken.",
+  lead: heroLead,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ label("A-long", "Stress test, uppercase", "The longest keyword string on the site, 58 characters, in treatment A as specced. This is the one to judge hardest. Watch the wrap at 375.") }}
+{{ s.hero({
+  titleTag: "h2",
+  treatment: "swap",
+  variant: "split",
+  image: heroImage,
+  title: "Infidelity and affair recovery counseling in",
+  titleEmphasis: "Laguna Beach.",
+  display: "The trust broke.",
+  displayEmphasis: "You are still here.",
+  lead: "Recovery after an affair is slow, specific work, and it does not start with deciding whether to stay. It starts with getting honest about what happened.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ label("A-long-sc", "Stress test, sentence case", "The mitigation: same treatment, sentence case instead of uppercase, tracking near normal. Word shapes survive, which matters most on the strings that wrap.") }}
+{{ s.hero({
+  titleTag: "h2",
+  treatment: "swap",
+  sentenceCase: true,
+  variant: "split",
+  image: heroImage,
+  title: "Infidelity and affair recovery counseling in",
+  titleEmphasis: "Laguna Beach.",
+  display: "The trust broke.",
+  displayEmphasis: "You are still here.",
+  lead: "Recovery after an affair is slow, specific work, and it does not start with deciding whether to stay. It starts with getting honest about what happened.",
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+{{ label("C", "Quiet H1", "H1 keeps its slot and stays in the heading outline, just set small. Evocative line larger beneath it. No 1.3.1 exposure.") }}
+{{ s.hero({
+  titleTag: "h2",
+  treatment: "quiet",
+  eyebrow: "Depression",
+  variant: "split",
+  image: heroImage,
+  title: "Depression therapy in Laguna Beach.",
+  display: "Heavy is not",
+  displayEmphasis: "the same as broken.",
+  lead: heroLead,
+  cta: { href: site.booking.getStartedPath, label: site.booking.navLabel }
+}) }}
+
+<style>
+  /* Scoped to this throwaway page, so nothing here enters the component library. */
+  .test-intro {
+    padding-block: 3rem 1rem;
+    max-width: 48rem;
+  }
+  .test-intro h1 {
+    font-family: var(--font-serif);
+    color: var(--color-navy);
+    margin: 0 0 0.75rem;
+  }
+  .test-intro p {
+    color: var(--color-ink-soft);
+    margin: 0 0 0.75rem;
+  }
+  .test-intro__ax {
+    border-left: 3px solid var(--color-water);
+    padding-left: 1rem;
+  }
+  .treatment-label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.85rem;
+    margin-top: 2.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .treatment-label__tag {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-paper);
+    background: var(--color-navy);
+    border-radius: var(--radius-pill);
+    padding: 0.2rem 0.7rem;
+  }
+  .treatment-label__name {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-navy);
+  }
+  .treatment-label__note {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-faint);
+    flex: 1 1 20rem;
+  }
+</style>

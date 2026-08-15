@@ -135,6 +135,69 @@
   font-style: italic;
 }
 
+/* ---- 1b. H1 treatment test (TEMPORARY) ----------------------------------
+   Supports the hero() "swap" and "quiet" treatments. See /test/h1-treatments/.
+   If neither variant is adopted, delete this block, the treatment branch in
+   sections.njk, and src/test/h1-treatments.njk together. */
+
+/* The keyword string at eyebrow scale. It cannot just reuse .eyebrow: a real
+   eyebrow is one or two words and this is 35 to 58 characters, so tracking
+   comes down from .2em, the line-height opens up for wrapped lines, and the
+   wave marker aligns to the first line instead of vertically centering against
+   a two or three line block. */
+.hero__title--eyebrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-water-deep);
+  max-width: 40ch;
+  margin: 0 0 0.75rem;
+}
+
+.hero__title--eyebrow .eyebrow__rule {
+  /* Optical centering against the first line only. */
+  margin-top: 0.35rem;
+}
+
+/* The long-keyword mitigation: sentence case keeps word shapes intact, which
+   matters most for the strings that wrap to two or three lines. */
+.hero__title--sentence {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+}
+
+/* Variant C: the h1 stays in the outline and in its slot, just quieter. */
+.hero__title--quiet {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.6rem);
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--color-navy);
+  max-width: 34ch;
+  margin: 0 0 0.5rem;
+}
+
+/* The evocative line. Takes the display slot the keyword line used to hold.
+   Renders as a <p>, never a heading, on purpose (see sections.njk). */
+.hero__display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+  max-width: 16ch;
+  margin: 0;
+}
+/* Under 45rem the wave marker hides itself via the shared .eyebrow__rule rule
+   below, so there is nothing to repeat here. */
+
 .hero__lead {
   font-family: var(--font-sans);
   font-size: clamp(1.15rem, 2.2vw, 1.375rem);
