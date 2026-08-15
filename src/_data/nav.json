@@ -41,13 +41,13 @@
     }
   },
   "signature": {
+    "_note": "The category-of-one offerings only. Telehealth deliberately does NOT live here: it is a delivery mode that applies across nearly every service, not a distinct offering, so it sits in 'practical' (how we meet, alongside fees and forms) and is surfaced in the Therapy and Specialties panels via extraLinks.",
     "label": "Signature Services",
     "children": [
       { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
       { "label": "Sand Castle Therapy", "url": "/sand-castle-therapy", "published": true },
       { "label": "Couples Intensive", "url": "/couples-intensive", "published": true },
-      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": true },
-      { "label": "Telehealth", "url": "/telehealth", "published": true }
+      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": true }
     ]
   },
   "practical": {
@@ -55,6 +55,7 @@
     "children": [
       { "label": "Fees and insurance", "url": "/fees", "published": true },
       { "label": "FAQ", "url": "/faq", "published": true },
+      { "label": "Telehealth", "url": "/telehealth", "published": true },
       { "label": "Get Started", "url": "/get-started", "published": true },
       { "label": "Forms", "url": "/forms", "published": true },
       { "label": "Contact", "url": "/contact", "published": true }
@@ -102,8 +103,21 @@
     }
   },
   "header": [
-    { "ref": "therapy", "panel": "featured", "panelTitle": "Who we help", "feature": "beachTherapy" },
-    { "ref": "specialties", "panel": "featured", "panelTitle": "What people struggle with", "feature": "sandCastleTherapy" },
+    {
+      "ref": "therapy",
+      "panel": "featured",
+      "panelTitle": "Who we help",
+      "feature": "beachTherapy",
+      "_telehealthNote": "Telehealth rides in as an extraLink here and on Specialties, NOT as a child of nav.sections. The /therapy and /specialties hub grids are generated from children filtered on published, so adding it as a child would put a spurious service card on both hub pages. extraLinks surfaces it in the panel only, the same mechanism Fees already uses under About.",
+      "extraLinks": [{ "label": "Telehealth", "url": "/telehealth", "published": true }]
+    },
+    {
+      "ref": "specialties",
+      "panel": "featured",
+      "panelTitle": "What people struggle with",
+      "feature": "sandCastleTherapy",
+      "extraLinks": [{ "label": "Telehealth", "url": "/telehealth", "published": true }]
+    },
     { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
     {
       "ref": "about",

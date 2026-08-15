@@ -35,6 +35,11 @@
     "postalCode": "92612",
     "note": "Sister office"
   },
+  "_serviceAreaNote": "Statewide reach is a SERVICE AREA, not a third office. It renders outside the footer's <address> element and must never be added to nap or secondaryOffice, or emitted as a PostalAddress: we have two offices, and telehealth is how we reach the rest of California. State licensing limits service to CA residents.",
+  "serviceArea": {
+    "label": "All of California, by telehealth",
+    "url": "/telehealth"
+  },
   "positioning": {
     "priceRange": "$$$",
     "outOfNetworkLine": "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We provide Superbills at every session for clients to submit to their PPO insurance for out-of-network reimbursement."
