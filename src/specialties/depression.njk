@@ -8,13 +8,31 @@ crumbs:
   - { label: "Specialties", url: "/specialties" }
   - { label: "Depression" }
 hero:
-  eyebrow: "Depression"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1,
+  # "Depression therapy in Laguna Beach.", is unchanged and still the primary
+  # on-page signal) but drops to eyebrow scale, and hero.display takes the
+  # display slot so the loudest type on the page carries the emotional weight
+  # the keyword string cannot. Chosen from the /test/h1-treatments/ comparison.
+  #
+  # OPT-IN, not a default. It works here because the H1 is 35 characters and
+  # sets on one line at eyebrow scale. Do not copy it onto a page with a long
+  # keyword string (infidelity, conflict resolution) without checking the wrap
+  # first, and use hero.sentenceCase there if it wraps.
+  #
+  # No eyebrow: in this treatment the h1 occupies the eyebrow's slot, so a
+  # topic eyebrow would put two eyebrows side by side. The macro ignores
+  # hero.eyebrow under "swap" anyway.
+  treatment: "swap"
   variant: "split" # reframe-led default; the coastal library now supplies a real 4:5 hero photo
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-curlew-golden-hour-shoreline-portrait.webp"
     alt: "A long-billed curlew standing alone at the water's edge in low golden light, the wet sand mirroring the sky and beachfront buildings soft in the distance."
   title: "Depression therapy in"
   titleEmphasis: "Laguna Beach."
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading: see the
+  # accessibility note on the treatment in components/sections.njk.
+  display: "Heavy is not"
+  displayEmphasis: "the same as broken."
   lead: "Depression isn't laziness, and it isn't a shortage of willpower. It's a heaviness that makes ordinary things cost more than they should. If it were easy, you'd have figured it out already."
 lead:
   - "If you're here, getting through the day has probably started to take more out of you than it used to. The shower that feels like a project. The texts you leave on read, not because you don't care but because answering feels like lifting something heavy. Depression has a way of turning the volume down on everything, the hard parts and the good parts both."
