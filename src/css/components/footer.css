@@ -1,10 +1,17 @@
-/* Footer: a calm, organized services sitemap on navy ground.
+/* Footer: a considered close to the page.
+
+   The old footer gave six blocks identical weight and separated them with four
+   identical hairlines, so nothing led the eye. This one descends: the
+   invitation is loudest, then the crisis card, then the directory, then the
+   practical row, then the out-of-network note, then the legal line. One
+   divider, one decorative element, everything else is spacing and weight.
+
    Structure and facts come from nav.json and site.json. */
 
 .site-footer {
   background: var(--color-navy);
   color: var(--color-sea-foam);
-  padding-block: 4.5rem 1.75rem;
+  padding-block: 5rem 1.75rem;
   /* No margin above: the last section must meet the footer directly. A margin
      here exposes the gray body background as a wrong-colored strip between the
      final CTA band and the footer. Sections carry their own padding-block, so
@@ -24,15 +31,15 @@
   color: var(--color-sun-light);
 }
 
-/* Top band: practice block beside the link columns */
+/* ---- Tier 1: identity and the invitation -------------------------------- */
 .site-footer__top {
   display: grid;
-  gap: 2.5rem;
+  gap: 3rem 2.5rem;
 }
 
 @media (min-width: 64rem) {
   .site-footer__top {
-    grid-template-columns: minmax(15rem, 1.1fr) 3fr;
+    grid-template-columns: minmax(16rem, 1.15fr) 2.6fr;
   }
 }
 
@@ -49,11 +56,17 @@
   width: auto;
 }
 
+/* The tagline is the loudest text in the footer, on purpose. It used to be a
+   caption under the logo; here it carries the close, so it gets display scale
+   and the paper white. */
 .site-footer__tagline {
   font-family: var(--font-serif);
   font-style: italic;
-  color: var(--color-sea-foam);
-  margin: 0.75rem 0 1rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  line-height: 1.25;
+  color: var(--color-paper);
+  max-width: 15ch;
+  margin: 1rem 0 1.5rem;
 }
 
 .site-footer__nap {
@@ -115,14 +128,78 @@
   color: var(--color-sun-light);
 }
 
-/* Quiet closing invitation. A text link, not a button: the footer stays calm. */
+/* Service area, not a third office. Sits outside <address> in the markup and
+   uses a screen glyph rather than a map pin so it never reads as a location
+   you could drive to. */
+.site-footer__servicearea {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-sea-foam);
+}
+
+.site-footer__servicearea svg {
+  flex: none;
+  color: var(--color-sea-foam);
+}
+
+.site-footer__servicearea a {
+  color: var(--color-sea-foam);
+}
+
+.site-footer__servicearea a:hover {
+  color: var(--color-sun-light);
+}
+
+/* Connect marks. 20px glyph centered in a 2.5rem target, which clears WCAG 2.2
+   SC 2.5.8 (24x24 minimum) with room to spare. Hover lifts to paper on a faint
+   sea-foam disc rather than the footer's usual gold: five clustered icons is
+   the wrong place for the palette's most rationed color. */
+.site-footer__connect {
+  list-style: none;
+  padding: 0;
+  /* Negative inline start pulls the first glyph's tap padding back so the row
+     optically aligns with the text above it. */
+  margin: 1.5rem 0 0 -0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+}
+
+.site-footer__connect a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+  color: var(--color-sea-foam);
+  transition: color 0.18s ease, background-color 0.18s ease;
+}
+
+.site-footer__connect svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.site-footer__connect a:hover {
+  color: var(--color-paper);
+  background: rgba(152, 197, 216, 0.14);
+}
+
+/* Quiet closing invitation. A text link, not a button: the sand CTA band
+   directly above already carries the viewport's single gold action. */
 .site-footer__cta {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   margin-top: 1.25rem;
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--color-paper);
   text-decoration: none;
 }
@@ -140,22 +217,18 @@
   transform: translateX(2px);
 }
 
-/* Link columns: auto-fitting, compact, never a wall */
+/* ---- Tier 2: the directory ---------------------------------------------- */
+/* Four columns, not five. Practical moved down to its own row, which also
+   stops the longest Specialties labels wrapping to three lines. */
 .site-footer__cols {
   display: grid;
-  gap: 1.5rem 1.25rem;
+  gap: 1.75rem 1.25rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-@media (min-width: 40rem) {
-  .site-footer__cols {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 64rem) {
   .site-footer__cols {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -180,61 +253,101 @@
 
 .site-footer__links a {
   color: var(--color-sea-foam);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
 }
 
 .site-footer__links a:hover {
   color: var(--color-sun-light);
 }
 
-/* Meta band: connect and the out-of-network line */
+/* ---- The divider -------------------------------------------------------- */
+/* The one decorative element in the footer: the brand's own eyebrow wave,
+   tiled once across the full width. Same motif as the eyebrow marker and the
+   teal hairline on the footer's top edge, so the block reads as bracketed
+   rather than merely stacked. Low alpha, so it is texture at a glance. If it
+   ever reads busy, swap the background for the same 1px teal hairline used on
+   .site-footer's border-top. */
+.site-footer__wave {
+  height: 8px;
+  margin-top: 3rem;
+  opacity: 0.32;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 8'%3E%3Cpath d='M0 4c2-3 4-3 6 0s4 3 6 0 4-3 6 0 4 3 6 0' fill='none' stroke='%2398c5d8' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center / 24px 8px;
+}
+
+/* ---- Tier 3: before you call -------------------------------------------- */
 .site-footer__meta {
   display: grid;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(152, 197, 216, 0.2);
+  gap: 1.75rem;
+  margin-top: 2.25rem;
 }
 
-@media (min-width: 48rem) {
-  .site-footer__meta {
-    grid-template-columns: 1fr 2fr;
-    align-items: start;
-  }
-}
-
-.site-footer__social {
+/* The practical links are the highest-intent links down here, so they get a
+   wide row at near-body size rather than a narrow column at 0.85rem. */
+.site-footer__practical ul {
   list-style: none;
-  margin: 0.25rem 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  align-items: center;
 }
 
-.site-footer__social a {
-  color: var(--color-sea-foam);
-  font-size: 0.9rem;
+.site-footer__practical a {
+  display: inline-block;
+  padding-block: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-paper);
 }
 
-.site-footer__oon {
+/* Decorative separator only: an empty pseudo-element, so it never lands in the
+   accessible name of the link beside it. */
+.site-footer__practical li + li::before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-sea-foam);
+  opacity: 0.5;
+  margin-inline: 0.85rem;
+  vertical-align: middle;
+}
+
+/* Positioning, demoted. It is the densest text in the footer and the least
+   urgent, so it reads as a labelled note rather than an unexplained wall. */
+.site-footer__oon-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--color-sea-foam);
-  max-width: 60ch;
-  font-size: 0.9rem;
-  line-height: 1.65;
+  margin-bottom: 0.45rem;
+}
+
+.site-footer__oon p {
+  color: var(--color-sea-foam);
+  opacity: 0.82;
+  max-width: 52ch;
+  font-size: 0.82rem;
+  line-height: 1.7;
   margin: 0;
 }
 
-/* Support-resources sits in its own band */
+/* ---- The crisis card ---------------------------------------------------- */
 .site-footer__support {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
 }
 
-/* Legal strip */
+/* ---- The legal strip ---------------------------------------------------- */
+/* No hairline here: the crisis card above already carries a border, and a
+   third rule in a row was part of what made the old footer read flat. */
 .site-footer__bottom {
   margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(152, 197, 216, 0.2);
   font-size: 0.85rem;
   color: var(--color-sea-foam);
   display: flex;

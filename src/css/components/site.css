@@ -151,11 +151,18 @@
   color: var(--color-ink);
 }
 
+/* In the footer this used to be the quietest element on the page, which is
+   backwards on a therapy site: the person who needs it most is the person
+   least able to hunt for it. It stays a collapsed disclosure (crisis numbers
+   should not be forced on every reader), but it now reads as a discrete card
+   with a teal edge rather than one more band of grey text. Teal, never gold:
+   gold is the CTA color, and an accent that says "click me to book" on a
+   crisis element would be wrong. Markup is untouched, this is all presentation. */
 .support-resources--onfooter {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(152, 197, 216, 0.25);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: color-mix(in srgb, var(--color-water) 55%, transparent);
   color: var(--color-sea-foam);
-  padding: 1.25rem 1.5rem;
+  padding: 1.35rem 1.5rem;
 }
 
 .support-resources__heading {
@@ -185,11 +192,14 @@
 
 .support-resources__lead {
   flex: 1 1 18rem;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--color-sea-foam);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-paper);
 }
 
+/* An actual affordance, not an underline on hover. The pill is the only
+   button-shaped thing in the footer, which is the point: it is the one place
+   down here where someone might need to act right now. */
 .support-resources__toggle {
   margin-left: auto;
   display: inline-flex;
@@ -197,13 +207,20 @@
   gap: 0.4rem;
   flex: none;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--color-paper);
+  padding: 0.4rem 0.9rem;
+  /* Solid teal, not a tint. Against the card's lifted navy this measures about
+     3.1:1, which is what SC 1.4.11 asks of a control boundary; the same teal at
+     55% came out near 1.9:1. */
+  border: 1px solid var(--color-water);
+  border-radius: var(--radius-pill);
+  transition: background-color 0.18s ease, border-color 0.18s ease;
 }
 
 .support-resources__summary:hover .support-resources__toggle {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  background: rgba(152, 197, 216, 0.14);
+  border-color: var(--color-sea-foam);
 }
 
 .support-resources__summary:hover .support-resources__ring {

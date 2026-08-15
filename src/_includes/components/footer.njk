@@ -1,5 +1,26 @@
-{# Site footer: services sitemap driven entirely by nav.json and site.json.
-   Calm navy ground, organized columns, no hardcoded facts or links. #}
+{# Site footer: a considered close to the page, not a sitemap dump.
+
+   Three tiers, each at a deliberately different weight so the eye has a path
+   instead of six equal blocks:
+
+     1. Identity and the invitation. Wordmark, tagline at display scale, where
+        we are, how to reach us, the Connect marks, and the free-call link.
+        This is the loudest thing in the footer.
+     2. The directory. Four columns of what we do, set quieter and tighter.
+     3. Before you call. The practical links as a wide row (these are the
+        highest-intent links down here, so they get width instead of a narrow
+        column), the out-of-network note demoted under a label, then the crisis
+        card and the legal strip.
+
+   The one decorative element is the divider: the brand's own eyebrow wave,
+   tiled once. Everything else is spacing and weight. The four identical
+   hairlines the old footer used are gone.
+
+   The free-call link stays a text link, never a gold button. The sand CTA band
+   directly above the footer already carries the viewport's single gold action.
+
+   Every fact comes from nav.json and site.json. Inline SVG only, no icon CDN,
+   no emoji. No em dashes. #}
 
 {% macro footerCol(col) %}
   <div class="site-footer__col">
@@ -14,6 +35,37 @@
   </div>
 {% endmacro %}
 
+{# Connect marks, keyed by the site.json sameAs label. connectMarkLabels below
+   is the allowlist: a profile not named there does not render in the Connect
+   row. That is how Psychology Today is left out, and its absence from the list
+   is the whole mechanism, so do not "fix" the list by adding it back.
+
+   Why it is out: that listing is Kay's personal directory profile, not a
+   practice profile, so it does not belong in a practice-level Connect row. It
+   deliberately stays in site.json, in the LocalBusiness sameAs on /contact,
+   and in the Person schema on /about/kay-wenger, where it is correct.
+
+   These marks are the one place the house "drawn with intent" rule yields to
+   recognizability: a Facebook mark has to look like Facebook or it fails at its
+   only job. Each is constructed geometrically in a 24x24 box at a matched
+   optical weight, never pasted from a brand kit and never loaded from a CDN.
+   The Google G is stroked (it is a ring and a crossbar, which is what that mark
+   actually is); the rest are solid, which reads better at 20px. #}
+{% set connectMarkLabels = ["Google Business Profile", "Yelp", "Facebook", "Instagram", "LinkedIn"] %}
+{% macro connectMark(label) %}
+  {%- if label == "Google Business Profile" -%}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true" focusable="false"><path d="M16.6 7.4A6.5 6.5 0 1 0 18.45 13H12" /></svg>
+  {%- elif label == "Yelp" -%}
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><g transform="translate(11.6 12.6)"><rect x="1.1" y="-1.75" width="8.2" height="3.5" rx="1.75" transform="rotate(-101)" /><rect x="1.1" y="-1.6" width="4.4" height="3.2" rx="1.6" transform="rotate(154)" /><rect x="1.1" y="-1.6" width="5" height="3.2" rx="1.6" transform="rotate(-36)" /><rect x="1.1" y="-1.75" width="5.4" height="3.5" rx="1.75" transform="rotate(8)" /><rect x="1.1" y="-1.6" width="4.4" height="3.2" rx="1.6" transform="rotate(52)" /></g></svg>
+  {%- elif label == "Facebook" -%}
+    <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1.3 17.5v-6.9h2.3l.35-2.7h-2.65V8.2c0-.78.22-1.31 1.34-1.31h1.43V4.47a19 19 0 0 0-2.08-.11c-2.06 0-3.47 1.26-3.47 3.56v1.98H8.2v2.7h2.32v6.9h2.78z" /></svg>
+  {%- elif label == "Instagram" -%}
+    <svg viewBox="0 0 24 24" fill="currentColor" fill-rule="evenodd" aria-hidden="true" focusable="false"><path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8z" /><path d="M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" /><circle cx="17.2" cy="7.1" r="1.15" /></svg>
+  {%- elif label == "LinkedIn" -%}
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="5" cy="5.2" r="2.4" /><rect x="3" y="9.4" width="4" height="11.2" rx="0.4" /><path d="M9.6 9.4h3.83v1.53h.05c.55-.96 1.86-1.97 3.8-1.97 4.02 0 4.72 2.5 4.72 5.76v5.88h-4v-5.21c0-1.24-.03-2.84-1.76-2.84-1.76 0-2.03 1.34-2.03 2.75v5.3h-4V9.4z" /></svg>
+  {%- endif -%}
+{% endmacro %}
+
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__top">
@@ -23,6 +75,7 @@
         {% set logoClass = "site-footer__logo" %}
         {% include "components/header-brand.njk" %}
         <p class="site-footer__tagline">{{ site.tagline }}</p>
+
         <address class="site-footer__nap">
           <span class="site-footer__office">
             <span class="site-footer__office-label">
@@ -49,6 +102,33 @@
           </span>
         </address>
         {# hours: pending CONFIRM (site vs Yelp discrepancy), see CLIENT_FACTS.md #}
+
+        {# Statewide reach sits OUTSIDE <address> on purpose. It is a service
+           area, not a third office, so it must never be marked up as a
+           PostalAddress or folded into site.secondaryOffice. Screen glyph, not
+           a map pin, for the same reason. #}
+        {% if site.serviceArea %}
+          <p class="site-footer__servicearea">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" /><line x1="8.5" y1="20.5" x2="15.5" y2="20.5" /><line x1="12" y1="17" x2="12" y2="20.5" /></svg>
+            <a href="{{ site.serviceArea.url }}">{{ site.serviceArea.label }}</a>
+          </p>
+        {% endif %}
+
+        {# Connect: identity, so it belongs beside the wordmark rather than
+           floating in a band of its own. Marks are 20px inside a 40px target,
+           well clear of WCAG 2.2 SC 2.5.8's 24x24 minimum. The anchor carries
+           the accessible name; the SVG stays aria-hidden, per the house rule
+           that no icon labels itself. #}
+        <ul class="site-footer__connect" aria-label="Find us elsewhere">
+          {% for profile in site.sameAs %}
+            {% if profile.label in connectMarkLabels %}
+              <li>
+                <a href="{{ profile.url }}" rel="me" aria-label="{{ profile.label }}">{{ connectMark(profile.label) }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
         <a class="site-footer__cta" href="{{ site.booking.getStartedPath }}">
           {{ site.booking.navLabel }}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -58,25 +138,35 @@
         </a>
       </div>
 
+      {# Four columns, not five. Practical moves down to its own row: those are
+         the highest-intent links in the footer and they read better wide than
+         crushed into a fifth column. Dropping to four also stops
+         "Infidelity & Affair Recovery" wrapping to three lines. #}
       <nav class="site-footer__cols" aria-label="Footer">
         {{ footerCol(nav.sections.therapy) }}
         {{ footerCol(nav.sections.specialties) }}
         {{ footerCol(nav.signature) }}
         {{ footerCol(nav.sections.about) }}
-        {{ footerCol(nav.practical) }}
       </nav>
     </div>
 
+    {# The one decorative element: the brand's eyebrow wave, tiled. Purely
+       presentational, so it is aria-hidden and carries no semantics. #}
+    <div class="site-footer__wave" aria-hidden="true"></div>
+
     <div class="site-footer__meta">
-      <div class="site-footer__connect">
-        <h2 class="site-footer__heading">Connect</h2>
-        <ul class="site-footer__social">
-          {% for profile in site.sameAs %}
-            <li><a href="{{ profile.url }}" rel="me">{{ profile.label }}</a></li>
+      <nav class="site-footer__practical" aria-label="Practical">
+        <ul>
+          {% for item in nav.practical.children %}
+            <li><a class="{% if not item.published %}nav-link--soon{% endif %}" href="{{ item.url }}">{{ item.label }}</a></li>
           {% endfor %}
         </ul>
+      </nav>
+
+      <div class="site-footer__oon">
+        <span class="site-footer__oon-label">Out of network, by design</span>
+        <p>{{ site.positioning.outOfNetworkLine }}</p>
       </div>
-      <p class="site-footer__oon">{{ site.positioning.outOfNetworkLine }}</p>
     </div>
 
     <div class="site-footer__support">
