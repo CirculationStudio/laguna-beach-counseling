@@ -135,10 +135,11 @@
   font-style: italic;
 }
 
-/* ---- 1b. H1 treatment test (TEMPORARY) ----------------------------------
-   Supports the hero() "swap" and "quiet" treatments. See /test/h1-treatments/.
-   If neither variant is adopted, delete this block, the treatment branch in
-   sections.njk, and src/test/h1-treatments.njk together. */
+/* ---- 1b. The "swap" hero treatment --------------------------------------
+   The keyword line at eyebrow scale with the evocative line in the display
+   slot. On the ten service pages that opt in via hero.treatment: "swap".
+   Chosen over the quieter alternative in review; the losing variant and the
+   sentence-case mitigation are gone, along with the comparison page. */
 
 /* The keyword string at eyebrow scale. It cannot just reuse .eyebrow: a real
    eyebrow is one or two words and this is 35 to 58 characters, so tracking
@@ -156,32 +157,20 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-water-deep);
-  max-width: 40ch;
+  /* 56ch = 531px at this size, which clears the longest real H1 on the site
+     (addiction-recovery, 505px uppercase) so every keyword line sets on one
+     line at 768 and 1440. It was 40ch, which capped at 379px and wrapped the
+     longer ones for no reason. It is not zero because five of the ten pages
+     use the full-bleed hero, and there is no .hero__content width rule, so the
+     element's own max-width is the only thing constraining the line there:
+     uncapped it would run the full 1262px container at 1440. */
+  max-width: 56ch;
   margin: 0 0 0.75rem;
 }
 
 .hero__title--eyebrow .eyebrow__rule {
   /* Optical centering against the first line only. */
   margin-top: 0.35rem;
-}
-
-/* The long-keyword mitigation: sentence case keeps word shapes intact, which
-   matters most for the strings that wrap to two or three lines. */
-.hero__title--sentence {
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-size: 0.88rem;
-}
-
-/* Variant C: the h1 stays in the outline and in its slot, just quieter. */
-.hero__title--quiet {
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.4vw, 1.6rem);
-  line-height: 1.25;
-  letter-spacing: 0;
-  color: var(--color-navy);
-  max-width: 34ch;
-  margin: 0 0 0.5rem;
 }
 
 /* The evocative line. Takes the display slot the keyword line used to hold.
