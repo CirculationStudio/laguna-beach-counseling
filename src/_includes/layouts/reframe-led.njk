@@ -13,19 +13,19 @@ layout: layouts/base.njk
     hero        { eyebrow, title (required), titleEmphasis?, lead?, variant?
                   (split | center), image?{src,alt,sourceTag?}, trust?[{label}],
                   gold?, ctaLabel?, ctaHref?, secondaryCta?{href,label},
-                  treatment?, display?, displayEmphasis?, sentenceCase? }
+                  treatment?, display?, displayEmphasis? }
                 Hero default: variant "split" (image framed beside the text,
                 with trust markers when the page supplies hero.trust). Override
                 per page via hero.variant: "center", "bg" (full-bleed photo), or
                 any other value (e.g. "plain") for the plain text hero.
                 treatment "swap" drops the title to eyebrow scale and puts
-                hero.display in the display slot. It is OPT-IN PER PAGE, never a
-                global default: long keyword strings degrade badly at uppercase
-                eyebrow scale, so check the page's own H1 length before using
-                it, and reach for hero.sentenceCase when the string wraps. See
-                the treatment docs in components/sections.njk, which include the
-                accessibility tradeoff (the display line is deliberately not in
-                the heading outline).
+                hero.display in the display slot. hero.eyebrow is ignored under
+                it, since the title takes the eyebrow's place. It is OPT-IN PER
+                PAGE, never a global default: check the page's own H1 length
+                first, since a long one wraps at eyebrow scale. See the
+                treatment docs in components/sections.njk for the accessibility
+                tradeoff (the display line is deliberately not in the heading
+                outline).
     lead        string | string[]               the reframe prose
     happening   { eyebrow, title, columns?, cards[] }      "what's really happening"
     work        { eyebrow, title, columns?, cards[], tone? }  "what the work looks like"
@@ -66,7 +66,6 @@ layout: layouts/base.njk
   treatment: hero.treatment,
   display: hero.display,
   displayEmphasis: hero.displayEmphasis,
-  sentenceCase: hero.sentenceCase,
   lead: hero.lead,
   variant: hero.variant or "split",
   image: hero.image,

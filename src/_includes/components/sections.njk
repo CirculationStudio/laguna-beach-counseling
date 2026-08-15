@@ -20,22 +20,23 @@
    carries the viewport's single gold action; the default stays navy.
    titleTag (default "h1"): pages keep the h1; demo contexts that render several
    heroes on one page pass "h2" so the page keeps exactly one h1.
-   treatment (default absent = today's look, eyebrow then large serif title):
+   treatment (default absent = eyebrow then large serif title):
    - "swap": the title drops to eyebrow scale and takes the eyebrow's slot, and
-     opts.display carries the evocative line at display scale. The topic eyebrow
-     is ignored, since two eyebrows would compete. titleEmphasis is concatenated
-     plain, because italics do nothing at 12.8px.
-   - "quiet": eyebrow and title keep their order, the title is set small, and
-     opts.display sits larger beneath it.
+     opts.display carries the evocative line at display scale. opts.eyebrow is
+     ignored, since two eyebrows would compete. titleEmphasis is concatenated
+     plain, because italics do nothing at 14.4px.
    ACCESSIBILITY, read before using "swap": opts.display renders as a <p>, never
    a heading. It is visually dominant but deliberately outside the heading
    outline, because an <h2> preceding the page's <h1> produces a nonsensical
    outline, which is worse. The <h1> stays first in the DOM, so reading order
    still matches visual order. The exposure is SC 1.3.1: sighted readers will
-   take the big line for the page title. "quiet" has no such exposure.
-   Also note "swap" is meant to be opted into per page, not turned on globally:
-   long keyword strings degrade badly at uppercase eyebrow scale.
-   display: the evocative line. Only read when treatment is set.
+   take the big line for the page title.
+   "swap" is opt-in per page, not a global default. It is on the ten service
+   pages whose H1 sets on one line at 768 and up; check the wrap before adding
+   it to a page with a longer H1 (the longest currently shipping is 50
+   characters, and .hero__title--eyebrow caps the measure at 56ch).
+   display / displayEmphasis: the evocative line, displayEmphasis set italic.
+   Only read when treatment is set.
    video: STAND-IN MECHANICS ONLY, not production ready. The demo asset is from a
    different project. Before shipping a real video hero it MUST: use a short,
    compressed, muted LBC loop (not the stand-in), gate autoplay with a
@@ -76,11 +77,7 @@
         {% if opts.treatment == "swap" %}
           {# Keyword string at eyebrow scale, in the eyebrow's slot. It carries
              the wave marker itself, so ui.eyebrow is not called. #}
-          <{{ titleTag }} class="hero__title hero__title--eyebrow{% if opts.sentenceCase %} hero__title--sentence{% endif %}"><span class="eyebrow__rule" aria-hidden="true"></span>{{ opts.title }}{% if opts.titleEmphasis %} {{ opts.titleEmphasis }}{% endif %}</{{ titleTag }}>
-          <p class="hero__display">{{ opts.display }}{% if opts.displayEmphasis %} <em class="hero__em">{{ opts.displayEmphasis }}</em>{% endif %}</p>
-        {% elif opts.treatment == "quiet" %}
-          {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
-          <{{ titleTag }} class="hero__title hero__title--quiet">{{ opts.title }}{% if opts.titleEmphasis %} {{ opts.titleEmphasis }}{% endif %}</{{ titleTag }}>
+          <{{ titleTag }} class="hero__title hero__title--eyebrow"><span class="eyebrow__rule" aria-hidden="true"></span>{{ opts.title }}{% if opts.titleEmphasis %} {{ opts.titleEmphasis }}{% endif %}</{{ titleTag }}>
           <p class="hero__display">{{ opts.display }}{% if opts.displayEmphasis %} <em class="hero__em">{{ opts.displayEmphasis }}</em>{% endif %}</p>
         {% else %}
           {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
