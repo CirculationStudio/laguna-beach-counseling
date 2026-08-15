@@ -15,9 +15,19 @@ hero:
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-sea-lavender-ocean-overlook-portrait.webp"
     alt: "Purple sea lavender blooming beside a dark park railing at a Laguna overlook, with palm trees on the point and the ocean beyond."
-  eyebrow: "Senior counseling"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   title: "Senior counseling in"
   titleEmphasis: "Laguna Beach." # H1 renders "Senior counseling in Laguna Beach." per the brief
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "This chapter still"
+  displayEmphasis: "gets to be yours."
   lead: "Therapy for grief, retirement transitions, and later-life change, from the founder of the Susi Q senior mental-health program. A place to talk about what the activity calendar leaves out."
 lead:
   - "Walk into most senior centers and you'll find plenty to do: bingo, mahjong, a lunch, a lecture, a full and busy calendar. What's often missing is anywhere to say the hard thing out loud. You can spend a whole day surrounded by people and never once get to talk about the spouse you lost, the body that won't cooperate, or the quiet question of what your days are even for now."

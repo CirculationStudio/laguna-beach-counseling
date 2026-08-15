@@ -8,13 +8,23 @@ crumbs:
   - { label: "Specialties", url: "/specialties" }
   - { label: "Anxiety" }
 hero:
-  eyebrow: "Anxiety"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   variant: "split" # reframe-led default; the coastal library now supplies a real 4:5 hero photo
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-dawn-beach-oceanfront-condo-portrait.webp"
     alt: "An empty Laguna beach just after dawn, pale pink sky, a scalloped line of foam sliding up the sand, and a white oceanfront building on the bluff at the left."
   title: "Anxiety therapy in"
   titleEmphasis: "Laguna Beach."
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "You're not broken."
+  displayEmphasis: "The alarm is just stuck on."
   lead: "Anxiety isn't a character flaw. It's a nervous system doing its job, a little too well. There's a way to turn the volume back down."
 lead:
   - "If you're here, some part of your day has probably started to organize itself around worry. The 3 a.m. replay of a conversation. The meeting you rehearse twenty times. The plans you quietly turn down. Anxiety is a smoke detector that has grown a little too sensitive, going off for burnt toast as loudly as for a real fire."

@@ -8,7 +8,14 @@ crumbs:
   - { label: "Specialties", url: "/specialties" }
   - { label: "Grief & Loss" }
 hero:
-  eyebrow: "Grief and loss"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   # Story-led's "bg" default. Still no stock or AI grief imagery (no comforting-hands
   # photo, which is the genre DESIGN_SYSTEM forbids). This is the client's own
   # photograph: one small bird on wide wet sand at dusk, quiet and unpeopled.
@@ -19,6 +26,9 @@ hero:
     alt: "A single small shorebird on wide, mirror-wet sand at dusk, the shoreline and scalloped foam reflecting a pale pink sky."
   title: "Grief and loss counseling in"
   titleEmphasis: "Laguna Beach."
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "Grief doesn't run"
+  displayEmphasis: "on anyone's schedule."
   lead: "Grief is not a problem to be solved. It's the shape love takes when the person you love is gone. If it has knocked the wind out of you, that isn't weakness. That's the size of what you lost."
 lead:
   - "There is no schedule for this. No tidy set of stages you move through and graduate from, no morning you wake up finished. Grief comes in waves, and the waves do not check your calendar. They can arrive at a wedding, in a grocery aisle, on an ordinary Tuesday that had no business being hard."

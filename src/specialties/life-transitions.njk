@@ -8,13 +8,23 @@ crumbs:
   - { label: "Specialties", url: "/specialties" }
   - { label: "Life Transitions" }
 hero:
-  eyebrow: "Life transitions"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   variant: "split" # reframe-led default; the coastal library now supplies a real 4:5 hero photo
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-palm-point-coastal-view-portrait.webp"
     alt: "A row of palm trees on a rocky Laguna point seen across the water, viewed through tall out-of-focus grasses in the foreground under a bright blue sky."
   title: "Life transition"
   titleEmphasis: "counseling."
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "Between who you were"
+  displayEmphasis: "and whoever comes next."
   lead: "The hardest stretch of any big change is the middle, where you're no longer who you were and not yet who you're becoming. That in-between is not a wrong turn. It's just what the crossing feels like."
 lead:
   - "Something shifted, and the map you'd been using stopped matching the ground under your feet. Maybe you chose the change and maybe it chose you. Either way, the old routines, the old answer to \"so what do you do?\", the old sense of where you fit, none of it quite works anymore, and no one handed you the new version."

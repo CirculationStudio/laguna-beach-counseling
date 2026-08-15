@@ -15,9 +15,19 @@ hero:
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-lifeguard-tower-sunny-beach-portrait.webp"
     alt: "A white lifeguard tower on clean Laguna sand under a bright blue sky, palm trees along the bluff behind it and yellow-flowering ice plant in the foreground."
-  eyebrow: "Child therapy"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   title: "Child therapy in"
   titleEmphasis: "Laguna Beach." # H1 renders "Child therapy in Laguna Beach." per the brief
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "Kids don't explain."
+  displayEmphasis: "They show you."
   lead: "Warm, developmentally-attuned counseling for children, in Laguna Beach or by telehealth. Find the right fit with a free call."
 lead:
   - "A young child rarely walks in and says, I've been feeling anxious since the move. They don't have those words yet. Instead it comes out sideways: the stomachaches with no cause, the meltdown over the wrong-colored cup, the sudden clinging, the trouble at drop-off. A child's first language isn't conversation. It's behavior and play."

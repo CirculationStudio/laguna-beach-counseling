@@ -8,7 +8,14 @@ crumbs:
   - { label: "Specialties", url: "/specialties" }
   - { label: "Infidelity & Affair Recovery" }
 hero:
-  eyebrow: "Infidelity and affair recovery"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   # Story-led's "bg" default. Real coastal photography, chosen for weather rather
   # than prettiness: sun breaking through heavy cloud, honest about the topic.
   variant: "bg"
@@ -17,6 +24,9 @@ hero:
     alt: "Sunlight breaking through heavy cloud over a silver sea, dark wet rocks in the foreground and the Laguna hillside faint across the water."
   title: "Infidelity and"
   titleEmphasis: "affair recovery."
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "The trust broke."
+  displayEmphasis: "You're both still here."
   lead: "Rebuilding trust after betrayal is possible, and it's hard, and it's not the same as pretending it didn't happen. It also isn't a courtroom."
 lead:
   - "Finding out, or admitting, that trust has been broken is one of the most disorienting things a couple can go through. The ground you thought was solid isn't. In the rawest days after, it's tempting to turn the relationship into a courtroom: gather the evidence, assign the guilt, hand down a verdict. That instinct is human. It is also, usually, a dead end."

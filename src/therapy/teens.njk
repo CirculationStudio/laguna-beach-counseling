@@ -19,9 +19,19 @@ hero:
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/services/therapy/laguna-beach-counseling-parent-teen-outdoors.webp"
     alt: "A parent and a teenager walking side by side along a paved trail through golden coastal hills, mid-conversation."
-  eyebrow: "Teen and adolescent therapy"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   title: "Teen and adolescent therapy in"
   titleEmphasis: "Laguna Beach." # H1 renders "Teen and adolescent therapy in Laguna Beach." per the brief
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "They'll talk."
+  displayEmphasis: "Just maybe not to you yet."
   lead: "Support for teens navigating anxiety, identity, and the pressures of coastal-community life. A low-pressure way in, for them and for you."
 lead:
   - "The closed bedroom door can feel like a verdict. The one-word answers, the eye-roll, the friends who suddenly know more than you do. If you're the parent, it can feel like you're losing them. Here's the reframe that helps: your teenager isn't malfunctioning. They're doing the actual job of adolescence, which is building a self that's theirs, in a room you're not invited into yet."

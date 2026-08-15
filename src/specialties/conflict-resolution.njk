@@ -16,9 +16,19 @@ hero:
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-ocean-surface-waves-hz.webp"
     alt: "The open ocean surface in daylight, low blue swells folding over one another with no shoreline in view."
-  eyebrow: "Conflict and communication"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   title: "Conflict and communication help"
   titleEmphasis: "for couples." # H1 renders "Conflict and communication help for couples." per the brief
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "Different night."
+  displayEmphasis: "Same fight."
   lead: "When you keep having the same fight. We help you change the pattern underneath the argument, not just the argument itself."
 lead:
   - "Here's the strange part about the fight you keep having: the subject changes every time. It's the dishes, then it's money, then it's your mother, then it's the tone somebody used in the kitchen on a Tuesday. Different words, different night. And yet somehow you both already know your lines. Doesn't it feel less like a new argument and more like a rerun?"

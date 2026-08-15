@@ -15,9 +15,19 @@ hero:
   image:
     src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-sea-foam-shoreline-closeup-hz.webp"
     alt: "Close view of lines of white sea foam gathering and dissolving on wet sand at the edge of the surf."
-  eyebrow: "Addiction and recovery"
+  # treatment "swap": the keyword line keeps the h1 (the brief's exact H1 is
+  # unchanged) but drops to eyebrow scale, and hero.display takes the display
+  # slot so the loudest type carries the weight the keyword string cannot.
+  # See the treatment docs in components/sections.njk, including why the
+  # display line renders as a <p> and never as a heading.
+  # No hero.eyebrow: the h1 occupies that slot now, and the eyebrow was only a
+  # truncation of the h1 anyway.
+  treatment: "swap"
   title: "Addiction and recovery counseling in"
   titleEmphasis: "Laguna Beach." # H1 renders "Addiction and recovery counseling in Laguna Beach." per the brief
+  # The reframe, in Kay's voice. Renders as a <p>, not a heading.
+  display: "Willpower was never"
+  displayEmphasis: "the missing piece."
   lead: "Compassionate, non-judgmental support for addiction and recovery, for the person in it and for the people who love them. No shame, no lectures, just an honest place to do the work."
 lead:
   - "Whatever you're leaning on to get through, whether it's alcohol, a substance, or a behavior that's quietly taken over more of your life than you meant it to, it almost certainly started as a solution. A way to take the edge off, to feel something or feel less, to get through a night. The trouble is that the thing that once helped is now the thing that hurts, and somewhere in there it stopped feeling like a choice."
