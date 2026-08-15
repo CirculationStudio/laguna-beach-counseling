@@ -10,10 +10,16 @@ layout: layouts/base.njk
 
     crumbs      [{label, url?}]
     hero        { eyebrow, title (required), titleEmphasis?, lead?, variant?,
-                  image?, trust?, gold?, ctaLabel?, ctaHref?, secondaryCta? }
+                  image?, trust?, gold?, ctaLabel?, ctaHref?, secondaryCta?,
+                  treatment?, display?, displayEmphasis? }
                 Hero default: variant "bg" (full-bleed photo with the directional
                 gradient veil, the Beach Therapy treatment). Override per page via
                 hero.variant ("split" | "center").
+                treatment "swap" drops the title to eyebrow scale and puts
+                hero.display in the display slot. hero.eyebrow is ignored under
+                it, since the title takes the eyebrow's place. See the treatment
+                docs in components/sections.njk for the accessibility tradeoff:
+                the display line is deliberately not in the heading outline.
     lead        string | string[]
     kay         founderNote opts: { eyebrow?, variant? (founder | note),
                   portrait{src,alt}, name?, nameEmphasis?, role?, quote?,
@@ -56,6 +62,9 @@ layout: layouts/base.njk
   eyebrow: hero.eyebrow,
   title: hero.title,
   titleEmphasis: hero.titleEmphasis,
+  treatment: hero.treatment,
+  display: hero.display,
+  displayEmphasis: hero.displayEmphasis,
   lead: hero.lead,
   variant: hero.variant or "bg",
   image: hero.image,
