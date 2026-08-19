@@ -6,7 +6,7 @@
 ## Hosting
 
 - **Platform:** Cloudflare Pages
-- **Repository:** github.com/marcopradog/laguna-beach-counseling
+- **Repository:** github.com/CirculationStudio/laguna-beach-counseling
 - **Production URL:** [To be configured]
 - **Build command:** `npm run build`
 - **Output directory:** `public`
