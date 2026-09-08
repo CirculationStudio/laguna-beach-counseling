@@ -1265,5 +1265,35 @@
     ],
     "status": "approved",
     "source": "reference/FAQ_KNOWLEDGE_BASE.md, /faq (Kay-approved)"
+  },
+  {
+    "id": "mother-daughter-adult-or-teen",
+    "question": "Is this for adult daughters, or for teenagers?",
+    "answer": "This work is for adult mothers and adult daughters, whether the daughter is 25 or 55. If your daughter is still a teenager, the mother-and-daughter work sits inside our teen therapy instead, because school, separation, and a still-forming sense of self change what the room needs to do. Not sure which side of the line you're on? Ask on the free call and we'll point you to the right one.",
+    "tags": [
+      "mother-daughter"
+    ],
+    "status": "draft",
+    "source": "Agency-drafted for /mother-daughter-therapy, 2026-09-08. DRAFT pending Kay approval: not from the Kay-approved FAQ knowledge base. Contains no fact outside CLIENT_FACTS.md."
+  },
+  {
+    "id": "mother-daughter-one-of-us",
+    "question": "What if only one of us wants to come?",
+    "answer": "That's a completely normal place to start, and it's more common than both people arriving ready on the same day. Plenty of this work begins with one person sorting out what she actually wants to say before anyone says it. Sometimes the other joins later, sometimes she doesn't, and useful things happen either way. You don't need her agreement to book a free call.",
+    "tags": [
+      "mother-daughter"
+    ],
+    "status": "draft",
+    "source": "Agency-drafted for /mother-daughter-therapy, 2026-09-08. DRAFT pending Kay approval: not from the Kay-approved FAQ knowledge base. Contains no fact outside CLIENT_FACTS.md."
+  },
+  {
+    "id": "mother-daughter-taking-sides",
+    "question": "Will the therapist end up taking sides?",
+    "answer": "No. The relationship is the client here, not the mother and not the daughter, which means nobody is on trial and nobody is the one who needs correcting. Both of you get to be right about how it has felt from where you were sitting. The work is about the pattern between you, not about deciding who started it.",
+    "tags": [
+      "mother-daughter"
+    ],
+    "status": "draft",
+    "source": "Agency-drafted for /mother-daughter-therapy, 2026-09-08. DRAFT pending Kay approval: not from the Kay-approved FAQ knowledge base. Contains no fact outside CLIENT_FACTS.md."
   }
 ]

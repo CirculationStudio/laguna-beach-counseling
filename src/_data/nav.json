@@ -8,6 +8,7 @@
         { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
         { "label": "Couples & Marriage", "url": "/therapy/couples", "published": true },
         { "label": "Family Therapy", "url": "/therapy/families", "published": true },
+        { "label": "Mother & Daughter", "url": "/mother-daughter-therapy", "published": true },
         { "label": "Teens", "url": "/therapy/teens", "published": true },
         { "label": "Children", "url": "/therapy/children", "published": true },
         { "label": "Seniors", "url": "/therapy/seniors", "published": true }
