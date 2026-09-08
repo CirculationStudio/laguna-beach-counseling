@@ -520,6 +520,9 @@
    per-person "Book with <first name>" link to m.href or opts.bookPath. Teal
    accents only, never gold. At 5 members it wraps 3 across then 2 on the next row.
    url: an optional canonical page for the member, used only by personSchema.
+   bioHref: an optional per-associate bio page, rendered as a visible "Read <first
+   name>'s bio" text link above the booking link. Deliberately separate from url,
+   which is schema-only and already set on the founder. Pages opt in one at a time.
    Pass real facts only; publish confirmed credentials only (see CLIENT_FACTS.md).
    departing: an accepted but intentionally NON-RENDERED flag. A therapist's
    staffing timeline is private and must not be surfaced publicly, so the macro
@@ -545,6 +548,11 @@
               <p class="team-card__specialty"><span class="team-card__specialty-label">Focus</span> {% if m.specialty.href %}<a href="{{ m.specialty.href }}">{{ m.specialty.label }}</a>{% else %}{{ m.specialty.label }}{% endif %}</p>
             {% endif %}
             {% if m.bio %}<p class="team-card__bio">{{ m.bio }}</p>{% endif %}
+            {# bioHref is opt-in and separate from url on purpose. url is schema-only
+               (the founder already carries one), so linking off it would silently turn
+               Kay's card into a link too. A member gets a visible bio link only by
+               asking for one. #}
+            {% if m.bioHref %}{{ ui.button({ href: m.bioHref, label: "Read " + m.name.split(" ")[0] + "'s bio", variant: "text", arrow: true, ariaLabel: "Read " + m.name + "'s full bio" }) }}{% endif %}
             {% set bookHref = m.href or opts.bookPath %}
             {% if bookHref %}{{ ui.button({ href: bookHref, label: "Book with " + m.name.split(" ")[0], variant: "text", arrow: true, ariaLabel: "Book a free call with " + m.name }) }}{% endif %}
           </div>
@@ -791,20 +799,33 @@
    business @id, the same node the serviceSchema provider uses. A member may carry
    an optional url (e.g. a founder's own page), emitted absolute, and an optional
    sameAs array (profile URLs, e.g. LinkedIn / Psychology Today). Pass business as
-   { url, name }. Pure, no globals, like the other schema macros. #}
+   { url, name }. Pure, no globals, like the other schema macros.
+
+   Three optional additions, all opt-in per member, so existing callers emit
+   byte-identical output:
+   - knowsLanguage: an array of language names. Only ever the languages CLIENT_FACTS.md
+     confirms for that person. Spanish is NOT confirmed for anyone (open question 4).
+   - supervisor: { name, role? }, emitted as a nested Person. SCHEMA.md specifies
+     supervisor = Kay for associates; the credentials parser throws the
+     ", supervised by" half away, so this is how the relationship reaches schema.
+   - hasCredential is now skipped when a member carries no credentials string, rather
+     than erroring on the split. A member whose visible card shows no license may
+     legitimately have nothing to assert here. #}
 {% macro personSchema(people, business) %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    {% for p in people %}{% set licenses = p.credentials.split(", supervised by")[0].split(", ") %}{
+    {% for p in people %}{% set licenses = p.credentials.split(", supervised by")[0].split(", ") if p.credentials else [] %}{
       "@type": "Person",
       "name": {{ p.name | dump | safe }},
       "jobTitle": {{ p.role | dump | safe }},
       {% if p.url %}"url": {{ (business.url + p.url) | dump | safe }},
       {% endif %}{% if p.sameAs %}"sameAs": [ {% for s in p.sameAs %}{{ s | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %} ],
-      {% endif %}"hasCredential": [ {% for c in licenses %}{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": {{ c | dump | safe }} }{% if not loop.last %}, {% endif %}{% endfor %} ],
-      "worksFor": { "@type": "MedicalBusiness", "@id": {{ (business.url + "/#business") | dump | safe }}, "name": {{ business.name | dump | safe }}, "url": {{ business.url | dump | safe }} }
+      {% endif %}{% if p.knowsLanguage %}"knowsLanguage": [ {% for l in p.knowsLanguage %}{{ l | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %} ],
+      {% endif %}{% if licenses | length %}"hasCredential": [ {% for c in licenses %}{ "@type": "EducationalOccupationalCredential", "credentialCategory": "license", "name": {{ c | dump | safe }} }{% if not loop.last %}, {% endif %}{% endfor %} ],
+      {% endif %}{% if p.supervisor %}"supervisor": { "@type": "Person", "name": {{ p.supervisor.name | dump | safe }}{% if p.supervisor.role %}, "jobTitle": {{ p.supervisor.role | dump | safe }}{% endif %} },
+      {% endif %}"worksFor": { "@type": "MedicalBusiness", "@id": {{ (business.url + "/#business") | dump | safe }}, "name": {{ business.name | dump | safe }}, "url": {{ business.url | dump | safe }} }
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
