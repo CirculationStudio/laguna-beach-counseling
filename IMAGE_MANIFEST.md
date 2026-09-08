@@ -77,7 +77,7 @@ atmosphere or place.
 | `outdoor-dramatic-cloudy-ocean-sunset-hz.webp` | hz | 1280x853 | Sun low behind long streaked clouds, dark quiet water, a contrail | /discernment-counseling |
 | `outdoor-family-walking-beach-sunset-portrait.webp` | portrait | 853x1280 | An adult and two children walking away along the sand at golden hour | **restricted, unused** |
 | `outdoor-father-son-shoreline-hz.webp` | hz | 1280x853 | An adult and a child at the water's edge, town on the bluff behind | **restricted, unused** |
-| `outdoor-foggy-beachfront-homes-surfers-hz.webp` | hz | 1280x853 | Heavy fog, a beachfront home with a flag, two distant figures walking | unused |
+| `outdoor-foggy-beachfront-homes-surfers-hz.webp` | hz | 1280x853 | Heavy fog, a beachfront home with a flag, two distant figures walking | /mother-daughter-therapy (hero), /therapy/families (cross-sell) |
 | `outdoor-footprints-in-sand-portrait.webp` | portrait | 853x1280 | Bare footprints pressed into smooth wet sand, leading away | /about/our-approach |
 | `outdoor-golden-hour-breaking-wave-hz.webp` | hz | 1280x853 | A single clean wave breaking under a pale gold sky, minimal | /beach-therapy |
 | `outdoor-lifeguard-tower-sunny-beach-portrait.webp` | portrait | 853x1280 | White lifeguard tower on clean sand, blue sky, palms on the bluff, flowering ice plant | /therapy/children, /components |
@@ -96,7 +96,7 @@ atmosphere or place.
 | `outdoor-sea-foam-shoreline-closeup-hz.webp` | hz | 1280x853 | Close view of foam lines gathering and dissolving on wet sand | /specialties/addiction-recovery |
 | `outdoor-sea-lavender-ocean-overlook-portrait.webp` | portrait | 853x1280 | Purple sea lavender beside a dark park railing, palms on the point, ocean beyond | /therapy/seniors |
 | `outdoor-seagull-silhouette-sunset-portrait.webp` | portrait | 853x1280 | A gull silhouetted on wet reflective sand, palm-lined bluff, pink sunset | unused |
-| `outdoor-shorebirds-feeding-shoreline-hz.webp` | hz | 1280x853 | Four shorebirds feeding in the shallow wash, town on the bluff behind | /therapy/families |
+| `outdoor-shorebirds-feeding-shoreline-hz.webp` | hz | 1280x853 | Four shorebirds feeding in the shallow wash, town on the bluff behind | /therapy/families (hero), /mother-daughter-therapy (cross-sell) |
 | `outdoor-silhouetted-rocks-sunset-shore-portrait.webp` | portrait | 853x1280 | Dark rocks on wet sand against a warm cream sky, surf running in | unused |
 | `outdoor-skimboarder-airborne-wave-portrait.webp` | portrait | 853x1280 | A skimboarder airborne over shorebreak, deep blue ocean behind | unused |
 | `outdoor-surfer-carrying-board-hillside-homes-portrait.webp` | portrait | 853x1280 | A surfer in a wetsuit walking away with a green board, hillside homes behind | unused |
@@ -105,7 +105,7 @@ atmosphere or place.
 | `outdoor-surfers-shoreline-dusk-hz.webp` | hz | 1280x853 | Silhouetted surfers heading to the water at dusk, golden reflective sand | / (homepage) |
 | `outdoor-tide-pools-detail-hz.webp` | hz | 1280x714 | Sunset over a rocky shelf, still tide pools between dark ledges, spray at the point | /therapy/couples |
 | `beach-hands-sandcastle-hz.webp` | hz | 1448x1086 | Close up of a child's and an adult's hands packing wet sand on a sandcastle wall | /sand-castle-therapy |
-| `sandcastle-therapy-hz.webp` | hz | 1448x1086 | A child and adult kneeling beside a tall sandcastle with a small flag, surf beyond | /sand-castle-therapy, /beach-therapy |
+| `sandcastle-therapy-hz.webp` | hz | 1448x1086 | A child and adult kneeling beside a tall sandcastle with a small flag, surf beyond | /sand-castle-therapy, /beach-therapy, /about/rozy-pishvaiy |
 
 ## interior/ (13 assets, mixed provenance)
 
@@ -175,7 +175,7 @@ covers those scenes, so an AI-generated Laguna is not worth the authenticity cos
 | `austin-whitman-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team |
 | `christy-hill-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team |
 | `natasha-gaffaney-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /components |
-| `rozy-pishvaiy-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /components |
+| `rozy-pishvaiy-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /about/rozy-pishvaiy, /components |
 | `laguna-beach-counseling-team-hz.webp` | hz | 1920x1568 | Five team members standing together in the office, lamp and coastal art behind | / (homepage hero) |
 | `laguna-beach-counseling-team-couch-hz.webp` | hz | 1920x1402 | Four team members seated on the orange sofa and armchair, framed landscapes above | / (homepage) |
 | `laguna-beach-counseling-team-stairs-portrait.webp` | **portrait** | 1538x1920 | Four team members on the office stairs beneath the painted "Laguna Beach Counseling" sign | /contact |

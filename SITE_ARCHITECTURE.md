@@ -41,6 +41,7 @@ Status key: Keep (exists, carries over), Reworked (exists, restructured), New (n
 | `/about/kay-wenger` | Reworked | Kay Wenger LMFT | Branded authority | Establish Kay as entity, push to fit call |
 | `/about/our-team` | Reworked | counseling team Laguna Beach | Trust / fit-match | Route each visitor to the right associate, fit call |
 | `/about/our-approach` | Reworked | our therapy approach | Informational | Explain the model ("relationships heal people"), fit call |
+| `/about/rozy-pishvaiy` | New | Farsi speaking therapist Orange County | Branded / service | Fit call. First per-associate bio page, the reusable associate shape |
 
 ### Who we help (`/therapy`)
 
@@ -49,7 +50,8 @@ Status key: Keep (exists, carries over), Reworked (exists, restructured), New (n
 | `/therapy/individuals` | Reworked | individual therapy Laguna Beach | Commercial | Fit call. GROWTH PRIORITY page, see note below |
 | `/therapy/couples` | Reworked | couples therapy Laguna Beach | Commercial | Fit call. Premarital content merges in here |
 | `/therapy/families` | Reworked | family therapy Laguna Beach | Commercial | Fit call |
-| `/therapy/teens` | Reworked | teen therapist Laguna Beach | Commercial | Fit call. Mother-and-daughter lives here as a section, not its own URL |
+| `/therapy/teens` | Reworked | teen therapist Laguna Beach | Commercial | Fit call. Mothers and TEENAGE daughters live here; adult work moved out |
+| `/mother-daughter-therapy` | New | mother daughter therapy | Commercial | Fit call. ADULT mothers and adult daughters, distinct from teens |
 | `/therapy/children` | Reworked | child therapist Laguna Beach | Commercial | Fit call. GROWTH PRIORITY (Rozy's specialty) |
 | `/therapy/seniors` | Reworked | senior counseling Laguna Beach | Commercial | Fit call. Kay's Susi Q authority anchors this page |
 
@@ -94,7 +96,7 @@ Status key: Keep (exists, carries over), Reworked (exists, restructured), New (n
 
 - `/search` and `/services-provided`: website plumbing the new structure replaces.
 - `/premarital`: folds into `/therapy/couples` as a section (301).
-- `/mother-and-daughter-help`: becomes a section inside `/therapy/teens` (301).
+- `/mother-and-daughter-help`: now redirects to `/mother-daughter-therapy` (301). SUPERSEDED 2026-09-08: this originally folded into `/therapy/teens` as a section. The leads are adult mothers and adult daughters, which is different work from a mother and her teenager, so it earned its own URL. Teens keeps the adolescent case and the two link across.
 - `/christian-counseling`: becomes the broader `/specialties/faith-based` (301).
 
 No content is lost. Each piece moves to where it belongs. Write a 301 for every retired or moved URL.
@@ -216,13 +218,13 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 | `/addictionandrecovery` | `/specialties/addiction-recovery` | 301 (new page, confirm clinician coverage) |
 | `/senior-counseling` | `/therapy/seniors` | 301 |
 | `/beach-therapy` | `/beach-therapy` | Keep identical (highest-value URL, do not change) |
-| `/mother-and-daughter-help` | `/therapy/teens` | 301 (section) |
+| `/mother-and-daughter-help` | `/mother-daughter-therapy` | 301 |
 | `/meetthestaff` | `/about/our-team` | 301 |
 | `/aboutme` | `/about/kay-wenger` | 301 |
 | `/meetthestaff/christy-hill` | `/about/our-team` | 301 |
 | `/meetthestaff/natasha-gaffaney` | `/about/our-team` | 301 |
 | `/meetthestaff/austin-whitman` | `/about/our-team` | 301 |
-| `/meetthestaff/rozy-pishvaiy` | `/about/our-team` | 301 |
+| `/meetthestaff/rozy-pishvaiy` | `/about/rozy-pishvaiy` | 301 |
 | `/testimonials` | `/testimonials` | Keep URL (page ON HOLD, see brief) |
 | `/ratesinsurance` | `/fees` | 301 |
 | `/appointment` | `/get-started` | 301 |
@@ -234,7 +236,7 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 
 ### Net-new pages (no old URL, nothing to redirect)
 
-`/about`, `/about/our-approach`, `/therapy` (landing), `/therapy/individuals`, `/specialties` (landing), `/specialties/infidelity`, `/specialties/neurodiversity`, `/couples-intensive`, `/sand-castle-therapy`.
+`/about`, `/about/our-approach`, `/therapy` (landing), `/therapy/individuals`, `/specialties` (landing), `/specialties/infidelity`, `/specialties/neurodiversity`, `/couples-intensive`, `/sand-castle-therapy`, `/mother-daughter-therapy`, `/about/rozy-pishvaiy`.
 
 ### Decisions the crawl surfaced (resolve before writing `_redirects`)
 
@@ -243,7 +245,7 @@ These were live, indexed pages the new architecture did not account for. Status 
 1. RESOLVED: `/addictionandrecovery` gets a new home at `/specialties/addiction-recovery` (added to the sitemap and briefs above). Still CONFIRM which clinician covers substance-use work before naming anyone, since this was Austin's area and he is departing.
 2. RESOLVED: `/forms` is KEPT at the same URL rather than folded into `/get-started`. It was not optional: the page carries the Board of Behavioral Sciences complaint notice that California mental health counselors must give clients under AB 630 (Chapter 229, Statutes of 2019), so it had to survive the migration. The intake step also stays cleanly separate from the free-call conversion page, which was the earlier recommendation.
 3. RESOLVED: `/parenting-support`, `/work-and-career-issues`, and `/stress-management` are consolidated into their parent pages (families, life-transitions, anxiety). The 301s preserve link equity; they stop being standalone ranking targets, which is the intended "depth beats breadth" tradeoff.
-4. RESOLVED: no per-associate bio pages for now. All associate bio URLs 301 to `/about/our-team`, which carries a card per therapist. Kay keeps her own page at `/about/kay-wenger`. Per-associate pages can be added later if entity SEO calls for it.
+4. SUPERSEDED 2026-09-08. The original ruling was: no per-associate bio pages, all associate bio URLs 301 to `/about/our-team`. Reversed on the traffic argument recorded in the open-questions section above: associate bios pulled roughly 200 clicks a year, about 15 percent of all site clicks, and forfeiting that was the wrong trade. Per-associate pages are now built for RETAINED associates only. `/about/rozy-pishvaiy` is live and is the reusable associate shape; Natasha is the next candidate. Christy and Austin are transitioning out in 2026 and keep their 301s to `/about/our-team`, per the CLIENT_FACTS roster guidance against permanent bio pages for departing associates. Kay keeps `/about/kay-wenger`, which stays founder-scale and distinct.
 
 ### DNS and launch safety (non-negotiable)
 
@@ -305,6 +307,17 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Schema: Person per associate (supervisor = Kay where accurate).
 - Flags: publish only CONFIRMED credentials. Austin and Christy are transitioning out in 2026, keep their treatment provisional and do not commission permanent photography for them yet. Do not publish Irene until status is confirmed.
 
+**`/about/rozy-pishvaiy`** (New, first per-associate bio page, the reusable associate shape)
+- H1: Rozy Pishvaiy, AMFT
+- Title: Rozy Pishvaiy, AMFT | Farsi-Speaking Therapist, Laguna Beach
+- Meta: Culturally responsive therapy in English and Farsi, for children, teens, adults, and couples. In Laguna Beach or by telehealth across California.
+- Purpose: capture the associate-bio traffic the old site earned (about 15 percent of all clicks), and surface the Farsi capability, which is a real differentiator that appeared nowhere on the site. Target her specialties and languages, not only her name.
+- Sections: who she is (plain hero, then lead); how she works (founderNote "note" variant, her portrait and signature); Sand Castle Therapy as her signature cross-sell; what she works with (definitionList); who she sees, by age (pointCards); therapy in English and Farsi (its own h2, worded as the search phrase); where to go next; CTA.
+- Proof/voice: third person, in her register (warm, down-to-earth, collaborative), NOT Kay's first person. "You are the expert on your own life." Her room is "free from masks and pressure."
+- Internal links: /sand-castle-therapy, /about/our-team, /therapy/children, /get-started. Inbound from /about/our-team (via teamGrid bioHref), /therapy/children, and /sand-castle-therapy.
+- Schema: Person (jobTitle, knowsLanguage English and Farsi, supervisor = Kay, worksFor the business @id) + BreadcrumbList. No Service: this is a person, not a service, the same call as /about/kay-wenger.
+- Flags: lighter than the founder page by design, do not clone /about/kay-wenger. Publish the AMFT designation with NO license number, in visible copy and in schema both. Do NOT publish, pending Kay's confirmation: Emotionally Focused Therapy (her bio claims the training; EFT is on the never-attribute list), trauma recovery and PTSD (implies unconfirmed EMDR / TF-CBT training, the same reason trauma is absent from Sand Castle Therapy), and her two client testimonials (HIPAA hold). Do not merge any Orange County Couples Counseling material into this page. Farsi is confirmed by agency confirmation 2026-09-08 and recorded in CLIENT_FACTS.md; Spanish remains unconfirmed for anyone and must not be claimed.
+
 **`/about/our-approach`** (Reworked)
 - H1: How the work actually works.
 - Title: Our Approach to Therapy | Laguna Beach Counseling
@@ -358,14 +371,26 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Internal links: /therapy/teens, /therapy/children, /get-started.
 - Schema: Service.
 
-**`/therapy/teens`** (Reworked, mother-daughter as a section)
+**`/therapy/teens`** (Reworked, mothers and teenage daughters as a section)
 - H1: Teen and adolescent therapy in Laguna Beach.
 - Title: Teen Therapist Laguna Beach | Adolescent Counseling
 - Meta: Support for teens navigating anxiety, identity, and the pressures of coastal-community life. A low-pressure way in.
-- Sections: who it helps; parenting an affluent-community teen; the mother-and-daughter section (folded in, not its own URL); the Men's Support Group as a low-threshold entry for young men; CTA.
+- Sections: who it helps; parenting an affluent-community teen; the mothers-and-teenage-daughters section (folded in, and linking across to `/mother-daughter-therapy` for the adult case); the Men's Support Group as a low-threshold entry for young men; CTA.
 - Internal links: /therapy/families, /specialties/anxiety, /get-started.
 - Schema: Service.
 - Flags: age-appropriate framing; the associate leading teen work is transitioning out in 2026, keep practitioner references soft.
+
+**`/mother-daughter-therapy`** (New, adult mothers and adult daughters)
+- H1: Mother daughter therapy in Laguna Beach.
+- Title: Mother Daughter Therapy Laguna Beach | Adult Daughters
+- Meta: Tension, boundaries, caregiving, or the wish to be closer. Therapy for adult mothers and daughters in Laguna Beach or by telehealth across California.
+- Target keyword (primary): mother daughter therapy, plus adult variants (adult mother daughter counseling, mother daughter counseling near me). Distinct from `/therapy/teens`, which owns the adolescent case.
+- Purpose: give a steady trickle of leads (roughly 5 a year) somewhere to land. Position for the FULL range, not only damaged relationships: tension, boundaries, caregiving, and wanting to be closer are all valid reasons.
+- Sections: the full-range opening (lead); Kay on holding the relationship rather than either person (founderNote); family therapy as the wider room (crossSell); the pull quote; what this usually looks like, eight situations (definitionList); nobody walks in as the problem (content slot); where to go next; FAQ; CTA.
+- Proof/voice: "You don't have to wait until the relationship is broken to ask for help." "My client is the relationship. Not the mother, not the daughter, the thing between them."
+- Internal links: /therapy/families, /therapy/individuals, /therapy/teens, /get-started.
+- Schema: Service + BreadcrumbList + FAQPage.
+- Flags: ADULT daughters only, keep clearly distinct from `/therapy/teens`, which links here and is linked back. Must welcome either woman without implying one is the problem, the same no-pathologizing guardrail the couples pages carry: every situation is written so either could read it as description rather than accusation. No statistic is used; there is no cleared CONTENT_EVIDENCE entry for estrangement or mother-daughter dynamics, so do not add one without a primary source and a usage class. FAQ entries are agency-drafted and marked status draft pending Kay's approval.
 
 **`/therapy/children`** (Reworked, GROWTH PRIORITY)
 - H1: Child therapy in Laguna Beach.

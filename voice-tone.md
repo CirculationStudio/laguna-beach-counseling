@@ -37,6 +37,23 @@ The Esther Perel test: read the finished piece aloud. Could Esther Perel have wr
 
 Use "I" for Kay's personal perspective: her bio, her thirty years, her approach, personal reflections. Use "we" for the practice broadly: homepage, service pages, team, general client experience. Both belong and can sit in the same piece. Example: "I've spent over 30 years working with individuals, couples, families, and teens, and I've built a team I genuinely trust. When you come to us, you'll find the right fit for what you're dealing with."
 
+### Associates
+
+Associates are written about in the THIRD person, never in a first-person "I". The "I"
+belongs to Kay, who owns this voice; putting invented first-person copy in another real
+clinician's mouth is not ours to do, and no associate has approved first-person samples.
+
+That does not mean every associate sounds the same. Each one gets their own register
+inside the house voice, drawn from how they actually work, and the team page brief is
+explicit that associates should read as distinct people rather than as interchangeable
+staff. Rozy's page is the worked example: warm, plain, collaborative, noticeably lighter
+on authority signals than Kay's page, because that is how she works.
+
+Two rules hold across all of them. Anything presented as an associate's own words (a
+founderNote quote, a signature line) comes from material they supplied and stays theirs
+to revise. And credentials read as warmth and perspective, never as a wall of letters,
+which matters more on an associate page than anywhere else on the site.
+
 ---
 
 ## Mandatory mechanics (run on every piece before it ships)

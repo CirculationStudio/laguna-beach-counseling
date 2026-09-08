@@ -140,15 +140,17 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/specialties/conflict-resolution` | story-led | Built | Shipped story-led: the recurring-argument pattern framing (the "same fight has choreography" angle) |
 | `/specialties/faith-based` | story-led | Built | Welcoming stance narrative |
 | `/about` | story-led | Built | Founding narrative |
-| `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page |
+| `/about/kay-wenger` | story-led | Built | founderNote founder variant carries the page. FOUNDER-SCALE, do not clone for associates |
+| `/about/rozy-pishvaiy` | story-led | Built | The ASSOCIATE PAGE SHAPE, see the Type G recipe. founderNote `note` variant, no credential grid, third person, Person schema with knowsLanguage and supervisor |
 | `/beach-therapy` | story-led | Built | Origin story; what-to-expect = `journey` steps. Carries a `promoCallout` cross-link to `/sand-castle-therapy` in the content slot |
 | `/sand-castle-therapy` | story-led | Built | Signature service, the children's counterpart to Beach Therapy. Six Pillars = `journey` steps; "what makes it different" + who-it-helps in the content slot; real photography throughout (hands close-up in the hero, the wide sandcastle shot in the cross-sell) |
 | `/specialties/neurodiversity` | practical-led | Built | |
 | `/specialties/addiction-recovery` | practical-led | Built | Scope-bounding copy in lead / content slot |
 | `/therapy/couples` | story-led | Built | RESOLVED (was practical-led): the pro-commitment stance, Kay/NRMFT authority, and narrative voice quotes outweigh the tentative practical-led guess; Kay's founderNote carries it, premarital keyword section (~3,880 impressions) goes in the content slot. DEFERRED until its core pathway pages exist (`/discernment-counseling`, `/couples-intensive`, `/specialties/infidelity`, `/specialties/conflict-resolution`) so its internal links are real rather than placeholders |
-| `/therapy/teens` | practical-led | Built | Mother-daughter and Men's Group sections via content slot |
+| `/therapy/teens` | practical-led | Built | Mothers-and-teenage-daughters and Men's Group sections via content slot; the teen card links across to `/mother-daughter-therapy` |
 | `/therapy/seniors` | practical-led | Built | Shipped practical-led: the Susi Q "plenty to do, nowhere to talk" angle, not a re-tell of the grief page origin story |
-| `/therapy/families` | practical-led | Built | |
+| `/therapy/families` | practical-led | Built | `crossSell` introduces `/mother-daughter-therapy` |
+| `/mother-daughter-therapy` | story-led | Built | ADULT mothers and daughters. Situations = `definitionList`; no-pathologizing guardrail in the content slot; keyword-as-eyebrow hero |
 | `/therapy/children` | practical-led | Built | Growth priority |
 | `/` (homepage) | none, hand-composed | Built | Deliberately not templated: the three templates share one block order and the front door should not read like another service page. Composes `homeHero` (team photo), `lead`, `featureRow` (three-tier proof, navy), `videoEmbed`, `pullQuote`, `pointCards` (who we help, from nav.json), `promoCallout` (Beach Therapy), `pillLinks` (specialties, from nav.json), `promoCallout` reversed (team teaser), `definitionList` (out-of-network and Superbill line), `pillLinks`, `ctaBand` sand, `homeSchema` |
 | `/therapy` (landing) | practical-led | Built | Lean routing page: hero, lead, grid, cta. Grid is composed in the content slot from nav.json children filtered on `published`, NOT the `next:` key, so it cannot link a page that does not exist and cannot drift from the menu; the same array feeds `itemListSchema`. No FAQ, no support block, no `service:` key |
@@ -165,8 +167,8 @@ The Built column reflects verified status (page output present in `public/` and 
 | `/privacy-policy`, `/thank-you` | custom minimal | Not built | Client-supplied legal text / confirmation state |
 | `/testimonials` | ON HOLD | On hold | Not built (HIPAA authorization workflow pending) |
 
-Tally by template: reframe-led 5, story-led 10, practical-led 11, custom 9, on hold 1.
-Tally by status: 28 built, 5 not built, 1 placeholder only, 1 on hold.
+Tally by template: reframe-led 5, story-led 12, practical-led 11, custom 9, on hold 1.
+Tally by status: 30 built, 5 not built, 1 placeholder only, 1 on hold.
 
 ---
 
@@ -180,7 +182,7 @@ Tally by status: 28 built, 5 not built, 1 placeholder only, 1 on hold.
 | D. Specialty | `/specialties/{anxiety,depression,grief,life-transitions,infidelity,conflict-resolution,neurodiversity,faith-based,addiction-recovery}` | 9 |
 | E. Signature service | `/beach-therapy`, `/couples-intensive`, `/discernment-counseling`, `/telehealth` | 4 |
 | F. About overview | `/about` | 1 |
-| G. About-person | `/about/kay-wenger` | 1 |
+| G. About-person | `/about/kay-wenger` (founder), `/about/rozy-pishvaiy` (associate) | 2 |
 | H. Team | `/about/our-team` | 1 |
 | I. Approach | `/about/our-approach` | 1 |
 | J. Fees | `/fees` | 1 |
@@ -266,7 +268,7 @@ noted once here and omitted from the rows below unless notable.
 | Not-a-therapy-factory ethos | COVERED `pullQuote` |
 | CTA | COVERED `ctaBand` |
 
-### G. About-person (`/about/kay-wenger`)
+### G1. About-person, founder scale (`/about/kay-wenger`)
 | Block | Coverage |
 |---|---|
 | Why I started (long-form) | COVERED `prose` (drop-cap longform) |
@@ -275,6 +277,38 @@ noted once here and omitted from the rows below unless notable.
 | Clinical philosophy quote | COVERED `pullQuote` |
 | Portrait / bio header | COVERED `founderNote` (founder variant) |
 | CTA | COVERED `ctaBand` |
+
+### G2. About-person, associate scale (`/about/rozy-pishvaiy`)
+
+The reusable shape for every future associate page. Build it by copying this recipe,
+not by copying Kay's page: hers is founder-scale and carries the origin story, and an
+associate page that imitates it reads as a practice inflating its bench. Five parts,
+in order: who they are, how they work, what they work with, a fit check, a booking path.
+
+| Block | Coverage |
+|---|---|
+| Name and credential header | COVERED `hero` (`variant: "plain"`, name-first h1, credential in `titleEmphasis`) |
+| Who they are | COVERED `lead` (two paragraphs, THIRD person) |
+| How they work | COVERED `founderNote` (**`note` variant**: disc portrait, one quote, body, signature. NOT the founder variant, and no credential grid) |
+| Their signature or specialty | COVERED `promoCallout` via `crossSell` |
+| What they work with | COVERED `definitionList` via `shapes` |
+| Who they see | COVERED `pointCards` in the content slot |
+| Anything genuinely distinguishing | COVERED `prose` in the content slot, with its own h2 worded as the search phrase (Rozy's is "Therapy in English and Farsi") |
+| Where to go next | COVERED `pointCards` via `next` |
+| CTA | COVERED `ctaBand` |
+
+What an associate page deliberately DROPS relative to the founder page: the founder
+variant and its credential grid, first-person voice, career-arc through-lines, a second
+pull quote, a separate long-form origin story, and `sameAs` (no directory profiles are
+confirmed for any associate). No `service` key: a person is not a service.
+
+Schema: `personSchema` with `knowsLanguage` and `supervisor`, plus `breadcrumbSchema`.
+Publish confirmed credentials only, and match visible copy to schema exactly, including
+when a license number is deliberately withheld.
+
+Build these for RETAINED associates only. CLIENT_FACTS.md is explicit that departing
+associates get no permanent bio page; their old URLs keep their 301s to
+`/about/our-team`.
 
 ### H. Team (`/about/our-team`)
 | Block | Coverage |
@@ -368,7 +402,9 @@ watermark composition with navy and sand tones, `breadcrumbs` + `breadcrumbSchem
 - **`teamGrid`**: COVERED. Person cards (cutout photo on the founder block's static
   sea-foam ground, name, role, credentials, short bio) as a responsive 1/2/3-column grid.
   Built and live on `/about/our-team` and demoed on `/components/`. Params:
-  `{ eyebrow?, title?, titleEmphasis?, lead?, members: [{name, role, credentials, photo{src,alt}, bio, href?, departing?}], tone? }`.
+  `{ eyebrow?, title?, titleEmphasis?, lead?, members: [{name, role, credentials, photo{src,alt}, bio, href?, url?, bioHref?, departing?}], tone? }`.
+  `bioHref` is the opt-in per-associate bio link ("Read <first name>'s bio"), deliberately
+  separate from `url`, which is schema-only and already set on the founder.
   `departing` is accepted but intentionally never rendered (private staffing info). Still
   pending: a compact variant for the homepage team teaser. Respect the CLIENT_FACTS flags:
   publish confirmed credentials only, and no permanent photography for departing associates.
@@ -382,10 +418,11 @@ watermark composition with navy and sand tones, `breadcrumbs` + `breadcrumbSchem
 
 ### Separate track: schema partials (non-visual, from SCHEMA.md)
 Not section components, but needed and macro-shaped. Implemented: `faqSchema`,
-`breadcrumbSchema` (with the visible `breadcrumbs`), `serviceSchema`. Still needed:
-`personSchema` (Kay and team) and the `MedicalBusiness` reference used on the homepage and
-`/contact`. Build each alongside the page type that first needs it, keyed to CLIENT_FACTS.md
-values.
+`breadcrumbSchema` (with the visible `breadcrumbs`), `serviceSchema`, `personSchema`, and
+the `MedicalBusiness` record on `/contact` that every other page references by `@id`.
+`personSchema` is live on `/about/kay-wenger`, `/about/our-team`, and
+`/about/rozy-pishvaiy`, and takes optional `knowsLanguage`, `supervisor`, `url`, and
+`sameAs` per member. Keyed to CLIENT_FACTS.md values.
 
 ---
 
