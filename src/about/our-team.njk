@@ -6,9 +6,10 @@ permalink: /about/our-team/
 ---
 {# Hand-composed page (no reframe/story/practical template): breadcrumbs, an
    intro that carries the single h1, the teamGrid component, and a sand CTA band.
-   Roster and credentials are real, from CLIENT_FACTS.md. No per-member bio links:
-   associate bio URLs 301 to this page (SITE_ARCHITECTURE.md), and Kay is linked
-   from the intro prose. No em dashes. #}
+   Roster and credentials are real, from CLIENT_FACTS.md. Per-member bio links are
+   opt-in via bioHref, and only the RETAINED associates get one: Rozy has a page, and
+   Natasha is the next candidate. Christy and Austin are transitioning out in 2026 and
+   deliberately get no page. Kay is linked from the intro prose. No em dashes. #}
 {% import "components/ui.njk" as ui %}
 {% import "components/sections.njk" as s %}
 
@@ -80,6 +81,8 @@ permalink: /about/our-team/
   },
   {
     name: "Rozy Pishvaiy",
+    url: "/about/rozy-pishvaiy",
+    bioHref: "/about/rozy-pishvaiy",
     role: "Associate Therapist",
     credentials: "AMFT #151380, supervised by Kay Wenger",
     specialty: { label: "Life transitions and children" },

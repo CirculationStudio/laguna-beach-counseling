@@ -36,6 +36,7 @@
       "published": true,
       "children": [
         { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": true },
+        { "label": "Rozy Pishvaiy", "url": "/about/rozy-pishvaiy", "published": true },
         { "label": "Our Team", "url": "/about/our-team", "published": true },
         { "label": "Our Approach", "url": "/about/our-approach", "published": true }
       ]

@@ -1,0 +1,156 @@
+---
+layout: layouts/story-led.njk
+metaTitle: "Rozy Pishvaiy, AMFT | Farsi-Speaking Therapist, Laguna Beach"
+description: "Culturally responsive therapy in English and Farsi, for children, teens, adults, and couples. In Laguna Beach or by telehealth across California."
+permalink: /about/rozy-pishvaiy/
+crumbs:
+  - { label: "Home", url: "/" }
+  - { label: "About", url: "/about" }
+  - { label: "Rozy Pishvaiy" }
+hero:
+  eyebrow: "Meet the team"
+  # Text-only hero, matching /about/kay-wenger: the portrait carries in the note
+  # block below rather than competing with the name.
+  variant: "plain"
+  title: "Rozy Pishvaiy,"
+  titleEmphasis: "AMFT"
+  lead: "Associate Marriage and Family Therapist, working in English and Farsi, with children, teens, adults, and couples. In Laguna Beach, or by video anywhere in California."
+lead:
+  - "Rozhin Pishvaiy, who everyone calls Rozy, works with people at most of the ages a practice sees: children who would rather play than explain themselves, teenagers deciding how much to say, adults in the middle of a transition, and couples trying to get unstuck. She holds an M.A. in Marital and Family Therapy from Alliant International University and sees clients under Kay Wenger's supervision."
+  - "What do people tend to notice first? That she is easy to be around. There is no clinical distance to get past, no sense that you are being assessed while you talk. She works alongside people rather than above them, which sounds like a small thing until you have sat in a room where it was not true."
+kay:
+  # The story-led "kay" key is the generic founderNote slot, not Kay-only. Using the
+  # lighter "note" variant here (centered sand card, small disc portrait, signature)
+  # rather than the founder variant that carries Kay's page. That variant difference
+  # is the main thing separating an associate page from the founder's.
+  variant: "note"
+  eyebrow: "How she works"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/rozy-pishvaiy-cutout.webp"
+    alt: "Rozy Pishvaiy, associate therapist at Laguna Beach Counseling."
+  quote: "You are the expert on your own life."
+  body:
+    - "Rozy's starting assumption is that you already know a great deal about your own situation, and that the useful work is figuring it out together rather than having it explained to you. She asks a lot of questions, and she means them."
+    - "Her room is deliberately free of masks and pressure. You do not have to arrive composed, or with the right words ready, or with a version of yourself that seems easier to help. Whatever you actually brought is what you get to work with."
+  sign:
+    name: "Rozy Pishvaiy"
+    role: "Associate Marriage and Family Therapist, supervised by Kay Wenger, LMFT, LPCC"
+crossSell:
+  eyebrow: "Her signature work"
+  tone: "sand"
+  title: "Sand Castle"
+  titleEmphasis: "Therapy™"
+  body: "Rozy delivers the practice's nature-based play therapy model for children, built on the Laguna sand. Kids who go quiet in an office tend to talk while their hands are busy, and a castle turns out to be the right size for a child's hardest feelings."
+  href: "/sand-castle-therapy"
+  label: "Sand Castle Therapy"
+  image:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-sandcastle-therapy-hz.webp"
+    alt: "A child and an adult kneeling beside a tall sandcastle topped with a small flag, surf breaking beyond them."
+shapes:
+  eyebrow: "What she works with"
+  title: "Where Rozy tends to help most"
+  lead: "A range rather than a niche, which is what you want in someone seeing a whole family across different ages."
+  items:
+    - { term: "Anxiety and overwhelm", detail: "The version where the to-do list stopped being a list and became a weather system. Practical work on what is actually driving it, not just breathing exercises." }
+    - { term: "Identity and acculturation", detail: "Belonging to more than one culture, and the quiet work of deciding which parts of each you keep. First-generation clients often arrive relieved to skip the explaining." }
+    - { term: "Family conflict and intergenerational dynamics", detail: "When the argument in the kitchen is actually an argument between two generations, and sometimes between two countries." }
+    - { term: "Life transitions", detail: "Moves, graduations, new roles, endings that were nobody's fault. The seasons that rearrange the furniture of a life." }
+    - { term: "Self-esteem and boundaries", detail: "Learning to say what you need without a rehearsal, and to hear no without reading it as a verdict on you." }
+    - { term: "Relationship challenges", detail: "Couples who keep landing in the same argument, and individuals trying to work out what they want before they say it out loud." }
+    - { term: "Children", detail: "Play-based work for kids who show you what is wrong long before they can tell you, including Sand Castle Therapy™ on the beach." }
+next:
+  eyebrow: "Where to go next"
+  title: "More about the practice"
+  columns: 2
+  cards:
+    - { icon: "heart", title: "The rest of the team", body: "Every therapist here works under Kay's supervision, and the free call exists partly to make sure you land with the right one.", href: "/about/our-team", linkLabel: "Meet the team" }
+    - { icon: "sun", title: "Child therapy", body: "Rozy is the children's specialist here. If you're a parent trying to work out whether therapy is the right call, start here.", href: "/therapy/children", linkLabel: "Child therapy" }
+cta:
+  title: "Think Rozy might be the right fit?"
+  text: "The free 15 to 20 minute call is where we sort that out. You can ask for her by name, or describe what's going on and let us suggest who fits best. No pressure either way."
+  note: "Free and confidential. Be seen within 24 hours."
+  watermark: "Ease"
+  tagline: true
+---
+{# Rozy Pishvaiy, the first per-associate bio page, and the reusable ASSOCIATE PAGE
+   SHAPE that future associates follow (documented in COMPONENT_COVERAGE.md):
+   who they are (hero + lead), how they work (founderNote "note" variant), their
+   signature or cross-sell, what they work with (definitionList), a fit check, and a
+   booking path. Deliberately NOT a clone of /about/kay-wenger, which is founder-scale:
+   this page drops the founder-variant credential grid, the first-person voice, the
+   career-arc through-lines, the second pull quote, the long-form origin story, and
+   sameAs (no directory profiles are confirmed for any associate).
+
+   This supersedes the earlier "no per-associate bio pages, all bio URLs 301 to
+   /about/our-team" decision, on the traffic argument already recorded in
+   SITE_ARCHITECTURE.md: associate bios pulled roughly 15 percent of all site clicks.
+   Built for the RETAINED associates only. Christy and Austin are transitioning out in
+   2026 and get no page, per the CLIENT_FACTS roster guidance.
+
+   VOICE: third person, in her register (warm, plain, collaborative), not Kay's. There
+   was no house rule for associate voice, so one has been added to voice-tone.md in
+   this same pass. The founderNote quote and body are drawn from her supplied bio
+   material and are hers to revise; no first-person copy is put in her mouth.
+
+   NOT PUBLISHED, pending confirmation. Each of these appears in her source material
+   and is deliberately absent here:
+   - AMFT #151380. Confirmed in CLIENT_FACTS.md, but SITE_ARCHITECTURE.md's standing
+     editorial rule is that Rozy is named with her AMFT credential and no license
+     number. Omitted from visible copy AND from schema, so the two agree.
+   - Emotionally Focused Therapy. Her bio claims the training; CLIENT_FACTS.md lists
+     EFT among the modalities that must never be attributed to this practice or any
+     named associate. Do not add until Kay confirms.
+   - Trauma recovery and PTSD. Same reason trauma is deliberately absent from Sand
+     Castle Therapy: it implies EMDR / TF-CBT training that is not confirmed. Do not
+     add until Kay confirms.
+   - Two client testimonials. Testimonials are on HIPAA hold until the written
+     authorization workflow is approved. Not used here in any form.
+   - Orange County Couples Counseling material. OCCC is a separate brand and its facts
+     must not be merged into an LBC page. This page describes her work at Laguna Beach
+     Counseling only.
+
+   LANGUAGES: Farsi is confirmed by agency confirmation, 2026-09-08, and recorded in
+   CLIENT_FACTS.md in this same pass. It is a real differentiator and is made findable
+   in four places: the title tag, the meta description, a dedicated h2 below, and
+   knowsLanguage in the Person schema. Note that Spanish remains unconfirmed for
+   anyone at the practice and must not be claimed.
+
+   Schema: Person + BreadcrumbList. No Service (this is a person, not a service, the
+   same call as Kay's page). No em dashes. #}
+{% import "components/sections.njk" as s %}
+{# Content slot: who she sees, then the languages section. The h2 is worded as the
+   search phrase on purpose, so the page is findable for Farsi-speaking therapist
+   queries in Orange County without turning the copy into a keyword block. #}
+{{ s.pointCards({
+  eyebrow: "Who she sees",
+  title: "Across most of the ages a practice sees",
+  tone: "paper",
+  columns: 3,
+  cards: [
+    { icon: "sun", title: "Children and teens", body: "Play-based work for younger kids, and a low-pressure room for teenagers who have decided in advance how much they plan to say. Both tend to talk more when nobody is waiting for them to perform." },
+    { icon: "compass", title: "Adults", body: "Anxiety, self-esteem, boundaries, and the transitions that rearrange a life. Often first-generation adults carrying expectations from more than one direction at once." },
+    { icon: "heart", title: "Couples", body: "Two people stuck in the same loop, including couples navigating differences in culture, language, or family expectation alongside everything else." }
+  ]
+}) }}
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Therapy in English and Farsi</h2>
+  <p>Rozy is a Farsi-speaking therapist, and she works in either language, or in the mix of both that a lot of bilingual families actually speak at home. If you have ever tried to describe grief, shame, or a family obligation in your second language, you know that something goes missing in the translation. It is tiring, and it puts a layer of glass between you and the person listening.</p>
+  <p>She also brings particular experience with Persian and Middle Eastern clients, and more broadly with people from multicultural and immigrant backgrounds. That matters beyond vocabulary. It means not having to explain why a decision that looks straightforward from the outside carries the weight of a whole family, or why honoring your parents and living your own life can feel like a choice you are not willing to make.</p>
+  <p>Prefer to keep sessions in English? That is completely fine, and common. The point is that the option is there, and that the cultural context does not need translating either way.</p>
+{% endcall %}
+{# Person schema. Credentials are the AMFT designation only, with no license number,
+   so the schema mirrors the visible page exactly (SITE_ARCHITECTURE.md's rule for
+   Rozy). knowsLanguage carries only what CLIENT_FACTS.md confirms. supervisor encodes
+   the supervised-associate relationship that SCHEMA.md specifies and that the
+   credentials parser would otherwise discard. worksFor references the site-wide
+   business @id; MedicalBusiness is never redefined here. No sameAs: no directory
+   profile is confirmed for her. #}
+{% set rozyPerson = {
+  name: "Rozy Pishvaiy",
+  role: "Associate Marriage and Family Therapist",
+  credentials: "AMFT",
+  url: "/about/rozy-pishvaiy",
+  knowsLanguage: ["English", "Farsi"],
+  supervisor: { name: "Kay Wenger", role: "Founder & Clinical Supervisor" }
+} %}
+{{ s.personSchema([rozyPerson], { url: site.url, name: site.name }) }}
