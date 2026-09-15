@@ -65,6 +65,77 @@ export default function (eleventyConfig) {
     return matched.map((e) => ({ q: e.question, a: e.answer }));
   });
 
+  // ---- FAQ answer rendering -------------------------------------------------
+  // Answers in src/_data/faq.json are authored with two markdown constructs:
+  // [label](/path) links and "* " bullet lines. Nothing in this build ever
+  // parsed them, and the faq macro escaped the string, so 96 links across 67
+  // entries rendered to clients as literal "[label](/path)".
+  //
+  // These two filters are deliberately narrow rather than a markdown-it
+  // dependency: the answers use exactly those two constructs, the build has no
+  // runtime dependencies at all today, and a parser that emits arbitrary HTML
+  // is a much larger surface than this needs.
+  //
+  // They come as a PAIR, and that is the point. faqRich renders the visible
+  // answer; faqPlain produces the same words with the link syntax reduced to
+  // its label. SCHEMA.md requires the FAQPage JSON-LD to mirror the visible
+  // text exactly, so the macro renders one through each and the two stay in
+  // word-for-word agreement by construction.
+
+  const escapeHtml = (s) =>
+    String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+
+  // Internal paths and https only. Escaping happens BEFORE link conversion, so
+  // authored content cannot introduce markup, and this guard means it cannot
+  // introduce a javascript: or data: href either.
+  const SAFE_HREF = /^(?:\/[^\s"']*|https:\/\/[^\s"']+)$/;
+  const MD_LINK = /\[([^\]\n]+)\]\(([^)\s]+)\)/g;
+
+  const linkify = (escaped) =>
+    escaped.replace(MD_LINK, (whole, label, href) =>
+      SAFE_HREF.test(href) ? `<a href="${href}">${label}</a>` : whole
+    );
+
+  // Paragraphs split on the literal \n the data uses. Runs of "* " lines
+  // collapse into a single <ul> so the insurer-question list reads as a list.
+  eleventyConfig.addFilter("faqRich", (answer) => {
+    const lines = String(answer || "").split("\n").filter((l) => l.trim() !== "");
+    const out = [];
+    let list = null;
+    for (const line of lines) {
+      const bullet = /^\*\s+(.*)$/.exec(line.trim());
+      if (bullet) {
+        list = list || [];
+        list.push(`<li>${linkify(escapeHtml(bullet[1]))}</li>`);
+        continue;
+      }
+      if (list) {
+        out.push(`<ul>${list.join("")}</ul>`);
+        list = null;
+      }
+      out.push(`<p>${linkify(escapeHtml(line))}</p>`);
+    }
+    if (list) out.push(`<ul>${list.join("")}</ul>`);
+    return out.join("");
+  });
+
+  // The same words, as plain text, for the JSON-LD. Link syntax reduces to its
+  // label and bullet markers drop, so the schema string matches what a reader
+  // sees. Not HTML-escaped: it is fed through | dump into a JSON string.
+  eleventyConfig.addFilter("faqPlain", (answer) =>
+    String(answer || "")
+      .replace(MD_LINK, (whole, label, href) => (SAFE_HREF.test(href) ? label : whole))
+      .split("\n")
+      .map((l) => l.trim().replace(/^\*\s+/, ""))
+      .filter((l) => l !== "")
+      .join(" ")
+  );
+
   return {
     dir: {
       input: "src",

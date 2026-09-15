@@ -230,7 +230,9 @@
             <span>{{ item.q }}</span>
             <svg class="faq__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>
           </summary>
-          <div class="faq__a"><p>{{ item.a }}</p></div>
+          {# faqRich renders the authored markdown links and bullet lines; faqPlain
+             below feeds the JSON-LD the same words, so the two cannot drift. #}
+          <div class="faq__a">{{ item.a | faqRich | safe }}</div>
         </details>
       {% endfor %}
     </div>
@@ -243,7 +245,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% for item in items %}{ "@type": "Question", "name": {{ item.q | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | dump | safe }} } }{% if not loop.last %},{% endif %}
+    {% for item in items %}{ "@type": "Question", "name": {{ item.q | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ item.a | faqPlain | dump | safe }} } }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]
 }

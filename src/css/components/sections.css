@@ -478,8 +478,41 @@
   color: var(--color-ink-soft);
 }
 
+/* Answers were a single escaped <p>. They now render as real paragraphs, an
+   optional list, and real anchors, so they need the spacing a multi-block
+   answer implies. The last-child reset keeps the closed accordion row tight. */
 .faq__a p {
-  margin: 0;
+  margin: 0 0 0.85rem;
+}
+
+.faq__a > :last-child {
+  margin-bottom: 0;
+}
+
+.faq__a ul {
+  margin: 0 0 0.85rem;
+  padding-left: 1.15rem;
+}
+
+.faq__a li {
+  margin: 0 0 0.35rem;
+}
+
+/* Teal, the interactive color, underlined so the link is not signalled by
+   color alone (WCAG 2.2 AA). */
+.faq__a a {
+  color: var(--color-water-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.faq__a a:hover {
+  color: var(--color-navy);
+}
+
+.faq__a a:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 2px;
 }
 
 /* ---- 6. CTA band (the one gold moment) ---------------------------------- */
