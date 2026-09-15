@@ -50,9 +50,9 @@ crumbs:
     <li><strong>Phone:</strong> <a href="tel:{{ site.nap.telephoneHref }}">{{ site.nap.telephone }}</a></li>
     <li><strong>Email:</strong> <a href="mailto:{{ site.nap.email }}">{{ site.nap.email }}</a></li>
     <li><strong>Book a call:</strong> <a href="{{ site.booking.getStartedPath }}">Free 15 to 20 minute Get to Know Us call</a></li>
-    <li><strong>Telehealth:</strong> available to any client located in California.</li>
+    <li><strong>Telehealth:</strong> online sessions enable us to work with anyone located anywhere in California.</li>
   </ul>
-  <p style="max-width:40rem;color:var(--color-ink-soft,#5a6b76);">No walk-ins, so an appointment is recommended. Prefer to talk it through first? The free call is the easiest front door.</p>
+  <p style="max-width:40rem;color:var(--color-ink-soft,#5a6b76);">Have a conversation with one of our therapists. It's the easiest way to see if we're a good fit for you.</p>
 {% endcall %}
 
 {#
@@ -68,7 +68,7 @@ crumbs:
   eyebrow: "Pick a time",
   title: "Or just grab a slot",
   titleEmphasis: "right here.",
-  lead: "The free Get to Know Us call runs 15 to 20 minutes, by phone or video. No commitment follows it.",
+  lead: "The free Get to Know Us call runs 15 to 20 minutes, by phone or video. There is no obligation to follow up with a commitment to a full session.",
   url: site.booking.calendlyUrl + "?" + site.booking.embedParams,
   note: "Booking is handled by Calendly. Please keep anything sensitive off the booking form; we will cover it on the call."
 }) }}
@@ -119,16 +119,25 @@ crumbs:
   ROSTER NOTE: per CLIENT_FACTS.md, Austin Whitman transitions out October 2026 and
   Christy Hill December 2026, so this group shot needs replacing once the roster
   settles. No names in the copy or alt, deliberately.
+
+  STAIRWAY, CONFIRM WITH KAY: Kay reports two stairways in the building, the front
+  one serving another therapist's office, and first-time visitors regularly
+  mistaking that front waiting room for ours. The copy and the H2 now say "rear"
+  explicitly. This photograph is ASSUMED to be the rear staircase, on the grounds
+  that it carries our own painted name and Suite 6 at the top, which the other
+  practice's stairway would not. The alt text deliberately does NOT say front or
+  rear, so it cannot contradict the copy. If Kay confirms the photo is actually
+  the front stairs, the photo is the thing to change, not the copy.
 #}
 {{ s.promoCallout({
   tone: "paper",
   reverse: true,
   eyebrow: "Finding us",
-  title: "Look for Suite 6,",
-  titleEmphasis: "up the stairs.",
+  title: "Suite 6, up the",
+  titleEmphasis: "rear stairs.",
   body: [
-    "The Laguna Beach office is on Third Street, a few blocks back from the water. Head up the staircase and you will see our name on the wall at the top, which is the point at which most people know they are in the right place.",
-    "There is no reception desk and no waiting-room queue, so if you arrive early, you are welcome to sit for a minute. No walk-ins though, so please book first."
+    "We're in the heart of downtown Laguna, on Third Street, a few blocks back from the ocean. Parking, the eternal Laguna question? There's metered parking on the street, plus two free spots behind the building kept for clients.",
+    "One thing worth knowing before you arrive: there are two stairways here, and ours is the one at the back. Head up the rear stairs and our waiting room is right at the top, with coffee, tea, water and something to read while your therapist finishes up and comes out to greet you. Every session is pre-scheduled, so we are not able to take walk-ins."
   ],
   href: site.booking.getStartedPath,
   label: "Book a free call first",
