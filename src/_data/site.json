@@ -42,7 +42,7 @@
   },
   "positioning": {
     "priceRange": "$$$",
-    "outOfNetworkLine": "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We provide Superbills at every session for clients to submit to their PPO insurance for out-of-network reimbursement."
+    "outOfNetworkLine": "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We can provide a Superbill for each session, for clients to submit to their PPO insurance for out-of-network reimbursement."
   },
   "booking": {
     "calendlyUrl": "https://calendly.com/lbc-occc/30min",

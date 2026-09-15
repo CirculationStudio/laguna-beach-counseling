@@ -12,7 +12,7 @@
   {
     "id": "insurance-out-of-network",
     "question": "Do you take insurance?",
-    "answer": "We are out-of-network and do not bill insurance directly. If you have a PPO plan, we give you a Superbill at every session that you can submit to your insurer for possible out-of-network reimbursement. We do not accept HMO or EPO plans.\nWe accept payment at the time of service. Whether your plan reimburses you, and how much, is between you and your insurance company, so it is worth calling them before you start.",
+    "answer": "We are out-of-network and do not bill insurance directly. If you have a PPO plan, we can give you a Superbill for each session that you can submit to your insurer for possible out-of-network reimbursement. We do not accept HMO or EPO plans.\nWe accept payment at the time of service. Whether your plan reimburses you, and how much, is between you and your insurance company, so it is worth calling them before you start.",
     "tags": [
       "cost"
     ],
@@ -1225,7 +1225,7 @@
   {
     "id": "faq-do-you-take-insurance",
     "question": "Do you take insurance?",
-    "answer": "We are an out-of-network practice, so we do not bill insurance directly. If you have a PPO plan, we provide a Superbill at every session that you can submit for possible out-of-network reimbursement. Full details are on the [fees and insurance page](/fees).\nBeing out-of-network lets us offer full-length sessions, protect your privacy, and avoid putting a diagnosis on your permanent record when you do not need one.",
+    "answer": "We are an out-of-network practice, so we do not bill insurance directly. If you have a PPO plan, we can provide a Superbill for each session that you can submit for possible out-of-network reimbursement. Full details are on the [fees and insurance page](/fees).\nBeing out-of-network lets us offer full-length sessions, protect your privacy, and avoid putting a diagnosis on your permanent record when you do not need one.",
     "page": "/faq",
     "tags": [
       "general"

@@ -89,9 +89,9 @@ Gottman Method, EFT, EMDR, IFS, Imago. These may appear only as general modality
 
 ## Insurance and rates
 
-Posture: premium, out-of-network. Not paneled with any insurance. Superbills provided at every session for clients to submit for PPO out-of-network reimbursement.
+Posture: premium, out-of-network. Not paneled with any insurance. A Superbill can be provided for each session, for clients to submit for PPO out-of-network reimbursement.
 
-Canonical positioning line (use in footer, FAQ, Calendly description, fee page): "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We provide Superbills at every session for clients to submit to their PPO insurance for out-of-network reimbursement."
+Canonical positioning line (use in footer, FAQ, Calendly description, fee page): "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We can provide a Superbill for each session, for clients to submit to their PPO insurance for out-of-network reimbursement."
 
 Price range attribute: $$$.
 Payment accepted: cash, check, Venmo, Zelle, all major credit cards.
