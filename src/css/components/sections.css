@@ -819,7 +819,12 @@
 
 /* Split hero: text beside a framed image column (near-even asymmetry). */
 .hero--split {
-  padding-block: clamp(3rem, 7vw, 5.5rem);
+  /* The width clamp alone gave a short screen the same 88px of padding as a tall
+     one, on a section that was already too tall for it. The svh ceiling gives
+     back about 25px at the top on a laptop viewport and nothing at all on a
+     roomy one, so the generous rhythm survives where there is room for it. */
+  padding-block: min(clamp(3rem, 7vw, 5.5rem), 9vh);
+  padding-block: min(clamp(3rem, 7vw, 5.5rem), 9svh);
 }
 
 .hero__inner--split {
@@ -846,6 +851,20 @@
   border-radius: var(--radius-card);
   background: var(--color-sand-warm);
   box-shadow: var(--shadow-card);
+}
+
+/* The 4:5 frame set the whole section's height with no relationship to the
+   viewport: at 1440 the image column computes to ~590px wide, so the frame ran
+   ~737px tall and the hero ~935px, which pushed the lead below the fold on 7 of
+   the 10 split-hero pages at a 1440x800 viewport (and a 1440x900 SCREEN is about
+   that once browser chrome is taken off). Capping against viewport height, not
+   the column width, is what ties the hero back to what the reader can actually
+   see. object-fit: cover on the img already handles the resulting crop.
+   Below 64rem the grid is single-column with the text above the image, so this
+   also stops a ~904px-tall full-width frame there. */
+.hero--split .hero__frame {
+  max-block-size: min(34rem, 60vh);
+  max-block-size: min(34rem, 60svh);
 }
 
 .hero__frame img {
