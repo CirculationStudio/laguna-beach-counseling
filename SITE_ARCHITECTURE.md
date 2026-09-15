@@ -254,6 +254,38 @@ These were live, indexed pages the new architecture did not account for. Status 
 - Preserve specific ranking blog URLs. At least one blog post ranks and pulls clicks: `/blog/1399501-the-benefits-of-therapy-for-children` (about 24 clicks, position ~10). Map every existing blog post URL to its new URL and 301 it; do not let ranking posts 404.
 - Grep `src/_data/faq.json` for `"status": "draft"` and confirm no matches. Every FAQ entry is authored as draft until reviewed and flipped to `"status": "approved"`; none should still read draft at real launch, since this file feeds the `/faq` page, every per-page FAQ section pulled by tag, and FAQPage schema. Run: `grep -c '"status": "draft"' src/_data/faq.json` (expect `0`).
 
+### Known defects to fix before launch (ours, not the client's)
+
+Found during the September 2026 team-feedback pass. Neither was introduced by it, and
+neither needs a client decision. Both are ours to fix.
+
+- **`/get-started` and `/contact` deviate from their briefs on title, meta AND H1, with no
+  code comment explaining why.** This is exactly the failure the Page Build Workflow calls
+  out after `/about/our-team` shipped with a paraphrased title, meta and H1. Either bring
+  the pages back to the brief, or update the brief and record the reason in the page, the
+  way `/fees` and `/therapy/individuals` now do. Current state:
+  - `/get-started` title "Get Started | Book a Free Consultation Call | Laguna Beach
+    Counseling" vs. brief "Book a Free Consultation | Laguna Beach Counseling"; H1
+    "Getting started is one low-pressure call." vs. brief "Let's start with a
+    conversation."; meta rewritten.
+  - `/contact` title "Contact | Laguna Beach Counseling" vs. brief "Contact | Laguna Beach
+    Counseling | 333 Third Street" (the brief's version carries the street, which is the
+    point on the canonical NAP page); H1 "Get in touch." vs. brief "Contact us."; meta
+    rewritten.
+  - For reference, two deviations that ARE documented and should stay: the homepage and
+    `/therapy/individuals` metas both correct the brief's "Free 15-minute call" to the
+    canonical "15 to 20 minute" from CLIENT_FACTS.md, and say so in a code comment.
+
+- **Two pages skip a heading level, h1 straight to h3** (WCAG 2.2 AA, ordered headings).
+  Both come from a component emitting `h3` in a section with no `h2` above it, so the fix
+  is at the call site or in the macro, not in page copy:
+  - `/about/our-team`: `teamGrid` renders each `.team-card__name` as `h3` directly under
+    the page `h1`, with no section heading between them.
+  - `/specialties/neurodiversity`: the `featureRow` trust band renders `.feature__title` as
+    `h3` before the first `h2` on the page.
+  Audit the other `teamGrid` and `featureRow` call sites at the same time; these two are
+  just where the pattern currently bites.
+
 ---
 
 ## Per-page content briefs
