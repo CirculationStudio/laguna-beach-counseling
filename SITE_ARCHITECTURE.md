@@ -561,15 +561,16 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 
 ### Practical and conversion
 
-**`/fees`** (Reworked)
+**`/fees`** (Reworked; claims corrected by Kay, September 2026)
 - H1: Fees and insurance.
 - Title: Therapy Cost Laguna Beach | Out-of-Network & Superbills
-- Meta: We're out-of-network by design: longer sessions, real confidentiality, no diagnostic label required. Superbills provided for PPO reimbursement.
+- Meta: Out-of-network by design: longer sessions, greater control over your care, and a Superbill for each session you can submit to your PPO.
 - Purpose: handle the money objection with the out-of-network reasoning.
-- Sections: the canonical out-of-network positioning line; the four reasons (session length, confidentiality, clinical autonomy, time on care not paperwork); the rate cards (associates and Kay); Superbill explanation; sliding-scale-on-request note; cancellation policy; CTA.
+- Sections: the canonical out-of-network positioning line, with the HMO/EPO exclusion and the "your insurer decides reimbursement" line beside it; the four reasons (session length, privacy and clinical independence, clinical autonomy, time on care not paperwork); a line on which rate applies to whom, immediately above the rate cards; the rate cards (associates and Kay); Superbill explanation; limited-sliding-scale note; cancellation policy; CTA.
 - Internal links: /faq, /get-started.
 - Schema: Service with PriceSpecification.
 - Flags: never imply insurance is billed directly. Redirect any old /rates here.
+- CLAIMS FLAG (this brief was rewritten, do not restore the earlier wording): the original meta and section plan promised "real confidentiality" and "no diagnostic label required". Kay ruled both indefensible and she is right. Clinical records and diagnoses exist whether or not a practice bills insurance, and a client who submits a Superbill hands their insurer whatever it needs to process the claim. The page may say we do not require a diagnosis in order to BEGIN therapy, and that we are not structured around an insurer's authorization requirements or session limits. It may NOT imply that choosing us keeps a diagnosis from existing or from reaching an insurer. "Real confidentiality" as a heading is also out: it implies insurance-based therapy is not confidential, which is provocative and not a claim this practice should make.
 
 **`/forms`** (Keep, same URL)
 - H1: Forms for your first session.

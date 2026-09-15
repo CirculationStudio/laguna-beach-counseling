@@ -1,7 +1,7 @@
 ---
 layout: layouts/practical-led.njk
 metaTitle: "Therapy Cost Laguna Beach | Out-of-Network & Superbills"
-description: "We're out-of-network by design: longer sessions, real confidentiality, no diagnostic label required. Superbills provided for PPO reimbursement."
+description: "Out-of-network by design: longer sessions, greater control over your care, and a Superbill for each session you can submit to your PPO."
 permalink: /fees/
 crumbs:
   - { label: "Home", url: "/" }
@@ -20,10 +20,10 @@ hero:
     alt: "A session room at the practice, an orange sofa and a grey armchair around a woven coffee table, framed landscape photographs on the wall and lamps lit."
   title: "Fees and"
   titleEmphasis: "insurance." # H1 renders "Fees and insurance." per the brief
-  lead: "We're out-of-network by design: longer sessions, real confidentiality, and no diagnostic label required. Here's what that means, and exactly what it costs, before you ever pick up the phone."
+  lead: "We're out-of-network by design: longer sessions, and therapy shaped by what helps you rather than by an insurer's rules. Here's what that means, what it costs, and how reimbursement works, before you ever pick up the phone."
 lead:
-  - "Let's talk about money plainly, because guessing is worse. We're an out-of-network practice on purpose. For insurance to pay, it needs a diagnosis, a code that goes on your permanent record, plus a set of rules about how long your sessions can be and what your therapy is allowed to focus on. Out-of-network means none of that follows you around."
-  - "So you're not really paying for a more expensive hour. You're buying the room back: an hour shaped around you and what you need, instead of around a reimbursement form. Is that worth it for everyone? No. But for a lot of people, the difference is the whole point. And if cost is the thing standing in your way, please say so. That's a conversation, not a closed door."
+  - "Let's talk about money plainly, because guessing is worse. We're an out-of-network practice on purpose. When a plan is paying, it generally sets the terms: a diagnosis to authorize the care, a view on how long sessions run, and a view on what the work should focus on. Working outside that means those decisions stay between you and your therapist."
+  - "So what you're paying for is not really a more expensive hour. It's an hour shaped around you and what you need, for as long as the work actually takes. Is that the right trade for everyone? Honestly, no. But for a lot of people it is the whole point. And if cost is the thing standing in your way, please say so. That's a conversation, not a closed door."
 points:
   eyebrow: "Why out-of-network"
   title: "What the choice actually buys you"
@@ -31,8 +31,8 @@ points:
   tone: "sand"
   cards:
     - { icon: "clock", title: "Full-length sessions", body: "Real 50, 75, or 90 minute sessions, not the rushed version the clock allows when a payer is dictating the terms. The work needs room to breathe, so we give it room." }
-    - { icon: "shield", title: "Real confidentiality", body: "No diagnosis sitting in an insurer's database, no third party deciding you need a label to deserve care. What happens in the room stays a great deal more private." }
-    - { icon: "compass", title: "Clinical autonomy", body: "Your therapy is shaped by what actually helps you, not by what a reimbursement code will approve. We answer to your goals, not to a claims department." }
+    - { icon: "shield", title: "Privacy and clinical independence", body: "Because we do not bill insurance directly, your therapy is not structured around an insurance company's authorization requirements or session limits. If you choose to submit a Superbill to your PPO, your insurer will receive the information it needs to process that claim." }
+    - { icon: "compass", title: "Clinical autonomy", body: "Your therapy is shaped by what actually helps you rather than by what a reimbursement code will approve. It means the plan for your care is set in the room, by the two of you." }
     - { icon: "heart", title: "Time on care, not paperwork", body: "Less of everyone's energy goes into fighting with billing systems, which means more of it goes where it belongs: into the work you came here to do." }
 faq:
   eyebrow: "Questions people ask"
@@ -40,16 +40,35 @@ faq:
   tags: ["cost", "getting-started"]
   limit: 3
 cta:
-  title: "Questions about cost? Ask them."
-  text: "Money should never be the reason you don't reach out. A free 15 to 20 minute call is a no-pressure way to talk through fees, fit, and whatever else is on your mind."
+  title: "Have questions about cost?"
+  text: "We know therapy is an investment. If you are unsure whether our fees fit your circumstances, please ask. A free 15 to 20 minute consultation is a good time to talk through fees, insurance reimbursement, session length, and fit. A sliding scale is available on a limited basis."
   note: "Free and confidential. Be seen within 24 hours."
   watermark: "Honest"
   tagline: true
 ---
 {# Fees and insurance, practical-led. First real use of the rateTable component.
-   Framing is "what out-of-network buys back": no diagnostic code follows you, the
-   hour is shaped around you, not an insurer's form. Distinct from every other page's
-   metaphor.
+   Framing is "here is how our model works and why we chose it": the hour is shaped
+   around you rather than around an insurer's form.
+
+   CLAIMS CORRECTED (Kay, September 2026; the brief in SITE_ARCHITECTURE.md was
+   rewritten to match, see its CLAIMS FLAG). This page used to say "no diagnosis
+   sitting in an insurer's database", "no diagnostic label required", "Out-of-network
+   means none of that follows you around" and "Real confidentiality". All four are
+   indefensible: clinical records and diagnoses exist whether or not a practice bills
+   insurance, and a client who submits a Superbill hands their insurer whatever it
+   needs to process the claim. "Real confidentiality" additionally implied that
+   insurance-based therapy is not confidential, which is not a claim this practice
+   should be making about colleagues.
+
+   What the page MAY say, and now does: we do not require a diagnosis in order to
+   BEGIN therapy; your care is not structured around an insurer's authorization
+   requirements or session limits; if you submit a Superbill your insurer will
+   receive what it needs; and your insurer, not this office, decides reimbursement.
+   Do not restore the earlier wording.
+
+   The same overclaim was in site.positioning.outOfNetworkLine ("avoid the diagnostic
+   labeling required by insurance reimbursement"), which renders in the footer of
+   every page, so it was corrected there and in CLIENT_FACTS.md too.
 
    SCHEMA: the brief specifies "Service with PriceSpecification," which the
    serviceSchema macro cannot express. So the `service` front-matter key is
@@ -75,6 +94,12 @@ cta:
    the plain-text /faq pointer, and the hand-written Service + PriceSpecification. #}
 {% call s.prose({ width: "narrow" }) %}
   <p>{{ site.positioning.outOfNetworkLine }}</p>
+  <p>Two specifics worth having up front. We do not accept HMO or EPO plans. If you have a PPO with out-of-network mental health benefits, we can provide a Superbill for each session that you submit yourself. And the part people are most often surprised by: your insurance company, not our office, decides whether you are reimbursed and how much.</p>
+{% endcall %}
+
+{% call s.prose({ width: "narrow" }) %}
+  <h2>Which rate applies to you</h2>
+  <p>Two things decide it: who you see, and how long the session runs. Sessions with Kay are priced differently from sessions with the associate therapists she trains and supervises, and 50, 75 and 90 minute sessions are priced separately again. Not sure which row is yours? That is one of the things the free call is for. We will talk through what is going on, who is the right fit, and what length actually suits the work, and you will know the number before you book anything.</p>
 {% endcall %}
 
 {{ s.rateTable({
@@ -105,10 +130,11 @@ cta:
 
 {% call s.prose({ width: "narrow" }) %}
   <h2>About Superbills and reimbursement</h2>
-  <p>We provide a Superbill at every session: an itemized receipt you can submit to your PPO insurance for out-of-network reimbursement. To be clear, we don't bill your insurance for you, and we can't promise what they'll reimburse, since that depends on your specific plan. Many PPO plans reimburse a meaningful portion of out-of-network care. It's worth a quick call to your insurer to ask about your out-of-network mental health benefits.</p>
+  <p>We do not require a diagnosis in order to begin therapy with us. If you choose to submit claims to your insurance company, your insurer may require diagnostic information for reimbursement. That is their requirement rather than ours, and it is worth knowing before you decide how you want to pay.</p>
+  <p>We can provide a Superbill for each session: an itemized receipt you can submit to your PPO insurance for out-of-network reimbursement. To be clear, we don't bill your insurance for you, and we can't promise what they'll reimburse, since that depends on your specific plan. Many PPO plans reimburse a meaningful portion of out-of-network care. It's worth a quick call to your insurer to ask about your out-of-network mental health benefits.</p>
   <h2>Sliding scale, payment, and cancellations</h2>
-  <p>A limited sliding scale is available on request, handled quietly between you and your therapist. We accept cash, check, Venmo, Zelle, and all major credit cards. We ask for 24 hours' notice to change or cancel a session, since a reserved hour that goes unused can't be given to someone else on short notice; without that notice, the full session fee applies.</p>
-  <p>Still have questions about what to expect? Our full FAQ page is on the way, and in the meantime the free call is the best place to ask anything at all.</p>
+  <p>A sliding scale is available on a limited basis, handled quietly between you and your therapist. We accept cash, check, Venmo, Zelle, and all major credit cards. We ask for 24 hours' notice to change or cancel a session, since a reserved hour that goes unused can't be given to someone else on short notice; without that notice, the full session fee applies.</p>
+  <p>Still have questions about what to expect? Our <a href="/faq">full FAQ page</a> covers the ones people ask most, and the free call is the best place to ask anything it does not.</p>
 {% endcall %}
 
 {# Hand-written Service with PriceSpecification (the brief's specified schema). @id
@@ -119,7 +145,7 @@ cta:
   "@type": "Service",
   "name": "Psychotherapy sessions",
   "serviceType": "Psychotherapy",
-  "description": {{ "Out-of-network individual, couples, and family therapy in Laguna Beach and by telehealth across California. Superbills provided for PPO out-of-network reimbursement." | dump | safe }},
+  "description": {{ "Out-of-network individual, couples, and family therapy in Laguna Beach and by telehealth across California. A Superbill can be provided for each session, for clients to submit for PPO out-of-network reimbursement." | dump | safe }},
   "url": {{ (site.url + page.url) | dump | safe }},
   "provider": {
     "@type": "MedicalBusiness",

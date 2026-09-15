@@ -91,7 +91,7 @@ Gottman Method, EFT, EMDR, IFS, Imago. These may appear only as general modality
 
 Posture: premium, out-of-network. Not paneled with any insurance. A Superbill can be provided for each session, for clients to submit for PPO out-of-network reimbursement.
 
-Canonical positioning line (use in footer, FAQ, Calendly description, fee page): "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions, protect client confidentiality, and avoid the diagnostic labeling required by insurance reimbursement. We can provide a Superbill for each session, for clients to submit to their PPO insurance for out-of-network reimbursement."
+Canonical positioning line (use in footer, FAQ, Calendly description, fee page): "Laguna Beach Counseling is an out-of-network practice. We do not bill insurance directly, which allows us to deliver full-length sessions and keep decisions about your care between you and your therapist. We can provide a Superbill for each session, for clients to submit to their PPO insurance for out-of-network reimbursement."
 
 Price range attribute: $$$.
 Payment accepted: cash, check, Venmo, Zelle, all major credit cards.
@@ -103,7 +103,7 @@ Rate card, associates (Christy, Natasha, Austin, Rozy):
 Rate card, Kay Wenger:
 50-min individual $190 / 50-min couples or family $220 / 75-min individual $280 / 75-min couples or family $325 / 90-min individual $330 / 90-min couples or family $390.
 
-Sliding scale: available on request, handled per therapist, not formally published.
+Sliding scale: available on a limited basis, handled per therapist, not formally published. (Wording corrected from "on request" at the team's request, September 2026: "on request" implied an entitlement the practice cannot always meet.)
 
 ---
 
