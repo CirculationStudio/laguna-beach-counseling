@@ -91,6 +91,9 @@ Therapy content is crisis-adjacent. Crisis-adjacent pages (telehealth, depressio
 - If you are in immediate danger or a medical emergency, call 911.
 - 988 Suicide and Crisis Lifeline: call or text 988, or chat at 988lifeline.org. Free, confidential, 24/7.
 - Crisis Text Line: text HOME to 741741.
-- SAMHSA National Helpline (treatment referrals): 1-800-662-4357.
+- Veterans Crisis Line: dial 988 then press 1, or text 838255. Confirmed against veteranscrisisline.net, 2026-09-15. Enrollment in VA benefits or health care is NOT required, and the site says so explicitly, which is worth keeping in the copy because many veterans assume otherwise. Added at Kay's request.
+- SAMHSA National Helpline: the Substance Abuse and Mental Health Services Administration's free, confidential line for treatment referrals and information, covering substance use AND mental health. 1-800-662-4357, 24/7, English and Spanish. Confirmed against samhsa.gov, 2026-09-15. Spell the acronym out and say what the line is for: Kay had to look it up, which means a reader in distress would have to as well.
+
+Render note: every resource carries a `tel:` or `sms:` action in site.json and the block renders the number as a real link in both the footer and the on-page variant, so a crisis number is tappable on a phone rather than something to transcribe.
 
 Copy pattern (warm, in Kay's register, not clinical): make clear the practice cares, that these lines exist for moments that cannot wait, and that reaching out for the free call is welcome when the moment is not an emergency. Build this as a reusable component so every crisis-adjacent page and the footer share the same block.

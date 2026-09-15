@@ -136,6 +136,31 @@ export default function (eleventyConfig) {
       .join(" ")
   );
 
+  // ---- Crisis resource numbers ----------------------------------------------
+  // Every entry in site.crisisResources already carried an `action` (tel:/sms:)
+  // and an `actionLabel`, and neither branch of support-resources.njk ever
+  // rendered them, so the numbers were plain text. Someone in distress on a
+  // phone had to transcribe a crisis number instead of tapping it. This is the
+  // one component where that cost is highest.
+  //
+  // Wraps the first occurrence of the label inside the detail, so the number
+  // stays inline where it already reads and nothing is duplicated or appended.
+  // Escapes first, and only tel: and sms: schemes are allowed through.
+  eleventyConfig.addFilter("crisisAction", (detail, resource) => {
+    const text = escapeHtml(detail);
+    const action = resource && resource.action;
+    const label = resource && resource.actionLabel;
+    if (!action || !label || !/^(?:tel:|sms:)[0-9+#*,;-]+$/.test(action)) return text;
+    const needle = escapeHtml(label);
+    const at = text.indexOf(needle);
+    if (at === -1) return text;
+    return (
+      text.slice(0, at) +
+      `<a class="support-resources__tel" href="${action}">${needle}</a>` +
+      text.slice(at + needle.length)
+    );
+  });
+
   return {
     dir: {
       input: "src",

@@ -32,7 +32,7 @@
           {% for r in site.crisisResources.resources %}
             <li>
               <strong>{{ r.name }}:</strong>
-              {{ r.detail }}
+              {{ r.detail | crisisAction(r) | safe }}
             </li>
           {% endfor %}
         </ul>
@@ -48,7 +48,7 @@
       {% for r in site.crisisResources.resources %}
         <li>
           <strong>{{ r.name }}:</strong>
-          {{ r.detail }}
+          {{ r.detail | crisisAction(r) | safe }}
         </li>
       {% endfor %}
     </ul>

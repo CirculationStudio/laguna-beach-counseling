@@ -275,6 +275,48 @@
   opacity: 0.9;
 }
 
+/* Crisis numbers are tap-to-call. The number stays inline where it already
+   reads; this only makes it actionable. Underlined as well as coloured, so the
+   link is never signalled by colour alone, and given a generous tap target on
+   touch without disturbing the line box. Teal-deep clears AA on the sand card;
+   the footer override below clears it on navy. */
+.support-resources__tel {
+  color: var(--color-water-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-weight: 600;
+  /* Vertical only. Horizontal padding opened a visible gap between the number
+     and the punctuation after it ("call 911 ."). This still clears the 24px
+     minimum target. */
+  padding: 0.2rem 0;
+}
+
+.support-resources__tel:hover {
+  color: var(--color-navy);
+}
+
+.support-resources__tel:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.support-resources--onfooter .support-resources__tel {
+  color: var(--color-paper);
+  /* .site-footer a strips underlines from every footer link, and it outranks the
+     base rule above. Crisis numbers are the one place in the footer where the
+     link must not be signalled by colour alone. */
+  text-decoration: underline;
+}
+
+.support-resources--onfooter .support-resources__tel:hover {
+  color: var(--color-sea-foam);
+}
+
+.support-resources--onfooter .support-resources__tel:focus-visible {
+  outline-color: var(--color-sea-foam);
+}
+
 /* Generic content wrapper for the scaffold placeholder and 404 */
 .page-shell {
   min-height: 40vh;

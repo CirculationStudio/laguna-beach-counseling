@@ -63,25 +63,75 @@
     "contactFormActive": false
   },
   "footerLinks": [
-    { "label": "Privacy Policy", "url": "/privacy-policy" },
-    { "label": "Accessibility", "url": "/accessibility" }
+    {
+      "label": "Privacy Policy",
+      "url": "/privacy-policy"
+    },
+    {
+      "label": "Accessibility",
+      "url": "/accessibility"
+    }
   ],
   "sameAs": [
-    { "label": "Google Business Profile", "url": "https://g.page/lagunabeachcounseling" },
-    { "label": "Yelp", "url": "https://www.yelp.com/biz/laguna-beach-counseling-laguna-beach-2" },
-    { "label": "Facebook", "url": "https://www.facebook.com/lagunabeachcounseling/" },
-    { "label": "Instagram", "url": "https://www.instagram.com/lagunabeachcounseling/" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/kathleenwengerlmft/" },
-    { "label": "Psychology Today", "url": "https://www.psychologytoday.com/us/therapists/kathleen-kay-wenger-laguna-beach-ca/38172" }
+    {
+      "label": "Google Business Profile",
+      "url": "https://g.page/lagunabeachcounseling"
+    },
+    {
+      "label": "Yelp",
+      "url": "https://www.yelp.com/biz/laguna-beach-counseling-laguna-beach-2"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/lagunabeachcounseling/"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/lagunabeachcounseling/"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/kathleenwengerlmft/"
+    },
+    {
+      "label": "Psychology Today",
+      "url": "https://www.psychologytoday.com/us/therapists/kathleen-kay-wenger-laguna-beach-ca/38172"
+    }
   ],
   "crisisResources": {
     "intro": "If you are in crisis, you do not have to wait. These lines are here for the moments that cannot wait, any hour of the day.",
     "notEmergencyNote": "Laguna Beach Counseling is not a crisis or emergency service. If you are in immediate danger or a medical emergency, call 911. When the moment is not an emergency, we would be glad to hear from you for a free call.",
     "resources": [
-      { "name": "Emergency", "detail": "If you are in immediate danger or a medical emergency, call 911.", "action": "tel:911", "actionLabel": "911" },
-      { "name": "988 Suicide and Crisis Lifeline", "detail": "Call or text 988, or chat at 988lifeline.org. Free, confidential, 24/7.", "action": "tel:988", "actionLabel": "988" },
-      { "name": "Crisis Text Line", "detail": "Text HOME to 741741.", "action": "sms:741741", "actionLabel": "741741" },
-      { "name": "SAMHSA National Helpline", "detail": "Treatment referrals, 1-800-662-4357.", "action": "tel:18006624357", "actionLabel": "1-800-662-4357" }
+      {
+        "name": "Emergency",
+        "detail": "If you are in immediate danger or a medical emergency, call 911.",
+        "action": "tel:911",
+        "actionLabel": "911"
+      },
+      {
+        "name": "988 Suicide and Crisis Lifeline",
+        "detail": "Call or text 988, or chat at 988lifeline.org. Free, confidential, 24/7.",
+        "action": "tel:988",
+        "actionLabel": "988"
+      },
+      {
+        "name": "Crisis Text Line",
+        "detail": "Text HOME to 741741.",
+        "action": "sms:741741",
+        "actionLabel": "741741"
+      },
+      {
+        "name": "Veterans Crisis Line",
+        "detail": "Dial 988 then press 1, or text 838255. You do not have to be enrolled in VA benefits or health care to use it.",
+        "action": "tel:988",
+        "actionLabel": "988"
+      },
+      {
+        "name": "SAMHSA National Helpline",
+        "detail": "The Substance Abuse and Mental Health Services Administration runs a free, confidential line for treatment referrals and information, for substance use and mental health. Call 1-800-662-4357, 24/7, in English or Spanish.",
+        "action": "tel:18006624357",
+        "actionLabel": "1-800-662-4357"
+      }
     ]
   },
   "_omittedPendingConfirmation": "Business hours (site-vs-Yelp conflict), geo coordinates, and aggregateRating are intentionally not published here until confirmed. See CLIENT_FACTS.md open questions and ARCHITECTURE.md."
