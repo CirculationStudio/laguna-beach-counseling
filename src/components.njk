@@ -642,7 +642,7 @@ sitemapExclude: true
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">14. pillLinks</p>
-    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, links [{ href, label, icon }], tone. Soft sand chips with a small teal icon; internal links only.</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, links [{ href, label, icon }], tone, align. Soft sand chips with a small teal icon; internal links only. align: "center" centres the row, for use under a centred block such as the scheduler embed.</p>
   </div>
   {{ s.pillLinks({
     eyebrow: "Where to go next",
@@ -661,7 +661,7 @@ sitemapExclude: true
 <div class="showcase__item">
   <div class="container showcase__meta">
     <p class="showcase__label">15. definitionList</p>
-    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, items [{ term, detail }], tone. Two-column term-and-line rows on hairline dividers; one column on mobile.</p>
+    <p class="showcase__note">params: eyebrow, title, titleEmphasis, lead, items [{ term, detail, href }], tone. Two-column term-and-line rows on hairline dividers; one column on mobile. An item with href renders its term as the link, so the link text is descriptive on its own. The two rows below show both states.</p>
   </div>
   {{ s.definitionList({
     eyebrow: "Naming the pattern",
@@ -670,8 +670,8 @@ sitemapExclude: true
     items: [
       { term: "The worry loop", detail: "Thinking it through one more time, on repeat, chasing a calm that never quite arrives." },
       { term: "The body's alarm", detail: "A racing heart and tight chest, a threat response built for lions, not inboxes." },
-      { term: "Avoidance", detail: "Skipping the hard thing works for an afternoon, then the world quietly shrinks." },
-      { term: "Panic", detail: "A surge that can feel like an emergency, and the fear of the next one keeping it going." }
+      { term: "Avoidance", detail: "Skipping the hard thing works for an afternoon, then the world quietly shrinks.", href: "/specialties/anxiety" },
+      { term: "Panic", detail: "A surge that can feel like an emergency, and the fear of the next one keeping it going.", href: "/specialties/anxiety" }
     ]
   }) }}
 </div>

@@ -1760,6 +1760,12 @@
   gap: 0.6rem;
 }
 
+/* Opt-in, via align: "center". Used under the homepage scheduler, where the row
+   sits beneath a centred embed and a left-aligned row read as a loose end. */
+.pill-links--center {
+  justify-content: center;
+}
+
 .pill-links__pill {
   display: inline-flex;
   align-items: center;
@@ -1821,6 +1827,26 @@
   font-family: var(--font-serif);
   font-size: 1.15rem;
   color: var(--color-navy);
+}
+
+/* Linked variant. Stays navy serif so the row still reads as an editorial list
+   rather than a nav block, with the underline carrying the affordance and teal
+   on hover. Underlined at rest, so the link is not signalled by colour alone. */
+.def-list__term--link {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-navy) 30%, transparent);
+  text-underline-offset: 0.18em;
+}
+
+.def-list__term--link:hover {
+  color: var(--color-water-deep);
+  text-decoration-color: currentColor;
+}
+
+.def-list__term--link:focus-visible {
+  outline: 3px solid var(--color-water);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 .def-list__detail {

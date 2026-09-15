@@ -606,7 +606,7 @@
         {% if opts.lead %}<p class="section__lead">{{ opts.lead }}</p>{% endif %}
       </div>
     {% endif %}
-    <div class="pill-links">
+    <div class="pill-links{% if opts.align == 'center' %} pill-links--center{% endif %}">
       {% for link in opts.links %}
         <a class="pill-links__pill" href="{{ link.href }}">{% if link.icon %}{{ ui.icon(link.icon) }}{% endif %}{{ link.label }}</a>
       {% endfor %}
@@ -615,8 +615,11 @@
 {% endmacro %}
 
 {# 15. definitionList(opts): { eyebrow?, title?, titleEmphasis?, lead?,
-   items: [{term, detail}], tone? }. A two-column set of term-and-line rows on
-   hairline dividers; a calm, editorial split-column list. One column on mobile. #}
+   items: [{term, detail, href?}], tone? }. A two-column set of term-and-line rows
+   on hairline dividers; a calm, editorial split-column list. One column on mobile.
+   An item with href renders its TERM as the link, rather than appending a "read
+   more", so every link carries descriptive text of its own and the row keeps its
+   rhythm. #}
 {% macro definitionList(opts) %}
   {% call ui.section({ tone: opts.tone or "paper" }) %}
     {% if opts.eyebrow or opts.title or opts.lead %}
@@ -629,7 +632,11 @@
     <ul class="def-list">
       {% for item in opts.items %}
         <li class="def-list__row">
-          <span class="def-list__term">{{ item.term }}</span>
+          {% if item.href %}
+            <a class="def-list__term def-list__term--link" href="{{ item.href }}">{{ item.term }}</a>
+          {% else %}
+            <span class="def-list__term">{{ item.term }}</span>
+          {% endif %}
           <span class="def-list__detail">{{ item.detail }}</span>
         </li>
       {% endfor %}

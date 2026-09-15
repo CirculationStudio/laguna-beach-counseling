@@ -262,18 +262,22 @@ calendly: true
   items: [
     {
       term: "What sessions cost",
+      href: "/fees",
       detail: "Sessions run 50, 75, or 90 minutes, and the rate depends on the length and on who you see. Every figure is published on the fees page, so you can check it before you ever pick up the phone."
     },
     {
       term: "Insurance",
+      href: "/faq",
       detail: site.positioning.outOfNetworkLine
     },
     {
       term: "Where we meet",
+      href: "/contact",
       detail: "Our office at " + site.nap.streetAddress + " in " + site.nap.addressLocality + ", on the coastline for Beach Therapy, or by secure video anywhere in California."
     },
     {
       term: "How it starts",
+      href: "/get-started",
       detail: "A free 15 to 20 minute Get to Know Us call. We hear what is going on, answer what you want to ask, and match you with the right therapist. No obligation follows it."
     }
   ]
@@ -299,6 +303,7 @@ calendly: true
 
 {{ s.pillLinks({
   tone: "paper",
+  align: "center",
   links: [
     { href: "/fees", label: "Fees and insurance" },
     { href: "/faq", label: "Questions people ask" },
