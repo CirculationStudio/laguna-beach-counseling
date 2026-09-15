@@ -78,7 +78,7 @@
   {
     "id": "how-fast-seen",
     "question": "How fast can I be seen?",
-    "answer": "Usually within 24 hours. We hold time for people who are ready to start rather than keeping a long waitlist. Start with a free 20-minute call, or call (949) 357-3587.\nReady when you are. [Book your free call](/get-started).\n*End of FAQ knowledge base. 28 page blocks plus a master /faq, \\~100 questions. Every answer is in the approved brand voice (warm, direct, real), free of banned words, and leads with a direct answer for AI answer-engine citation. Rate specifics live only on /fees. Mark up each page's FAQ block with FAQPage schema matching the visible text exactly. Resolve the three gold-flagged items (Christian-counseling claim, Beach Therapy scope, addiction-recovery clinician) before those pages publish.*",
+    "answer": "Usually within 24 hours. We hold time for people who are ready to start rather than keeping a long waitlist. Start with a free 20-minute call, or call (949) 357-3587.\nReady when you are. [Book your free call](/get-started).",
     "tags": [
       "general",
       "getting-started"
@@ -215,7 +215,7 @@
   {
     "id": "faith-do-i-have-to-be-religious",
     "question": "Do I have to be Christian, or religious at all?",
-    "answer": "Not at all. Faith is available if you want it and completely optional if you do not.\n#",
+    "answer": "Not at all. Faith is available if you want it and completely optional if you do not.",
     "tags": [
       "faith"
     ],
@@ -272,7 +272,7 @@
   {
     "id": "beach-privacy",
     "question": "Is it private? It's a public beach.",
-    "answer": "It is private. Your therapist chooses quieter stretches of coastline and off-peak times, and to anyone passing by it looks like two people on a walk. Nothing about the conversation is visible to anyone else.\nRead more about [how Beach Therapy works](/beach-therapy), or [book a free call](/get-started) to try it.\n#",
+    "answer": "It is private. Your therapist chooses quieter stretches of coastline and off-peak times, and to anyone passing by it looks like two people on a walk. Nothing about the conversation is visible to anyone else.\nRead more about [how Beach Therapy works](/beach-therapy), or [book a free call](/get-started) to try it.",
     "tags": [
       "beach-therapy"
     ],
@@ -484,7 +484,7 @@
   {
     "id": "home-what-makes-this-practice-different-from-other-th",
     "question": "What makes this practice different from other therapists in the area?",
-    "answer": "Three things: a team personally trained and supervised by founder Kay Wenger, more than 30 years of experience rooted in this specific community, and our signature Beach Therapy, private walk-and-talk sessions on the Laguna coastline that no other local practice offers.\nLearn more about [Kay Wenger and how the practice began](/about/kay-wenger), or about [Beach Therapy on the Laguna coastline](/beach-therapy).\n#",
+    "answer": "Three things: a team personally trained and supervised by founder Kay Wenger, more than 30 years of experience rooted in this specific community, and our signature Beach Therapy, private walk-and-talk sessions on the Laguna coastline that no other local practice offers.\nLearn more about [Kay Wenger and how the practice began](/about/kay-wenger), or about [Beach Therapy on the Laguna coastline](/beach-therapy).",
     "page": "/",
     "tags": [
       "general"
@@ -517,7 +517,7 @@
   {
     "id": "about-how-do-i-get-started",
     "question": "How do I get started?",
-    "answer": "Start with a free 15 to 20 minute Get to Know Us call. It is a no-pressure way to tell us what is going on and let us match you with the right therapist. From there we schedule your first session.\nBook the [free Get to Know Us call](/get-started), or call (949) 357-3587.\n#",
+    "answer": "Start with a free 15 to 20 minute Get to Know Us call. It is a no-pressure way to tell us what is going on and let us match you with the right therapist. From there we schedule your first session.\nBook the [free Get to Know Us call](/get-started), or call (949) 357-3587.",
     "page": "/about",
     "tags": [
       "about"
@@ -550,7 +550,7 @@
   {
     "id": "about-kay-wenger-does-kay-see-clients-directly-or-only-supervise",
     "question": "Does Kay see clients directly, or only supervise?",
-    "answer": "Both. Kay sees her own clients, including couples, individuals and the intensive one-day sessions, and she personally supervises every associate on the team. When you work with an associate, you are getting care shaped by Kay's three decades of experience.\nYou can request Kay specifically or ask us to match you on a [free call](/get-started). Note that Kay's session rates differ from the associates', shown on the [fees page](/fees).\n#",
+    "answer": "Both. Kay sees her own clients, including couples, individuals and the intensive one-day sessions, and she personally supervises every associate on the team. When you work with an associate, you are getting care shaped by Kay's three decades of experience.\nYou can request Kay specifically or ask us to match you on a [free call](/get-started). Note that Kay's session rates differ from the associates', shown on the [fees page](/fees).",
     "page": "/about/kay-wenger",
     "tags": [
       "about"
@@ -583,7 +583,7 @@
   {
     "id": "about-our-team-can-i-choose-my-own-therapist",
     "question": "Can I choose my own therapist?",
-    "answer": "Yes. If you already know who you would like to work with, or you would prefer to see Kay specifically, just tell us. If you are not sure, we are glad to match you based on what you are looking for.\nStart with a [free consultation](/get-started).\n#",
+    "answer": "Yes. If you already know who you would like to work with, or you would prefer to see Kay specifically, just tell us. If you are not sure, we are glad to match you based on what you are looking for.\nStart with a [free consultation](/get-started).",
     "page": "/about/our-team",
     "tags": [
       "about"
@@ -616,7 +616,7 @@
   {
     "id": "about-our-approach-will-therapy-actually-change-anything",
     "question": "Will therapy actually change anything?",
-    "answer": "It can, and the changes are usually pretty ordinary in the best way. Conversations that used to end in arguments get easier. Decisions get clearer. You spend less energy managing anxiety or resentment and have more left for actually living.\nThe goal is not a perfect life. It is having the tools and resilience to handle a real one. [Start with a free call](/get-started).\n**SECTION 2**\n**Who we help  ·  /therapy**\n#",
+    "answer": "It can, and the changes are usually pretty ordinary in the best way. Conversations that used to end in arguments get easier. Decisions get clearer. You spend less energy managing anxiety or resentment and have more left for actually living.\nThe goal is not a perfect life. It is having the tools and resilience to handle a real one. [Start with a free call](/get-started).",
     "page": "/about/our-approach",
     "tags": [
       "about"
@@ -649,7 +649,7 @@
   {
     "id": "therapy-individuals-what-if-i-have-tried-therapy-before-and-it-did-n",
     "question": "What if I have tried therapy before and it did not help?",
-    "answer": "That is worth talking about, not a reason to give up. When someone tells us therapy did not help before, we do not assume they were resistant. Usually it just was not the right fit, and fit is exactly what we pay attention to.\nThe [free Get to Know Us call](/get-started) is a low-pressure way to find out whether one of our therapists is the right person this time.\n#",
+    "answer": "That is worth talking about, not a reason to give up. When someone tells us therapy did not help before, we do not assume they were resistant. Usually it just was not the right fit, and fit is exactly what we pay attention to.\nThe [free Get to Know Us call](/get-started) is a low-pressure way to find out whether one of our therapists is the right person this time.",
     "page": "/therapy/individuals",
     "tags": [
       "individuals"
@@ -693,7 +693,7 @@
   {
     "id": "therapy-couples-will-a-therapist-take-sides-or-push-us-to-stay-t",
     "question": "Will a therapist take sides, or push us to stay together or split up?",
-    "answer": "Neither. We are pro-commitment but not attached to a particular outcome. The job is not to push you toward staying or leaving, it is to help you both get clear, talk honestly, and make a decision you can actually live with.\nWhen a couple is genuinely on the fence, [discernment counseling](/discernment-counseling) is a short, structured way to find clarity first.\n#",
+    "answer": "Neither. We are pro-commitment but not attached to a particular outcome. The job is not to push you toward staying or leaving, it is to help you both get clear, talk honestly, and make a decision you can actually live with.\nWhen a couple is genuinely on the fence, [discernment counseling](/discernment-counseling) is a short, structured way to find clarity first.",
     "page": "/therapy/couples",
     "tags": [
       "couples"
@@ -715,7 +715,7 @@
   {
     "id": "therapy-families-can-family-therapy-help-with-a-teenager-who-will",
     "question": "Can family therapy help with a teenager who will not open up?",
-    "answer": "Often, yes. A skilled therapist gives a reluctant teen room to trust the process at their own pace, and helps the rest of the family communicate in a way that invites the teen in rather than pushing them further out.\nLearn more about [therapy for teens](/therapy/teens), or [book a free call](/get-started).\n#",
+    "answer": "Often, yes. A skilled therapist gives a reluctant teen room to trust the process at their own pace, and helps the rest of the family communicate in a way that invites the teen in rather than pushing them further out.\nLearn more about [therapy for teens](/therapy/teens), or [book a free call](/get-started).",
     "page": "/therapy/families",
     "tags": [
       "families"
@@ -737,7 +737,7 @@
   {
     "id": "therapy-teens-do-you-offer-therapy-for-young-adults",
     "question": "Do you offer therapy for young adults?",
-    "answer": "Yes. The stretch from the late teens into the twenties has its own challenges, from identity and independence to career pressure and relationships. We help young adults navigate that season with support that fits where they actually are.\nThis overlaps with our [individual therapy](/therapy/individuals). Start with a [free consultation](/get-started).\n#",
+    "answer": "Yes. The stretch from the late teens into the twenties has its own challenges, from identity and independence to career pressure and relationships. We help young adults navigate that season with support that fits where they actually are.\nThis overlaps with our [individual therapy](/therapy/individuals). Start with a [free consultation](/get-started).",
     "page": "/therapy/teens",
     "tags": [
       "teens"
@@ -759,7 +759,7 @@
   {
     "id": "therapy-children-will-i-be-involved-in-my-child-s-therapy",
     "question": "Will I be involved in my child's therapy?",
-    "answer": "Yes. With younger children especially, parents are part of the work. Your therapist keeps you informed, gives you practical ways to support your child at home, and partners with you rather than working around you.\nLearn more about [child therapy in Laguna Beach](/therapy/children).\n#",
+    "answer": "Yes. With younger children especially, parents are part of the work. Your therapist keeps you informed, gives you practical ways to support your child at home, and partners with you rather than working around you.\nLearn more about [child therapy in Laguna Beach](/therapy/children).",
     "page": "/therapy/children",
     "tags": [
       "children"
@@ -781,7 +781,7 @@
   {
     "id": "therapy-seniors-can-we-meet-somewhere-easier-than-an-office",
     "question": "Can we meet somewhere easier than an office?",
-    "answer": "Yes. We offer sessions in our Laguna Beach office, secure video sessions from home anywhere in California, and for some clients the option of a gentle walk-and-talk session by the coast. We will find the format that feels most comfortable. If you’re closer to Irvine, we can meet at our sister office as well.\nLearn about [telehealth across California](/telehealth) and [Beach Therapy](/beach-therapy).\n**SECTION 3**\n**What people struggle with  ·  /specialties**\n#",
+    "answer": "Yes. We offer sessions in our Laguna Beach office, secure video sessions from home anywhere in California, and for some clients the option of a gentle walk-and-talk session by the coast. We will find the format that feels most comfortable. If you’re closer to Irvine, we can meet at our sister office as well.\nLearn about [telehealth across California](/telehealth) and [Beach Therapy](/beach-therapy).",
     "page": "/therapy/seniors",
     "tags": [
       "seniors"
@@ -814,7 +814,7 @@
   {
     "id": "specialties-anxiety-does-anxiety-therapy-help-with-social-anxiety-an",
     "question": "Does anxiety therapy help with social anxiety and phobias?",
-    "answer": "Yes. Social anxiety and specific phobias both respond well to therapy. The work helps you understand what is driving the fear and build real, gradual confidence in the situations that have felt off-limits, at a pace that feels manageable.\nThis is part of our [individual therapy](/therapy/individuals) for adults, teens, and children.\n#",
+    "answer": "Yes. Social anxiety and specific phobias both respond well to therapy. The work helps you understand what is driving the fear and build real, gradual confidence in the situations that have felt off-limits, at a pace that feels manageable.\nThis is part of our [individual therapy](/therapy/individuals) for adults, teens, and children.",
     "page": "/specialties/anxiety",
     "tags": [
       "anxiety"
@@ -825,7 +825,7 @@
   {
     "id": "specialties-depression-how-do-i-know-if-it-is-depression-or-just-a-roug",
     "question": "How do I know if it is depression or just a rough patch?",
-    "answer": "The clue is usually time and reach. A rough patch lifts. Depression tends to stay for weeks and spread into everything, draining your energy, your interest, and your hope. If getting through an ordinary day has started to feel like a lot, it is worth talking to someone.\nDepression is treatable, and you do not have to wait until you hit bottom. [Start with a free consultation](/get-started).\n*If you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.*",
+    "answer": "The clue is usually time and reach. A rough patch lifts. Depression tends to stay for weeks and spread into everything, draining your energy, your interest, and your hope. If getting through an ordinary day has started to feel like a lot, it is worth talking to someone.\nDepression is treatable, and you do not have to wait until you hit bottom. [Start with a free consultation](/get-started).\nIf you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.",
     "page": "/specialties/depression",
     "tags": [
       "depression"
@@ -836,7 +836,7 @@
   {
     "id": "specialties-depression-i-do-not-even-have-the-energy-to-start-what-is-t",
     "question": "I do not even have the energy to start. What is the first step?",
-    "answer": "Start as small as it needs to be. One free 15 to 20 minute phone call, where you do not have to explain everything or have it figured out. Depression makes starting feel enormous, so we keep that very first step as light as possible.\nWhen you are ready, [book the free call](/get-started), or call (949) 357-3587.\n#",
+    "answer": "Start as small as it needs to be. One free 15 to 20 minute phone call, where you do not have to explain everything or have it figured out. Depression makes starting feel enormous, so we keep that very first step as light as possible.\nWhen you are ready, [book the free call](/get-started), or call (949) 357-3587.",
     "page": "/specialties/depression",
     "tags": [
       "depression"
@@ -847,7 +847,7 @@
   {
     "id": "specialties-grief-is-it-normal-to-still-be-grieving-after-a-long-t",
     "question": "Is it normal to still be grieving after a long time?",
-    "answer": "Completely normal. Grief does not run on a schedule, and it can resurface around anniversaries, holidays, or out of nowhere. That does not mean something is wrong with you. It means the loss mattered. Therapy can help you carry it.\n*If you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.*",
+    "answer": "Completely normal. Grief does not run on a schedule, and it can resurface around anniversaries, holidays, or out of nowhere. That does not mean something is wrong with you. It means the loss mattered. Therapy can help you carry it.\nIf you are ever in crisis or thinking about harming yourself, please call or text 988 (the Suicide and Crisis Lifeline) or go to your nearest emergency room. Therapy is important, but it is not emergency care.",
     "page": "/specialties/grief",
     "tags": [
       "grief"
@@ -858,7 +858,7 @@
   {
     "id": "specialties-grief-can-you-help-with-grief-that-is-not-about-a-deat",
     "question": "Can you help with grief that is not about a death?",
-    "answer": "Yes. Grief follows many kinds of loss: a divorce, a diagnosis, a move, a job, a friendship, the life you thought you would have. All of it is real, and all of it is worth support. You do not have to justify your grief to work on it.\nThis overlaps with our [life transitions counseling](/specialties/life-transitions).\n#",
+    "answer": "Yes. Grief follows many kinds of loss: a divorce, a diagnosis, a move, a job, a friendship, the life you thought you would have. All of it is real, and all of it is worth support. You do not have to justify your grief to work on it.\nThis overlaps with our [life transitions counseling](/specialties/life-transitions).",
     "page": "/specialties/grief",
     "tags": [
       "grief"
@@ -891,7 +891,7 @@
   {
     "id": "specialties-life-transitions-how-is-transition-counseling-different-from-regu",
     "question": "How is transition counseling different from regular therapy?",
-    "answer": "It is regular therapy, focused. Instead of open-ended work, it centers on the specific change you are moving through: what you are losing, what you are stepping into, and how to steady yourself in between. Many people come for a defined stretch rather than indefinitely.\n#",
+    "answer": "It is regular therapy, focused. Instead of open-ended work, it centers on the specific change you are moving through: what you are losing, what you are stepping into, and how to steady yourself in between. Many people come for a defined stretch rather than indefinitely.",
     "page": "/specialties/life-transitions",
     "tags": [
       "life-transitions"
@@ -913,7 +913,7 @@
   {
     "id": "specialties-infidelity-do-you-take-sides-if-there-has-been-an-affair",
     "question": "Do you take sides if there has been an affair?",
-    "answer": "No. We do not assign a villain and a victim. Both people are hurting, in different ways, and both need to be understood for the relationship to have a real chance. We stay curious about what happened rather than putting anyone on trial.\nStart with a [free consultation](/get-started).\n#",
+    "answer": "No. We do not assign a villain and a victim. Both people are hurting, in different ways, and both need to be understood for the relationship to have a real chance. We stay curious about what happened rather than putting anyone on trial.\nStart with a [free consultation](/get-started).",
     "page": "/specialties/infidelity",
     "tags": [
       "infidelity"
@@ -946,7 +946,7 @@
   {
     "id": "specialties-conflict-resolution-what-if-only-one-of-us-wants-to-work-on-it",
     "question": "What if only one of us wants to work on it?",
-    "answer": "That happens often, and it is workable. It helps enormously if both partners come, but change can start even when one person is more hopeful than the other. What matters most is a willingness to show up and stay curious about the relationship as a whole.\nStart with a [free call](/get-started) and we will talk it through.\n#",
+    "answer": "That happens often, and it is workable. It helps enormously if both partners come, but change can start even when one person is more hopeful than the other. What matters most is a willingness to show up and stay curious about the relationship as a whole.\nStart with a [free call](/get-started) and we will talk it through.",
     "page": "/specialties/conflict-resolution",
     "tags": [
       "couples"
@@ -968,7 +968,7 @@
   {
     "id": "specialties-neurodiversity-can-therapy-help-a-neurodivergent-child-or-teen",
     "question": "Can therapy help a neurodivergent child or teen?",
-    "answer": "Yes. We help neurodivergent kids and teens build on their strengths, understand their own wiring, and navigate school, friendships, and big feelings, while giving parents practical ways to support them at home.\nSee [child therapy](/therapy/children) and [teen therapy](/therapy/teens), or [book a free call](/get-started).\n#",
+    "answer": "Yes. We help neurodivergent kids and teens build on their strengths, understand their own wiring, and navigate school, friendships, and big feelings, while giving parents practical ways to support them at home.\nSee [child therapy](/therapy/children) and [teen therapy](/therapy/teens), or [book a free call](/get-started).",
     "page": "/specialties/neurodiversity",
     "tags": [
       "neurodiversity"
@@ -1015,7 +1015,7 @@
   {
     "id": "specialties-addiction-recovery-is-your-approach-to-addiction-shaming-or-judgmen",
     "question": "Is your approach to addiction shaming or judgmental?",
-    "answer": "Never. Shame keeps people stuck; it does not help them heal. We meet you as a whole person, not a diagnosis or a habit, and we work with genuine respect for how hard this is and how much strength it takes to reach out at all.\n**SECTION 4**\n**Signature services**\n#",
+    "answer": "Never. Shame keeps people stuck; it does not help them heal. We meet you as a whole person, not a diagnosis or a habit, and we work with genuine respect for how hard this is and how much strength it takes to reach out at all.",
     "page": "/specialties/addiction-recovery",
     "tags": [
       "addiction-recovery"
@@ -1049,7 +1049,7 @@
   {
     "id": "couples-intensive-what-does-a-typical-intensive-day-look-like",
     "question": "What does a typical intensive day look like?",
-    "answer": "A full day of focused work with Kay, structured around your specific situation, with breaks built in so it stays humane rather than exhausting. You leave with real clarity and a plan, not just a longer conversation.\nReach out to [ask about scheduling an intensive](/contact).\n#",
+    "answer": "A full day of focused work with Kay, structured around your specific situation, with breaks built in so it stays humane rather than exhausting. You leave with real clarity and a plan, not just a longer conversation.\nReach out to [ask about scheduling an intensive](/contact).",
     "page": "/couples-intensive",
     "tags": [
       "couples"
@@ -1082,7 +1082,7 @@
   {
     "id": "discernment-counseling-what-if-my-partner-and-i-want-different-things",
     "question": "What if my partner and I want different things?",
-    "answer": "That is exactly who discernment counseling is for. It is built for the situation where one of you is leaning out and the other is leaning in. Each of you gets heard, and the structure helps you reach a decision together instead of staying stuck.\nStart with a [free consultation](/get-started).\n#",
+    "answer": "That is exactly who discernment counseling is for. It is built for the situation where one of you is leaning out and the other is leaning in. Each of you gets heard, and the structure helps you reach a decision together instead of staying stuck.\nStart with a [free consultation](/get-started).",
     "page": "/discernment-counseling",
     "tags": [
       "couples"
@@ -1104,7 +1104,7 @@
   {
     "id": "telehealth-what-do-i-need-for-a-telehealth-session",
     "question": "What do I need for a telehealth session?",
-    "answer": "A private space, a stable internet connection, and a phone, tablet, or computer with a camera. We send a secure link, and you join from wherever you feel comfortable. No special software to buy, nothing complicated to set up.\nSee our full [team](/about/our-team), all available by telehealth across California.\n**SECTION 5**\n**Practical & conversion pages**\n#",
+    "answer": "A private space, a stable internet connection, and a phone, tablet, or computer with a camera. We send a secure link, and you join from wherever you feel comfortable. No special software to buy, nothing complicated to set up.\nSee our full [team](/about/our-team), all available by telehealth across California.",
     "page": "/telehealth",
     "tags": [
       "telehealth"
@@ -1137,7 +1137,7 @@
   {
     "id": "fees-what-is-a-superbill-and-what-is-your-cancellatio",
     "question": "What is a Superbill, and what is your cancellation policy?",
-    "answer": "A Superbill is an itemized receipt with everything your PPO insurer needs to consider reimbursing you: you pay at the time of service, we provide the Superbill, and you submit it. Our cancellation policy asks for at least 24 hours' notice, or the full session fee is charged.\nGood questions to ask your insurer before starting:\n* Do I have out-of-network mental health benefits?\n* What is my deductible, and has it been met?\n* How many sessions per year does my plan cover, and at what reimbursement rate?\n* Is a referral from my primary care physician required?\nPayment methods: cash, check, Venmo, Zelle, and all major credit cards. A reduced fee may be available on request, so ask before you schedule. [Book a free call](/get-started).\n#",
+    "answer": "A Superbill is an itemized receipt with everything your PPO insurer needs to consider reimbursing you: you pay at the time of service, we provide the Superbill, and you submit it. Our cancellation policy asks for at least 24 hours' notice, or the full session fee is charged.\nGood questions to ask your insurer before starting:\n* Do I have out-of-network mental health benefits?\n* What is my deductible, and has it been met?\n* How many sessions per year does my plan cover, and at what reimbursement rate?\n* Is a referral from my primary care physician required?\nPayment methods: cash, check, Venmo, Zelle, and all major credit cards. A reduced fee may be available on request, so ask before you schedule. [Book a free call](/get-started).",
     "page": "/fees",
     "tags": [
       "cost"
@@ -1170,7 +1170,7 @@
   {
     "id": "get-started-how-quickly-can-i-be-seen",
     "question": "How quickly can I be seen?",
-    "answer": "Usually within 24 hours. We hold time for people who are ready to start, and in most cases we can get you a first conversation quickly rather than putting you on a long waitlist.\nSee [fees and insurance](/fees) so costs are clear before your call.\n#",
+    "answer": "Usually within 24 hours. We hold time for people who are ready to start, and in most cases we can get you a first conversation quickly rather than putting you on a long waitlist.\nSee [fees and insurance](/fees) so costs are clear before your call.",
     "page": "/get-started",
     "tags": [
       "getting-started"
@@ -1203,7 +1203,7 @@
   {
     "id": "contact-what-is-the-best-way-to-reach-you",
     "question": "What is the best way to reach you?",
-    "answer": "The fastest way to get started is to book the free Get to Know Us call online. You are also welcome to call us at (949) 357-3587 or send a message through the contact form, and we will get back to you quickly, usually within 24 hours.\nBook the [free Get to Know Us call](/get-started).\n**SECTION 6**\n**Master FAQ page**\n#",
+    "answer": "The fastest way to get started is to book the free Get to Know Us call online. You are also welcome to call us at (949) 357-3587 or send a message through the contact form, and we will get back to you quickly, usually within 24 hours.\nBook the [free Get to Know Us call](/get-started).",
     "page": "/contact",
     "tags": [
       "contact"
