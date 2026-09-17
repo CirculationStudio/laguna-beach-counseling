@@ -91,6 +91,15 @@
                        mixed in with the site links, and so nav.sections.about.children stays
                        untouched for the FOOTER, which renders that same array. #}
                     {% set panelLinks = [] %}
+                    {# If the section landing page is already one of the links, the
+                       separate mega-panel__all link below would be a second link to
+                       the same URL with the same label in one panel. Computed rather
+                       than flagged by hand, so it stays correct if a panel's links
+                       change. #}
+                    {% set landingInLinks = false %}
+                    {% for child in item.panelLinks or [] %}
+                      {% if child.url == node.url %}{% set landingInLinks = true %}{% endif %}
+                    {% endfor %}
                     {% if item.panelLinks %}
                       {% for child in item.panelLinks %}{% set _ = panelLinks.push(child) %}{% endfor %}
                     {% else %}
@@ -131,8 +140,13 @@
                       </ul>
                     {% endif %}
                     {# allLabel overrides the default "All <label>", which reads
-                       fine for Therapy and Specialties but produces "All About". #}
-                    <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}{{ arrow("mega-panel__all-arrow") }}</a>
+                       fine for Therapy and Specialties but produces "All About".
+                       Suppressed when the landing page is already in the links list
+                       (the About panel), so the panel never carries the same link
+                       twice. #}
+                    {% if not landingInLinks %}
+                      <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}{{ arrow("mega-panel__all-arrow") }}</a>
+                    {% endif %}
                   </div>
                   {% if item.feature and nav.features[item.feature] %}
                     {% set feature = nav.features[item.feature] %}
@@ -193,7 +207,16 @@
                 </svg>
               </button>
               <ul class="mobile-nav__sublist" id="m-dd-{{ item.ref }}" hidden>
-                <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}</a></li>
+                {# Same landing-page dedupe as the desktop panel: when the section
+                   landing page is already among panelLinks, it is rendered there
+                   instead of here, so the accordion does not repeat it. #}
+                {% set landingInLinks = false %}
+                {% for child in item.panelLinks or [] %}
+                  {% if child.url == node.url %}{% set landingInLinks = true %}{% endif %}
+                {% endfor %}
+                {% if not landingInLinks %}
+                  <li><a class="{% if not node.published %}nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}</a></li>
+                {% endif %}
                 {# Mobile keeps the full child list, including any child that is the
                    desktop feature cell (there is no cell to duplicate here), so Kay
                    stays first under About rather than being pushed to the bottom.

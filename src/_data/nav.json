@@ -263,11 +263,11 @@
       "panelTitle": "Get to know us",
       "allLabel": "About the practice",
       "feature": "kayWenger",
-      "_panelNote": "panelLinks overrides the default 'children minus the feature cell, plus extraLinks' for this panel only. The About panel now carries two labelled groups: the site links here, and the people in nav.associates via peopleGroup. Driving it from children would have meant deleting Kay and Rozy from nav.sections.about.children, which the FOOTER also renders (footerCol(nav.sections.about)), so children is left untouched and the footer is unchanged. The other panels still use the children + extraLinks path.",
+      "_panelNote": "panelLinks overrides the default 'children minus the feature cell, plus extraLinks' for this panel only. The About panel carries two labelled groups: the site links here, and the people in nav.associates via peopleGroup. Driving it from children would have meant deleting Kay and Rozy from nav.sections.about.children, which the FOOTER also renders (footerCol(nav.sections.about)), so children is left untouched and the footer is unchanged. The other panels still use the children + extraLinks path, which is how Telehealth reaches Therapy and Specialties.",
       "panelLinks": [
         {
-          "label": "Our Team",
-          "url": "/about/our-team",
+          "label": "About the Practice",
+          "url": "/about",
           "published": true
         },
         {
@@ -276,17 +276,13 @@
           "published": true
         },
         {
-          "label": "Fees and insurance",
-          "url": "/fees",
-          "published": true
-        },
-        {
-          "label": "Contact",
-          "url": "/contact",
+          "label": "Our Team",
+          "url": "/about/our-team",
           "published": true
         }
       ],
-      "peopleGroup": "associates"
+      "peopleGroup": "associates",
+      "_trimNote": "TRIMMED 2026-09-16 (second pass). Fees and Contact were removed from this column because the panel had grown tall enough to force a scrollbar on shorter viewports. Neither becomes unreachable: both are top-level items in this same header array and both are in the footer, verified before removing. The section landing page moved INTO this list as 'About the Practice', which is why the panel no longer renders a separate mega-panel__all link at the bottom: header.njk suppresses it automatically when node.url already appears in panelLinks, on desktop and in the accordion both. Keeping both would have been a duplicate link to /about in one panel AND would have left the panel too tall to clear max-height at a 640px viewport, which was the point of the trim."
     },
     {
       "label": "Fees",
