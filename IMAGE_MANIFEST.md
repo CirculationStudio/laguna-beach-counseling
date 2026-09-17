@@ -169,13 +169,20 @@ covers those scenes, so an AI-generated Laguna is not worth the authenticity cos
 
 ## team/ (8 assets, all real photography)
 
+DIMENSIONS CORRECTED 2026-09-16. This section previously recorded all five cutouts as
+700x700. Verified against the CDN: Natasha's is 1024x1024 and Austin's is 534x534. The
+`photo.scale` tuning comment in `src/about/our-team.njk` rests on the same wrong
+assumption and should be re-checked if those cards are ever re-tuned. The cutouts are
+therefore NOT uniform, which is why the portrait hero and the nav disc both expose
+`position` and `scale` hooks.
+
 | File | Orient | Dimensions | What it is | Used on |
 |---|---|---|---|---|
 | `kay-wenger-cutout.webp` | square | 700x700 | Transparent cutout portrait, Kay Wenger | 12 pages, via founderNote |
-| `austin-whitman-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team |
-| `christy-hill-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team |
-| `natasha-gaffaney-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /components |
-| `rozy-pishvaiy-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /about/rozy-pishvaiy, /components |
+| `austin-whitman-cutout.webp` | square | **534x534** | Transparent cutout portrait | /about/our-team, /about/austin-whitman, nav.json (About panel) |
+| `christy-hill-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /about/christy-hill, nav.json (About panel) |
+| `natasha-gaffaney-cutout.webp` | square | **1024x1024** | Transparent cutout portrait | /about/our-team, /about/natasha-gaffaney, /components, nav.json (About panel) |
+| `rozy-pishvaiy-cutout.webp` | square | 700x700 | Transparent cutout portrait | /about/our-team, /about/rozy-pishvaiy, /components, nav.json (About panel) |
 | `laguna-beach-counseling-team-hz.webp` | hz | 1920x1568 | Five team members standing together in the office, lamp and coastal art behind | / (homepage hero) |
 | `laguna-beach-counseling-team-couch-hz.webp` | hz | 1920x1402 | Four team members seated on the orange sofa and armchair, framed landscapes above | / (homepage) |
 | `laguna-beach-counseling-team-stairs-portrait.webp` | **portrait** | 1538x1920 | Four team members on the office stairs beneath the painted "Laguna Beach Counseling" sign | /contact |
