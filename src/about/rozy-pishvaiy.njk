@@ -9,9 +9,17 @@ crumbs:
   - { label: "Rozy Pishvaiy" }
 hero:
   eyebrow: "Meet the team"
-  # Text-only hero, matching /about/kay-wenger: the portrait carries in the note
-  # block below rather than competing with the name.
-  variant: "plain"
+  # Portrait hero. Kay's call, September 2026: an associate should be visible
+  # immediately rather than further down the page, so the disc that used to sit in
+  # the founderNote below now leads here. The note keeps its quote and signature
+  # and drops its portrait, so her face appears once on the page, not twice.
+  # Ring is gold at Kay's request; it is a 2px stroke, not a fill, and the hero CTA
+  # stays navy so the ring is the only gold in this viewport.
+  variant: "portrait"
+  portrait:
+    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/rozy-pishvaiy-cutout.webp"
+    alt: "Rozy Pishvaiy, associate therapist at Laguna Beach Counseling."
+    ring: true
   title: "Rozy Pishvaiy,"
   titleEmphasis: "AMFT"
   lead: "Associate Marriage and Family Therapist, working in English and Farsi, with children, teens, adults, and couples. In Laguna Beach, or by video anywhere in California."
@@ -25,9 +33,8 @@ kay:
   # is the main thing separating an associate page from the founder's.
   variant: "note"
   eyebrow: "How she works"
-  portrait:
-    src: "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/rozy-pishvaiy-cutout.webp"
-    alt: "Rozy Pishvaiy, associate therapist at Laguna Beach Counseling."
+  # No portrait key on purpose: it moved to the hero above. The note variant
+  # renders its disc only when a portrait is passed.
   quote: "You are the expert on your own life."
   body:
     - "Rozy's starting assumption is that you already know a great deal about your own situation, and that the useful work is figuring it out together rather than having it explained to you. She asks a lot of questions, and she means them."
