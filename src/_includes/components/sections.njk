@@ -336,11 +336,11 @@
           {% if inline %}
             <span class="feature__copy">
               <h3 class="feature__title">{{ f.title }}</h3>
-              <p class="feature__text">{{ f.text or f.body }}</p>
+              <p class="feature__text">{{ (f.text or f.body) | inlineRich | safe }}</p>
             </span>
           {% else %}
             <h3 class="feature__title">{{ f.title }}</h3>
-            <p class="feature__text">{{ f.text or f.body }}</p>
+            <p class="feature__text">{{ (f.text or f.body) | inlineRich | safe }}</p>
           {% endif %}
         </li>
       {% endfor %}

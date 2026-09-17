@@ -146,6 +146,15 @@ export default function (eleventyConfig) {
   // Wraps the first occurrence of the label inside the detail, so the number
   // stays inline where it already reads and nothing is duplicated or appended.
   // Escapes first, and only tel: and sms: schemes are allowed through.
+  // The single-paragraph sibling of faqRich, for copy that already sits inside a
+  // <p> and so must not be wrapped in one (featureRow tiles). Same escape-then-
+  // linkify pair, same SAFE_HREF guard, so authored copy can carry a link without
+  // any component putting raw authored HTML through | safe. Escaping runs first,
+  // so the only markup that can reach the page is an anchor this filter built.
+  eleventyConfig.addFilter("inlineRich", (text) =>
+    linkify(escapeHtml(String(text || "")))
+  );
+
   eleventyConfig.addFilter("crisisAction", (detail, resource) => {
     const text = escapeHtml(detail);
     const action = resource && resource.action;
