@@ -16,8 +16,22 @@
    - default with image: full-bleed photo under the directional sand veil.
    - "split": image in a framed right column beside the text (near-even grid).
    - "center": text-only centered reframe hero, no image.
+   - "portrait": a circular cutout portrait beside the text, on the same sea-foam
+     wash the founder note and team cards use. The ASSOCIATE PAGE hero. Pass
+     portrait: { src, alt, ring?, position?, scale? }. It is a separate param from
+     image, because image means a scene and portrait means a person on a ground.
+   portrait.ring adds the 2px gold ring (Kay's ask for warmth, September 2026).
+   It is a stroke, not a fill: roughly 0.25 percent of the hero in gold ink,
+   where a filled gold disc would have been about 20 percent and blown the budget.
+   portrait.position / portrait.scale tune an off-centre cutout, the knob
+   .founder-note__disc never had. Needed because the cutouts are NOT uniform:
+   Natasha's is 1024px square and Austin's 534px, not the 700 the manifest claims.
    cta.gold renders the layered gold pill (btn-accent). Use it only when the hero
    carries the viewport's single gold action; the default stays navy.
+   GOLD GUARD: portrait.ring and cta.gold are mutually exclusive and the macro
+   enforces it, silently dropping the ring if both are set. Two golds in one
+   viewport is the thing DESIGN_SYSTEM.md's Forbidden Patterns names outright, and
+   an associate page that opts into a gold CTA later must not resurrect it.
    titleTag (default "h1"): pages keep the h1; demo contexts that render several
    heroes on one page pass "h2" so the page keeps exactly one h1.
    treatment (default absent = eyebrow then large serif title):
@@ -50,8 +64,12 @@
   {% set hasVideo = opts.video and opts.video.src %}
   {% set split = opts.variant == "split" %}
   {% set center = opts.variant == "center" %}
+  {% set hasPortrait = opts.portrait and opts.portrait.src %}
+  {% set portraitHero = opts.variant == "portrait" and hasPortrait %}
+  {# The gold guard, enforced rather than documented. #}
+  {% set showRing = opts.portrait.ring and not (opts.cta and opts.cta.gold) if hasPortrait else false %}
   {% set isBleed = (hasPhoto or hasSlot or hasVideo) and not split %}
-  <section class="section hero{% if isBleed %} hero--photo{% endif %}{% if center %} hero--center{% endif %}{% if split %} hero--split{% endif %} section--{{ opts.tone or 'sand' }}">
+  <section class="section hero{% if isBleed %} hero--photo{% endif %}{% if center %} hero--center{% endif %}{% if split %} hero--split{% endif %}{% if portraitHero %} hero--portrait{% endif %} section--{{ opts.tone or 'sand' }}">
     {% if isBleed %}
       {% if hasVideo %}
         <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="{{ opts.video.poster }}">
@@ -71,7 +89,7 @@
       {% endif %}
       <span class="hero__veil" aria-hidden="true"></span>
     {% endif %}
-    <div class="container hero__inner{% if split %} hero__inner--split{% endif %}">
+    <div class="container hero__inner{% if split %} hero__inner--split{% endif %}{% if portraitHero %} hero__inner--portrait{% endif %}">
       {% set titleTag = opts.titleTag or "h1" %}
       <div class="hero__content">
         {% if opts.treatment == "swap" %}
@@ -120,6 +138,12 @@
             </div>
           {% endif %}
         </div>
+      {% endif %}
+      {% if portraitHero %}
+        {# Eager + high priority: on an associate page this disc is the LCP element. #}
+        <span class="hero__portrait{% if showRing %} hero__portrait--ring{% endif %}">
+          <img src="{{ opts.portrait.src }}" alt="{{ opts.portrait.alt }}" width="248" height="248" loading="eager" fetchpriority="high" decoding="async"{% if opts.portrait.position or opts.portrait.scale %} style="{% if opts.portrait.position %}object-position:{{ opts.portrait.position }};{% endif %}{% if opts.portrait.scale %}transform:scale({{ opts.portrait.scale }});{% endif %}"{% endif %} />
+        </span>
       {% endif %}
     </div>
   </section>
@@ -437,9 +461,15 @@
   {% call ui.section({ tone: opts.tone or "paper" }) %}
     {% if note %}
       <div class="founder-note founder-note--note">
-        <span class="founder-note__disc">
-          <img src="{{ opts.portrait.src }}" alt="{{ opts.portrait.alt }}" loading="lazy" decoding="async" />
-        </span>
+        {# The disc is conditional. On an associate page the portrait now leads in
+           the hero (variant "portrait"), so the page omits opts.portrait here and
+           the same face does not appear twice on one screen. Pages that still want
+           the note to carry the portrait just pass it. #}
+        {% if opts.portrait and opts.portrait.src %}
+          <span class="founder-note__disc">
+            <img src="{{ opts.portrait.src }}" alt="{{ opts.portrait.alt }}" loading="lazy" decoding="async"{% if opts.portrait.position or opts.portrait.scale %} style="{% if opts.portrait.position %}object-position:{{ opts.portrait.position }};{% endif %}{% if opts.portrait.scale %}transform:scale({{ opts.portrait.scale }});{% endif %}"{% endif %} />
+          </span>
+        {% endif %}
         {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}
         {% if opts.quote %}
           <p class="founder-note__quote">{{ opts.quote }}{% if opts.quoteEmphasis %} <em>{{ opts.quoteEmphasis }}</em>{% endif %}</p>

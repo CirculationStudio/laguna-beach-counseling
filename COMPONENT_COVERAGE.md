@@ -287,15 +287,32 @@ in order: who they are, how they work, what they work with, a fit check, a booki
 
 | Block | Coverage |
 |---|---|
-| Name and credential header | COVERED `hero` (`variant: "plain"`, name-first h1, credential in `titleEmphasis`) |
+| Name and credential header | COVERED `hero` (`variant: "portrait"`, name-first h1, credential in `titleEmphasis`, circular cutout on the sea-foam wash beside the text) |
 | Who they are | COVERED `lead` (two paragraphs, THIRD person) |
-| How they work | COVERED `founderNote` (**`note` variant**: disc portrait, one quote, body, signature. NOT the founder variant, and no credential grid) |
+| How they work | COVERED `founderNote` (**`note` variant**: one quote, body, signature. NOT the founder variant, and no credential grid. Pass NO `portrait` key: the disc is conditional, and the portrait now leads in the hero, so passing it puts the same face on screen twice) |
 | Their signature or specialty | COVERED `promoCallout` via `crossSell` |
 | What they work with | COVERED `definitionList` via `shapes` |
 | Who they see | COVERED `pointCards` in the content slot |
 | Anything genuinely distinguishing | COVERED `prose` in the content slot, with its own h2 worded as the search phrase (Rozy's is "Therapy in English and Farsi") |
 | Where to go next | COVERED `pointCards` via `next` |
 | CTA | COVERED `ctaBand` |
+
+**The portrait hero (`variant: "portrait"`), added September 2026.** Kay's call: an
+associate should be visible immediately rather than further down the page. Pass
+`portrait: { src, alt, ring?, position?, scale? }`. The disc reuses the same three-bloom
+sea-foam wash and grounding shadow as `founderNote` and the team cards, with
+`object-fit: cover` and `object-position: center top` (the disc recipe, NOT the team
+card's `contain`, which leaves dead ground above the head and exposes how inconsistently
+the cutouts are cropped).
+
+`ring: true` adds the 2px gold ring. It is a stroke, not a fill: roughly 0.25 percent of
+the hero in gold ink, against about 20 percent for a filled gold disc. **The ring and a
+gold hero CTA are mutually exclusive, and the `hero` macro enforces it** by dropping the
+ring when `cta.gold` is set, so an associate page that later opts into a gold CTA cannot
+end up with two golds in one viewport. On a ringed page the ring IS the viewport's gold.
+
+`position` / `scale` tune an off-centre cutout. Use them: the cutouts are not uniform
+sizes despite what IMAGE_MANIFEST.md claims.
 
 What an associate page deliberately DROPS relative to the founder page: the founder
 variant and its credential grid, first-person voice, career-arc through-lines, a second

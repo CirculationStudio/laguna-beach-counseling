@@ -878,6 +878,113 @@
   background: color-mix(in srgb, var(--color-sea-foam) 32%, var(--color-sand-warm));
 }
 
+/* ---- Portrait hero (the associate page) -------------------------------- */
+/* A circular cutout on the same static sea-foam wash the founder note and the
+   team cards use, so an associate page opens on the person rather than making
+   the reader scroll to find them. Kay's call, September 2026.
+   The wash and grounding shadow are the same three-bloom recipe as
+   .founder-note__portrait and .team-card__portrait. That stack is now written
+   in three places; if it changes, change all three. */
+.hero__inner--portrait {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Portrait first on small screens: it is the point of the variant, and a face
+   above the name reads better than a name above a face at phone width. */
+.hero__inner--portrait .hero__portrait {
+  order: -1;
+}
+
+@media (min-width: 48rem) {
+  .hero__inner--portrait {
+    grid-template-columns: 1fr auto;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .hero__inner--portrait .hero__portrait {
+    order: 0;
+  }
+
+  .hero__inner--portrait .eyebrow {
+    justify-content: flex-start;
+  }
+}
+
+.hero__inner--portrait > * {
+  min-width: 0;
+}
+
+.hero__portrait {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  /* clamp so the disc keeps presence on a laptop without dominating a phone */
+  width: clamp(9.5rem, 20vw, 15.5rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-sea-foam);
+  box-shadow: var(--shadow-card);
+}
+
+.hero__portrait::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  background:
+    radial-gradient(circle at 28% 62%, rgba(255, 255, 255, 0.62) 0%, transparent 46%),
+    radial-gradient(circle at 74% 26%, rgba(255, 255, 255, 0.55) 0%, transparent 44%),
+    radial-gradient(circle at 60% 85%, rgba(40, 160, 201, 0.28) 0%, transparent 45%);
+}
+
+.hero__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse 52% 15% at 50% 91%, rgba(0, 26, 46, 0.32) 0%, transparent 72%);
+}
+
+/* cover + center top, matching .founder-note__disc rather than the team card's
+   contain. Measured at nav and hero scale both: contain leaves a band of empty
+   wash above the head and exposes how inconsistently the cutouts are cropped,
+   where cover crops to the face and normalizes them. */
+.hero__portrait img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform-origin: center top;
+}
+
+/* The gold ring. A 2px STROKE floating clear of the disc, never a fill: about
+   0.25 percent of the hero in gold ink, against roughly 20 percent for a filled
+   gold circle, which is what keeps this inside the 2 percent budget.
+   The macro refuses to render this alongside a gold hero CTA. One gold per
+   viewport, and on an associate page this ring is it. */
+.hero__portrait--ring {
+  /* outline, not a border or a pseudo-element: the disc is overflow:hidden, so a
+     ::before ring would be clipped and a border would eat into the image. An
+     outline is drawn outside the box, is never clipped by the element's own
+     overflow, follows border-radius, and leaves the gap transparent so the ring
+     is not coupled to whatever tone the section happens to carry.
+     The element is a decorative span and never focusable, so this cannot
+     collide with a focus indicator. */
+  outline: 2px solid var(--color-sun);
+  outline-offset: 8px;
+  /* keep the ring clear of neighbouring text at every column width */
+  margin: 10px;
+}
+
 /* Trust markers inside a hero read best over a hairline when they close the
    content stack (the trust-integrated hero direction). */
 .hero__trust {
