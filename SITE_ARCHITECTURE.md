@@ -250,6 +250,44 @@ These were live, indexed pages the new architecture did not account for. Status 
 3. RESOLVED: `/parenting-support`, `/work-and-career-issues`, and `/stress-management` are consolidated into their parent pages (families, life-transitions, anxiety). The 301s preserve link equity; they stop being standalone ranking targets, which is the intended "depth beats breadth" tradeoff.
 4. SUPERSEDED 2026-09-08. The original ruling was: no per-associate bio pages, all associate bio URLs 301 to `/about/our-team`. Reversed on the traffic argument recorded in the open-questions section above: associate bios pulled roughly 200 clicks a year, about 15 percent of all site clicks, and forfeiting that was the wrong trade. SUPERSEDED AGAIN 2026-09-16: pages are now built for the WHOLE bench, not retained associates only. Kay's call. Austin and Christy are seeing clients now, so routing their bio traffic to a team page instead of to them forfeits the very clicks these pages exist to capture (Christy's old bio alone pulled 123 clicks, the highest of any associate URL). Both carry a code comment recording the departure date, and nothing about a departure appears on any rendered page. `/about/rozy-pishvaiy` remains the reusable associate shape, and all four associates now have pages. Kay keeps `/about/kay-wenger`, which stays founder-scale and distinct.
 
+### Nav panel feature cells (reassigned 2026-09-16)
+
+The two mega-panel feature cells were swapped, and Beach Therapy was deliberately NOT
+turned into a dropdown.
+
+| Panel | Was | Now |
+|---|---|---|
+| Therapy, "Who we help" | Beach Therapy | Sand Castle Therapy |
+| Specialties, "What people struggle with" | Sand Castle Therapy | Grief and Loss |
+
+Sand Castle Therapy is a service for a population, not a condition, so featuring it under
+"What people struggle with" was a category error. Under "Who we help" it sits beside the
+Children link, which is the panel for populations.
+
+Grief takes the Specialties cell because it is a genuine specialty (so the panel stops
+filing a service among conditions) and because it is the biggest UNPROMOTED opportunity on
+the site: about 6,900 impressions at position ~30, sitting at card 3 of 9 in the grid.
+Anxiety and depression are larger but are already promoted to the front of that grid, so
+featuring them would double down rather than add reach. Discernment Counseling was
+considered and rejected despite strong numbers (10,400 impressions, and zero header
+presence today) because it is a service, which would repeat the error being fixed.
+
+REJECTED, and do not revisit without new evidence: turning Beach Therapy into a dropdown
+holding both signature services. Panelled triggers here are buttons, not links, so
+/beach-therapy would have gone from one click to two on desktop and mobile both, and
+desktop hover-intent would open a panel under the cursor of anyone trying to click it.
+That page is the single biggest on-page opportunity on the site (about 12,500 impressions
+at position ~16) and the #1 internal-linking priority, while Sand Castle has no search
+baseline at all. Measured at the time: no existing panel width fits under that trigger
+(it sits mid-bar, short of room both ways, ceiling 520px), and adding Sand Castle as a 7th
+top-level item puts the page into horizontal scroll at 960px.
+
+Beach Therapy gave up its cell at no cost: it keeps its one-click top-level link, its
+footer Signature Services entry, and 12 page-level links.
+
+STILL OPEN: Sand Castle Therapy has only 5 internal link sites against Beach Therapy's 17.
+The cell swap does not change that count. See the internal-linking section for candidates.
+
 ### DNS and launch safety (non-negotiable)
 
 - Before touching DNS, export and inventory every existing record. The domain carries Kay's email (MX), and almost certainly SPF, DKIM, and DMARC. Preserve every record that is not the website. Breaking email on launch day is the one unforgivable error.

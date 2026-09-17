@@ -92,7 +92,7 @@ atmosphere or place.
 | `outdoor-red-sunset-palm-silhouettes-hz.webp` | hz | 1280x853 | A red sun disk low in hazy sky over the ocean, tree silhouettes below | /couples-intensive |
 | `outdoor-rocky-cove-sandy-beach-portrait.webp` | portrait | 853x1280 | A small rocky cove from above, turquoise surf around boulders, sandstone bluff | /components |
 | `outdoor-rocky-cove-sun-rays-hz.webp` | hz | 1280x853 | Sun breaking through heavy cloud over a silver sea, dark wet rocks foreground | /specialties/infidelity |
-| `outdoor-sandpiper-reflective-shore-sunset-hz.webp` | hz | 1280x853 | One small shorebird on mirror-wet sand at dusk, pale pink sky reflected | /specialties/grief |
+| `outdoor-sandpiper-reflective-shore-sunset-hz.webp` | hz | 1280x853 | One small shorebird on mirror-wet sand at dusk, pale pink sky reflected | /specialties/grief, nav.json (Specialties panel cell) |
 | `outdoor-sea-foam-shoreline-closeup-hz.webp` | hz | 1280x853 | Close view of foam lines gathering and dissolving on wet sand | /specialties/addiction-recovery |
 | `outdoor-sea-lavender-ocean-overlook-portrait.webp` | portrait | 853x1280 | Purple sea lavender beside a dark park railing, palms on the point, ocean beyond | /therapy/seniors |
 | `outdoor-seagull-silhouette-sunset-portrait.webp` | portrait | 853x1280 | A gull silhouetted on wet reflective sand, palm-lined bluff, pink sunset | unused |

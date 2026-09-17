@@ -221,6 +221,19 @@
         "alt": "A wooden staircase and path leading down to a Laguna Beach cove, ocean and coastal bluffs beyond.",
         "brief": "Two people walking side by side at the tideline, Heisler Park bluffs behind, soft morning light, framed from behind for privacy. Real coastal photography, never stock or AI.",
         "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-beach-path-stairs-header-hz.webp"
+      },
+      "_note": "RETAINED BUT UNREFERENCED as of 2026-09-16. This was the Therapy panel's feature cell until Sand Castle Therapy took that slot. It is kept, not deleted, because it is a complete and correct feature object and Beach Therapy is the site's highest-value page, so a future panel may want it back. Beach Therapy lost nothing by giving up this cell: it remains a top-level link in nav.header (one click, deliberately never converted to a dropdown), a footer Signature Services entry, and is linked from 12 page-level places."
+    },
+    "griefLoss": {
+      "eyebrow": "Specialty",
+      "label": "Grief and Loss",
+      "url": "/specialties/grief",
+      "published": true,
+      "blurb": "Support after a loss, at whatever pace the grieving actually takes.",
+      "linkLabel": "Explore grief and loss",
+      "image": {
+        "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/coastal/laguna-beach-counseling-outdoor-sandpiper-reflective-shore-sunset-hz.webp",
+        "alt": "One small shorebird alone on mirror-wet sand at dusk, a pale sky reflected in the shallows."
       }
     }
   },
@@ -229,7 +242,7 @@
       "ref": "therapy",
       "panel": "featured",
       "panelTitle": "Who we help",
-      "feature": "beachTherapy",
+      "feature": "sandCastleTherapy",
       "_telehealthNote": "Telehealth rides in as an extraLink here and on Specialties, NOT as a child of nav.sections. The /therapy and /specialties hub grids are generated from children filtered on published, so adding it as a child would put a spurious service card on both hub pages. extraLinks surfaces it in the panel only, the same mechanism Fees already uses under About.",
       "extraLinks": [
         {
@@ -237,20 +250,22 @@
           "url": "/telehealth",
           "published": true
         }
-      ]
+      ],
+      "_featureNote": "Sand Castle Therapy moved here from the Specialties panel, 2026-09-16. It is a service for a population, not a condition, so it was miscategorised under 'What people struggle with'; here it sits beside the Children link under 'Who we help', which is the panel for populations. Beach Therapy previously held this slot and gave it up at no cost: it keeps its one-click top-level link, which is the thing that actually matters for the site's highest-yield page. The link count is UNCHANGED at 8: both the old and new features are non-children, so neither is filtered out of the list."
     },
     {
       "ref": "specialties",
       "panel": "featured",
       "panelTitle": "What people struggle with",
-      "feature": "sandCastleTherapy",
+      "feature": "griefLoss",
       "extraLinks": [
         {
           "label": "Telehealth",
           "url": "/telehealth",
           "published": true
         }
-      ]
+      ],
+      "_featureNote": "Grief replaced Sand Castle Therapy here, 2026-09-16. Two reasons. It is a genuine specialty, so the panel stops filing a service among conditions, which was the whole point of the change. And it is the biggest UNPROMOTED opportunity on the site (about 6,900 impressions at position ~30) while sitting at card 3 of 9 in the grid; anxiety and depression have larger numbers but are already promoted to the front of the /specialties grid, so featuring them would double down rather than add reach. Note grief IS a child of nav.sections.specialties, so the panel filters it out of the link column and the list drops from 10 to 9. That is intended, and it makes this panel shorter."
     },
     {
       "label": "Beach Therapy",
