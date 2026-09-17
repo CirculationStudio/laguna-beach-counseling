@@ -85,13 +85,20 @@ crumbs:
 
 {# Catch-all: any entry whose tags matched no category above, so nothing is dropped. #}
 {% set restItems = [] %}
+{% set restEntries = [] %}
 {% for e in faqEntries %}{% if not e.blocked %}
   {% if e.id not in placedIds %}
     {% set _ = restItems.push({ q: e.question, a: e.answer }) %}
+    {% set _ = restEntries.push(e) %}
     {% set _ = allItems.push({ q: e.question, a: e.answer }) %}
     {% set _ = placedIds.push(e.id) %}
   {% endif %}
 {% endif %}{% endfor %}
+{# Build-time guard: warns when the catch-all grows past the size of the smallest
+   deliberately named category, which is the point it stops being a remainder. It
+   is handed the real orphans from this very loop, so the check cannot drift from
+   the partition. Renders nothing and never fails the build. #}
+{{ restEntries | warnOnCatchAll }}
 {% if restItems | length %}
   {% set _ = rendered.push({ title: "Other questions", eyebrow: "One more thing", items: restItems, slug: "Other questions" | slugify }) %}
 {% endif %}

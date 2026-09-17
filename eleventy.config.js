@@ -155,6 +155,53 @@ export default function (eleventyConfig) {
     linkify(escapeHtml(String(text || "")))
   );
 
+  // Build-time guard on the /faq catch-all bucket.
+  //
+  // The catch-all exists so a faq.json entry whose tags match no category can
+  // never silently vanish from the page. That safety net worked, and then quietly
+  // became the problem: it reached 21 of 108 entries, the largest section on the
+  // page, without anyone noticing. The net was never meant to be load-bearing.
+  //
+  // THRESHOLD, 5. Not arbitrary: the smallest genuine categories on the page are
+  // "Cost and insurance" and "Telehealth" at 4 entries each. Once the remainder
+  // bucket is bigger than the smallest category anyone deliberately named, it has
+  // stopped being a remainder and become a category nobody got around to naming.
+  // That is the line worth being told about.
+  //
+  // It takes the orphan ENTRIES from the template rather than recomputing the
+  // partition here, so this cannot drift out of step with the logic it checks.
+  // It warns and returns "", so it never fails a build or renders anything: a
+  // taxonomy drift should be visible, not blocking.
+  eleventyConfig.addFilter("warnOnCatchAll", (orphans) => {
+    const LIMIT = 5;
+    const list = Array.isArray(orphans) ? orphans : [];
+    if (list.length <= LIMIT) return "";
+
+    const counts = new Map();
+    for (const e of list) {
+      for (const t of e.tags || []) counts.set(t, (counts.get(t) || 0) + 1);
+    }
+    const ranked = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+
+    console.warn(
+      `\n[faq] CATCH-ALL IS OVERSIZED: ${list.length} entries fell through to ` +
+      `"Other questions" (threshold ${LIMIT}).`
+    );
+    console.warn(
+      `[faq] Every entry below carries a tag that no category in faq.njk lists, ` +
+      `so the fix is usually to add the tag to a category's tags array, or to add ` +
+      `a category. Tags, most common first:`
+    );
+    for (const [tag, n] of ranked) {
+      console.warn(`[faq]    ${String(n).padStart(3)}x  ${tag}`);
+    }
+    console.warn(
+      `[faq] Section ids on /faq are public URLs. Prefer additive changes, and if ` +
+      `a category is renamed keep the old id as an extra anchor.\n`
+    );
+    return "";
+  });
+
   eleventyConfig.addFilter("crisisAction", (detail, resource) => {
     const text = escapeHtml(detail);
     const action = resource && resource.action;
