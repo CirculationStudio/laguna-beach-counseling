@@ -371,15 +371,34 @@
 {% endmacro %}
 
 {# 9. promoCallout(opts): { eyebrow?, title, titleEmphasis?, body: string | string[],
-   cta{href,label}, image?{src,alt,brief,sourceTag}, reverse?, imageWeight?,
-   pullQuote?, anchorLine?, tone? }. The asymmetric split: a horizontal text-and-image
+   cta{href,label} OR href + label, image?{src,alt,brief,sourceTag}, reverse?,
+   imageWeight?, pullQuote?, anchorLine?, tone? }. The asymmetric split: a text-and-image
    band (cross-sell, reframe). Serif heading, a teal text link, gold stays out of the
    actions. When image.src is absent, a labeled placeholder stands in for real
    coastal photography.
    reverse flips the image to the leading side. imageWeight "image" makes the image
    column dominant (the finalized flipped cross-sell ratio). pullQuote closes the
    text column with the gold-rule inline quote. anchorLine is the serif italic
-   accent line above the link (tight 1.3 line-height, the finalized rhythm). #}
+   accent line above the link (tight 1.3 line-height, the finalized rhythm).
+
+   THE LINK ACCEPTS TWO SHAPES, both equally supported:
+     cta: { href: "/x", label: "Go" }     the nested form, what the three page
+                                          layouts pass from their crossSell key
+     href: "/x", label: "Go"              the flat form, what every direct call
+                                          site in this repo actually reached for
+   Until 2026-09-16 only the nested form worked, and the flat form failed SILENTLY:
+   the panel rendered in full with no link at all. All five direct calls in the repo
+   used the flat form, so five cross-sell panels shipped as dead ends, including the
+   homepage's Beach Therapy band pointing at the site's highest-value page. Five out
+   of five getting it "wrong" is a macro contract problem, not five authoring
+   mistakes, so the macro now normalizes both rather than the call sites being
+   corrected. If you add a third shape, make it fail loudly instead.
+
+   The resolution is written inline rather than as two {% set %} lines on purpose.
+   Each extra tag line emits its own indentation and newline, which shifted the
+   rendered whitespace of all 13 panels that were already working. Inline keeps the
+   change to one line in and one line out, so every previously working panel is
+   byte-identical and the diff shows only the five that gained a link. #}
 {% macro promoCallout(opts) %}
   {% call ui.section({ tone: opts.tone or "seafoam" }) %}
     <div class="promo{% if opts.reverse %} promo--reverse{% endif %}{% if opts.imageWeight == 'image' %} promo--image{% endif %}">
@@ -402,7 +421,7 @@
           {% for p in opts.body %}<p class="promo__body">{{ p }}</p>{% endfor %}
         {% endif %}
         {% if opts.anchorLine %}<p class="promo__anchor">{{ opts.anchorLine }}</p>{% endif %}
-        {% if opts.cta %}{{ ui.button({ href: opts.cta.href, label: opts.cta.label, variant: "text", arrow: true }) }}{% endif %}
+        {% if (opts.cta.href if opts.cta else opts.href) %}{{ ui.button({ href: (opts.cta.href if opts.cta else opts.href), label: (opts.cta.label if opts.cta else opts.label), variant: "text", arrow: true }) }}{% endif %}
         {% if opts.pullQuote %}<p class="promo__pullquote">{{ opts.pullQuote }}</p>{% endif %}
       </div>
     </div>

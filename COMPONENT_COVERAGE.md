@@ -44,9 +44,24 @@ Sections (`src/_includes/components/sections.njk`), with the device extraction l
 7. `featureRow` `{ lead?, leadEmphasis?, items: [{icon,title,text}], variant?: inline,
    columns?: 3|4, tone? }`. "inline" with a serif lead on navy is the trust band.
 8. `rateTable` `{ caption?, rows, footnote?, tone? }`.
-9. `promoCallout` `{ eyebrow?, title, titleEmphasis?, body: string | string[], cta,
-   image?, reverse?, imageWeight?: image, anchorLine?, pullQuote?, tone? }`. The asymmetric
-   split with the flip and image-dominant variants.
+9. `promoCallout` `{ eyebrow?, title, titleEmphasis?, body: string | string[],
+   cta{href,label} OR href + label, image?, reverse?, imageWeight?: image, anchorLine?,
+   pullQuote?, tone? }`. The asymmetric split with the flip and image-dominant variants.
+
+   **The link takes either shape, and both are equally supported:**
+
+   | Shape | Written as | Who uses it |
+   |---|---|---|
+   | Nested | `cta: { href: "/x", label: "Go" }` | the three page layouts, from their `crossSell` key |
+   | Flat | `href: "/x", label: "Go"` | every direct `s.promoCallout()` call in the repo |
+
+   Until 2026-09-16 only the nested shape worked, and the flat one failed **silently**:
+   the panel rendered in full, just with no link. All five direct call sites used the flat
+   shape, so five cross-sell panels shipped as dead ends, including the homepage's Beach
+   Therapy band pointing at the site's highest-value page. Five out of five reaching for
+   the same "wrong" form is a contract problem rather than five authoring mistakes, so the
+   macro was changed to accept both instead of the call sites being corrected. Use
+   whichever reads better at the call site.
 10. `breadcrumbs(items)` + `breadcrumbSchema(items, baseUrl)`.
 11. `serviceSchema(opts)`.
 12. `founderNote` `{ eyebrow?, variant: founder | note, portrait{src,alt}, name?,
