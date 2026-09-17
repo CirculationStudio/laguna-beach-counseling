@@ -86,16 +86,50 @@
                        which the footer also renders. Four or fewer links read better
                        in one column than split across two. #}
                     {% set feat = nav.features[item.feature] if item.feature else null %}
+                    {# An entry can supply panelLinks to override the default list. The About panel
+                       does, so its people can live in their own labelled group below instead of being
+                       mixed in with the site links, and so nav.sections.about.children stays
+                       untouched for the FOOTER, which renders that same array. #}
                     {% set panelLinks = [] %}
-                    {% for child in node.children %}
-                      {% if not (feat and child.url == feat.url) %}{% set _ = panelLinks.push(child) %}{% endif %}
-                    {% endfor %}
-                    {% for extra in item.extraLinks or [] %}{% set _ = panelLinks.push(extra) %}{% endfor %}
+                    {% if item.panelLinks %}
+                      {% for child in item.panelLinks %}{% set _ = panelLinks.push(child) %}{% endfor %}
+                    {% else %}
+                      {% for child in node.children %}
+                        {% if not (feat and child.url == feat.url) %}{% set _ = panelLinks.push(child) %}{% endif %}
+                      {% endfor %}
+                      {% for extra in item.extraLinks or [] %}{% set _ = panelLinks.push(extra) %}{% endfor %}
+                    {% endif %}
                     <ul class="mega-links{% if panelLinks | length <= 4 %} mega-links--single{% endif %}">
                       {% for child in panelLinks %}
                         <li><a class="mega-link{% if not child.published %} nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
                       {% endfor %}
                     </ul>
+                    {# A second labelled group stacked in the same column: the people. Two groups
+                       rather than a third column, because this panel is right-anchored and has only
+                       30px of left headroom at a 960px viewport, where a third column needs 140 to
+                       180px. Measured at six widths before designing. Stacking costs height, not
+                       width, so it cannot overflow.
+                       Headshots are 40px with object-fit cover and object-position center top, the
+                       founderNote disc recipe. The team-card "contain" treatment was rendered at this
+                       exact size first and reads as an indistinct blob. #}
+                    {% if item.peopleGroup and nav[item.peopleGroup] %}
+                      {% set people = nav[item.peopleGroup] %}
+                      <h3 class="mega-panel__subtitle">{{ people.label }}</h3>
+                      <ul class="mega-people">
+                        {% for person in people.children %}
+                          <li>
+                            <a class="mega-person{% if not person.published %} nav-link--soon{% endif %}" href="{{ person.url }}">
+                              {% if person.image %}
+                                {# alt="" on purpose: the name sits immediately beside it, so
+                                   describing the portrait would only repeat the link text. #}
+                                <span class="mega-person__disc"><img src="{{ person.image.src }}" alt="" width="40" height="40" loading="lazy" decoding="async" /></span>
+                              {% endif %}
+                              {{ person.label }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                     {# allLabel overrides the default "All <label>", which reads
                        fine for Therapy and Specialties but produces "All About". #}
                     <a class="mega-panel__all{% if not node.published %} nav-link--soon{% endif %}" href="{{ node.url }}">{{ item.allLabel or ("All " + node.label) }}{{ arrow("mega-panel__all-arrow") }}</a>
@@ -166,16 +200,42 @@
                    The feature link is only appended when it is NOT already a child,
                    which is how Beach Therapy still reaches the Therapy accordion. #}
                 {% set feature = nav.features[item.feature] if item.feature else null %}
-                {% set childUrls = [] %}
-                {% for child in node.children %}{% set _ = childUrls.push(child.url) %}{% endfor %}
-                {% for child in node.children %}
-                  <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
-                {% endfor %}
-                {% for extra in item.extraLinks or [] %}
-                  <li><a class="{% if not extra.published %}nav-link--soon{% endif %}" href="{{ extra.url }}">{{ extra.label }}</a></li>
-                {% endfor %}
-                {% if feature and feature.url not in childUrls %}
-                  <li><a class="mobile-nav__feature{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">{{ feature.label }}</a></li>
+                {% if item.panelLinks %}
+                  {# panelLinks path (About). Kay is rendered explicitly and stays first,
+                     preserving the order this accordion has always had, since she is no longer
+                     reachable through node.children here. Then the site links, then the people
+                     under their own label.
+                     NO headshots on mobile: these rows are already full-width tap targets, so the
+                     images would add weight without adding scannability, on the connection most
+                     likely to be metered. #}
+                  {% if feature %}
+                    <li><a class="{% if not feature.published %}nav-link--soon{% endif %}" href="{{ feature.url }}">{{ feature.label }}</a></li>
+                  {% endif %}
+                  {% for child in item.panelLinks %}
+                    <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
+                  {% endfor %}
+                  {% if item.peopleGroup and nav[item.peopleGroup] %}
+                    {% set people = nav[item.peopleGroup] %}
+                    {# A plain label, not a heading and not a link. role="presentation" keeps it
+                       out of the list semantics, so the number of real links announced to a
+                       screen reader stays honest. #}
+                    <li class="mobile-nav__subhead" role="presentation">{{ people.label }}</li>
+                    {% for person in people.children %}
+                      <li><a class="{% if not person.published %}nav-link--soon{% endif %}" href="{{ person.url }}">{{ person.label }}</a></li>
+                    {% endfor %}
+                  {% endif %}
+                {% else %}
+                  {% set childUrls = [] %}
+                  {% for child in node.children %}{% set _ = childUrls.push(child.url) %}{% endfor %}
+                  {% for child in node.children %}
+                    <li><a class="{% if not child.published %}nav-link--soon{% endif %}" href="{{ child.url }}">{{ child.label }}</a></li>
+                  {% endfor %}
+                  {% for extra in item.extraLinks or [] %}
+                    <li><a class="{% if not extra.published %}nav-link--soon{% endif %}" href="{{ extra.url }}">{{ extra.label }}</a></li>
+                  {% endfor %}
+                  {% if feature and feature.url not in childUrls %}
+                    <li><a class="mobile-nav__feature{% if not feature.published %} nav-link--soon{% endif %}" href="{{ feature.url }}">{{ feature.label }}</a></li>
+                  {% endif %}
                 {% endif %}
               </ul>
             </li>

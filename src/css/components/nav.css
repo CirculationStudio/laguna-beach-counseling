@@ -400,6 +400,71 @@
   color: var(--color-water-deep);
 }
 
+/* ---- People group inside a mega panel ---------------------------------- */
+/* The About panel carries two labelled groups stacked in one column: the site
+   links above, the associates here. Two groups rather than three columns,
+   because the panel is right-anchored to its trigger and has only 30px of left
+   headroom at a 960px viewport, while a third column needs 140 to 180px. This
+   adds height instead of width, so it cannot push the panel off screen. */
+.mega-panel__subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  /* ink-faint fails AA on paper at this size; water-deep is 5.4:1 and is the
+     same label colour the team cards already use. */
+  color: var(--color-water-deep);
+  margin: 1.25rem 0 0.55rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.mega-people {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mega-person {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--color-navy);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.mega-person:hover {
+  color: var(--color-water-deep);
+}
+
+/* 40px, object-fit cover, object-position center top: the founderNote disc
+   recipe, NOT the team card's contain. Both were rendered at this exact size
+   first. At 40px "contain" leaves a band of empty wash above the head and puts
+   the inconsistent cutout crops on display; "cover" fills the circle with the
+   face and normalizes them. Flat sea-foam, no bloom wash: the blooms are
+   invisible at this diameter and only cost bytes. */
+.mega-person__disc {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-sea-foam);
+}
+
+.mega-person__disc img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 /* Section landing link, set apart above a hairline. */
 .mega-panel__all {
   display: inline-flex;
@@ -632,6 +697,21 @@
   font-weight: 500;
   color: var(--color-ink);
   text-decoration: none;
+}
+
+/* Group label inside the accordion (the About panel's "The team"). A plain
+   label, not a heading and not a link: it carries role="presentation" in the
+   markup so it stays out of the list semantics. Headshots are deliberately
+   omitted on mobile, where the rows are already full-width tap targets. */
+.mobile-nav__subhead {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-water-deep);
+  margin: 0.8rem 0 0.15rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--color-border-soft);
 }
 
 /* Beach Therapy, the featured cell, collapses to a plain link in the group. */

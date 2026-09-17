@@ -5,13 +5,41 @@
       "url": "/therapy",
       "published": true,
       "children": [
-        { "label": "Individual Therapy", "url": "/therapy/individuals", "published": true },
-        { "label": "Couples & Marriage", "url": "/therapy/couples", "published": true },
-        { "label": "Family Therapy", "url": "/therapy/families", "published": true },
-        { "label": "Mother & Daughter", "url": "/mother-daughter-therapy", "published": true },
-        { "label": "Teens", "url": "/therapy/teens", "published": true },
-        { "label": "Children", "url": "/therapy/children", "published": true },
-        { "label": "Seniors", "url": "/therapy/seniors", "published": true }
+        {
+          "label": "Individual Therapy",
+          "url": "/therapy/individuals",
+          "published": true
+        },
+        {
+          "label": "Couples & Marriage",
+          "url": "/therapy/couples",
+          "published": true
+        },
+        {
+          "label": "Family Therapy",
+          "url": "/therapy/families",
+          "published": true
+        },
+        {
+          "label": "Mother & Daughter",
+          "url": "/mother-daughter-therapy",
+          "published": true
+        },
+        {
+          "label": "Teens",
+          "url": "/therapy/teens",
+          "published": true
+        },
+        {
+          "label": "Children",
+          "url": "/therapy/children",
+          "published": true
+        },
+        {
+          "label": "Seniors",
+          "url": "/therapy/seniors",
+          "published": true
+        }
       ]
     },
     "specialties": {
@@ -19,15 +47,51 @@
       "url": "/specialties",
       "published": true,
       "children": [
-        { "label": "Anxiety", "url": "/specialties/anxiety", "published": true },
-        { "label": "Depression", "url": "/specialties/depression", "published": true },
-        { "label": "Grief & Loss", "url": "/specialties/grief", "published": true },
-        { "label": "Life Transitions", "url": "/specialties/life-transitions", "published": true },
-        { "label": "Infidelity & Affair Recovery", "url": "/specialties/infidelity", "published": true },
-        { "label": "Conflict Resolution", "url": "/specialties/conflict-resolution", "published": true },
-        { "label": "Neurodiversity", "url": "/specialties/neurodiversity", "published": true },
-        { "label": "Faith-Based", "url": "/specialties/faith-based", "published": true },
-        { "label": "Addiction & Recovery", "url": "/specialties/addiction-recovery", "published": true }
+        {
+          "label": "Anxiety",
+          "url": "/specialties/anxiety",
+          "published": true
+        },
+        {
+          "label": "Depression",
+          "url": "/specialties/depression",
+          "published": true
+        },
+        {
+          "label": "Grief & Loss",
+          "url": "/specialties/grief",
+          "published": true
+        },
+        {
+          "label": "Life Transitions",
+          "url": "/specialties/life-transitions",
+          "published": true
+        },
+        {
+          "label": "Infidelity & Affair Recovery",
+          "url": "/specialties/infidelity",
+          "published": true
+        },
+        {
+          "label": "Conflict Resolution",
+          "url": "/specialties/conflict-resolution",
+          "published": true
+        },
+        {
+          "label": "Neurodiversity",
+          "url": "/specialties/neurodiversity",
+          "published": true
+        },
+        {
+          "label": "Faith-Based",
+          "url": "/specialties/faith-based",
+          "published": true
+        },
+        {
+          "label": "Addiction & Recovery",
+          "url": "/specialties/addiction-recovery",
+          "published": true
+        }
       ]
     },
     "about": {
@@ -35,10 +99,26 @@
       "url": "/about",
       "published": true,
       "children": [
-        { "label": "Kay Wenger", "url": "/about/kay-wenger", "published": true },
-        { "label": "Rozy Pishvaiy", "url": "/about/rozy-pishvaiy", "published": true },
-        { "label": "Our Team", "url": "/about/our-team", "published": true },
-        { "label": "Our Approach", "url": "/about/our-approach", "published": true }
+        {
+          "label": "Kay Wenger",
+          "url": "/about/kay-wenger",
+          "published": true
+        },
+        {
+          "label": "Rozy Pishvaiy",
+          "url": "/about/rozy-pishvaiy",
+          "published": true
+        },
+        {
+          "label": "Our Team",
+          "url": "/about/our-team",
+          "published": true
+        },
+        {
+          "label": "Our Approach",
+          "url": "/about/our-approach",
+          "published": true
+        }
       ]
     }
   },
@@ -46,21 +126,61 @@
     "_note": "The category-of-one offerings only. Telehealth deliberately does NOT live here: it is a delivery mode that applies across nearly every service, not a distinct offering, so it sits in 'practical' (how we meet, alongside fees and forms) and is surfaced in the Therapy and Specialties panels via extraLinks.",
     "label": "Signature Services",
     "children": [
-      { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
-      { "label": "Sand Castle Therapy", "url": "/sand-castle-therapy", "published": true },
-      { "label": "Couples Intensive", "url": "/couples-intensive", "published": true },
-      { "label": "Discernment Counseling", "url": "/discernment-counseling", "published": true }
+      {
+        "label": "Beach Therapy",
+        "url": "/beach-therapy",
+        "published": true
+      },
+      {
+        "label": "Sand Castle Therapy",
+        "url": "/sand-castle-therapy",
+        "published": true
+      },
+      {
+        "label": "Couples Intensive",
+        "url": "/couples-intensive",
+        "published": true
+      },
+      {
+        "label": "Discernment Counseling",
+        "url": "/discernment-counseling",
+        "published": true
+      }
     ]
   },
   "practical": {
     "label": "Practical",
     "children": [
-      { "label": "Fees and insurance", "url": "/fees", "published": true },
-      { "label": "FAQ", "url": "/faq", "published": true },
-      { "label": "Telehealth", "url": "/telehealth", "published": true },
-      { "label": "Get Started", "url": "/get-started", "published": true },
-      { "label": "Forms", "url": "/forms", "published": true },
-      { "label": "Contact", "url": "/contact", "published": true }
+      {
+        "label": "Fees and insurance",
+        "url": "/fees",
+        "published": true
+      },
+      {
+        "label": "FAQ",
+        "url": "/faq",
+        "published": true
+      },
+      {
+        "label": "Telehealth",
+        "url": "/telehealth",
+        "published": true
+      },
+      {
+        "label": "Get Started",
+        "url": "/get-started",
+        "published": true
+      },
+      {
+        "label": "Forms",
+        "url": "/forms",
+        "published": true
+      },
+      {
+        "label": "Contact",
+        "url": "/contact",
+        "published": true
+      }
     ]
   },
   "features": {
@@ -111,23 +231,62 @@
       "panelTitle": "Who we help",
       "feature": "beachTherapy",
       "_telehealthNote": "Telehealth rides in as an extraLink here and on Specialties, NOT as a child of nav.sections. The /therapy and /specialties hub grids are generated from children filtered on published, so adding it as a child would put a spurious service card on both hub pages. extraLinks surfaces it in the panel only, the same mechanism Fees already uses under About.",
-      "extraLinks": [{ "label": "Telehealth", "url": "/telehealth", "published": true }]
+      "extraLinks": [
+        {
+          "label": "Telehealth",
+          "url": "/telehealth",
+          "published": true
+        }
+      ]
     },
     {
       "ref": "specialties",
       "panel": "featured",
       "panelTitle": "What people struggle with",
       "feature": "sandCastleTherapy",
-      "extraLinks": [{ "label": "Telehealth", "url": "/telehealth", "published": true }]
+      "extraLinks": [
+        {
+          "label": "Telehealth",
+          "url": "/telehealth",
+          "published": true
+        }
+      ]
     },
-    { "label": "Beach Therapy", "url": "/beach-therapy", "published": true },
+    {
+      "label": "Beach Therapy",
+      "url": "/beach-therapy",
+      "published": true
+    },
     {
       "ref": "about",
       "panel": "person",
       "panelTitle": "Get to know us",
       "allLabel": "About the practice",
       "feature": "kayWenger",
-      "extraLinks": [{ "label": "Fees and insurance", "url": "/fees", "published": true }]
+      "_panelNote": "panelLinks overrides the default 'children minus the feature cell, plus extraLinks' for this panel only. The About panel now carries two labelled groups: the site links here, and the people in nav.associates via peopleGroup. Driving it from children would have meant deleting Kay and Rozy from nav.sections.about.children, which the FOOTER also renders (footerCol(nav.sections.about)), so children is left untouched and the footer is unchanged. The other panels still use the children + extraLinks path.",
+      "panelLinks": [
+        {
+          "label": "Our Team",
+          "url": "/about/our-team",
+          "published": true
+        },
+        {
+          "label": "Our Approach",
+          "url": "/about/our-approach",
+          "published": true
+        },
+        {
+          "label": "Fees and insurance",
+          "url": "/fees",
+          "published": true
+        },
+        {
+          "label": "Contact",
+          "url": "/contact",
+          "published": true
+        }
+      ],
+      "peopleGroup": "associates"
     },
     {
       "label": "Fees",
@@ -135,6 +294,52 @@
       "published": true,
       "_labelNote": "DELIBERATE EXCEPTION, do not 'fix' this to match. Everywhere else /fees is called 'Fees and insurance': the page H1, its breadcrumb, the BreadcrumbList schema name, the About panel link, and the footer. Only this top-level bar entry is terse. Two reasons. First, terse top-level labels are the convention here; every other item in this array is one or two words. Second, the long label measurably breaks the header: it pushed the bar 3px past the viewport at 960px and forced the nav gap down from 1rem, in a band that has already needed two separate overflow fixes. The breadcrumb and schema still agree with each other, which is the consistency that actually matters for structured data."
     },
-    { "label": "Contact", "url": "/contact", "published": true }
-  ]
+    {
+      "label": "Contact",
+      "url": "/contact",
+      "published": true
+    }
+  ],
+  "associates": {
+    "_note": "The associate therapists, rendered as their own labelled group in the About mega panel so they are not mixed into the site links. Kay is NOT here: she is the panel's feature cell (nav.features.kayWenger) and would be listed twice. Headshots are the 1:1 transparent cutouts, rendered at 40px with object-fit:cover and object-position:center top, the founderNote disc recipe. Measured at real size before shipping: the team-card 'contain' treatment reads as an indistinct blob at this scale, 'cover' crops to the face and holds up. Austin departs October 2026 and Christy December 2026: remove their entries here when that happens.",
+    "label": "The team",
+    "children": [
+      {
+        "label": "Rozy Pishvaiy",
+        "url": "/about/rozy-pishvaiy",
+        "published": true,
+        "image": {
+          "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/rozy-pishvaiy-cutout.webp",
+          "alt": "Rozy Pishvaiy, associate therapist."
+        }
+      },
+      {
+        "label": "Natasha Gaffaney",
+        "url": "/about/natasha-gaffaney",
+        "published": true,
+        "image": {
+          "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/natasha-gaffaney-cutout.webp",
+          "alt": "Natasha Gaffaney, associate therapist."
+        }
+      },
+      {
+        "label": "Austin Whitman",
+        "url": "/about/austin-whitman",
+        "published": true,
+        "image": {
+          "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/austin-whitman-cutout.webp",
+          "alt": "Austin Whitman, associate therapist."
+        }
+      },
+      {
+        "label": "Christy Hill",
+        "url": "/about/christy-hill",
+        "published": true,
+        "image": {
+          "src": "https://cdn.circulationstudio.com/clients/laguna-beach-counseling/team/christy-hill-cutout.webp",
+          "alt": "Christy Hill, associate therapist."
+        }
+      }
+    ]
+  }
 }
