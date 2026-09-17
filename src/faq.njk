@@ -57,8 +57,14 @@ crumbs:
   { title: "More about the work", eyebrow: "Everything else", tags: ["life-transitions", "neurodiversity", "faith", "medication", "general"] }
 ] %}
 
+{# rendered holds only the categories that actually produce questions, so the jump
+   index below is built from the same pass that builds the sections. A category that
+   empties out (Beach Therapy is empty today: all four of its entries are blocked)
+   disappears from both, and a new one appears in both, with no second list to keep
+   in sync by hand. #}
 {% set allItems = [] %}
 {% set placedIds = [] %}
+{% set rendered = [] %}
 {% for cat in cats %}
   {% set catItems = [] %}
   {% for e in faqEntries %}{% if not e.blocked %}
@@ -73,7 +79,7 @@ crumbs:
     {% endif %}
   {% endif %}{% endfor %}
   {% if catItems | length %}
-    {{ s.faq({ eyebrow: cat.eyebrow, title: cat.title, items: catItems }) }}
+    {% set _ = rendered.push({ title: cat.title, eyebrow: cat.eyebrow, items: catItems, slug: cat.title | slugify }) %}
   {% endif %}
 {% endfor %}
 
@@ -87,8 +93,35 @@ crumbs:
   {% endif %}
 {% endif %}{% endfor %}
 {% if restItems | length %}
-  {{ s.faq({ eyebrow: "One more thing", title: "Other questions", items: restItems }) }}
+  {% set _ = rendered.push({ title: "Other questions", eyebrow: "One more thing", items: restItems, slug: "Other questions" | slugify }) %}
 {% endif %}
+
+{# The jump index, then the sections. Both loop over `rendered`, so the links and the
+   targets cannot drift apart. pillLinks fits as-is: it already takes {href,label},
+   has the centered variant, renders real anchors (so tab order is document order and
+   .pill-links__pill:focus-visible already styles the focus ring), and needs no JS.
+   No smooth scroll: nothing in the CSS sets scroll-behavior, so these are instant
+   jumps, which is both the motion-safe choice and the better one here. #}
+{% set indexLinks = [] %}
+{% for r in rendered %}{% set _ = indexLinks.push({ href: "#" + r.slug, label: r.title }) %}{% endfor %}
+{{ s.pillLinks({
+  id: "all-questions",
+  eyebrow: "Jump to",
+  title: "Find your question",
+  align: "center",
+  tone: "sand",
+  links: indexLinks
+}) }}
+
+{% for r in rendered %}
+  {{ s.faq({
+    id: r.slug,
+    eyebrow: r.eyebrow,
+    title: r.title,
+    items: r.items,
+    backLink: { href: "#all-questions", label: "Back to all questions" }
+  }) }}
+{% endfor %}
 
 {{ s.ctaBand({
   variant: "center",

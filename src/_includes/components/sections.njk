@@ -234,11 +234,17 @@
   {% endcall %}
 {% endmacro %}
 
-{# 5. faq(opts): { eyebrow?, title?, items: [{q,a}], id?, variant?, tone? }.
+{# 5. faq(opts): { eyebrow?, title?, items: [{q,a}], id?, backLink?{href,label},
+   variant?, tone? }.
    Native <details> accordion, accessible with no JS. Pair with faqSchema(items)
    so the FAQPage JSON-LD mirrors the visible text exactly (SCHEMA.md).
    variant "cards" renders each question as its own bordered card (more separated,
-   easier to scan); the default is the hairline divider list. #}
+   easier to scan); the default is the hairline divider list.
+   id lands on the <section>, which is what a jump-link index anchors to.
+   backLink closes the section with a text link, for a page long enough that the
+   reader needs a way back to the index without scrolling (/faq runs 21 screens on
+   a phone). It is a plain anchor, so it costs no JS and keeps tab order in
+   document order. Omit it on short pages, where it is just noise. #}
 {% macro faq(opts) %}
   {% call ui.section({ tone: opts.tone or "paper", width: "narrow", id: opts.id }) %}
     {% if opts.eyebrow or opts.title %}
@@ -260,6 +266,9 @@
         </details>
       {% endfor %}
     </div>
+    {% if opts.backLink %}
+      <p class="faq__back">{{ ui.button({ href: opts.backLink.href, label: opts.backLink.label, variant: "text", arrow: false }) }}</p>
+    {% endif %}
   {% endcall %}
 {% endmacro %}
 
@@ -645,9 +654,11 @@
 
 {# 14. pillLinks(opts): { eyebrow?, title?, titleEmphasis?, lead?,
    links: [{href, label, icon?}], tone? }. Where to go next: a row of soft sand
-   chips with a small teal icon. Internal links only; keep labels short. #}
+   chips with a small teal icon. Internal links only; keep labels short.
+   id lands on the <section>, so a jump-link index built from this can also be the
+   target of "back to the index" links further down the page (/faq). #}
 {% macro pillLinks(opts) %}
-  {% call ui.section({ tone: opts.tone or "sand" }) %}
+  {% call ui.section({ tone: opts.tone or "sand", id: opts.id }) %}
     {% if opts.eyebrow or opts.title or opts.lead %}
       <div class="section__head">
         {% if opts.eyebrow %}{{ ui.eyebrow(opts.eyebrow) }}{% endif %}

@@ -430,6 +430,28 @@
 }
 
 /* ---- 5. FAQ accordion (native details) ---------------------------------- */
+/* Jump-link targets for the /faq index. The site header is position:sticky with
+   top:0 and measures exactly 100px at 390, 768 and 1280 (the navy utility bar is
+   outside it and scrolls away), so without this an anchored section lands with its
+   eyebrow at 54px on a phone and 89px on desktop, i.e. underneath the header.
+   7rem is that 100px plus 12px of air. Measured across all nine sections at all
+   three widths: worst landing goes from 54px to 180px.
+   There is deliberately NO scroll-behavior: smooth. Nothing in this codebase sets
+   it, so these are instant jumps, which is the motion-safe choice and the better
+   one for an index anyway. */
+.section[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Closes a long FAQ category with the way back to the index. /faq runs about 21
+   screens on a phone, and the browser Back button only helps a reader who arrived
+   via the index in the first place. */
+.faq__back {
+  margin: 1.75rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-soft);
+}
+
 .faq {
   border-top: 1px solid var(--color-border);
 }
