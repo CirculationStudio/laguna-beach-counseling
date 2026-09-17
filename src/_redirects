@@ -10,3 +10,17 @@
 
 # Catch-all for removed pages (if needed)
 # /removed-section/* /contact 301
+
+# Associate bio URLs from the TherapySites site. These carried real traffic
+# (Christy 123 clicks, Natasha 51 at position ~9), and every one of these people
+# now has a bio page, so each old URL points at its own person rather than at the
+# team page. Sending them to /about/our-team instead would forfeit exactly the
+# clicks the bio pages were built to capture.
+# Austin departs October 2026 and Christy December 2026: when that happens, retire
+# their pages and point these two lines back at /about/our-team.
+# /meetthestaff itself, and Irene (status unconfirmed, no page), stay pointed at
+# the team page. See SITE_ARCHITECTURE.md's redirect table.
+/meetthestaff/rozy-pishvaiy /about/rozy-pishvaiy 301
+/meetthestaff/natasha-gaffaney /about/natasha-gaffaney 301
+/meetthestaff/austin-whitman /about/austin-whitman 301
+/meetthestaff/christy-hill /about/christy-hill 301

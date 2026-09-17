@@ -51,14 +51,29 @@ Other numbers (context, not for the main NAP): Kay direct 949-787-0944 (per Psyc
 
 Publish only confirmed credentials. Do not attribute a modality or certification to a named associate unless it is confirmed below.
 
+PROVENANCE TAGS, read these before treating anything in this section as settled. Not every
+fact here carries the same weight, so the source tags distinguish them:
+
+- `Source: agency confirmation, <date>` means confirmed directly with the agency. Treat as
+  fact. Rozy's Farsi is the example.
+- `Source: agency draft pending Kay, <date>` means it came from a ChatGPT-drafted document
+  Kay sent, relayed via the agency, and Kay has NOT verified it. It is weaker, and it is
+  published only because the page was commissioned before the verification came back. Every
+  one of these is also on the open-questions list at the bottom of this file. If Kay
+  contradicts one, hers wins and the page changes.
+
+Do not promote a `pending Kay` fact to confirmed without an actual confirmation from her.
+
 - Kathleen "Kay" Wenger, M.A. Founder and Clinical Supervisor. LMFT #38183, LPCC #1450. M.A. Clinical Psychology, Pepperdine (1992). Spent about 25 to 32 years at Pepperdine GSEP as Manager of M.A. Clinical Training and Professional Development (retired 2022). Co-Founder and CEO, National Registry of Marriage Friendly Therapists (NRMFT, 2005 to present). Founding Chair, MFT Consortium of Orange County (1994 to 2022). Clinical supervisor and founder of the "Heart to Heart" senior program at Susi Q / Laguna Beach Seniors (2010 to present). AAMFT and CAMFT clinical supervisor trained; family mediation via the Straus Institute; Critical Incident Stress Debriefing trained. Solution-focused, interactive, integrative.
-- Christy Hill, M.A. Associate Therapist (Personal Growth and Anxiety). AMFT #139486, APCC #13876, supervised by Kay. DEPARTING: completing associate hours December 2026, transitioning out. Phone discrepancy unresolved (949-281-6763 on the LBC site vs. 949-990-5941 elsewhere); CONFIRM before publishing any number.
-- Natasha Gaffaney, M.A. Associate Therapist (RN and Mental Health). AMFT #147477, supervised by Kay. Former RN and healthcare director. Strong fit for chronic illness, medical trauma, healthcare-worker burnout. Humanistic and existential.
-- Austin Whitman, M.A. Associate Therapist (Teens and Young Adults). AMFT #145401, supervised by Kay. Leads the Men's Support Group. Person-Centered, CBT, DBT, ACT. DEPARTING: relocating to the Austin, TX area October 2026, transitioning out.
+- Christy Hill, M.A. Associate Therapist (Personal Growth and Anxiety). AMFT #139486, APCC #13876, supervised by Kay. DEPARTING: completing associate hours December 2026, transitioning out. Phone discrepancy unresolved (949-281-6763 on the LBC site vs. 949-990-5941 elsewhere); CONFIRM before publishing any number, and note no page carries a direct number, so this is not currently blocking. Published at /about/christy-hill despite the departure, by Kay's decision September 2026: she is seeing clients now. The page carries a code comment recording the expiry. PENDING KAY, all of the following are published on her page and listed in open questions 20 to 24, and NONE of them appeared anywhere in this file or the repo before September 2026: anxiety, depression, self-esteem and life transitions as her working range; young professionals and high-achieving adults working through identity and career; a television production background and a consumer sales analysis background before therapy; leading a six-week Divorce Recovery Support Group (an entirely new service claim, it existed nowhere in the repo); and offering Beach Therapy (a signature offering not previously attributed to her). Source: agency draft pending Kay, 2026-09-16.
+- Natasha Gaffaney, M.A. Associate Therapist (RN and Mental Health). AMFT #147477, supervised by Kay. Former RN and healthcare director. Strong fit for chronic illness, medical trauma, healthcare-worker burnout. Humanistic and existential. Note that medical trauma IS confirmed for her specifically, which is why it is publishable on her page even though trauma is withheld on Rozy's. RETAINED. Published at /about/natasha-gaffaney. GRADUATE DEGREE UNCONFIRMED: an M.A. in Clinical Psychology from Pepperdine was put forward for her in September 2026, but that is Kay's credential on record here (Pepperdine, 1992) and no degree is confirmed for Natasha. Possible conflation. NOT published on her page or in her schema; see open question 16.
+- Austin Whitman, M.A. Associate Therapist (Teens and Young Adults). AMFT #145401, supervised by Kay. Leads the Men's Support Group. Person-Centered, CBT, DBT, ACT. DEPARTING: relocating to the Austin, TX area October 2026, transitioning out. Published at /about/austin-whitman despite the departure, by Kay's decision September 2026: he is seeing clients now. The page carries a code comment recording the expiry. PENDING KAY, published on his page and listed in open questions 17 to 19: work with CHILDREN (this file otherwise scopes him to teens and young adults), the anger / grief / life-transitions range, and the use of art, music, movement and games with younger clients. Source: agency draft pending Kay, 2026-09-16. Note also that /therapy/teens and faq.json deliberately reference the Men's Support Group WITHOUT naming him, because he is departing; his own bio page necessarily names him, which is a new exposure.
 - Rozy Pishvaiy, M.A. Associate Therapist (Growth and Life Transitions). AMFT #151380, supervised by Kay. M.A. Marital and Family Therapy, Alliant International University. Children is a specialty (a growth-priority area for LBC). LANGUAGES: English and Farsi. Offers culturally responsive therapy in both, with particular experience supporting Persian and Middle Eastern clients and clients from multicultural and immigrant backgrounds. Source: agency confirmation, 2026-09-08. This is a genuine differentiator and is published on /about/rozy-pishvaiy. NOT confirmed for her, do not publish until Kay signs off: Emotionally Focused Therapy (her own bio claims the training, but EFT is on the never-attribute list under Modalities), and trauma recovery / PTSD (implies EMDR or TF-CBT training that is not confirmed, the same reason trauma is absent from Sand Castle Therapy). Her two client testimonials are on HIPAA hold and are not used anywhere.
 - Irene Alvarez de Schwartz. AMFT (license number CONFIRM), supervised by Kay. Native Spanish speaker. STATUS UNCONFIRMED, may be active, transitioning, or affiliated only. Do not publish a bio until confirmed with the client.
 
-Roster guidance: Austin and Christy are transitioning out in 2026. Their appearances in team sections are provisional. Do not over-invest in professional photography or permanent bio pages for departing associates until the replacement and licensure timeline is confirmed with Aylin.
+Roster guidance: Austin and Christy are transitioning out in 2026. Their appearances in team sections are provisional. Do not over-invest in professional photography for departing associates until the replacement and licensure timeline is confirmed with Aylin.
+
+BIO PAGES, REVERSED September 2026. This previously read "do not over-invest in ... permanent bio pages for departing associates", and the rule was that departing associates got no page and kept their 301s to /about/our-team. Kay has reversed it: Austin and Christy are seeing clients now, so both have bio pages, and the old bio URLs point at them rather than past them. The departure dates are unchanged and are recorded as code comments on each page, so whoever picks this up knows each has an expiry. Nothing about a departure appears on any rendered page. All four associates now have pages: Rozy, Natasha, Austin, Christy.
 
 Employee count for schema / GBP: approximately 6, but this is in flux; keep it soft.
 
@@ -238,3 +253,18 @@ The Susi Q origin (for /about/kay-wenger and /therapy/seniors): The senior menta
 9. Legal entity structure.
 10. Beach Therapy liability / insurance considerations before the SEO push.
 15. Replacement and licensure timeline for departing associates (blocks final team page and photography).
+
+Added 2026-09-16 with the three new associate pages. Items 17 to 24 are all tagged
+`agency draft pending Kay` and are ALREADY PUBLISHED on a live page while they wait, so a
+correction from Kay means a page edit, not just a file edit.
+
+16. Natasha Gaffaney's graduate degree. An M.A. in Clinical Psychology from Pepperdine was put forward for her, but that is Kay's credential on record. Omitted from her page and schema until confirmed.
+17. Austin Whitman working with CHILDREN (this file otherwise scopes him to teens and young adults).
+18. Austin's anger, grief and life-transitions range.
+19. Austin's use of art, music, movement and games with younger clients.
+20. Christy Hill's range: anxiety, depression, self-esteem, life transitions.
+21. Christy's focus on young professionals and high-achieving adults working through identity and career.
+22. Christy's television production and consumer sales analysis backgrounds before therapy.
+23. The six-week Divorce Recovery Support Group that Christy leads. An entirely new service claim: it appeared nowhere in this file or the repo before this pass. Confirm it runs, that the six-week format is right, and whether it should have its own page.
+24. Christy offering Beach Therapy. A signature offering not previously attributed to her.
+25. Naming Austin alongside the Men's Support Group on his bio page, where /therapy/teens and faq.json deliberately keep the practitioner anonymous because he is departing.

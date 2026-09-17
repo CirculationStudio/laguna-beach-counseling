@@ -42,6 +42,9 @@ Status key: Keep (exists, carries over), Reworked (exists, restructured), New (n
 | `/about/our-team` | Reworked | counseling team Laguna Beach | Trust / fit-match | Route each visitor to the right associate, fit call |
 | `/about/our-approach` | Reworked | our therapy approach | Informational | Explain the model ("relationships heal people"), fit call |
 | `/about/rozy-pishvaiy` | New | Farsi speaking therapist Orange County | Branded / service | Fit call. First per-associate bio page, the reusable associate shape |
+| `/about/natasha-gaffaney` | New | therapist for healthcare workers Orange County | Branded / service | Fit call. RN-to-therapist background is the differentiator |
+| `/about/austin-whitman` | New | teen therapist Laguna Beach | Branded / service | Fit call. Children through young adults, Men's Support Group |
+| `/about/christy-hill` | New | therapist for young professionals Laguna Beach | Branded / service | Fit call. Career and identity work, Divorce Recovery group |
 
 ### Who we help (`/therapy`)
 
@@ -180,7 +183,7 @@ Ranking opportunities the data surfaced (build these pages to capture existing i
 - Neighboring-geo and "near me" variants recur throughout (Newport Beach, Irvine, Laguna Hills, Dana Point). Add these as secondary keywords on the relevant pages rather than as new URLs.
 
 Three decisions the data suggests revisiting (not overriding your earlier calls, just flagging what the numbers say):
-1. Per-associate bio pages. The associate bios collectively pull roughly 200 clicks a year, about 15 percent of all site clicks, and Natasha's ranks at position ~9. The earlier "cards only, redirect all to `/about/our-team`" decision would forfeit that traffic. Worth reconsidering per-associate pages for the retained therapists (Natasha, Rozy), while still redirecting the departing ones (Christy, Austin). At minimum the 301s are in place so nothing 404s.
+1. Per-associate bio pages. The associate bios collectively pull roughly 200 clicks a year, about 15 percent of all site clicks, and Natasha's ranks at position ~9. The earlier "cards only, redirect all to `/about/our-team`" decision would forfeit that traffic. RESOLVED 2026-09-16: all four associates have pages (Rozy, Natasha, Austin, Christy), including the two departing, and the old bio URLs now point at them rather than past them.
 2. Premarital as its own URL. Given the ranking equity, a dedicated `/therapy/premarital-counseling` (or a specialty page) may capture more than a folded-in section. Test against the "depth beats breadth" principle.
 3. Discernment de-cannibalization. The strategy assigns discernment to OCCC, but LBC's page has real, established equity (72 clicks, 6,300+ impressions). LBC should keep and strengthen its discernment page rather than cede the term; coordinate so the two brands do not fight for it.
 
@@ -221,9 +224,9 @@ Note: the current Irvine office address is 19772 MacArthur Blvd, Suite 260, Irvi
 | `/mother-and-daughter-help` | `/mother-daughter-therapy` | 301 |
 | `/meetthestaff` | `/about/our-team` | 301 |
 | `/aboutme` | `/about/kay-wenger` | 301 |
-| `/meetthestaff/christy-hill` | `/about/our-team` | 301 |
-| `/meetthestaff/natasha-gaffaney` | `/about/our-team` | 301 |
-| `/meetthestaff/austin-whitman` | `/about/our-team` | 301 |
+| `/meetthestaff/christy-hill` | `/about/christy-hill` | 301 |
+| `/meetthestaff/natasha-gaffaney` | `/about/natasha-gaffaney` | 301 |
+| `/meetthestaff/austin-whitman` | `/about/austin-whitman` | 301 |
 | `/meetthestaff/rozy-pishvaiy` | `/about/rozy-pishvaiy` | 301 |
 | `/testimonials` | `/testimonials` | Keep URL (page ON HOLD, see brief) |
 | `/ratesinsurance` | `/fees` | 301 |
@@ -245,7 +248,7 @@ These were live, indexed pages the new architecture did not account for. Status 
 1. RESOLVED: `/addictionandrecovery` gets a new home at `/specialties/addiction-recovery` (added to the sitemap and briefs above). Still CONFIRM which clinician covers substance-use work before naming anyone, since this was Austin's area and he is departing.
 2. RESOLVED: `/forms` is KEPT at the same URL rather than folded into `/get-started`. It was not optional: the page carries the Board of Behavioral Sciences complaint notice that California mental health counselors must give clients under AB 630 (Chapter 229, Statutes of 2019), so it had to survive the migration. The intake step also stays cleanly separate from the free-call conversion page, which was the earlier recommendation.
 3. RESOLVED: `/parenting-support`, `/work-and-career-issues`, and `/stress-management` are consolidated into their parent pages (families, life-transitions, anxiety). The 301s preserve link equity; they stop being standalone ranking targets, which is the intended "depth beats breadth" tradeoff.
-4. SUPERSEDED 2026-09-08. The original ruling was: no per-associate bio pages, all associate bio URLs 301 to `/about/our-team`. Reversed on the traffic argument recorded in the open-questions section above: associate bios pulled roughly 200 clicks a year, about 15 percent of all site clicks, and forfeiting that was the wrong trade. Per-associate pages are now built for RETAINED associates only. `/about/rozy-pishvaiy` is live and is the reusable associate shape; Natasha is the next candidate. Christy and Austin are transitioning out in 2026 and keep their 301s to `/about/our-team`, per the CLIENT_FACTS roster guidance against permanent bio pages for departing associates. Kay keeps `/about/kay-wenger`, which stays founder-scale and distinct.
+4. SUPERSEDED 2026-09-08. The original ruling was: no per-associate bio pages, all associate bio URLs 301 to `/about/our-team`. Reversed on the traffic argument recorded in the open-questions section above: associate bios pulled roughly 200 clicks a year, about 15 percent of all site clicks, and forfeiting that was the wrong trade. SUPERSEDED AGAIN 2026-09-16: pages are now built for the WHOLE bench, not retained associates only. Kay's call. Austin and Christy are seeing clients now, so routing their bio traffic to a team page instead of to them forfeits the very clicks these pages exist to capture (Christy's old bio alone pulled 123 clicks, the highest of any associate URL). Both carry a code comment recording the departure date, and nothing about a departure appears on any rendered page. `/about/rozy-pishvaiy` remains the reusable associate shape, and all four associates now have pages. Kay keeps `/about/kay-wenger`, which stays founder-scale and distinct.
 
 ### DNS and launch safety (non-negotiable)
 
@@ -349,6 +352,39 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Internal links: /sand-castle-therapy, /about/our-team, /therapy/children, /get-started. Inbound from /about/our-team (via teamGrid bioHref), /therapy/children, and /sand-castle-therapy.
 - Schema: Person (jobTitle, knowsLanguage English and Farsi, supervisor = Kay, worksFor the business @id) + BreadcrumbList. No Service: this is a person, not a service, the same call as /about/kay-wenger.
 - Flags: lighter than the founder page by design, do not clone /about/kay-wenger. Publish the AMFT designation with NO license number, in visible copy and in schema both. Do NOT publish, pending Kay's confirmation: Emotionally Focused Therapy (her bio claims the training; EFT is on the never-attribute list), trauma recovery and PTSD (implies unconfirmed EMDR / TF-CBT training, the same reason trauma is absent from Sand Castle Therapy), and her two client testimonials (HIPAA hold). Do not merge any Orange County Couples Counseling material into this page. Farsi is confirmed by agency confirmation 2026-09-08 and recorded in CLIENT_FACTS.md; Spanish remains unconfirmed for anyone and must not be claimed.
+
+**`/about/natasha-gaffaney`** (New, associate shape, second per-associate page)
+- H1: Natasha Gaffaney, AMFT
+- Title: Natasha Gaffaney, AMFT | Therapist for Healthcare Workers, Laguna Beach
+- Meta: A therapist who was an RN and a healthcare director first. For chronic illness, medical trauma, and burnout, in Laguna Beach or by telehealth across California.
+- Purpose: capture the associate-bio traffic (her old bio ranked at position ~9 on 51 clicks) and target the nursing background, the strongest differentiator on the bench after Rozy's Farsi. Target her specialties, not only her name.
+- Sections: who she is (portrait hero, then lead); how she works (founderNote "note" variant, no portrait key); what she works with (definitionList); who she sees (pointCards); "Therapy when you are the one who usually holds it together" (its own h2, the search phrase, on healthcare workers and burnout); where to go next; CTA.
+- Proof/voice: third person, in her register (steady, unflappable, practical). She has been on the other side of the bed rail, so nothing medical needs explaining from scratch.
+- Internal links: /specialties/anxiety, /about/our-team, /telehealth, /get-started. Inbound from /about/our-team (teamGrid bioHref) and the About mega panel.
+- Schema: Person (jobTitle, supervisor = Kay, worksFor the business @id) + BreadcrumbList. No Service: a person is not a service.
+- Flags: medical trauma IS confirmed for her specifically (CLIENT_FACTS.md), which is why it is publishable here although trauma is withheld on Rozy's page. It is described as her area, never as a trauma modality claim: EMDR and TF-CBT remain unconfirmed for this team. Publish the AMFT designation with NO license number, visible copy and schema both. DO NOT publish a graduate degree: an M.A. in Clinical Psychology from Pepperdine was put forward for her but that is Kay's credential on record, and the conflation is unresolved (open question 16). RETAINED associate, no expiry.
+
+**`/about/austin-whitman`** (New, associate shape)
+- H1: Austin Whitman, AMFT
+- Title: Austin Whitman, AMFT | Teen and Young Adult Therapist, Laguna Beach
+- Meta: Therapy for children, teens, and young adults in Laguna Beach. Anxiety, depression, anger, and the transitions that arrive faster than anyone is ready for.
+- Purpose: target the teen and young-adult cluster the search data shows going unclaimed ("therapy for young adults laguna beach", about 767 impressions and zero clicks). Give the Men's Support Group a named home.
+- Sections: who he is (portrait hero, then lead); how he works (founderNote "note" variant, no portrait key); what he works with (definitionList); who he sees, by age (pointCards); "Therapy that does not look like therapy" (its own h2, on art, music, movement and games with younger clients); where to go next; CTA.
+- Proof/voice: third person, in his register (easy, unhurried, no performance required). A teenager who has decided in advance to say nothing is not a problem to be solved.
+- Internal links: /therapy/teens, /therapy/children, /about/our-team, /get-started. Inbound from /about/our-team (teamGrid bioHref) and the About mega panel.
+- Schema: Person (jobTitle, supervisor = Kay, worksFor the business @id) + BreadcrumbList. No Service.
+- Flags: EXPIRY, relocating to the Austin, TX area October 2026. Built anyway by Kay's decision (he is seeing clients now), with a code comment recording the date. Nothing about the departure appears on the rendered page. Publish the AMFT designation with NO license number. Confirmed modalities only: Person-Centered, CBT, DBT, ACT. PENDING KAY (open questions 17 to 19, tagged `agency draft pending Kay`): work with children, the anger / grief / life-transitions range, and the art, music, movement and games methods. Note /therapy/teens and faq.json deliberately reference the Men's Support Group without naming a practitioner, because he is departing; this page names him, which is a new exposure (open question 25).
+
+**`/about/christy-hill`** (New, associate shape)
+- H1: Christy Hill, AMFT, APCC
+- Title: Christy Hill, AMFT | Therapist for Young Professionals, Laguna Beach
+- Meta: Therapy for young professionals and high achievers in Laguna Beach. Anxiety, self-esteem, and the career and identity questions underneath them.
+- Purpose: target the young-professional and high-achiever segment, which no other page on the site addresses, and give the Divorce Recovery Support Group a home.
+- Sections: who she is (portrait hero, then lead); how she works (founderNote "note" variant, no portrait key); the Divorce Recovery Support Group (promoCallout as her signature cross-sell); what she works with (definitionList); who she sees (pointCards); "When the career you built stops fitting" (its own h2, the search phrase, on identity and career); where to go next; CTA.
+- Proof/voice: third person, in her register (direct, unimpressed by credentials, warm). She had two careers before this one and does not treat ambition as a symptom.
+- Internal links: /specialties/anxiety, /specialties/life-transitions, /beach-therapy, /about/our-team, /get-started. Inbound from /about/our-team (teamGrid bioHref) and the About mega panel.
+- Schema: Person (jobTitle, supervisor = Kay, worksFor the business @id) + BreadcrumbList. No Service, including for the Divorce Recovery group: it is unconfirmed, so it gets no structured data until Kay signs off.
+- Flags: EXPIRY, completing associate hours December 2026. Built anyway by Kay's decision (she is seeing clients now), with a code comment recording the date and nothing about the departure on the rendered page. Publish AMFT and APCC designations with NO license numbers. Do NOT publish a direct phone number: the CLIENT_FACTS discrepancy is unresolved, and the page routes to the standard free call instead. ALMOST EVERYTHING ON THIS PAGE IS PENDING KAY (open questions 20 to 24, tagged `agency draft pending Kay`): her range, the young-professional focus, the television production and consumer sales analysis backgrounds, the six-week Divorce Recovery Support Group (an entirely new service claim that existed nowhere in the repo before this pass), and her offering Beach Therapy. If Kay contradicts any of it, this page changes.
 
 **`/about/our-approach`** (Reworked)
 - H1: How the work actually works.
