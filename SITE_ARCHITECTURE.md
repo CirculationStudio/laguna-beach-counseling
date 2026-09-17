@@ -553,7 +553,7 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Flags: confirm any liability/insurance note before the SEO push (Open Question 10).
 
 **`/sand-castle-therapy`** (New, category-of-one, supports the children growth priority)
-- H1: Sand Castle Therapy™.
+- H1: Sand Castle Therapy.
 - Title: Sand Castle Therapy Laguna Beach | Play Therapy for Kids
 - Meta: A nature-based play therapy model for children, built on the sand in Laguna Beach. Building resilience, one sand castle at a time.
 - Purpose: give the trademarked children's model its own home; convert parents; feed the `/therapy/children` growth priority. The children's variant of the Beach Therapy philosophy, not a duplicate of it.
@@ -561,7 +561,7 @@ Global rules for every page: one gold CTA per viewport (the free "Get to Know Us
 - Proof/voice: the tagline "Building resilience, one sand castle at a time." Kay's voice on why a castle is the right size for a child's hardest feelings.
 - Internal links: /therapy/children, /beach-therapy, /get-started.
 - Schema: Service + BreadcrumbList + FAQPage.
-- Flags: the trademark is UNREGISTERED, so ™ only, never ®, and only on first prominent use per section (not in the title tag or meta). Trauma is deliberately absent from who-it-helps (unconfirmed EMDR / TF-CBT training, see CLIENT_FACTS.md). The internal roadmap material (book, workbook, manual, certification, CE, research study, TEDx) never appears on this page. Rozy is named by first name with her AMFT credential, no license number.
+- Flags: NO trademark symbol, anywhere. Removed by client decision, September 2026, reversing the earlier "unregistered mark on first prominent use per section" rule. The mark remains unregistered, so if a symbol is ever reinstated it is ™ and never ®, and CLIENT_FACTS.md changes first. The service name is unchanged: "Sand Castle Therapy", two words. Trauma is deliberately absent from who-it-helps (unconfirmed EMDR / TF-CBT training, see CLIENT_FACTS.md). The internal roadmap material (book, workbook, manual, certification, CE, research study, TEDx) never appears on this page. Rozy is named by first name with her AMFT credential, no license number.
 
 **`/couples-intensive`** (New)
 - H1: Couples Intensives.
