@@ -45,16 +45,33 @@ crumbs:
   <p>A couple of the big ones have pages of their own: what therapy actually costs lives on the <a href="/fees">fees page</a>, and how walk-and-talk sessions work is all on the <a href="/beach-therapy">Beach Therapy</a> page. Everything else is right here, grouped so you can find your question fast.</p>
 {% endcall %}
 
+{# ORDER MATTERS: an entry lands in the FIRST category whose tags intersect its own,
+   so moving a category up can take entries away from one below it. Before the three
+   new categories were added (2026-09-16) it was asserted that NO already-placed entry
+   carries "about", "sand-castle-therapy", "individuals" or "contact", so none of them
+   could steal from an existing bucket. Re-assert that before reordering again.
+
+   These three exist because the catch-all had grown to 21 of 108, the largest section
+   on the page. All 21 carried exactly one of four tags, and none of the four was
+   listed in any category here: the entries were tagged fine, this array was just
+   missing their vocabulary. warnOnCatchAll now watches for that recurring.
+
+   Section ids are slugged from these titles and are PUBLIC URLs, linked from the jump
+   index and quotable from outside. Prefer additive changes. If a title must change,
+   keep the old id reachable rather than silently breaking the fragment. #}
 {% set cats = [
   { title: "Getting started", eyebrow: "First things first", tags: ["getting-started"] },
+  { title: "About the practice", eyebrow: "Who you would be working with", tags: ["about"] },
   { title: "Cost and insurance", eyebrow: "The money question", tags: ["cost"] },
   { title: "Telehealth", eyebrow: "Therapy by video", tags: ["telehealth"] },
   { title: "Beach Therapy", eyebrow: "Our signature service", tags: ["beach-therapy"] },
+  { title: "Sand Castle Therapy", eyebrow: "For the younger ones", tags: ["sand-castle-therapy"] },
   { title: "Couples and relationships", eyebrow: "When there are two of you", tags: ["couples", "infidelity"] },
   { title: "Families, teens, and children", eyebrow: "The whole family", tags: ["families", "teens", "children", "mother-daughter"] },
   { title: "Seniors and later life", eyebrow: "The later chapters", tags: ["seniors", "grief"] },
   { title: "Anxiety and depression", eyebrow: "When it feels heavy", tags: ["anxiety", "depression"] },
-  { title: "More about the work", eyebrow: "Everything else", tags: ["life-transitions", "neurodiversity", "faith", "medication", "general"] }
+  { title: "Where to find us", eyebrow: "The practical bits", tags: ["contact"] },
+  { title: "More about the work", eyebrow: "Everything else", tags: ["life-transitions", "neurodiversity", "faith", "medication", "individuals", "general"] }
 ] %}
 
 {# rendered holds only the categories that actually produce questions, so the jump
