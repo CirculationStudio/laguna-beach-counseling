@@ -44,7 +44,7 @@
 
   // Open reveals the panel then adds is-open on the next frame so the fade-in
   // runs. Under prefers-reduced-motion the global reduce rule zeroes the
-  // transition, so it simply appears. Close hides it at once (fade-in only).
+  // transition, so it just appears. Close hides it at once (fade-in only).
   function setDropdownOpen(button, open) {
     var dropdown = panelFor(button);
     button.setAttribute("aria-expanded", open ? "true" : "false");
