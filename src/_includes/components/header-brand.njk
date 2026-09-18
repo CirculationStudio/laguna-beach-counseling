@@ -4,7 +4,15 @@
    forceWordmark=true. When site.logo.reversedUrl is set, that renders the real
    reversed logo image (confirmed legible on navy); otherwise it falls back to
    the plain text wordmark so nothing breaks if that field is ever unset.
-   Callers may also set logoClass / wordmarkClass before including. #}
+   Callers may also set logoClass / wordmarkClass before including.
+
+   width/height are the intrinsic aspect-ratio hint for CLS, not the rendered
+   size (CSS height + width:auto controls that). Both logo assets crop to the
+   same ink, 1275 x 468 (ratio 2.724), confirmed 2026-09-18 after a corrected
+   export fixed two earlier problems: the pair being swapped, and the viewBox
+   still carrying the old tagline-era canvas after the tagline was removed
+   from the artwork. Keep these two numbers and nav.css's .site-logo
+   aspect-ratio in agreement if the asset is ever re-exported again. #}
 {% set logoClass = logoClass or "site-logo" %}
 {% set wordmarkClass = wordmarkClass or "brand__wordmark" %}
 <a class="brand" href="/" aria-label="{{ site.name }}, home">
@@ -13,16 +21,16 @@
       class="{{ logoClass }}"
       src="{{ site.logo.reversedUrl }}"
       alt="{{ site.logo.alt }}"
-      width="82"
-      height="34"
+      width="1275"
+      height="468"
     />
   {% elif site.logo and site.logo.url and not forceWordmark %}
     <img
       class="{{ logoClass }}"
       src="{{ site.logo.url }}"
       alt="{{ site.logo.alt }}"
-      width="104"
-      height="48"
+      width="1275"
+      height="468"
     />
   {% else %}
     <span class="{{ wordmarkClass }}">{{ site.name }}</span>

@@ -50,9 +50,18 @@
   line-height: 1.1;
 }
 
+/* Sized against the no-tagline reversed asset (1275 x 468 ink), swapped
+   2026-09-18. No aspect-ratio here; the img width/height attributes in
+   header-brand.njk carry it. Root font-size is 18px, so 2.75rem was 49.5px;
+   3.25rem is 58.5px, +34% wordmark width. Measured clear up to 4.5rem in a
+   360px footer column at 1280px and at 375/390px mobile widths; this is
+   well inside that headroom. The tagline used to render inside this box at
+   caption scale; it is now separate display-scale text just below the logo
+   (.site-footer__tagline or similar), so dropping it from the asset costs
+   nothing, the type there was always larger than the baked-in version. */
 .site-footer__logo {
   display: block;
-  height: 2.75rem;
+  height: 3.25rem;
   width: auto;
 }
 

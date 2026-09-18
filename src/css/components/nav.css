@@ -127,11 +127,20 @@
   padding-inline-end: 0.5rem;
 }
 
+/* Sized against the no-tagline asset (1275 x 468 ink, ratio 2.724),
+   swapped 2026-09-18. The tagline used to be shrunk to fit inside this box;
+   it has been removed from the artwork instead, so the wordmark itself can
+   run larger at the same optical weight without the box growing to match.
+   64px to 68px is the default, above the 67.99rem band below. Measured at
+   960/1009/1085/1185/1265/1425 with the new asset: no overflow at any width,
+   and the nav gap needed no further compression to absorb it. The
+   60rem-67.99rem band below still needs its own smaller height, unchanged
+   in kind, raised in degree along with this one. */
 .site-logo {
   display: block;
-  height: 64px;
+  height: 68px;
   width: auto;
-  aspect-ratio: 1391 / 641;
+  aspect-ratio: 1275 / 468;
 }
 
 .brand__wordmark {
@@ -756,6 +765,10 @@
     font-size: 0.94rem;
   }
 
+  /* Logo swapped to the no-tagline asset 2026-09-18; kept at the same 56px
+     this band has run since the fix above was written, the tightest height
+     that still clears the CTA edge at 960px (960px: 152.6px wide logo,
+     26.2px slack; 60px would overflow the viewport by ~1px). */
   .site-logo {
     height: 56px;
   }

@@ -190,18 +190,36 @@ therefore NOT uniform, which is why the portrait hero and the nav disc both expo
 The stairs shot is the only asset showing the practice's exterior signage and suite
 number, which makes it the natural candidate for `/contact` or `/about`.
 
-## brand/ (8 assets)
+## brand/ (10 assets)
+
+Logo swap, 2026-09-18. The tagline was unreadable at the sizes the logo actually
+renders (64px header, 2.75rem footer), so it was removed from the artwork rather
+than shrunk further, and the header and footer grew to use the space it freed:
+header 56px in the 960-1087px band and 68px above it (was 64px throughout),
+footer 3.25rem (was 2.75rem). Both new files verified by fetching the plain CDN
+URL (not a cache-busted one) and reading the actual SVG: the confirmed ink
+bounding box is 1275 x 468 on both, ratio 2.724, read with `getBBox()` rather
+than trusting the declared viewBox, since the two viewBoxes differ (the color
+artwork sits at an offset inside its canvas: `54.5 83.67 1275.33 468.17` on the
+standard file, `0 0 1275.17 468` on the reversed) while the ink itself is
+identical either way. The dimensions below are that measured ink box, not the
+raw viewBox attribute.
 
 | File | Format | Size | Used on |
 |---|---|---|---|
-| `laguna-beach-counseling-logo-horizontal.svg` | vector | 36K | site.json, header |
-| `laguna-beach-counseling-logo-horizontal-reversed.svg` | vector | 40K | site.json, footer |
+| `laguna-beach-counseling-logo-horizontal-notagline.svg` | vector, 1275x468 | 28K | site.json (logo.url), header |
+| `laguna-beach-counseling-logo-horizontal-notagline-reversed.svg` | vector, 1275x468 | 31K | site.json (logo.reversedUrl), footer |
+| `laguna-beach-counseling-logo-horizontal.svg` | vector, 1275x530 | 34K | **SUPERSEDED 2026-09-18** by `-notagline.svg`, kept on the CDN, not deleted. Nothing in the build references it (verified: zero matches in `public/` after the swap). Carried the tagline at caption scale, which was unreadable at rendered size; do not reintroduce. |
+| `laguna-beach-counseling-logo-horizontal-reversed.svg` | vector, 1275x530 | 38K | **SUPERSEDED 2026-09-18** by `-notagline-reversed.svg`, kept on the CDN, not deleted. Same reason as above. |
 | `laguna-beach-counseling-logo-stacked.svg` | vector | 24K | unused |
 | `laguna-beach-counseling-logo-stacked-reversed.svg` | vector | 24K | unused |
 | `laguna-beach-counseling-icon-reversed.svg` | vector | 8K | support-resources.njk |
 | `favicon-32.png` | 32x32 | 4K | site-wide, base.njk |
 | `favicon-180.png` | 180x180 | 8K | site-wide (apple-touch-icon), site.webmanifest |
 | `favicon-512.png` | 512x512 | 24K | site-wide, site.webmanifest |
+
+The stacked logos and the icon are untouched by the swap: neither renders the
+horizontal lockup, so neither carried the tagline problem this fixed.
 
 ---
 
@@ -234,6 +252,8 @@ noted below.
 | `beach-therapy/sandcastle-therapy.webp` | byte-identical duplicate | RESOLVED, repointed to `coastal/...sandcastle-therapy-hz.webp` |
 | `b-cdn.net/.../Laguna Beach Counseling/laguna-beach.webp` | legacy host, was carrying three pages | RESOLVED, retired. `/therapy/individuals`, `/couples-intensive` and the `/beach-therapy` cross-sell now use the coastal library |
 | `b-cdn.net/.../Laguna Beach Counseling/laguna-beach-therapy-01.JPG` | legacy host, still referenced | OPEN, needs migrating |
+| `brand/laguna-beach-counseling-logo-horizontal.svg` | tagline unreadable at rendered size | RESOLVED, repointed to `brand/laguna-beach-counseling-logo-horizontal-notagline.svg`. Kept on the CDN, not deleted. |
+| `brand/laguna-beach-counseling-logo-horizontal-reversed.svg` | tagline unreadable at rendered size | RESOLVED, repointed to `brand/laguna-beach-counseling-logo-horizontal-notagline-reversed.svg`. Kept on the CDN, not deleted. |
 
 The two `beach-therapy/` duplicates were confirmed byte-identical to their `coastal/`
 counterparts (matching MD5 and dimensions), so repointing them was lossless.
@@ -243,3 +263,11 @@ genuine walk-and-talk photograph anywhere in the library, which is exactly what
 `/beach-therapy` needs, so it stays until it is migrated to the custom hostname. It is
 referenced from `/beach-therapy` (hero) and `/components` (promo callout 9b); migrating it
 means updating both.
+
+The two `brand/` logo files were superseded 2026-09-18, not because of a bad asset but a
+bad fit: the tagline baked into the artwork was unreadable at the sizes the logo actually
+renders (64px header, 2.75rem footer), so it was removed from the artwork rather than
+shrunk further, and the header and footer grew into the space it freed. Verified zero
+remaining references in `public/` after the swap, across all 41 built pages. Kept on the
+CDN rather than deleted, in case anything outside this repo still links the old filename
+directly.
